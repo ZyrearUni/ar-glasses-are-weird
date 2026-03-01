@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://dnarjmx3hrvyx"]
 
+[ext_resource type="Texture2D" uid="uid://bqhjp4v2umu0r" path="res://assets/hdris/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="1_8c8hr"]
 [ext_resource type="Texture2D" uid="uid://b4oc413qn07y3" path="res://assets/textures/dev/grids/Dark/texture_07.png" id="1_8qe5u"]
 [ext_resource type="Script" uid="uid://fnnph8kc0ojn" path="res://scripts/player.gd" id="1_opvfs"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pswqg"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_36fji"]
+panorama = ExtResource("1_8c8hr")
 
 [sub_resource type="Sky" id="Sky_g18d0"]
-sky_material = SubResource("ProceduralSkyMaterial_pswqg")
+sky_material = SubResource("PanoramaSkyMaterial_36fji")
 
 [sub_resource type="Environment" id="Environment_ai85i"]
 background_mode = 2
@@ -68,4 +68,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 [node name="Camera3D" type="Camera3D" parent="stage/Player/Head" unique_id=1682740817]
 
 [node name="RayCast3D" type="RayCast3D" parent="stage/Player" unique_id=203679398]
-target_position = Vector3(0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+target_position = Vector3(0, 1.9, 0)

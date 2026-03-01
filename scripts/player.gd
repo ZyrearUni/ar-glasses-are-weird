@@ -34,7 +34,7 @@ var t_bob = 0.0
 
 # Executes once when starting script
 func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # Makes mouse stay inside window
 
 
 # Camera movement handling
