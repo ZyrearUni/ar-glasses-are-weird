@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://k64ffjcl7wgk"]
+
+[ext_resource type="Script" uid="uid://bk66luggd25j" path="res://scripts/pause_menu.gd" id="1_n87rw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uahpa"]
+bg_color = Color(0.8247977, 0.3473309, 0, 0.2901961)
+
+[node name="PauseMenu" type="Control" unique_id=1847058478]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n87rw")
+
+[node name="BackgroundColor" type="ColorRect" parent="." unique_id=1420942751]
+layout_mode = 0
+offset_left = -576.0
+offset_top = -323.0
+offset_right = 576.0
+offset_bottom = 323.0
+color = Color(0.060530387, 0.060530342, 0.060530327, 0.80784315)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1579143517]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -164.75
+offset_top = -213.0
+offset_right = 164.75
+offset_bottom = 213.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 55
+
+[node name="JuegoPausado" type="Label" parent="VBoxContainer" unique_id=1282872143]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.49411765, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "JUEGO PAUSADO"
+horizontal_alignment = 1
+
+[node name="Continuar" type="Button" parent="VBoxContainer" unique_id=924296222]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.737193, 0.7371929, 0.7371929, 1)
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxFlat_uahpa")
+text = "Continuar"
+
+[node name="Unstuck" type="Button" parent="VBoxContainer" unique_id=622898271]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.737193, 0.7371929, 0.7371929, 1)
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxFlat_uahpa")
+text = "Reiniciar posición (stuck)"
+
+[node name="Salir" type="Button" parent="VBoxContainer" unique_id=697291041]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.737193, 0.7371929, 0.7371929, 1)
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxFlat_uahpa")
+text = "Salir"
+
+[connection signal="pressed" from="VBoxContainer/Continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="VBoxContainer/Unstuck" to="." method="_on_unstuck_pressed"]
+[connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_salir_pressed"]

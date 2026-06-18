@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bxwt3u4q52kxd"]
+
+[ext_resource type="PackedScene" uid="uid://r7og64yln8tc" path="res://assets/Animated_Character/GTLF/StylizedCharacter.glb" id="1_hb4jj"]
+
+[node name="StylizedCharacter" unique_id=772249046 instance=ExtResource("1_hb4jj")]
+
+[node name="Armature" parent="." index="0" unique_id=1689207935]
+transform = Transform3D(-0.1, 0, -8.742278e-09, 0, 0.1, 0, 8.742278e-09, 0, -0.1, 0, 0.83, 0)
+
+[node name="BaseMesh" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(65085255) index="0" unique_id=1397785152]
+layers = 512
+
+[node name="Boots_01" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(65085255) index="1" unique_id=172108301]
+layers = 512
+
+[node name="Ears" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(65085255) index="2" unique_id=342228786]
+layers = 512
+
+[node name="Face" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(65085255) index="3" unique_id=140166006]
+layers = 512
+
+[node name="Hair_01" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(65085255) index="4" unique_id=1406083654]
+layers = 512
+
+[node name="Shirt_01" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(65085255) index="5" unique_id=1983652921]
+layers = 512
+
+[node name="Shorts_01" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(65085255) index="6" unique_id=1751504239]
+layers = 512

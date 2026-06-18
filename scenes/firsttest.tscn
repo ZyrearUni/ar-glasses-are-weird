@@ -2,10 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://bqhjp4v2umu0r" path="res://assets/hdris/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="1_8c8hr"]
 [ext_resource type="Texture2D" uid="uid://b4oc413qn07y3" path="res://assets/textures/dev/grids/Dark/texture_07.png" id="1_8qe5u"]
-[ext_resource type="Script" uid="uid://fnnph8kc0ojn" path="res://scripts/player.gd" id="1_opvfs"]
+[ext_resource type="PackedScene" uid="uid://dvgpo70pssw7d" path="res://scenes/player.tscn" id="3_ytkfh"]
 [ext_resource type="Script" uid="uid://b4ye42mupbsq7" path="res://scripts/interactable.gd" id="4_36fji"]
 [ext_resource type="Script" uid="uid://cj50m4a61k0cw" path="res://scripts/dialogue.gd" id="5_3w2de"]
 [ext_resource type="PackedScene" uid="uid://wibtfipo80ct" path="res://scenes/dialogue_ui.tscn" id="6_g37hf"]
+[ext_resource type="PackedScene" uid="uid://k64ffjcl7wgk" path="res://scenes/pause_menu.tscn" id="7_ytkfh"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_36fji"]
 panorama = ExtResource("1_8c8hr")
@@ -23,11 +24,6 @@ glow_enabled = true
 albedo_texture = ExtResource("1_8qe5u")
 uv1_triplanar = true
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8qe5u"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8c8hr"]
-height = 1.4
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_8c8hr"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_36fji"]
@@ -35,6 +31,45 @@ height = 1.4
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_36fji"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3w2de"]
+
+[sub_resource type="Animation" id="Animation_1rl21"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape3D/MeshInstance3D:mesh")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleMesh_3w2de")]
+}
+
+[sub_resource type="SphereMesh" id="SphereMesh_a8bby"]
+
+[sub_resource type="Animation" id="Animation_ytkfh"]
+resource_name = "Talk"
+length = 0.474
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape3D/MeshInstance3D:mesh")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4666667),
+"transitions": PackedFloat32Array(1, 0.12500016),
+"update": 1,
+"values": [SubResource("CapsuleMesh_3w2de"), SubResource("SphereMesh_a8bby")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1rl21"]
+_data = {
+&"RESET": SubResource("Animation_1rl21"),
+&"Talk": SubResource("Animation_ytkfh")
+}
 
 [node name="World" type="Node3D" unique_id=1891132867]
 
@@ -60,51 +95,7 @@ use_collision = true
 size = Vector3(20, 0.001, 20)
 material = SubResource("StandardMaterial3D_8c8hr")
 
-[node name="Player" type="CharacterBody3D" parent="stage" unique_id=1344554385]
-script = ExtResource("1_opvfs")
-mouse_sens = 0.2
-
-[node name="standing_collision" type="CollisionShape3D" parent="stage/Player" unique_id=1175052869]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_8qe5u")
-
-[node name="crouching_collision" type="CollisionShape3D" parent="stage/Player" unique_id=549634974]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7094665, 0)
-shape = SubResource("CapsuleShape3D_8c8hr")
-disabled = true
-
-[node name="Head" type="Node3D" parent="stage/Player" unique_id=952712638]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
-
-[node name="Vision" type="Camera3D" parent="stage/Player/Head" unique_id=1682740817]
-
-[node name="InteractCast" type="RayCast3D" parent="stage/Player/Head/Vision" unique_id=1771628273]
-transform = Transform3D(1, 0, 0, 0, -4.6989744e-08, -1, 0, 1.075, -4.371139e-08, 0, 0, 0)
-collision_mask = 2
-debug_shape_custom_color = Color(1, 1, 1, 1)
-
-[node name="HeightCast" type="RayCast3D" parent="stage/Player" unique_id=203679398]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
-target_position = Vector3(0, 1.9, 0)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="stage/Player" unique_id=268258844]
-
-[node name="BoxContainer" type="BoxContainer" parent="stage/Player/CanvasLayer" unique_id=1694356210]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="InteractText" type="Label" parent="stage/Player/CanvasLayer/BoxContainer" unique_id=1459960957]
-layout_mode = 2
-text = "Pulsa \"E\" para interactuar"
+[node name="Player" parent="stage" unique_id=1886028462 instance=ExtResource("3_ytkfh")]
 
 [node name="InteractableTest" type="StaticBody3D" parent="stage" unique_id=984601085]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.200242, 0.7766471, 0)
@@ -136,5 +127,8 @@ shape = SubResource("CapsuleShape3D_36fji")
 mesh = SubResource("CapsuleMesh_3w2de")
 
 [node name="TalkAnimation" type="AnimationPlayer" parent="stage/InteractableTest2" unique_id=1531887483]
+libraries/ = SubResource("AnimationLibrary_1rl21")
 
 [node name="DialogueUI" parent="." unique_id=635654561 instance=ExtResource("6_g37hf")]
+
+[node name="PauseMenu" parent="." unique_id=1847058478 instance=ExtResource("7_ytkfh")]

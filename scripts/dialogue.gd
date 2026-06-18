@@ -14,7 +14,6 @@ var CurrentDialogue = -1
 
 func _ready() -> void:
 	DialogueUI.get_node("ContinueButton").connect("pressed", Callable(self, "continue_dialogue"))
-	print(Player)
 
 func speak():
 	DialogueUI.visible = true
@@ -25,6 +24,7 @@ func speak():
 func end_dialogue():
 	Player.inDialogue = false
 	DialogueUI.visible = false
+	CurrentDialogue = -1
 	SpeakerAnimation.play("RESET")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 

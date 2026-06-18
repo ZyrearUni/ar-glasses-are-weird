@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://dvgpo70pssw7d"]
+
+[ext_resource type="Script" uid="uid://fnnph8kc0ojn" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="PackedScene" uid="uid://r7og64yln8tc" path="res://assets/Animated_Character/GTLF/StylizedCharacter.glb" id="2_g2els"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8qe5u"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8c8hr"]
+height = 1.4
+
+[node name="Player" type="CharacterBody3D" unique_id=1886028462]
+script = ExtResource("1_3vyb7")
+mouse_sens = 0.2
+
+[node name="standing_collision" type="CollisionShape3D" parent="." unique_id=1515393696]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_8qe5u")
+
+[node name="crouching_collision" type="CollisionShape3D" parent="." unique_id=1728416888]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7094665, 0)
+shape = SubResource("CapsuleShape3D_8c8hr")
+disabled = true
+
+[node name="StylizedCharacter" parent="." unique_id=772249046 instance=ExtResource("2_g2els")]
+transform = Transform3D(-0.1, 0, -8.742278e-09, 0, 0.1, 0, 8.742278e-09, 0, -0.1, 0, 0.83, 0)
+
+[node name="Head" type="Node3D" parent="." unique_id=1041775923]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+
+[node name="Vision" type="Camera3D" parent="Head" unique_id=1232793031]
+
+[node name="InteractCast" type="RayCast3D" parent="Head/Vision" unique_id=1959417918]
+transform = Transform3D(1, 0, 0, 0, -4.6989744e-08, -1, 0, 1.075, -4.371139e-08, 0, 0, 0)
+collision_mask = 2
+debug_shape_custom_color = Color(1, 1, 1, 1)
+
+[node name="HeightCast" type="RayCast3D" parent="." unique_id=1339410851]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+target_position = Vector3(0, 1.9, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1073226017]
+
+[node name="BoxContainer" type="BoxContainer" parent="CanvasLayer" unique_id=1403914769]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InteractText" type="Label" parent="CanvasLayer/BoxContainer" unique_id=1319713384]
+layout_mode = 2
+text = "Pulsa \"E\" para interactuar"

@@ -4,13 +4,22 @@ extends CharacterBody3D
 @onready var camera: Camera3D = $Head/Vision
 @onready var standing_collision: CollisionShape3D = $standing_collision
 @onready var crouching_collision: CollisionShape3D = $crouching_collision
+
+
+
+# For interaction menu
 @onready var ray_cast_3d: RayCast3D = $HeightCast
 @onready var interact_cast: RayCast3D = $Head/Vision/InteractCast
 @onready var interact_text: Label = $CanvasLayer/BoxContainer/InteractText
 
 
-# Movement values
+# Checks if player is in dialogue to control movement
 var inDialogue = false
+
+# Starting position for resetting purposes
+var startingPos
+
+# Movement values
 var current_speed_mult
 
 @export var WALK_SPEED = 5
@@ -43,6 +52,9 @@ const DIALOGUE_MESSAGE : String = "Presiona E para hablar"
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # Makes mouse stay inside window
 	interact_text.hide()
+	startingPos = global_position
+	
+	# playerModel.print_tree()
 
 
 # Camera movement handling
@@ -125,6 +137,9 @@ func _physics_process(delta: float) -> void:
 		camera.transform.origin = _headbob(t_bob)
 
 		move_and_slide()
+
+func unstuck():
+	global_position = startingPos
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
