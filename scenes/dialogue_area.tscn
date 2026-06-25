@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://mp83amoddhav"]
+
+[ext_resource type="Script" uid="uid://cj50m4a61k0cw" path="res://scripts/dialogue.gd" id="1_m7xu2"]
+[ext_resource type="Script" uid="uid://d1cukgjtg0w4w" path="res://scripts/area_dialogue.gd" id="2_5mq6y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m2s44"]
+
+[node name="DialogueArea" type="Area3D" unique_id=896973546 node_paths=PackedStringArray("SpeakerAnimation")]
+script = ExtResource("1_m7xu2")
+SpeakerAnimation = NodePath("AnimationPlayer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=982403416]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_m2s44")
+debug_color = Color(0.8386752, 0.6944653, 0.32098404, 1)
+script = ExtResource("2_5mq6y")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1075065697]
+
+[connection signal="body_entered" from="." to="CollisionShape3D" method="_on_area_3d_body_entered"]

@@ -11,6 +11,7 @@ extends Node
 @export var SpeakerAnimation: AnimationPlayer
 
 var CurrentDialogue = -1
+var selectedTalking = false
 
 func _ready() -> void:
 	DialogueUI.get_node("ContinueButton").connect("pressed", Callable(self, "continue_dialogue"))
@@ -18,29 +19,33 @@ func _ready() -> void:
 func speak():
 	DialogueUI.visible = true
 	Player.inDialogue = true
+	selectedTalking = true
 	continue_dialogue()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	
+
+
 func end_dialogue():
 	Player.inDialogue = false
 	DialogueUI.visible = false
 	CurrentDialogue = -1
-	SpeakerAnimation.play("RESET")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	selectedTalking = false
+	SpeakerAnimation.play("RESET")
 
 func continue_dialogue() :
-	CurrentDialogue += 1;
-	if CurrentDialogue < Dialogues.size():
-		DialogueText.text = Dialogues[CurrentDialogue]
-		SpeakerName.text = SpeakerNames[CurrentDialogue]
-		
-		# When speaker is not player, change to speaking sprite
-		if "You" not in SpeakerName.text:
-			SpeakerAnimation.play("Talk")
+	if selectedTalking:
+		CurrentDialogue += 1;
+		if CurrentDialogue < Dialogues.size():
+			DialogueText.text = Dialogues[CurrentDialogue]
+			SpeakerName.text = SpeakerNames[CurrentDialogue]
+			
+			# When speaker is not player, change to speaking sprite
+			if "You" not in SpeakerName.text:
+				SpeakerAnimation.play("Talk")
+			else:
+				SpeakerAnimation.play("RESET")
+			
+			DialogueAnimation.play("RESET")
+			DialogueAnimation.play("TextScroll")
 		else:
-			SpeakerAnimation.play("RESET")
-		
-		DialogueAnimation.play("RESET")
-		DialogueAnimation.play("TextScroll")
-	else:
-		end_dialogue()
+			end_dialogue()
