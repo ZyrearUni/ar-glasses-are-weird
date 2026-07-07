@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bqsbcqqthmbyy"]
+
+[ext_resource type="Texture2D" uid="uid://bqhjp4v2umu0r" path="res://assets/hdris/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="1_da115"]
+[ext_resource type="PackedScene" uid="uid://dvgpo70pssw7d" path="res://scenes/player.tscn" id="2_nxifn"]
+[ext_resource type="PackedScene" uid="uid://wibtfipo80ct" path="res://scenes/dialogue_ui.tscn" id="3_lqphp"]
+[ext_resource type="PackedScene" uid="uid://k64ffjcl7wgk" path="res://scenes/pause_menu.tscn" id="4_8uwh6"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_36fji"]
+panorama = ExtResource("1_da115")
+
+[sub_resource type="Sky" id="Sky_g18d0"]
+sky_material = SubResource("PanoramaSkyMaterial_36fji")
+
+[sub_resource type="Environment" id="Environment_ai85i"]
+background_mode = 2
+sky = SubResource("Sky_g18d0")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="World" type="Node3D" unique_id=1891132867]
+
+[node name="env" type="Node3D" parent="." unique_id=1871697350]
+
+[node name="Sun" type="DirectionalLight3D" parent="env" unique_id=1839859426]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="env" unique_id=244608077]
+environment = SubResource("Environment_ai85i")
+
+[node name="stage" type="Node3D" parent="." unique_id=2074723403]
+
+[node name="Player" parent="stage" unique_id=1886028462 instance=ExtResource("2_nxifn")]
+
+[node name="DialogueUI" parent="." unique_id=635654561 instance=ExtResource("3_lqphp")]
+
+[node name="PauseMenu" parent="." unique_id=1847058478 instance=ExtResource("4_8uwh6")]

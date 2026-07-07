@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://3q6jqa38p5be"]
+
+[ext_resource type="PackedScene" uid="uid://bqsbcqqthmbyy" path="res://scenes/Level_Template.tscn" id="1_xbit3"]
+[ext_resource type="PackedScene" uid="uid://cutwknnl54bfu" path="res://scenes/Room01-col.blend" id="2_am8su"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xbit3"]
+size = Vector3(1, 4.967224, 6.892334)
+
+[node name="World" unique_id=1891132867 instance=ExtResource("1_xbit3")]
+
+[node name="Room01-col" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=582264956 instance=ExtResource("2_am8su")]
+
+[node name="WallFix" type="StaticBody3D" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="2" unique_id=85345700]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.011175, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/WallFix" index="0" unique_id=1345528649]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47696304, 2.5081515, -5.314332)
+shape = SubResource("BoxShape3D_xbit3")
