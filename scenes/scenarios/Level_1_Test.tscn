@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://3q6jqa38p5be"]
+
+[ext_resource type="PackedScene" uid="uid://bqsbcqqthmbyy" path="res://scenes/scenarios/Level_Template.tscn" id="1_vdy80"]
+[ext_resource type="Script" uid="uid://baei7ulpkgael" path="res://scripts/level1scripts/level_1_script.gd" id="2_rt7t5"]
+[ext_resource type="PackedScene" uid="uid://cutwknnl54bfu" path="res://scenes/models/Room01-col.blend" id="2_wa36x"]
+[ext_resource type="Script" uid="uid://kjra7812d5ii" path="res://scripts/level1scripts/walk_tutorial_area.gd" id="4_00sl7"]
+[ext_resource type="PackedScene" uid="uid://mp83amoddhav" path="res://scenes/components/dialogue_area.tscn" id="4_6vv8g"]
+[ext_resource type="Script" uid="uid://ccrs784n485ck" path="res://scripts/level1scripts/advance_walk_tutorial.gd" id="6_trubg"]
+[ext_resource type="PackedScene" uid="uid://bpiucdcy1t38p" path="res://scenes/zai_test.tscn" id="7_1vwp4"]
+[ext_resource type="Script" uid="uid://bkm6g1ol8pvv2" path="res://scripts/level1scripts/mother.gd" id="8_ssr0d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xbit3"]
+size = Vector3(1, 4.967224, 6.892334)
+
+[sub_resource type="BoxMesh" id="BoxMesh_00sl7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_trubg"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1vwp4"]
+
+[node name="World" unique_id=1891132867 instance=ExtResource("1_vdy80")]
+script = ExtResource("2_rt7t5")
+
+[node name="Room01-col" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=582264956 instance=ExtResource("2_wa36x")]
+transform = Transform3D(-0.9997493, 0, 0.022390619, 0, 1, 0, -0.022390619, 0, -0.9997493, 0, 0, 2.864159)
+
+[node name="WallFix" type="StaticBody3D" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="2" unique_id=85345700]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0134945, 0, 13.225008)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/WallFix" index="0" unique_id=1345528649]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47696304, 2.5081515, -5.314332)
+shape = SubResource("BoxShape3D_xbit3")
+
+[node name="WalkTutorialArea" type="Node3D" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="3" unique_id=1979297216]
+script = ExtResource("4_00sl7")
+
+[node name="WalkArea1" parent="stage/WalkTutorialArea" index="0" unique_id=896973546 instance=ExtResource("4_6vv8g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7703633, 0, 2.8930266)
+visible = false
+script = ExtResource("6_trubg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="stage/WalkTutorialArea/WalkArea1" index="2" unique_id=389782611]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transparency = 0.62
+cast_shadow = 0
+mesh = SubResource("BoxMesh_00sl7")
+
+[node name="WalkArea2" parent="stage/WalkTutorialArea" index="1" unique_id=736682168 instance=ExtResource("4_6vv8g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45237708, 0, 5.601944)
+visible = false
+script = ExtResource("6_trubg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="stage/WalkTutorialArea/WalkArea2" index="2" unique_id=320500815]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transparency = 0.6
+cast_shadow = 0
+mesh = SubResource("BoxMesh_trubg")
+
+[node name="WalkArea3" parent="stage/WalkTutorialArea" index="2" unique_id=369056102 instance=ExtResource("4_6vv8g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1896272, 0, 2.8930266)
+visible = false
+script = ExtResource("6_trubg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="stage/WalkTutorialArea/WalkArea3" index="2" unique_id=1633640409]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transparency = 0.6
+cast_shadow = 0
+mesh = SubResource("BoxMesh_1vwp4")
+
+[node name="Mother" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="4" unique_id=759215246 instance=ExtResource("7_1vwp4")]
+script = ExtResource("8_ssr0d")
+Dialogues = Array[String]([])
+SpeakerNames = Array[String]([])
+
+[connection signal="walk_tutorial_finished" from="stage/WalkTutorialArea" to="stage/Mother" method="_on_walk_tutorial_area_walk_tutorial_finished"]
+[connection signal="activate_next_area" from="stage/WalkTutorialArea/WalkArea1" to="stage/WalkTutorialArea" method="_on_walk_area_1_activate_next_area"]
+[connection signal="activate_next_area" from="stage/WalkTutorialArea/WalkArea2" to="stage/WalkTutorialArea" method="_on_walk_area_2_activate_next_area"]
+[connection signal="activate_next_area" from="stage/WalkTutorialArea/WalkArea3" to="stage/WalkTutorialArea" method="_on_walk_area_3_activate_next_area"]

@@ -2,13 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://bqhjp4v2umu0r" path="res://assets/hdris/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="1_8c8hr"]
 [ext_resource type="Texture2D" uid="uid://b4oc413qn07y3" path="res://assets/textures/dev/grids/Dark/texture_07.png" id="1_8qe5u"]
-[ext_resource type="PackedScene" uid="uid://dvgpo70pssw7d" path="res://scenes/player.tscn" id="3_ytkfh"]
+[ext_resource type="PackedScene" uid="uid://dvgpo70pssw7d" path="res://scenes/components/player.tscn" id="3_ytkfh"]
 [ext_resource type="Script" uid="uid://b4ye42mupbsq7" path="res://scripts/interactable.gd" id="4_36fji"]
 [ext_resource type="Script" uid="uid://cj50m4a61k0cw" path="res://scripts/dialogue.gd" id="5_3w2de"]
 [ext_resource type="PackedScene" uid="uid://bpiucdcy1t38p" path="res://scenes/zai_test.tscn" id="6_1rl21"]
-[ext_resource type="PackedScene" uid="uid://wibtfipo80ct" path="res://scenes/dialogue_ui.tscn" id="6_g37hf"]
-[ext_resource type="PackedScene" uid="uid://mp83amoddhav" path="res://scenes/dialogue_area.tscn" id="7_a8bby"]
-[ext_resource type="PackedScene" uid="uid://k64ffjcl7wgk" path="res://scenes/pause_menu.tscn" id="7_ytkfh"]
+[ext_resource type="PackedScene" uid="uid://wibtfipo80ct" path="res://scenes/components/dialogue_ui.tscn" id="6_g37hf"]
+[ext_resource type="PackedScene" uid="uid://mp83amoddhav" path="res://scenes/components/dialogue_area.tscn" id="7_a8bby"]
+[ext_resource type="PackedScene" uid="uid://k64ffjcl7wgk" path="res://scenes/components/pause_menu.tscn" id="7_ytkfh"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_36fji"]
 panorama = ExtResource("1_8c8hr")
@@ -136,7 +136,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4308977, 0, 4.503403)
 
 [node name="DialogueArea" parent="stage" unique_id=896973546 instance=ExtResource("7_a8bby")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4.267564, 0.055223107, 7.2471957)
-Dialogues = Array[String](["What am I even doing here"])
+Dialogues = Array[String](["What am I doing here?"])
 SpeakerNames = Array[String](["You"])
 
 [node name="DialogueUI" parent="." unique_id=635654561 instance=ExtResource("6_g37hf")]
