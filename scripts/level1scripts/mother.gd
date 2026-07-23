@@ -1,6 +1,7 @@
 extends "res://scripts/dialogue.gd"
 
 var enabled = false
+signal level_finish
 
 func speak():
 	if enabled:
@@ -9,7 +10,7 @@ func speak():
 
 func end_dialogue():
 	super()
-	emit_signal("level_finish")
+	level_finish.emit()
 
 func _on_walk_tutorial_area_walk_tutorial_finished() -> void:
 	enabled = true 

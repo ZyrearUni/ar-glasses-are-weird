@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://dvgpo70pssw7d" path="res://scenes/components/player.tscn" id="2_nxifn"]
 [ext_resource type="PackedScene" uid="uid://wibtfipo80ct" path="res://scenes/components/dialogue_ui.tscn" id="3_lqphp"]
 [ext_resource type="PackedScene" uid="uid://k64ffjcl7wgk" path="res://scenes/components/pause_menu.tscn" id="4_8uwh6"]
-[ext_resource type="PackedScene" uid="uid://en4m88wy5o85" path="res://scenes/components/transition_screen.tscn" id="5_ga2x8"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_36fji"]
 panorama = ExtResource("1_da115")
@@ -40,6 +39,12 @@ environment = SubResource("Environment_ai85i")
 
 [node name="PauseMenu" parent="." unique_id=1847058478 instance=ExtResource("4_8uwh6")]
 
-[node name="TransitionScreen" parent="." unique_id=1229259991 instance=ExtResource("5_ga2x8")]
+[node name="StartAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1093037529]
 
-[connection signal="level_finish" from="." to="." method="_on_level_finish"]
+[node name="fade" type="ColorRect" parent="." unique_id=985544088]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

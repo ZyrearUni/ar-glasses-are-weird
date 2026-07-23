@@ -5,6 +5,5 @@ func _ready() -> void:
 	super() 
 	super.speak()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_mother_level_finish() -> void:
+	super.finish_level()

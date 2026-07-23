@@ -4,7 +4,7 @@ extends Node
 @onready var SpeakerName: RichTextLabel = get_tree().current_scene.get_node("DialogueUI/Canvas/SpeakerName")
 @onready var DialogueAnimation: AnimationPlayer = get_tree().current_scene.get_node("DialogueUI/Canvas/DialogueAnimation")
 @onready var DialogueText: RichTextLabel = get_tree().current_scene.get_node("DialogueUI/Canvas/DialogueText")
-@onready var Player: CharacterBody3D = $"../Player"
+@export var Player: CharacterBody3D
 
 @export var Dialogues: Array[String]
 @export var SpeakerNames: Array[String]

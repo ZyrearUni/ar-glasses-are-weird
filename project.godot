@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="AR Glasses are weird"
-run/main_scene="res://scenes/firsttest.tscn"
+run/main_scene="uid://3q6jqa38p5be"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
