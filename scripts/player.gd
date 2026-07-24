@@ -5,8 +5,6 @@ extends CharacterBody3D
 @onready var standing_collision: CollisionShape3D = $standing_collision
 @onready var crouching_collision: CollisionShape3D = $crouching_collision
 
-
-
 # For interaction menu
 @onready var ray_cast_3d: RayCast3D = $HeightCast
 @onready var interact_cast: RayCast3D = $Head/Vision/InteractCast

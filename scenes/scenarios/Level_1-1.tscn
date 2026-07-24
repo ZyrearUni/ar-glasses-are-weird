@@ -8,22 +8,25 @@
 [ext_resource type="Script" uid="uid://ccrs784n485ck" path="res://scripts/level1scripts/advance_walk_tutorial.gd" id="6_j8v6s"]
 [ext_resource type="PackedScene" uid="uid://bpiucdcy1t38p" path="res://scenes/components/sprite_npc.tscn" id="7_uotlj"]
 [ext_resource type="Script" uid="uid://bkm6g1ol8pvv2" path="res://scripts/level1scripts/mother.gd" id="8_npdxo"]
+[ext_resource type="PackedScene" uid="uid://by16siv81es8q" path="res://scenes/models/Skippy.tscn" id="9_8aho5"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_00sl7"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_trubg"]
-
 [sub_resource type="BoxMesh" id="BoxMesh_1vwp4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_trubg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xbit3"]
 size = Vector3(1, 4.967224, 6.892334)
 
-[node name="World" unique_id=1891132867 node_paths=PackedStringArray("Player") instance=ExtResource("1_2e5lf")]
+[node name="World" unique_id=1891132867 node_paths=PackedStringArray("Player", "Speakers") instance=ExtResource("1_2e5lf")]
 script = ExtResource("2_8aho5")
 nextLevel = "res://scenes/scenarios/Level_1-2.tscn"
 Player = NodePath("stage/Player")
-Dialogues = Array[String](["Yo mama"])
-SpeakerNames = Array[String](["???"])
+Dialogues = Array[String](["¡Hola, superestrella! Veo que tus padres han decidido al fin ponerte la mejor niñera de todas, ¡yo!", "Me llamo Skippy, y voy a ser tu guía y compañero durante nuestras aventuras.", "Empecemos con unos controles básicos para ubicarte, ¿vale?", "Para mirar alrededor, solo tienes que mover el ratón.", "Puedes moverte con las teclas WASD. Prueba a moverte al bloque iluminado detrás de ti."])
+SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy", "Skippy", "Skippy"])
+Speakers = [NodePath("Skippy")]
+SpeakerAnimations = Array[String](["Hablar", "Hablar", "Hablar", "Hablar", "Hablar"])
 
 [node name="Room01-col" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=582264956 instance=ExtResource("3_2eeb0")]
 transform = Transform3D(-0.9997493, 0, 0.022390619, 0, 1, 0, -0.022390619, 0, -0.9997493, 0, 0, 2.864159)
@@ -36,8 +39,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7703633, 0, 2.8930266)
 visible = false
 script = ExtResource("6_j8v6s")
 Player = NodePath("../../Player")
-Dialogues = Array[String](["This is the first area"])
-SpeakerNames = Array[String](["Guide"])
+Dialogues = Array[String](["¡Te mueves como un cisne!", "Probemos algo más difícil.", "Prueba a correr mantiendo la tecla Shift mientras te mueves."])
+SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy"])
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="stage/WalkTutorialArea/WalkArea1" index="2" unique_id=389782611]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -45,40 +48,40 @@ transparency = 0.62
 cast_shadow = 0
 mesh = SubResource("BoxMesh_00sl7")
 
-[node name="WalkArea2" parent="stage/WalkTutorialArea" index="1" unique_id=736682168 node_paths=PackedStringArray("Player") instance=ExtResource("5_3c3jd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45237708, 0, 5.601944)
-visible = false
-script = ExtResource("6_j8v6s")
-Player = NodePath("../../Player")
-Dialogues = Array[String](["This is the second area"])
-SpeakerNames = Array[String](["Guide"])
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="stage/WalkTutorialArea/WalkArea2" index="2" unique_id=320500815]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-transparency = 0.6
-cast_shadow = 0
-mesh = SubResource("BoxMesh_trubg")
-
-[node name="WalkArea3" parent="stage/WalkTutorialArea" index="2" unique_id=369056102 node_paths=PackedStringArray("Player") instance=ExtResource("5_3c3jd")]
+[node name="WalkArea2" parent="stage/WalkTutorialArea" index="1" unique_id=369056102 node_paths=PackedStringArray("Player") instance=ExtResource("5_3c3jd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1896272, 0, 2.8930266)
 visible = false
 script = ExtResource("6_j8v6s")
 Player = NodePath("../../Player")
-Dialogues = Array[String](["This is the third area"])
-SpeakerNames = Array[String](["Guide"])
+Dialogues = Array[String](["¡Qué velocidad! Aunque ahora vamos a ir más lentos.", "Si mantienes la tecla Ctrl irás más cerca del suelo. Prueba a hacerlo."])
+SpeakerNames = Array[String](["Skippy", "Skippy"])
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="stage/WalkTutorialArea/WalkArea3" index="2" unique_id=1633640409]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="stage/WalkTutorialArea/WalkArea2" index="2" unique_id=1633640409]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 transparency = 0.6
 cast_shadow = 0
 mesh = SubResource("BoxMesh_1vwp4")
 
+[node name="WalkArea3" parent="stage/WalkTutorialArea" index="2" unique_id=736682168 node_paths=PackedStringArray("Player") instance=ExtResource("5_3c3jd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45237708, 0, 5.601944)
+visible = false
+script = ExtResource("6_j8v6s")
+Player = NodePath("../../Player")
+Dialogues = Array[String](["¡Perfecto! Creo que tú y yo vamos a ser muy buenos amigos.", "Quizá deberías hablar con tu madre. Con eso ya terminaríamos el tutorial. Acércate a ella y pulsa la tecla E."])
+SpeakerNames = Array[String](["Skippy", "Skippy"])
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="stage/WalkTutorialArea/WalkArea3" index="2" unique_id=320500815]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transparency = 0.6
+cast_shadow = 0
+mesh = SubResource("BoxMesh_trubg")
+
 [node name="Mother" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="3" unique_id=759215246 node_paths=PackedStringArray("Player") instance=ExtResource("7_uotlj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9251971, 0, 9.262978)
 script = ExtResource("8_npdxo")
 Player = NodePath("../Player")
-Dialogues = Array[String](["SHE NEEDS BOTH SLOTS TO SPEAK"])
-SpeakerNames = Array[String](["YO MAMA SO FAT"])
+Dialogues = Array[String](["¿Te gusta tu regalo, cariño?", "Venga, que vas a llegar tarde a clase. ¡Te quiero!"])
+SpeakerNames = Array[String](["Mamá", "Mamá"])
 
 [node name="WallFix" type="StaticBody3D" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="4" unique_id=85345700]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0134945, 0, 13.225008)
@@ -86,6 +89,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0134945, 0, 13.225008)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="stage/WallFix" index="0" unique_id=1345528649]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47696304, 2.5081515, -5.314332)
 shape = SubResource("BoxShape3D_xbit3")
+
+[node name="Skippy" parent="." index="6" unique_id=90227151 instance=ExtResource("9_8aho5")]
+y_sort_enabled = true
 
 [connection signal="level_start" from="." to="stage/WalkTutorialArea" method="_on_world_level_start"]
 [connection signal="walk_tutorial_finished" from="stage/WalkTutorialArea" to="stage/Mother" method="_on_walk_tutorial_area_walk_tutorial_finished"]

@@ -12,7 +12,6 @@ func _ready() -> void:
 	super()
 	fade_from_black()
 	level_start.emit()
-	SpeakerAnimation = $StartAnimationPlayer
 
 func speak():
 	super()

@@ -4,11 +4,12 @@ extends Node
 @onready var SpeakerName: RichTextLabel = get_tree().current_scene.get_node("DialogueUI/Canvas/SpeakerName")
 @onready var DialogueAnimation: AnimationPlayer = get_tree().current_scene.get_node("DialogueUI/Canvas/DialogueAnimation")
 @onready var DialogueText: RichTextLabel = get_tree().current_scene.get_node("DialogueUI/Canvas/DialogueText")
-@export var Player: CharacterBody3D
 
+@export var Player: CharacterBody3D
 @export var Dialogues: Array[String]
 @export var SpeakerNames: Array[String]
-@export var SpeakerAnimation: AnimationPlayer
+@export var Speakers: Array[Node2D]
+@export var SpeakerAnimations: Array[String]
 
 var CurrentDialogue = -1
 var selectedTalking = false
@@ -19,6 +20,8 @@ func _ready() -> void:
 func speak():
 	DialogueUI.visible = true
 	Player.inDialogue = true
+	for speaker in Speakers:
+		speaker.show()
 	selectedTalking = true
 	continue_dialogue()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -27,10 +30,12 @@ func speak():
 func end_dialogue():
 	Player.inDialogue = false
 	DialogueUI.visible = false
+	for speaker in Speakers:
+		speaker.hide()
 	CurrentDialogue = -1
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	selectedTalking = false
-	SpeakerAnimation.play("RESET")
+	
 
 func continue_dialogue() :
 	if selectedTalking:
@@ -39,11 +44,11 @@ func continue_dialogue() :
 			DialogueText.text = Dialogues[CurrentDialogue]
 			SpeakerName.text = SpeakerNames[CurrentDialogue]
 			
-			# When speaker is not player, change to speaking sprite
-			if "You" not in SpeakerName.text:
-				SpeakerAnimation.play("Talk")
-			else:
-				SpeakerAnimation.play("RESET")
+			for speaker in Speakers:
+				if speaker.get_name() == SpeakerName.text:
+					speaker.get_node("AnimationPlayer").play(SpeakerAnimations[CurrentDialogue])
+				else:
+					speaker.get_node("AnimationPlayer").play("RESET")
 			
 			DialogueAnimation.play("RESET")
 			DialogueAnimation.play("TextScroll")
