@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://cwwpqiexkrjbm"]
+
+[ext_resource type="Script" uid="uid://3hqnl5p028tv" path="res://scripts/start_menu.gd" id="1_dxckd"]
+[ext_resource type="Texture2D" uid="uid://bqhjp4v2umu0r" path="res://assets/hdris/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="2_7vfl3"]
+[ext_resource type="PackedScene" uid="uid://ctkshhv3kfvuc" path="res://scenes/components/fade.tscn" id="3_7vfl3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uahpa"]
+bg_color = Color(0.8247977, 0.3473309, 0, 0.2901961)
+
+[node name="StartMenu" type="Control" unique_id=1847058478]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dxckd")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1865919279]
+
+[node name="BackgroundImage" type="TextureRect" parent="CanvasLayer" unique_id=545857615]
+offset_left = -448.0
+offset_top = -39.0
+offset_right = 1600.0
+offset_bottom = 985.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7vfl3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1579143517]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -293.5
+offset_top = -121.5
+offset_right = 293.5
+offset_bottom = 121.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 55
+
+[node name="JuegoPausado" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1282872143]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.49411765, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "TÍTULO DEL JUEGO (WIP)"
+horizontal_alignment = 1
+
+[node name="Empezar" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=924296222]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.737193, 0.7371929, 0.7371929, 1)
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxFlat_uahpa")
+text = "Empezar"
+
+[node name="Salir" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=697291041]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.737193, 0.7371929, 0.7371929, 1)
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxFlat_uahpa")
+text = "Salir"
+
+[node name="fade" parent="CanvasLayer" unique_id=25219732 instance=ExtResource("3_7vfl3")]
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Empezar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Salir" to="." method="_on_salir_pressed"]

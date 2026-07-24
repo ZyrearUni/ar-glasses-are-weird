@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dvgpo70pssw7d" path="res://scenes/components/player.tscn" id="2_nxifn"]
 [ext_resource type="PackedScene" uid="uid://wibtfipo80ct" path="res://scenes/components/dialogue_ui.tscn" id="3_lqphp"]
 [ext_resource type="PackedScene" uid="uid://k64ffjcl7wgk" path="res://scenes/components/pause_menu.tscn" id="4_8uwh6"]
+[ext_resource type="PackedScene" uid="uid://ctkshhv3kfvuc" path="res://scenes/components/fade.tscn" id="4_kqd6t"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_36fji"]
 panorama = ExtResource("1_da115")
@@ -35,13 +36,7 @@ environment = SubResource("Environment_ai85i")
 
 [node name="Player" parent="stage" unique_id=1886028462 instance=ExtResource("2_nxifn")]
 
-[node name="fade" type="ColorRect" parent="." unique_id=985544088]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
+[node name="fade" parent="." unique_id=25219732 instance=ExtResource("4_kqd6t")]
 
 [node name="DialogueUI" parent="." unique_id=635654561 instance=ExtResource("3_lqphp")]
 
