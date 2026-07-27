@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c3aff3j8wa7k3"]
+
+[ext_resource type="PackedScene" uid="uid://bqsbcqqthmbyy" path="res://scenes/scenarios/Level_Template.tscn" id="1_jrcfg"]
+[ext_resource type="PackedScene" uid="uid://5rfantandgkt" path="res://assets/uploads_files_4359726_city+2.blend" id="2_3ebp8"]
+
+[node name="World" unique_id=1891132867 instance=ExtResource("1_jrcfg")]
+
+[node name="City" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=1509348810 instance=ExtResource("2_3ebp8")]
+transform = Transform3D(11, 0, 0, 0, 11, 0, 0, 0, 11, -360.1678, -45.503155, 133.73846)

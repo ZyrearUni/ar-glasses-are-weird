@@ -17,6 +17,7 @@ sky_material = SubResource("PanoramaSkyMaterial_36fji")
 background_mode = 2
 sky = SubResource("Sky_g18d0")
 tonemap_mode = 2
+tonemap_exposure = 0.34
 glow_enabled = true
 
 [node name="World" type="Node3D" unique_id=1891132867]

@@ -28,7 +28,7 @@ SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy", "Skippy", "Skippy"])
 Speakers = [NodePath("Skippy")]
 SpeakerAnimations = Array[String](["Hablar", "Hablar", "Hablar", "Hablar", "Hablar"])
 
-[node name="Room01-col" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=582264956 instance=ExtResource("3_2eeb0")]
+[node name="House" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=582264956 instance=ExtResource("3_2eeb0")]
 transform = Transform3D(-0.9997493, 0, 0.022390619, 0, 1, 0, -0.022390619, 0, -0.9997493, 0, 0, 2.864159)
 
 [node name="WalkTutorialArea" type="Node3D" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="2" unique_id=1979297216]
