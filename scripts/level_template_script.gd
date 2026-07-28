@@ -19,3 +19,12 @@ func speak():
 func finish_level() -> void:
 	await fade.fade_to_black()
 	get_tree().change_scene_to_file(nextLevel)
+
+func save_game_data(content):
+	var file = FileAccess.open("res://saveFile.txt", FileAccess.WRITE)
+	file.store_csv_line(content, "\n")
+
+func load_game_data():
+	var file = FileAccess.open("res://saveFile.txt", FileAccess.READ)
+	var content = file.get_as_text()
+	return content
