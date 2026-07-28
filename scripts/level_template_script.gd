@@ -22,7 +22,7 @@ func finish_level() -> void:
 
 func save_game_data(content):
 	var file = FileAccess.open("res://saveFile.txt", FileAccess.WRITE)
-	file.store_csv_line(content, "\n")
+	file.store_string(content)
 
 func load_game_data():
 	var file = FileAccess.open("res://saveFile.txt", FileAccess.READ)

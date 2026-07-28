@@ -10,6 +10,7 @@ size = Vector3(8.321873, 1, 14.5774555)
 size = Vector3(12.611923, 1, 1)
 
 [node name="World" unique_id=1891132867 instance=ExtResource("1_jrcfg")]
+nextLevel = "res://scenes/scenarios/Level_7.tscn"
 
 [node name="City" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=1609022081 instance=ExtResource("2_3ebp8")]
 transform = Transform3D(11, 0, 0, 0, 11, 0, 0, 0, 11, -360.1678, -45.503155, 133.73846)

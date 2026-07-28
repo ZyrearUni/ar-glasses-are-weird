@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://ccrs784n485ck" path="res://scripts/level1scripts/advance_walk_tutorial.gd" id="6_j8v6s"]
 [ext_resource type="PackedScene" uid="uid://bpiucdcy1t38p" path="res://scenes/components/sprite_npc.tscn" id="7_uotlj"]
 [ext_resource type="Script" uid="uid://bkm6g1ol8pvv2" path="res://scripts/level1scripts/mother.gd" id="8_npdxo"]
-[ext_resource type="PackedScene" uid="uid://by16siv81es8q" path="res://scenes/models/Skippy.tscn" id="9_8aho5"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_00sl7"]
 
@@ -89,9 +88,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0134945, 0, 13.225008)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="stage/WallFix" index="0" unique_id=1345528649]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47696304, 2.5081515, -5.314332)
 shape = SubResource("BoxShape3D_xbit3")
-
-[node name="Skippy" parent="." index="6" unique_id=90227151 instance=ExtResource("9_8aho5")]
-y_sort_enabled = true
 
 [connection signal="level_start" from="." to="stage/WalkTutorialArea" method="_on_world_level_start"]
 [connection signal="walk_tutorial_finished" from="stage/WalkTutorialArea" to="stage/Mother" method="_on_walk_tutorial_area_walk_tutorial_finished"]

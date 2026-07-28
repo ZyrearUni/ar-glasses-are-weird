@@ -1,0 +1,16 @@
+extends "res://scripts/level_template_script.gd"
+
+var result
+const REJECT_GAME = "Llega bien\n"
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	super()
+	result = load_game_data()
+	enable_correct_dialogue_tree()
+
+func enable_correct_dialogue_tree():
+	if result == REJECT_GAME:
+		print("Rechazó el parkour to guapo")
+	else:
+		print("Se cree Mario el pibe")

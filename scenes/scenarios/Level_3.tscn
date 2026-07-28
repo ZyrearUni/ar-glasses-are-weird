@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://c7ykqjcy3plwo"]
 
 [ext_resource type="PackedScene" uid="uid://bqsbcqqthmbyy" path="res://scenes/scenarios/Level_Template.tscn" id="1_buad1"]
+[ext_resource type="Script" uid="uid://do0pfs5p5k0js" path="res://scripts/level3scripts/level_3.gd" id="2_pmmkd"]
 
 [node name="World" unique_id=1891132867 instance=ExtResource("1_buad1")]
+script = ExtResource("2_pmmkd")
+nextLevel = "res://scenes/scenarios/Level_4.tscn"

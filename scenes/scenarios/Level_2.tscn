@@ -1,12 +1,30 @@
 [gd_scene format=3 uid="uid://br35jl470d0b8"]
 
 [ext_resource type="PackedScene" uid="uid://bqsbcqqthmbyy" path="res://scenes/scenarios/Level_Template.tscn" id="1_vap6u"]
+[ext_resource type="Script" uid="uid://dh85vs0gsgpd1" path="res://scripts/level2scripts/level_2.gd" id="2_n0fk5"]
 [ext_resource type="PackedScene" uid="uid://caxjj0dlww4x7" path="res://assets/classroom.glb" id="2_xulf7"]
+[ext_resource type="Script" uid="uid://cj50m4a61k0cw" path="res://scripts/dialogue.gd" id="4_oupfe"]
 
 [node name="World" unique_id=1891132867 instance=ExtResource("1_vap6u")]
+script = ExtResource("2_n0fk5")
+nextLevel = "res://scenes/scenarios/Level_3.tscn"
 
 [node name="Player" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="0" unique_id=1886028462]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0.003072977, 0, 0)
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0.003072977, 0, 0.9293299)
 
 [node name="Sketchfab_Scene" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=360227559 instance=ExtResource("2_xulf7")]
 transform = Transform3D(0.012958956, 0, -1.499944, 0, 1.5, 0, 1.499944, 0, 0.012958956, -8.096628, -0.057085276, -5.8795624)
+
+[node name="StartingDialogueTreeOptions" type="Node" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="2" unique_id=426019989]
+
+[node name="AcceptedGame" type="Node" parent="stage/StartingDialogueTreeOptions" index="0" unique_id=1193677451 node_paths=PackedStringArray("Player")]
+script = ExtResource("4_oupfe")
+Player = NodePath("../../Player")
+Dialogues = Array[String](["... Sabes que voy a tener que informar a tus padres de tu retraso, ¿no?", "En fin, qué remedio...", "Ve a tu a siento, la clase ya ha empezado."])
+SpeakerNames = Array[String](["Profesora", "Profesora", "Profesora"])
+
+[node name="RejectedGame" type="Node" parent="stage/StartingDialogueTreeOptions" index="1" unique_id=285215176 node_paths=PackedStringArray("Player")]
+script = ExtResource("4_oupfe")
+Player = NodePath("../../Player")
+Dialogues = Array[String](["Ah, estamos a punto de empezar. Corre y siéntate."])
+SpeakerNames = Array[String](["Profesora"])

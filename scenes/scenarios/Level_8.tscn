@@ -2,8 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://bqsbcqqthmbyy" path="res://scenes/scenarios/Level_Template.tscn" id="1_4cax2"]
 [ext_resource type="PackedScene" uid="uid://cutwknnl54bfu" path="res://scenes/models/Room01-col.blend" id="2_35ti5"]
+[ext_resource type="Script" uid="uid://dhm4ind4w2fl" path="res://scripts/level8scripts/level_8.gd" id="2_p0x1a"]
 
 [node name="World" unique_id=1891132867 instance=ExtResource("1_4cax2")]
+script = ExtResource("2_p0x1a")
 
 [node name="House" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=496489553 instance=ExtResource("2_35ti5")]
 transform = Transform3D(-0.9997493, 0, 0.022390619, 0, 1, 0, -0.022390619, 0, -0.9997493, 12.390783, 0, -0.22179651)

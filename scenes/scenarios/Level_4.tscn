@@ -3,3 +3,4 @@
 [ext_resource type="PackedScene" uid="uid://bqsbcqqthmbyy" path="res://scenes/scenarios/Level_Template.tscn" id="1_arvii"]
 
 [node name="World" unique_id=1891132867 instance=ExtResource("1_arvii")]
+nextLevel = "res://scenes/scenarios/Level_4.tscn"
