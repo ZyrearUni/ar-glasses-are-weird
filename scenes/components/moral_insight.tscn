@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://tb8ajjdjscwt"]
+
+[ext_resource type="Script" uid="uid://dyh8wyhtf0cyl" path="res://scripts/moral_insight.gd" id="1_kunif"]
+
+[sub_resource type="Animation" id="Animation_hpg36"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Insight:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_kunif"]
+resource_name = "TextAnimation"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Insight:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_iufnd"]
+resource_name = "TextAnimation_Reverse"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Insight:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iufnd"]
+_data = {
+&"RESET": SubResource("Animation_hpg36"),
+&"TextAnimation": SubResource("Animation_kunif"),
+&"TextAnimation_Reverse": SubResource("Animation_iufnd")
+}
+
+[node name="MoralInsight" type="Control" unique_id=1762423104]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kunif")
+
+[node name="Canvas" type="CanvasLayer" parent="." unique_id=861000916]
+
+[node name="Background" type="ColorRect" parent="Canvas" unique_id=1493508969]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Insight" type="RichTextLabel" parent="Canvas" unique_id=1672382025]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -331.0
+offset_top = -72.0
+offset_right = 331.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+horizontal_alignment = 3
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Animation" type="AnimationPlayer" parent="Canvas" unique_id=955828081]
+libraries/ = SubResource("AnimationLibrary_iufnd")

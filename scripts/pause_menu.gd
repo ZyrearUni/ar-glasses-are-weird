@@ -1,6 +1,7 @@
 extends Control
 
 @onready var Player: CharacterBody3D = $"../stage/Player"
+@onready var DialogueMenu = $"../DialogueUI"
 var isPaused = false
 
 func _ready() -> void:
@@ -16,9 +17,12 @@ func pause_unpause():
 	self.visible = isPaused
 	
 	if isPaused:
+		DialogueMenu.hide()
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	else:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		DialogueMenu.show()
+		if Player.inDialogue == false:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _on_continuar_pressed() -> void:
 	pause_unpause()

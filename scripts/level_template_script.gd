@@ -3,6 +3,8 @@ extends "res://scripts/dialogue.gd"
 signal level_start
 
 @onready var fade = $fade
+@onready var insight = $MoralInsight
+@onready var insightContent : String = "No deberías estar leyendo esto. ¿Qué has hecho?"
 
 @export var nextLevel : String
 
@@ -18,7 +20,17 @@ func speak():
 
 func finish_level() -> void:
 	await fade.fade_to_black()
+	
+	if insightContent != "" || !(insightContent.is_empty()):
+		await give_moral_insight(insightContent)
+		
 	get_tree().change_scene_to_file(nextLevel)
+
+func give_moral_insight(content: String):
+	
+	fade.hide()
+	await insight.give_moral_insight(content)
+	fade.show()
 
 func save_game_data(content):
 	var file = FileAccess.open("res://saveFile.txt", FileAccess.WRITE)

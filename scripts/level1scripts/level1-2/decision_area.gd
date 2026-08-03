@@ -6,5 +6,5 @@ func end_dialogue():
 		speaker.hide()
 	CurrentDialogue = -1
 	DialogueUI.get_node("ContinueButton").disabled = true
-	$"../../Control/CanvasLayer".show()
+	$"../../DecisionMenu/CanvasLayer".show()
 	

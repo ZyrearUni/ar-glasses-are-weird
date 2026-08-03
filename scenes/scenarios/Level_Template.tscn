@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://k64ffjcl7wgk" path="res://scenes/components/pause_menu.tscn" id="4_8uwh6"]
 [ext_resource type="PackedScene" uid="uid://ctkshhv3kfvuc" path="res://scenes/components/fade.tscn" id="4_kqd6t"]
 [ext_resource type="PackedScene" uid="uid://by16siv81es8q" path="res://scenes/models/Skippy.tscn" id="7_m5uiq"]
+[ext_resource type="PackedScene" uid="uid://tb8ajjdjscwt" path="res://scenes/components/moral_insight.tscn" id="8_ptfjk"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_36fji"]
 panorama = ExtResource("1_da115")
@@ -38,14 +39,16 @@ environment = SubResource("Environment_ai85i")
 
 [node name="Player" parent="stage" unique_id=1886028462 instance=ExtResource("2_nxifn")]
 
-[node name="fade" parent="." unique_id=25219732 instance=ExtResource("4_kqd6t")]
-
-[node name="DialogueUI" parent="." unique_id=635654561 instance=ExtResource("3_lqphp")]
-
-[node name="PauseMenu" parent="." unique_id=1847058478 instance=ExtResource("4_8uwh6")]
-
-[node name="StartAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1093037529]
-
 [node name="Skippy" parent="." unique_id=90227151 instance=ExtResource("7_m5uiq")]
 visible = false
 y_sort_enabled = true
+
+[node name="fade" parent="." unique_id=25219732 instance=ExtResource("4_kqd6t")]
+
+[node name="MoralInsight" parent="." unique_id=1762423104 instance=ExtResource("8_ptfjk")]
+
+[node name="DialogueUI" parent="." unique_id=635654561 instance=ExtResource("3_lqphp")]
+z_index = -1
+
+[node name="PauseMenu" parent="." unique_id=1847058478 instance=ExtResource("4_8uwh6")]
+z_index = 3

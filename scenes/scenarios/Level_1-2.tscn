@@ -134,16 +134,16 @@ monitoring = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.313012, 6.835205, -69.3553)
 shape = SubResource("BoxShape3D_lfbje")
 
-[node name="Control" type="Control" parent="." index="7" unique_id=1327179284]
+[node name="DecisionMenu" type="Control" parent="." index="7" unique_id=1327179284]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Control" index="0" unique_id=1418704011]
+[node name="CanvasLayer" type="CanvasLayer" parent="DecisionMenu" index="0" unique_id=1418704011]
 visible = false
 
-[node name="AcceptButton" type="Button" parent="Control/CanvasLayer" index="0" unique_id=2007996036]
+[node name="AcceptButton" type="Button" parent="DecisionMenu/CanvasLayer" index="0" unique_id=2007996036]
 offset_left = 789.0
 offset_top = 313.0
 offset_right = 902.0
@@ -152,7 +152,7 @@ size_flags_horizontal = 8
 theme_override_styles/normal = SubResource("StyleBoxFlat_jd5u1")
 text = "Jugar al juego"
 
-[node name="RejectButton" type="Button" parent="Control/CanvasLayer" index="1" unique_id=1796982401]
+[node name="RejectButton" type="Button" parent="DecisionMenu/CanvasLayer" index="1" unique_id=1796982401]
 offset_left = 163.0
 offset_top = 312.0
 offset_right = 341.0
@@ -162,7 +162,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_jd5u1")
 text = "Seguir camino normal"
 
 [connection signal="body_entered" from="stage/LevelFinishReject" to="." method="_on_level_finish_reject_body_entered"]
-[connection signal="pressed" from="Control/CanvasLayer/AcceptButton" to="." method="_on_accept_button_pressed"]
-[connection signal="pressed" from="Control/CanvasLayer/AcceptButton" to="stage/DecisionArea/Accept" method="_on_accept_button_pressed"]
-[connection signal="pressed" from="Control/CanvasLayer/RejectButton" to="." method="_on_reject_button_pressed"]
-[connection signal="pressed" from="Control/CanvasLayer/RejectButton" to="stage/DecisionArea/Reject" method="_on_reject_button_pressed"]
+[connection signal="pressed" from="DecisionMenu/CanvasLayer/AcceptButton" to="." method="_on_accept_button_pressed"]
+[connection signal="pressed" from="DecisionMenu/CanvasLayer/AcceptButton" to="stage/DecisionArea/Accept" method="_on_accept_button_pressed"]
+[connection signal="pressed" from="DecisionMenu/CanvasLayer/RejectButton" to="." method="_on_reject_button_pressed"]
+[connection signal="pressed" from="DecisionMenu/CanvasLayer/RejectButton" to="stage/DecisionArea/Reject" method="_on_reject_button_pressed"]
