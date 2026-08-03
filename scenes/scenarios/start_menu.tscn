@@ -70,5 +70,5 @@ text = "Salir"
 
 [node name="fade" parent="CanvasLayer" unique_id=25219732 instance=ExtResource("3_7vfl3")]
 
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/Empezar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Empezar" to="." method="_on_empezar_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Salir" to="." method="_on_salir_pressed"]

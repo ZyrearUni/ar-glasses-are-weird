@@ -33,7 +33,7 @@ func give_moral_insight(content: String):
 	fade.show()
 
 func save_game_data(content):
-	var file = FileAccess.open("res://saveFile.txt", FileAccess.WRITE)
+	var file = FileAccess.open("res://saveFile.txt", FileAccess.READ_WRITE)
 	file.store_string(content)
 
 func load_game_data():
