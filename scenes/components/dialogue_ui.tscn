@@ -52,25 +52,27 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -148.0
+offset_top = -341.0
 grow_horizontal = 2
 grow_vertical = 0
 color = Color(0, 0, 0, 0.3137255)
 
 [node name="SpeakerName" type="RichTextLabel" parent="Canvas" unique_id=1216634342]
-offset_left = 25.0
-offset_top = 506.0
-offset_right = 761.0
-offset_bottom = 540.0
-theme_override_font_sizes/bold_font_size = 20
+offset_left = 3.0
+offset_top = 1102.0
+offset_right = 1013.0
+offset_bottom = 1200.0
+theme_override_font_sizes/normal_font_size = 70
+theme_override_font_sizes/bold_font_size = 70
 bbcode_enabled = true
 text = "[b]Placeholder Name[/b]"
 
 [node name="DialogueText" type="RichTextLabel" parent="Canvas" unique_id=1599867069]
-offset_left = 25.0
-offset_top = 538.0
-offset_right = 1127.0
-offset_bottom = 633.0
+offset_left = 2.0
+offset_top = 1198.0
+offset_right = 2555.0
+offset_bottom = 1445.0
+theme_override_font_sizes/normal_font_size = 39
 theme_override_font_sizes/bold_font_size = 20
 bbcode_enabled = true
 text = "Lorem ipsum dolor sit amet consectetur adipiscing, elit maecenas faucibus convallis sociis, est a eros nec per. Luctus conubia nibh ullamcorper ac dignissim torquent donec per a egestas lectus, nascetur duis fermentum eget montes aliquet faucibus tincidunt vestibulum senectus leo, justo penatibus feugiat cum fames enim orci platea vivamus quis. Aenean ornare posuere erat nisl enim viverra molestie, laoreet magna sagittis lacinia feugiat duis luctus, venenatis class facilisi natoque integer penatibus."
@@ -78,11 +80,12 @@ visible_characters = 0
 visible_ratio = 0.0
 
 [node name="ContinueButton" type="Button" parent="Canvas" unique_id=411639486]
-offset_left = 1029.7245
-offset_top = 614.28033
-offset_right = 1145.812
-offset_bottom = 645.28033
-rotation = -0.10094302
+offset_left = 2224.9998
+offset_top = 1319.0
+offset_right = 2522.1096
+offset_bottom = 1434.6958
+rotation = -0.1594682
+theme_override_font_sizes/font_size = 50
 text = "Continuar"
 
 [node name="DialogueAnimation" type="AnimationPlayer" parent="Canvas" unique_id=1320256720]

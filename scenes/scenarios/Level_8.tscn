@@ -8,4 +8,4 @@
 script = ExtResource("2_p0x1a")
 
 [node name="House" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=496489553 instance=ExtResource("2_35ti5")]
-transform = Transform3D(-0.9997493, 0, 0.022390619, 0, 1, 0, -0.022390619, 0, -0.9997493, 12.390783, 0, -0.22179651)
+transform = Transform3D(-0.022390664, 0, -0.99974924, 0, 1, 0, 0.99974924, 0, -0.022390664, 0.15270233, 0, -12.173288)

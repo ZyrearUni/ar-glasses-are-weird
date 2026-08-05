@@ -12,5 +12,7 @@ func _ready() -> void:
 func enable_correct_dialogue_tree():
 	if result == REJECT_GAME:
 		print("Rechazó el parkour to guapo")
+		$stage/StartingDialogueTreeOptions/RejectedGame.speak()
 	else:
 		print("Se cree Mario el pibe")
+		$stage/StartingDialogueTreeOptions/AcceptedGame.speak()

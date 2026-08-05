@@ -51,8 +51,6 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # Makes mouse stay inside window
 	interact_text.hide()
 	startingPos = global_position
-	
-	# playerModel.print_tree()
 
 
 # Camera movement handling

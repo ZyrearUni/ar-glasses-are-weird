@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bnn1eacee4ren"]
+
+[ext_resource type="Script" uid="uid://cj50m4a61k0cw" path="res://scripts/dialogue.gd" id="1_ks382"]
+[ext_resource type="Texture2D" uid="uid://b8g1yws3aoex7" path="res://assets/textures/cahara_zai.png" id="2_lrv5f"]
+[ext_resource type="Texture2D" uid="uid://cdygtbfp7btrp" path="res://assets/textures/Silly Chibi Zai.png" id="3_by03m"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a8bby"]
+
+[sub_resource type="Animation" id="Animation_73jt4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_lrv5f")]
+}
+
+[sub_resource type="Animation" id="Animation_7vqqr"]
+resource_name = "Talk"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_lrv5f"), ExtResource("3_by03m")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ewctg"]
+_data = {
+&"RESET": SubResource("Animation_73jt4"),
+&"Talk": SubResource("Animation_7vqqr")
+}
+
+[node name="Teacher" type="StaticBody3D" unique_id=759215246]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_ks382")
+Dialogues = Array[String](["What am I doing here", "Idk you tell me"])
+SpeakerNames = Array[String](["Zai", "You"])
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1257423029]
+transform = Transform3D(1.2690821, 0, 0, 0, 1, 0, 0, 0, 1.4844267, 0, 0.85, 0)
+shape = SubResource("CapsuleShape3D_a8bby")
+
+[node name="Sprite3D" type="Sprite3D" parent="CollisionShape3D" unique_id=1728338363]
+transform = Transform3D(0.07879712, 0, 0, 0, 0.101, 0, 0, 0, 0.06736608, -0.029916883, 0.022153497, 0.034945108)
+billboard = 1
+texture = ExtResource("2_lrv5f")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CollisionShape3D/Sprite3D" unique_id=777420077]
+libraries/ = SubResource("AnimationLibrary_ewctg")

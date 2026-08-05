@@ -5,6 +5,6 @@ func _ready() -> void:
 	super() 
 	super.speak()
 
-func _on_mother_level_finish() -> void:
+func _on_mom_level_finish() -> void:
 	insightContent = ""
 	super.finish_level()

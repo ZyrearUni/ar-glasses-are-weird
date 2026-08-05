@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://3q6jqa38p5be"]
 
 [ext_resource type="PackedScene" uid="uid://bqsbcqqthmbyy" path="res://scenes/scenarios/Level_Template.tscn" id="1_2e5lf"]
-[ext_resource type="Script" uid="uid://baei7ulpkgael" path="res://scripts/level1scripts/level_1_script.gd" id="2_8aho5"]
+[ext_resource type="Script" uid="uid://baei7ulpkgael" path="res://scripts/level1scripts/level1-1/level_1_script.gd" id="2_8aho5"]
 [ext_resource type="PackedScene" uid="uid://cutwknnl54bfu" path="res://scenes/models/Room01-col.blend" id="3_2eeb0"]
-[ext_resource type="Script" uid="uid://kjra7812d5ii" path="res://scripts/level1scripts/walk_tutorial_area.gd" id="4_2txad"]
+[ext_resource type="Script" uid="uid://kjra7812d5ii" path="res://scripts/level1scripts/level1-1/walk_tutorial_area.gd" id="4_2txad"]
 [ext_resource type="PackedScene" uid="uid://mp83amoddhav" path="res://scenes/components/dialogue_area.tscn" id="5_3c3jd"]
-[ext_resource type="Script" uid="uid://ccrs784n485ck" path="res://scripts/level1scripts/advance_walk_tutorial.gd" id="6_j8v6s"]
-[ext_resource type="PackedScene" uid="uid://bpiucdcy1t38p" path="res://scenes/components/sprite_npc.tscn" id="7_uotlj"]
-[ext_resource type="Script" uid="uid://bkm6g1ol8pvv2" path="res://scripts/level1scripts/mother.gd" id="8_npdxo"]
+[ext_resource type="Script" uid="uid://ccrs784n485ck" path="res://scripts/level1scripts/level1-1/advance_walk_tutorial.gd" id="6_j8v6s"]
+[ext_resource type="PackedScene" uid="uid://t5wqgqrgfdr8" path="res://scenes/models/characters/mom.tscn" id="7_n5sbo"]
+[ext_resource type="Script" uid="uid://bkm6g1ol8pvv2" path="res://scripts/level1scripts/level1-1/mother.gd" id="8_2e5lf"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_00sl7"]
 
@@ -27,8 +27,8 @@ SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy", "Skippy", "Skippy"])
 Speakers = [NodePath("Skippy")]
 SpeakerAnimations = Array[String](["Hablar", "Hablar", "Hablar", "Hablar", "Hablar"])
 
-[node name="House" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=582264956 instance=ExtResource("3_2eeb0")]
-transform = Transform3D(-0.9997493, 0, 0.022390619, 0, 1, 0, -0.022390619, 0, -0.9997493, 0, 0, 2.864159)
+[node name="House" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=510582136 instance=ExtResource("3_2eeb0")]
+transform = Transform3D(-0.9997493, 0, 0.022390619, 0, 1, 0, -0.022390619, 0, -0.9997493, -0.010087967, 0.0022768974, 2.8541489)
 
 [node name="WalkTutorialArea" type="Node3D" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="2" unique_id=1979297216]
 script = ExtResource("4_2txad")
@@ -75,12 +75,12 @@ transparency = 0.6
 cast_shadow = 0
 mesh = SubResource("BoxMesh_trubg")
 
-[node name="Mother" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="3" unique_id=759215246 node_paths=PackedStringArray("Player") instance=ExtResource("7_uotlj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9251971, 0, 9.262978)
-script = ExtResource("8_npdxo")
+[node name="Mom" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="3" unique_id=759215246 node_paths=PackedStringArray("Player") instance=ExtResource("7_n5sbo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6851782, 0, 9.416631)
+script = ExtResource("8_2e5lf")
 Player = NodePath("../Player")
-Dialogues = Array[String](["¿Te gusta tu regalo, cariño?", "Venga, que vas a llegar tarde a clase. ¡Te quiero!"])
-SpeakerNames = Array[String](["Mamá", "Mamá"])
+Dialogues = Array[String](["¿Te gusta tu nuevo regalo, mi estrellita?", "Espero lo disfrutes hoy en clase. Debería ayudarte con esos problemas de mates que tanto se te atascan.", "¡Venga, vas a llegar tarde!"])
+SpeakerNames = Array[String](["Mamá", "Mamá", "Mamá"])
 
 [node name="WallFix" type="StaticBody3D" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="4" unique_id=85345700]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0134945, 0, 13.225008)
@@ -89,9 +89,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0134945, 0, 13.225008)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47696304, 2.5081515, -5.314332)
 shape = SubResource("BoxShape3D_xbit3")
 
+[node name="Skippy" parent="." index="2" unique_id=90227151]
+visible = true
+
 [connection signal="level_start" from="." to="stage/WalkTutorialArea" method="_on_world_level_start"]
-[connection signal="walk_tutorial_finished" from="stage/WalkTutorialArea" to="stage/Mother" method="_on_walk_tutorial_area_walk_tutorial_finished"]
+[connection signal="walk_tutorial_finished" from="stage/WalkTutorialArea" to="stage/Mom" method="_on_walk_tutorial_area_walk_tutorial_finished"]
 [connection signal="activate_next_area" from="stage/WalkTutorialArea/WalkArea1" to="stage/WalkTutorialArea" method="_on_walk_area_1_activate_next_area"]
 [connection signal="activate_next_area" from="stage/WalkTutorialArea/WalkArea2" to="stage/WalkTutorialArea" method="_on_walk_area_2_activate_next_area"]
 [connection signal="activate_next_area" from="stage/WalkTutorialArea/WalkArea3" to="stage/WalkTutorialArea" method="_on_walk_area_3_activate_next_area"]
-[connection signal="level_finish" from="stage/Mother" to="." method="_on_mother_level_finish"]
+[connection signal="level_finish" from="stage/Mom" to="." method="_on_mom_level_finish"]

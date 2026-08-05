@@ -37,7 +37,46 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:Muros": {
+"generate/physics": true
+},
+"PATH:Muros Abajo Azul": {
+"generate/physics": true
+},
+"PATH:Muros Escaleras": {
+"generate/physics": true
+},
+"PATH:Pilares Muro Frente": {
+"generate/physics": true
+},
+"PATH:Porterias": {
+"generate/physics": true
+},
+"PATH:Puertas": {
+"generate/physics": true
+},
+"PATH:Suelo": {
+"generate/physics": true
+},
+"PATH:Suelo Escaleras": {
+"generate/physics": true
+},
+"PATH:Tuberias": {
+"generate/physics": true
+},
+"PATH:VerJas y Marcos Ventanas": {
+"generate/physics": true
+},
+"PATH:Verjas": {
+"generate/physics": true
+},
+"PATH:Verjas Escaleras": {
+"generate/physics": true
+}
+}
+}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1

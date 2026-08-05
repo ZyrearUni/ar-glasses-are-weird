@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://cupdbmkpsmg0a"]
 
 [ext_resource type="PackedScene" uid="uid://bqsbcqqthmbyy" path="res://scenes/scenarios/Level_Template.tscn" id="1_0umuj"]
+[ext_resource type="PackedScene" uid="uid://lnorndidyek6" path="res://assets/gaia colegio(PRUEBA2).fbx" id="2_llswa"]
 
 [node name="World" unique_id=1891132867 instance=ExtResource("1_0umuj")]
 nextLevel = "res://scenes/scenarios/Level_6.tscn"
+
+[node name="gaia colegio(PRUEBA2)" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=309049541 instance=ExtResource("2_llswa")]
+transform = Transform3D(0.058248125, 0, -1.0780795, 0, 1.1790056, 0, 1.2135423, 0, 0.051746152, -9.307064, -0.018941045, 3.768814)

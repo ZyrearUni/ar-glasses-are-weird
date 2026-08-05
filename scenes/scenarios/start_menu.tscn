@@ -22,12 +22,10 @@ script = ExtResource("1_dxckd")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1865919279]
 
 [node name="BackgroundImage" type="TextureRect" parent="CanvasLayer" unique_id=545857615]
-offset_left = -448.0
-offset_top = -39.0
-offset_right = 1600.0
-offset_bottom = 985.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -11.0
+offset_top = -2.0
+offset_right = 2575.0
+offset_bottom = 1472.0
 texture = ExtResource("2_7vfl3")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1579143517]
@@ -48,7 +46,7 @@ theme_override_constants/separation = 55
 [node name="JuegoPausado" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1282872143]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.49411765, 0, 1)
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 100
 text = "TÍTULO DEL JUEGO (WIP)"
 horizontal_alignment = 1
 
@@ -56,7 +54,7 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.737193, 0.7371929, 0.7371929, 1)
-theme_override_font_sizes/font_size = 23
+theme_override_font_sizes/font_size = 80
 theme_override_styles/normal = SubResource("StyleBoxFlat_uahpa")
 text = "Empezar"
 
@@ -64,11 +62,12 @@ text = "Empezar"
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.737193, 0.7371929, 0.7371929, 1)
-theme_override_font_sizes/font_size = 23
+theme_override_font_sizes/font_size = 80
 theme_override_styles/normal = SubResource("StyleBoxFlat_uahpa")
 text = "Salir"
 
 [node name="fade" parent="CanvasLayer" unique_id=25219732 instance=ExtResource("3_7vfl3")]
+visible = false
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Empezar" to="." method="_on_empezar_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Salir" to="." method="_on_salir_pressed"]

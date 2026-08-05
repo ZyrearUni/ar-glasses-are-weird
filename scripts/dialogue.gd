@@ -41,8 +41,8 @@ func continue_dialogue() :
 	if selectedTalking:
 		CurrentDialogue += 1;
 		if CurrentDialogue < Dialogues.size():
-			DialogueText.text = Dialogues[CurrentDialogue]
-			SpeakerName.text = SpeakerNames[CurrentDialogue]
+			DialogueText.text = Dialogues[CurrentDialogue] 
+			SpeakerName.text = "[b]" + SpeakerNames[CurrentDialogue] 
 			
 			for speaker in Speakers:
 				if speaker.get_name() == SpeakerName.text:
