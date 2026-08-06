@@ -4,6 +4,22 @@
 [ext_resource type="Script" uid="uid://dh85vs0gsgpd1" path="res://scripts/level2scripts/level_2.gd" id="2_n0fk5"]
 [ext_resource type="PackedScene" uid="uid://caxjj0dlww4x7" path="res://assets/classroom.glb" id="2_xulf7"]
 [ext_resource type="Script" uid="uid://cj50m4a61k0cw" path="res://scripts/dialogue.gd" id="4_oupfe"]
+[ext_resource type="PackedScene" uid="uid://bhb823qu32vut" path="res://scenes/models/characters/kid_1.tscn" id="4_qqupq"]
+[ext_resource type="PackedScene" uid="uid://kijayuvj0e3v" path="res://scenes/models/characters/kid_2.tscn" id="5_25b0o"]
+[ext_resource type="Script" uid="uid://deavk2fhpvfxs" path="res://scripts/level2scripts/sit_down.gd" id="5_f4twp"]
+[ext_resource type="PackedScene" uid="uid://cqr8nlvernnx4" path="res://scenes/models/characters/kid_3.tscn" id="6_jx5dc"]
+[ext_resource type="PackedScene" uid="uid://f0dtl33cp2ax" path="res://scenes/models/characters/kid_4.tscn" id="7_ff76c"]
+[ext_resource type="PackedScene" uid="uid://dxj2a7di8ucv5" path="res://scenes/models/characters/raquel.tscn" id="8_yaldh"]
+[ext_resource type="PackedScene" uid="uid://bnn1eacee4ren" path="res://scenes/models/characters/teacher.tscn" id="9_2ucyv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q7k1q"]
+size = Vector3(1.2163086, 2.2006226, 1.5031738)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qqupq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_25b0o"]
+transparency = 1
+albedo_color = Color(0.7529412, 0.59607846, 0.12156863, 0.3529412)
 
 [node name="World" unique_id=1891132867 instance=ExtResource("1_vap6u")]
 script = ExtResource("2_n0fk5")
@@ -13,7 +29,44 @@ nextLevel = "res://scenes/scenarios/Level_3.tscn"
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0.003072977, 0, 0.9293299)
 
 [node name="Sketchfab_Scene" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=360227559 instance=ExtResource("2_xulf7")]
-transform = Transform3D(0.012958956, 0, -1.499944, 0, 1.5, 0, 1.499944, 0, 0.012958956, -8.096628, -0.057085276, -5.8795624)
+transform = Transform3D(0.012958956, 0, -1.499944, 0, 1.5, 0, 1.499944, 0, 0.012958956, -8.096228, -0.057085752, -5.890358)
+
+[node name="Kid1" parent="stage/Sketchfab_Scene" index="1" unique_id=759215246 node_paths=PackedStringArray("Player") instance=ExtResource("4_qqupq")]
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 1, -0.40052938, 0, 1.1475873)
+Player = NodePath("../../Player")
+Dialogues = Array[String](["67 FAAAAAAAH", "... ¿Por qué no te ríes?"])
+SpeakerNames = Array[String](["Kid1", "Kid1"])
+
+[node name="Kid2" parent="stage/Sketchfab_Scene" index="2" unique_id=503526266 node_paths=PackedStringArray("Player") instance=ExtResource("5_25b0o")]
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 1, 3.4872284, 0, 5.7677097)
+Player = NodePath("../../Player")
+Dialogues = Array[String](["What am I doing here"])
+SpeakerNames = Array[String](["Zai"])
+
+[node name="Kid3" parent="stage/Sketchfab_Scene" index="3" unique_id=341079854 node_paths=PackedStringArray("Player") instance=ExtResource("6_jx5dc")]
+transform = Transform3D(1, 0, 0, 0, 0.9999997, 0, 0, 0, 1, -2.370585, 0, 3.2195244)
+Player = NodePath("../../Player")
+Dialogues = Array[String](["Eh, que este es mi sitio. Quita."])
+SpeakerNames = Array[String](["Kid3"])
+
+[node name="Kid4" parent="stage/Sketchfab_Scene" index="4" unique_id=1599204009 node_paths=PackedStringArray("Player") instance=ExtResource("7_ff76c")]
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 1, 3.5438004, 0, 0.9422846)
+Player = NodePath("../../Player")
+Dialogues = Array[String](["Ya era hora de que vinieras..."])
+SpeakerNames = Array[String](["Kid4"])
+
+[node name="Raquel" parent="stage/Sketchfab_Scene" index="5" unique_id=868460852 node_paths=PackedStringArray("Player") instance=ExtResource("8_yaldh")]
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 1, -2.3692207, 0, -1.6688616)
+Player = NodePath("../../Player")
+Dialogues = Array[String](["Ah, hola. ¿Necesitas un lápiz?"])
+SpeakerNames = Array[String](["Raquel"])
+
+[node name="Teacher" parent="stage/Sketchfab_Scene" index="6" unique_id=344644160 node_paths=PackedStringArray("Player", "Speakers") instance=ExtResource("9_2ucyv")]
+transform = Transform3D(1, 0, 0, 0, 0.9999997, 0, 0, 0, 1, 0.60530686, 0, -6.001535)
+Player = NodePath("../../Player")
+Dialogues = Array[String](["Siéntate ya, anda. Tenemos que resolver unos problemas."])
+SpeakerNames = Array[String](["Profesora"])
+Speakers = [NodePath("../../../Skippy")]
 
 [node name="StartingDialogueTreeOptions" type="Node" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="2" unique_id=426019989]
 
@@ -28,3 +81,23 @@ script = ExtResource("4_oupfe")
 Player = NodePath("../../Player")
 Dialogues = Array[String](["Ah, estamos a punto de empezar. Corre y siéntate."])
 SpeakerNames = Array[String](["Profesora"])
+
+[node name="SitDownArea" type="Area3D" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="3" unique_id=265433122]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7196083, 1.6085005, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/SitDownArea" index="0" unique_id=366680149 node_paths=PackedStringArray("Player", "Speakers")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.263594, -1.1315627, -3.348032)
+shape = SubResource("BoxShape3D_q7k1q")
+debug_color = Color(0.7846569, 0.6260768, 0, 1)
+script = ExtResource("5_f4twp")
+Player = NodePath("../../Player")
+Dialogues = Array[String](["Just chillin"])
+SpeakerNames = Array[String](["Test"])
+Speakers = [NodePath("../../../Skippy")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="stage/SitDownArea/CollisionShape3D" index="0" unique_id=1950586876]
+transform = Transform3D(1, 0, 0, 0, 2.3000002, 0, 0, 0, 1.55, 0, 0, 0)
+mesh = SubResource("BoxMesh_qqupq")
+surface_material_override/0 = SubResource("StandardMaterial3D_25b0o")
+
+[connection signal="body_entered" from="stage/SitDownArea" to="stage/SitDownArea/CollisionShape3D" method="_on_sit_down_area_body_entered"]

@@ -3,13 +3,39 @@
 [ext_resource type="PackedScene" uid="uid://bqsbcqqthmbyy" path="res://scenes/scenarios/Level_Template.tscn" id="1_buad1"]
 [ext_resource type="Script" uid="uid://do0pfs5p5k0js" path="res://scripts/level3scripts/level_3.gd" id="2_pmmkd"]
 [ext_resource type="PackedScene" uid="uid://lnorndidyek6" path="res://assets/gaia colegio(PRUEBA2).fbx" id="3_1678m"]
+[ext_resource type="PackedScene" uid="uid://bhb823qu32vut" path="res://scenes/models/characters/kid_1.tscn" id="4_q5lk6"]
+[ext_resource type="PackedScene" uid="uid://kijayuvj0e3v" path="res://scenes/models/characters/kid_2.tscn" id="5_8p0ku"]
+[ext_resource type="PackedScene" uid="uid://cqr8nlvernnx4" path="res://scenes/models/characters/kid_3.tscn" id="6_6gvjs"]
+[ext_resource type="PackedScene" uid="uid://f0dtl33cp2ax" path="res://scenes/models/characters/kid_4.tscn" id="7_8kjea"]
+[ext_resource type="PackedScene" uid="uid://dxj2a7di8ucv5" path="res://scenes/models/characters/raquel.tscn" id="8_lak3m"]
 
 [node name="World" unique_id=1891132867 instance=ExtResource("1_buad1")]
 script = ExtResource("2_pmmkd")
 nextLevel = "res://scenes/scenarios/Level_4.tscn"
 
 [node name="gaia colegio(PRUEBA2)" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="0" unique_id=309049541 instance=ExtResource("3_1678m")]
-transform = Transform3D(0.058248125, 0, -1.0780795, 0, 1.1790056, 0, 1.2135423, 0, 0.051746152, -9.307064, -0.018941045, 6.1162643)
+transform = Transform3D(0.058248125, 0, -1.0780795, 0, 1.1790056, 0, 1.2135423, 0, 0.051746152, -9.307877, -0.018941045, 6.1162643)
+
+[node name="Kid1" parent="stage/gaia colegio(PRUEBA2)" index="31" unique_id=759215246 instance=ExtResource("4_q5lk6")]
+transform = Transform3D(1, 0, 2.2351742e-08, 0, 1, 0, 0, 0, 0.9999995, 0.28628588, -0.067211576, -4.1850033)
+
+[node name="Kid2" parent="stage/gaia colegio(PRUEBA2)" index="32" unique_id=1956519799 instance=ExtResource("5_8p0ku")]
+transform = Transform3D(1, 0, 2.2351742e-08, 0, 1, 0, 0, 0, 0.9999995, 1.9132543, 0, -5.373065)
+
+[node name="Kid3" parent="stage/gaia colegio(PRUEBA2)" index="33" unique_id=151720113 node_paths=PackedStringArray("Player") instance=ExtResource("6_6gvjs")]
+transform = Transform3D(1, 0, 2.2351742e-08, 0, 1, 0, 0, 0, 0.9999995, -2.4143023, 0, 3.201808)
+Player = NodePath("../../Player")
+Dialogues = Array[String](["¡Déjame! Estoy intentando hacer un mate"])
+
+[node name="Kid4" parent="stage/gaia colegio(PRUEBA2)" index="34" unique_id=1930868132 instance=ExtResource("7_8kjea")]
+transform = Transform3D(1, 0, 1.8626451e-08, 0, 1, 0, 0, 0, 0.9999996, -2.104023, 0, -5.6058903)
+
+[node name="Raquel" parent="stage/gaia colegio(PRUEBA2)" index="35" unique_id=1481373249 node_paths=PackedStringArray("Player") instance=ExtResource("8_lak3m")]
+transform = Transform3D(1, 0, 2.2351742e-08, 0, 1, 0, 0, 0, 0.9999995, 3.0410304, 0, 8.073513)
+collision_layer = 0
+collision_mask = 0
+input_ray_pickable = false
+Player = NodePath("../../Player")
 
 [node name="Player" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=1886028462]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.655802, 0, 11.733658)

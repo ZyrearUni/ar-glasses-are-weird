@@ -1,4 +1,4 @@
-extends CollisionShape3D
+extends Node3D
 
 @export var Player : Node3D
 @onready var Area :  Area3D = $".."
