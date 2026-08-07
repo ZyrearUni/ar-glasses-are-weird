@@ -4,10 +4,18 @@
 [ext_resource type="Script" uid="uid://do0pfs5p5k0js" path="res://scripts/level3scripts/level_3.gd" id="2_pmmkd"]
 [ext_resource type="PackedScene" uid="uid://lnorndidyek6" path="res://assets/gaia colegio(PRUEBA2).fbx" id="3_1678m"]
 [ext_resource type="PackedScene" uid="uid://bhb823qu32vut" path="res://scenes/models/characters/kid_1.tscn" id="4_q5lk6"]
+[ext_resource type="Script" uid="uid://c56mbl8w3vqdc" path="res://scripts/level3scripts/initial_interactions.gd" id="5_6gvjs"]
 [ext_resource type="PackedScene" uid="uid://kijayuvj0e3v" path="res://scenes/models/characters/kid_2.tscn" id="5_8p0ku"]
 [ext_resource type="PackedScene" uid="uid://cqr8nlvernnx4" path="res://scenes/models/characters/kid_3.tscn" id="6_6gvjs"]
 [ext_resource type="PackedScene" uid="uid://f0dtl33cp2ax" path="res://scenes/models/characters/kid_4.tscn" id="7_8kjea"]
 [ext_resource type="PackedScene" uid="uid://dxj2a7di8ucv5" path="res://scenes/models/characters/raquel.tscn" id="8_lak3m"]
+[ext_resource type="Script" uid="uid://6ry10xifvm3b" path="res://scripts/level3scripts/raquel.gd" id="10_6gvjs"]
+[ext_resource type="Script" uid="uid://c71ok5o12r3d0" path="res://scripts/level3scripts/next_scene.gd" id="11_8kjea"]
+[ext_resource type="Script" uid="uid://dj8bfsqc14a3u" path="res://scripts/level3scripts/reject_skippy_help.gd" id="12_ntcol"]
+[ext_resource type="Script" uid="uid://bhlmowkg1ecdp" path="res://scripts/level3scripts/accept_skippy_help.gd" id="13_c246d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_064te"]
+bg_color = Color(0.50853425, 0.33932856, 0.03818896, 1)
 
 [node name="World" unique_id=1891132867 instance=ExtResource("1_buad1")]
 script = ExtResource("2_pmmkd")
@@ -18,24 +26,146 @@ transform = Transform3D(0.058248125, 0, -1.0780795, 0, 1.1790056, 0, 1.2135423, 
 
 [node name="Kid1" parent="stage/gaia colegio(PRUEBA2)" index="31" unique_id=759215246 instance=ExtResource("4_q5lk6")]
 transform = Transform3D(1, 0, 2.2351742e-08, 0, 1, 0, 0, 0, 0.9999995, 0.28628588, -0.067211576, -4.1850033)
+script = ExtResource("5_6gvjs")
 
 [node name="Kid2" parent="stage/gaia colegio(PRUEBA2)" index="32" unique_id=1956519799 instance=ExtResource("5_8p0ku")]
 transform = Transform3D(1, 0, 2.2351742e-08, 0, 1, 0, 0, 0, 0.9999995, 1.9132543, 0, -5.373065)
+script = ExtResource("5_6gvjs")
 
-[node name="Kid3" parent="stage/gaia colegio(PRUEBA2)" index="33" unique_id=151720113 node_paths=PackedStringArray("Player") instance=ExtResource("6_6gvjs")]
+[node name="Kid3" parent="stage/gaia colegio(PRUEBA2)" index="33" unique_id=151720113 instance=ExtResource("6_6gvjs")]
 transform = Transform3D(1, 0, 2.2351742e-08, 0, 1, 0, 0, 0, 0.9999995, -2.4143023, 0, 3.201808)
-Player = NodePath("../../Player")
+script = ExtResource("5_6gvjs")
 Dialogues = Array[String](["¡Déjame! Estoy intentando hacer un mate"])
 
 [node name="Kid4" parent="stage/gaia colegio(PRUEBA2)" index="34" unique_id=1930868132 instance=ExtResource("7_8kjea")]
 transform = Transform3D(1, 0, 1.8626451e-08, 0, 1, 0, 0, 0, 0.9999996, -2.104023, 0, -5.6058903)
+script = ExtResource("5_6gvjs")
 
-[node name="Raquel" parent="stage/gaia colegio(PRUEBA2)" index="35" unique_id=1481373249 node_paths=PackedStringArray("Player") instance=ExtResource("8_lak3m")]
+[node name="Raquel" parent="stage/gaia colegio(PRUEBA2)" index="35" unique_id=1481373249 instance=ExtResource("8_lak3m")]
 transform = Transform3D(1, 0, 2.2351742e-08, 0, 1, 0, 0, 0, 0.9999995, 3.0410304, 0, 8.073513)
 collision_layer = 0
 collision_mask = 0
 input_ray_pickable = false
-Player = NodePath("../../Player")
+script = ExtResource("10_6gvjs")
 
 [node name="Player" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=1886028462]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.655802, 0, 11.733658)
+
+[node name="NextSceneNode" type="Node" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="2" unique_id=1319219692 node_paths=PackedStringArray("Player", "Speakers")]
+script = ExtResource("11_8kjea")
+Player = NodePath("../Player")
+Speakers = [NodePath("../../Skippy")]
+
+[node name="FirstDecision" type="Control" parent="stage/NextSceneNode" index="0" unique_id=1196319741]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="stage/NextSceneNode/FirstDecision" index="0" unique_id=805600683]
+visible = false
+
+[node name="AcceptButton" type="Button" parent="stage/NextSceneNode/FirstDecision/CanvasLayer" index="0" unique_id=667923206]
+offset_left = 789.0
+offset_top = 313.0
+offset_right = 902.0
+offset_bottom = 344.0
+size_flags_horizontal = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_064te")
+text = "Jugar al juego"
+
+[node name="RejectButton" type="Button" parent="stage/NextSceneNode/FirstDecision/CanvasLayer" index="1" unique_id=1046532072]
+offset_left = 163.0
+offset_top = 312.0
+offset_right = 341.0
+offset_bottom = 343.0
+size_flags_horizontal = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_064te")
+text = "Seguir camino normal"
+
+[node name="FirstDecisionReject" type="Node" parent="stage/NextSceneNode" index="1" unique_id=407018943 node_paths=PackedStringArray("previousOptions", "newOptions", "Player")]
+script = ExtResource("12_ntcol")
+previousOptions = NodePath("../FirstDecision/CanvasLayer")
+newOptions = NodePath("../SecondDecision/CanvasLayer")
+Player = NodePath("../../Player")
+
+[node name="SecondDecision" type="Control" parent="stage/NextSceneNode" index="2" unique_id=315959497]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="stage/NextSceneNode/SecondDecision" index="0" unique_id=1288304886]
+visible = false
+
+[node name="AcceptButton" type="Button" parent="stage/NextSceneNode/SecondDecision/CanvasLayer" index="0" unique_id=1128516643]
+offset_left = 789.0
+offset_top = 313.0
+offset_right = 902.0
+offset_bottom = 344.0
+size_flags_horizontal = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_064te")
+text = "Jugar al juego"
+
+[node name="RejectButton" type="Button" parent="stage/NextSceneNode/SecondDecision/CanvasLayer" index="1" unique_id=1682396416]
+offset_left = 163.0
+offset_top = 312.0
+offset_right = 341.0
+offset_bottom = 343.0
+size_flags_horizontal = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_064te")
+text = "Seguir camino normal"
+
+[node name="SecondDecisionReject" type="Node" parent="stage/NextSceneNode" index="3" unique_id=1615522162 node_paths=PackedStringArray("previousOptions", "newOptions", "Player")]
+script = ExtResource("12_ntcol")
+previousOptions = NodePath("../SecondDecision/CanvasLayer")
+newOptions = NodePath("../ThirdDecision/CanvasLayer")
+Player = NodePath("../../Player")
+
+[node name="ThirdDecision" type="Control" parent="stage/NextSceneNode" index="4" unique_id=658252474]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="stage/NextSceneNode/ThirdDecision" index="0" unique_id=1802491414]
+visible = false
+
+[node name="AcceptButton" type="Button" parent="stage/NextSceneNode/ThirdDecision/CanvasLayer" index="0" unique_id=487512583]
+offset_left = 789.0
+offset_top = 313.0
+offset_right = 902.0
+offset_bottom = 344.0
+size_flags_horizontal = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_064te")
+text = "Jugar al juego"
+
+[node name="RejectButton" type="Button" parent="stage/NextSceneNode/ThirdDecision/CanvasLayer" index="1" unique_id=494831759]
+offset_left = 163.0
+offset_top = 312.0
+offset_right = 341.0
+offset_bottom = 343.0
+size_flags_horizontal = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_064te")
+text = "Seguir camino normal"
+
+[node name="ThirdDecisionReject" type="Node" parent="stage/NextSceneNode" index="5" unique_id=1413205915 node_paths=PackedStringArray("previousOptions", "Player")]
+script = ExtResource("12_ntcol")
+previousOptions = NodePath("../ThirdDecision/CanvasLayer")
+Player = NodePath("../../Player")
+
+[node name="Accept" type="Node" parent="stage/NextSceneNode" index="6" unique_id=1153603687 node_paths=PackedStringArray("Player")]
+script = ExtResource("13_c246d")
+Player = NodePath("../../Player")
+
+[connection signal="next_scene" from="." to="stage/gaia colegio(PRUEBA2)/Raquel" method="_on_next_scene"]
+[connection signal="kid_interacted" from="stage/gaia colegio(PRUEBA2)/Kid1" to="." method="_on_kid_interacted"]
+[connection signal="kid_interacted" from="stage/gaia colegio(PRUEBA2)/Kid2" to="." method="_on_kid_interacted"]
+[connection signal="kid_interacted" from="stage/gaia colegio(PRUEBA2)/Kid3" to="." method="_on_kid_interacted"]
+[connection signal="kid_interacted" from="stage/gaia colegio(PRUEBA2)/Kid4" to="." method="_on_kid_interacted"]
+[connection signal="pressed" from="stage/NextSceneNode/FirstDecision/CanvasLayer/AcceptButton" to="stage/NextSceneNode/Accept" method="_on_accept_help"]
+[connection signal="pressed" from="stage/NextSceneNode/FirstDecision/CanvasLayer/RejectButton" to="stage/NextSceneNode/FirstDecisionReject" method="_on_reject_help"]
+[connection signal="pressed" from="stage/NextSceneNode/SecondDecision/CanvasLayer/AcceptButton" to="stage/NextSceneNode/Accept" method="_on_accept_help"]
+[connection signal="pressed" from="stage/NextSceneNode/SecondDecision/CanvasLayer/RejectButton" to="stage/NextSceneNode/SecondDecisionReject" method="_on_reject_help"]
+[connection signal="pressed" from="stage/NextSceneNode/ThirdDecision/CanvasLayer/AcceptButton" to="stage/NextSceneNode/Accept" method="_on_accept_help"]
+[connection signal="pressed" from="stage/NextSceneNode/ThirdDecision/CanvasLayer/RejectButton" to="stage/NextSceneNode/ThirdDecisionReject" method="_on_reject_help"]

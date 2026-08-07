@@ -10,7 +10,6 @@ signal level_start
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("Level started")
 	super()
 	fade.fade_from_black()
 	level_start.emit()

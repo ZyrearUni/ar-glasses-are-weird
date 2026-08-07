@@ -2,9 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://bqsbcqqthmbyy" path="res://scenes/scenarios/Level_Template.tscn" id="1_arvii"]
 [ext_resource type="PackedScene" uid="uid://lnorndidyek6" path="res://assets/gaia colegio(PRUEBA2).fbx" id="2_eyrer"]
+[ext_resource type="Script" uid="uid://b86p0fqefuk45" path="res://scripts/level4scripts/level_4.gd" id="2_hxsir"]
 
-[node name="World" unique_id=1891132867 instance=ExtResource("1_arvii")]
+[node name="World" unique_id=1891132867 node_paths=PackedStringArray("Player", "Speakers") instance=ExtResource("1_arvii")]
+script = ExtResource("2_hxsir")
 nextLevel = "res://scenes/scenarios/Level_4.tscn"
+Player = NodePath("stage/Player")
+Dialogues = Array[String](["Me he conectado con las gafas de los otros niños para jugar a un juego todos juntos.", "¡Veo que han traído algunos objetos por su parte para ayudarnos!", "Vamos a montar un circuito de obstáculos con ayuda de un poco de imaginación."])
+SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy"])
+Speakers = [NodePath("Skippy")]
+SpeakerAnimations = Array[String](["Hablar", "Hablar", "Hablar"])
 
 [node name="gaia colegio(PRUEBA2)" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=309049541 instance=ExtResource("2_eyrer")]
 transform = Transform3D(0.058248125, 0, -1.0780795, 0, 1.1790056, 0, 1.2135423, 0, 0.051746152, -8.708247, -0.018941045, -1.3960664)
