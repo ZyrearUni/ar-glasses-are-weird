@@ -5,4 +5,5 @@ extends "res://scripts/dialogue.gd"
 func _on_accept_help():
 	for options in optionsMenus:
 		options.hide()
+	DialogueUI.get_node("ContinueButton").disabled = true
 	speak()

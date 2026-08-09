@@ -5,12 +5,15 @@ extends "res://scripts/dialogue.gd"
 
 func _on_reject_help():
 	previousOptions.hide()
+	DialogueUI.get_node("ContinueButton").disabled = false
 	speak()
 
-func _end_dialogue():
+func end_dialogue():
 	if newOptions != null:
 		for speaker in Speakers:
 			speaker.hide()
 		CurrentDialogue = -1
 		DialogueUI.get_node("ContinueButton").disabled = true
 		newOptions.show()
+	else:
+		super()
