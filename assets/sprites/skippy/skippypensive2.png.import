@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0s41bptnamu"
-path="res://.godot/imported/ai_booger.png-5c709cb71457a592f7008ba5ffc43a1e.ctex"
+uid="uid://bgbiw0rmbprur"
+path="res://.godot/imported/skippypensive2.png-99f1722b36fbdec1e5ebe2163a28a432.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ai_booger.png"
-dest_files=["res://.godot/imported/ai_booger.png-5c709cb71457a592f7008ba5ffc43a1e.ctex"]
+source_file="res://assets/sprites/skippy/skippypensive2.png"
+dest_files=["res://.godot/imported/skippypensive2.png-99f1722b36fbdec1e5ebe2163a28a432.ctex"]
 
 [params]
 

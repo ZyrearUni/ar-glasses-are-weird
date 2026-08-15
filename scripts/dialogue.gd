@@ -1,5 +1,7 @@
 extends Node
 
+signal dialogue_ended
+
 @onready var DialogueUI: CanvasLayer = get_tree().current_scene.get_node("DialogueUI/Canvas")
 @onready var SpeakerName: RichTextLabel = get_tree().current_scene.get_node("DialogueUI/Canvas/SpeakerName")
 @onready var DialogueAnimation: AnimationPlayer = get_tree().current_scene.get_node("DialogueUI/Canvas/DialogueAnimation")
@@ -35,6 +37,7 @@ func end_dialogue():
 	CurrentDialogue = -1
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	selectedTalking = false
+	dialogue_ended.emit()
 	
 
 func continue_dialogue() :

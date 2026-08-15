@@ -1,6 +1,67 @@
 [gd_scene format=3 uid="uid://by16siv81es8q"]
 
-[ext_resource type="Texture2D" uid="uid://0s41bptnamu" path="res://assets/sprites/ai_booger.png" id="1_ohgfp"]
+[ext_resource type="Texture2D" uid="uid://0s41bptnamu" path="res://assets/sprites/skippy/ai_booger.png" id="1_ohgfp"]
+[ext_resource type="Texture2D" uid="uid://bu3rqx1wis4hr" path="res://assets/sprites/skippy/skippyhuh.png" id="2_ie6xb"]
+[ext_resource type="Texture2D" uid="uid://dnblbb7gd3oq8" path="res://assets/sprites/skippy/skippyhap.png" id="3_shi0x"]
+[ext_resource type="Texture2D" uid="uid://clmsu13k72bao" path="res://assets/sprites/skippy/skippynervous.png" id="4_je2b4"]
+[ext_resource type="Texture2D" uid="uid://csmjvnfxd1emx" path="res://assets/sprites/skippy/skippypensive.png" id="5_2d81r"]
+[ext_resource type="Texture2D" uid="uid://bgbiw0rmbprur" path="res://assets/sprites/skippy/skippypensive2.png" id="6_ni4vq"]
+
+[sub_resource type="Animation" id="Animation_mn36i"]
+resource_name = "Confuso"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.325, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(450, 950), Vector2(450, 900), Vector2(450, 950)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_ie6xb")]
+}
+
+[sub_resource type="Animation" id="Animation_giuaf"]
+resource_name = "Feliz"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.325, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(450, 950), Vector2(450, 900), Vector2(450, 950)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_shi0x")]
+}
 
 [sub_resource type="Animation" id="Animation_ohgfp"]
 resource_name = "Hablar"
@@ -17,6 +78,102 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(450, 950), Vector2(450, 900), Vector2(450, 950)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0009999999),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_ohgfp")]
+}
+
+[sub_resource type="Animation" id="Animation_8ep7x"]
+resource_name = "Nervioso"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.325, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(450, 950), Vector2(450, 900), Vector2(450, 950)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_je2b4")]
+}
+
+[sub_resource type="Animation" id="Animation_58jr8"]
+resource_name = "Pensativo"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.325, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(450, 950), Vector2(450, 900), Vector2(450, 950)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_2d81r")]
+}
+
+[sub_resource type="Animation" id="Animation_lceig"]
+resource_name = "Pensativo_2"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.325, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(450, 950), Vector2(450, 900), Vector2(450, 950)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_ni4vq")]
+}
 
 [sub_resource type="Animation" id="Animation_rkyfx"]
 length = 0.001
@@ -32,10 +189,27 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(450, 950)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_ohgfp")]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v21x0"]
 _data = {
+&"Confuso": SubResource("Animation_mn36i"),
+&"Feliz": SubResource("Animation_giuaf"),
 &"Hablar": SubResource("Animation_ohgfp"),
+&"Nervioso": SubResource("Animation_8ep7x"),
+&"Pensativo": SubResource("Animation_58jr8"),
+&"Pensativo_2": SubResource("Animation_lceig"),
 &"RESET": SubResource("Animation_rkyfx")
 }
 

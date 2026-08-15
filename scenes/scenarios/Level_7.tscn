@@ -2,6 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://bqsbcqqthmbyy" path="res://scenes/scenarios/Level_Template.tscn" id="1_sacvi"]
 [ext_resource type="PackedScene" uid="uid://5rfantandgkt" path="res://scenes/models/uploads_files_4359726_city+2.blend" id="2_o1idp"]
+[ext_resource type="Script" uid="uid://d1gdlu6ysfppm" path="res://scripts/level7scripts/level_7.gd" id="2_pfjp1"]
+[ext_resource type="Script" uid="uid://vxupi1ew0hxa" path="res://scripts/level7scripts/cutscene_area.gd" id="4_7lg7l"]
+[ext_resource type="Script" uid="uid://cj50m4a61k0cw" path="res://scripts/dialogue.gd" id="5_18y80"]
+[ext_resource type="Script" uid="uid://bho1qky47s8jg" path="res://scripts/level7scripts/skippy_turns_off.gd" id="6_7lg7l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sacvi"]
 size = Vector3(1, 1, 7.1759033)
@@ -12,7 +16,11 @@ size = Vector3(2.3275757, 1, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ne72m"]
 size = Vector3(1, 1, 1.7596436)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_kmvuv"]
+size = Vector3(0.611084, 1.4364014, 2.320221)
+
 [node name="World" unique_id=1891132867 instance=ExtResource("1_sacvi")]
+script = ExtResource("2_pfjp1")
 nextLevel = "res://scenes/scenarios/Level_8.tscn"
 
 [node name="Player" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="0" unique_id=1886028462]
@@ -60,3 +68,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.177862, 4.610692, -5.69096
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.37982184)
 shape = SubResource("BoxShape3D_ne72m")
 debug_color = Color(0, 0, 0, 1)
+
+[node name="CutsceneArea" type="Area3D" parent="stage/City" index="1301" unique_id=854299912]
+transform = Transform3D(-4.377216e-08, 0, 1, 0, 1, 0, -1, 0, -4.377216e-08, 23.022417, 4.5614853, -10.055644)
+script = ExtResource("4_7lg7l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/City/CutsceneArea" index="0" unique_id=1098834155]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19445801, 0.21820071, 0.017105281)
+shape = SubResource("BoxShape3D_kmvuv")
+debug_color = Color(0.94902486, 0.86486775, 1.1551381e-06, 1)
+
+[node name="Option0" type="Node" parent="stage/City/CutsceneArea" index="1" unique_id=2100032352 node_paths=PackedStringArray("Player", "Speakers")]
+script = ExtResource("5_18y80")
+Player = NodePath("../../../Player")
+Dialogues = Array[String](["¡Qué día más productivo!", "Estoy deseando llegar ya a casa.", "...", "¿Sigues con preocupación sobre tu nueva amiga?", "Seguro que estará bien, superestrella. No tienes por qué preocuparte.", "¡Venga, vamos a comer!"])
+SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy", "Skippy", "Skippy", "Skippy"])
+Speakers = [NodePath("../../../../Skippy")]
+
+[node name="Option1" type="Node" parent="stage/City/CutsceneArea" index="2" unique_id=1332933970 node_paths=PackedStringArray("Player", "Speakers")]
+script = ExtResource("5_18y80")
+Player = NodePath("../../../Player")
+Dialogues = Array[String](["Menudo día, ¿no crees?", "Espero que tu nueva amiga esté bien. La situación era algo seria.", "¡Bueno! Hicimos lo que pudimos, y eso es lo que importa. ¿Verdad, superestrella?", "Y en cualquier caso, si alguien nos pregunta tengo una grabación de todo.", "Y si no, ¡tu madre se pueden encargar!", "...", "¿Por qué pones esa cara, superestrella?", "Bueno, no será nada grave. ¡Andando!"])
+SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy", "Skippy", "Skippy", "Skippy", "Skippy", "Skippy"])
+Speakers = [NodePath("../../../../Skippy")]
+
+[node name="Option2" type="Node" parent="stage/City/CutsceneArea" index="3" unique_id=344858681 node_paths=PackedStringArray("Player", "Speakers")]
+script = ExtResource("6_7lg7l")
+Player = NodePath("../../../Player")
+Dialogues = Array[String](["¡Hola, superestrella!", "Siento mucho contarte esto así de repente, pero...", "Voy a tener que desactivarme de manera temporal.", "Tu nueva amiga, Raquel... La policía querrá los datos intactos, y no puedo correr el riesgo de sobreescribirlos con más grabaciones y recopilación de datos.", "¡Pero tú no te preocupes! Estás cerca de casa, y cuando llegues tus padres lo tendrán todo controlado. ¿De acuerdo?", "...", "Bueno... Esto es ya una despedida. Mucha suerte, mi superestrella."])
+SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy", "Skippy", "Skippy", "Skippy", "Skippy"])
+Speakers = [NodePath("../../../../Skippy")]
+
+[connection signal="body_entered" from="stage/City/CutsceneArea" to="stage/City/CutsceneArea" method="_on_body_entered"]
+[connection signal="dialogue_ended" from="stage/City/CutsceneArea/Option0" to="." method="on_option_end"]
+[connection signal="dialogue_ended" from="stage/City/CutsceneArea/Option1" to="." method="on_option_end"]
+[connection signal="dialogue_ended" from="stage/City/CutsceneArea/Option2" to="." method="on_option_end"]
