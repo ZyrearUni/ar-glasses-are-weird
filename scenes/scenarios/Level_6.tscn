@@ -2,8 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://bqsbcqqthmbyy" path="res://scenes/scenarios/Level_Template.tscn" id="1_jrcfg"]
 [ext_resource type="PackedScene" uid="uid://5rfantandgkt" path="res://scenes/models/uploads_files_4359726_city+2.blend" id="2_3ebp8"]
+[ext_resource type="Script" uid="uid://bsb3f8xvbsguh" path="res://scripts/level6scripts/level_6.gd" id="2_s034s"]
 [ext_resource type="Script" uid="uid://bx243sjfvnp2r" path="res://scripts/level6scripts/cutscene.gd" id="3_aylhr"]
-[ext_resource type="Texture2D" uid="uid://b8g1yws3aoex7" path="res://assets/textures/cahara_zai.png" id="4_3r3qb"]
+[ext_resource type="Script" uid="uid://cmmk8qcr480ft" path="res://scripts/level6scripts/tell.gd" id="4_0kk5n"]
+[ext_resource type="Script" uid="uid://dq1qtaedma31o" path="res://scripts/level6scripts/dont_tell.gd" id="5_s034s"]
+[ext_resource type="Texture2D" uid="uid://bwu1408lurtb" path="res://assets/sprites/Raquel/raquel_kidnap.png" id="6_2ew3b"]
+[ext_resource type="Script" uid="uid://rn16smm60aqq" path="res://scripts/level6scripts/call_police.gd" id="6_dse72"]
+[ext_resource type="Script" uid="uid://cko3o70xb66wf" path="res://scripts/level6scripts/suscription_choice.gd" id="7_2vpde"]
+[ext_resource type="Script" uid="uid://bkj7h4gm47m3g" path="res://scripts/level6scripts/tell_teacher.gd" id="7_x50ou"]
+[ext_resource type="Script" uid="uid://cym4vvyq1bap7" path="res://scripts/level6scripts/intervene.gd" id="8_2vpde"]
+[ext_resource type="Script" uid="uid://cj50m4a61k0cw" path="res://scripts/dialogue.gd" id="8_x50ou"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jrcfg"]
 size = Vector3(8.321873, 1, 14.5774555)
@@ -13,6 +21,9 @@ size = Vector3(12.611923, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aylhr"]
 size = Vector3(0.611084, 1.4364014, 2.320221)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01jnc"]
+bg_color = Color(0.50853425, 0.33932856, 0.03818896, 1)
 
 [sub_resource type="Animation" id="Animation_0kk5n"]
 length = 0.001
@@ -26,7 +37,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(29.940233, 4.3287888, -11.9406805)]
+"values": [Vector3(29.94, 4.286, -11.941)]
 }
 
 [sub_resource type="Animation" id="Animation_s034s"]
@@ -42,7 +53,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 10),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(29.940233, 4.3287888, -11.9406805), Vector3(29.940233, 4.3287888, -8.646689)]
+"values": [Vector3(29.94, 4.286, -11.941), Vector3(29.94, 4.286, -8.647)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2ew3b"]
@@ -52,6 +63,7 @@ _data = {
 }
 
 [node name="World" unique_id=1891132867 instance=ExtResource("1_jrcfg")]
+script = ExtResource("2_s034s")
 nextLevel = "res://scenes/scenarios/Level_7.tscn"
 
 [node name="City" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=1609022081 instance=ExtResource("2_3ebp8")]
@@ -86,12 +98,175 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19445801, 0.21820071, 0.017
 shape = SubResource("BoxShape3D_aylhr")
 debug_color = Color(0.94902486, 0.86486775, 1.1551381e-06, 1)
 
+[node name="TellSkippy" type="Control" parent="stage/City/CutsceneArea" index="1" unique_id=934989968]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="stage/City/CutsceneArea/TellSkippy" index="0" unique_id=810140976]
+visible = false
+
+[node name="AcceptButton" type="Button" parent="stage/City/CutsceneArea/TellSkippy/CanvasLayer" index="0" unique_id=1255648419]
+offset_left = 1863.0
+offset_top = 668.0
+offset_right = 2125.0
+offset_bottom = 723.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_01jnc")
+text = "\"¡Están secuestrándola!\""
+
+[node name="RejectButton" type="Button" parent="stage/City/CutsceneArea/TellSkippy/CanvasLayer" index="1" unique_id=594047826]
+offset_left = 321.0
+offset_top = 657.0
+offset_right = 745.0
+offset_bottom = 712.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_01jnc")
+text = "\"No es nada.\""
+
+[node name="Tell" type="Node" parent="stage/City/CutsceneArea" index="2" unique_id=437156838 node_paths=PackedStringArray("Player", "Speakers")]
+script = ExtResource("4_0kk5n")
+Player = NodePath("../../../Player")
+Dialogues = Array[String](["Hm, ya veo. Es posible que tu nueva amiga esté en peligro, ¿correcto?", "Veamos qué podemos hacer en este tipo de situaciones.", "\"Si verdaderamente crees que tu nueva amiga está siendo secuestrada por alguien que está fingiendo ser un familiar suyo, estas son tus opciones:\""])
+SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy"])
+Speakers = [NodePath("../../../../Skippy")]
+
+[node name="WhatToDo" type="Control" parent="stage/City/CutsceneArea/Tell" index="0" unique_id=1052412930]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="stage/City/CutsceneArea/Tell/WhatToDo" index="0" unique_id=1278158313]
+visible = false
+
+[node name="CallPolice" type="Button" parent="stage/City/CutsceneArea/Tell/WhatToDo/CanvasLayer" index="0" unique_id=1191967273]
+offset_left = 1863.0
+offset_top = 668.0
+offset_right = 2125.0
+offset_bottom = 723.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_01jnc")
+text = "Llamar a la policía"
+
+[node name="TellTeacher" type="Button" parent="stage/City/CutsceneArea/Tell/WhatToDo/CanvasLayer" index="1" unique_id=1795070669]
+offset_left = 321.0
+offset_top = 657.0
+offset_right = 745.0
+offset_bottom = 712.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_01jnc")
+text = "Contarle a la profesora"
+
+[node name="Intervene" type="Button" parent="stage/City/CutsceneArea/Tell/WhatToDo/CanvasLayer" index="2" unique_id=913696982]
+offset_left = 1060.0
+offset_top = 454.0
+offset_right = 1484.0
+offset_bottom = 509.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_01jnc")
+text = "Intervenir"
+
+[node name="CallPolice" type="Node" parent="stage/City/CutsceneArea/Tell" index="1" unique_id=1567921506 node_paths=PackedStringArray("Player", "Speakers")]
+script = ExtResource("6_dse72")
+Player = NodePath("../../../../Player")
+Dialogues = Array[String](["¡Claro! Me pongo a ello ahora mismo.", "...", "Para poder hacer llamadas necesitas una subscripción. Ya tengo los datos de pago de tus padres, ¿quieres que la active?"])
+SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy"])
+Speakers = [NodePath("../../../../../Skippy")]
+
+[node name="Suscription" type="Control" parent="stage/City/CutsceneArea/Tell/CallPolice" index="0" unique_id=323337576]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="stage/City/CutsceneArea/Tell/CallPolice/Suscription" index="0" unique_id=1742380723]
+visible = false
+
+[node name="AcceptButton" type="Button" parent="stage/City/CutsceneArea/Tell/CallPolice/Suscription/CanvasLayer" index="0" unique_id=1677615201]
+offset_left = 1863.0
+offset_top = 668.0
+offset_right = 2125.0
+offset_bottom = 723.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_01jnc")
+text = "Activar"
+
+[node name="RejectButton" type="Button" parent="stage/City/CutsceneArea/Tell/CallPolice/Suscription/CanvasLayer" index="1" unique_id=2111688899]
+offset_left = 321.0
+offset_top = 657.0
+offset_right = 745.0
+offset_bottom = 712.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_01jnc")
+text = "No activar"
+
+[node name="ActivateSuscription" type="Node" parent="stage/City/CutsceneArea/Tell/CallPolice" index="1" unique_id=606040247 node_paths=PackedStringArray("Player", "Speakers")]
+script = ExtResource("7_2vpde")
+Player = NodePath("../../../../../Player")
+Dialogues = Array[String](["¡Perfecto! Suscripción activada.", "Ya he notificado a las autoridades y he enviado una grabación de los hechos, esto estará resuelto en un santiamén."])
+SpeakerNames = Array[String](["Skippy", "Skippy"])
+Speakers = [NodePath("../../../../../../Skippy")]
+
+[node name="DoNotActivateSuscription" type="Node" parent="stage/City/CutsceneArea/Tell/CallPolice" index="2" unique_id=1756235519 node_paths=PackedStringArray("Player", "Speakers")]
+script = ExtResource("7_2vpde")
+Player = NodePath("../../../../../Player")
+Dialogues = Array[String](["Comprendo, no te preocupes."])
+SpeakerNames = Array[String](["Skippy"])
+Speakers = [NodePath("../../../../../../Skippy")]
+
+[node name="TellTeacher" type="Node" parent="stage/City/CutsceneArea/Tell" index="2" unique_id=364098485 node_paths=PackedStringArray("Player")]
+script = ExtResource("7_x50ou")
+Player = NodePath("../../../../Player")
+Dialogues = Array[String](["¡Vamos, antes de que se vayan! ¡Todavía pueden ayudarnos!"])
+SpeakerNames = Array[String](["Skippy"])
+
+[node name="TeacherInteraction" type="Node" parent="stage/City/CutsceneArea/Tell/TellTeacher" index="0" unique_id=1095072559 node_paths=PackedStringArray("Player")]
+script = ExtResource("8_x50ou")
+Player = NodePath("../../../../../Player")
+Dialogues = Array[String](["Hm... De acuerdo. No te preocupes, me encargaré de esto."])
+SpeakerNames = Array[String](["Profesora"])
+
+[node name="Intervene" type="Node" parent="stage/City/CutsceneArea/Tell" index="3" unique_id=1640215845 node_paths=PackedStringArray("Player", "Speakers")]
+script = ExtResource("8_2vpde")
+Player = NodePath("../../../../Player")
+Dialogues = Array[String](["¡De acuerdo! ¡Vamos a salvarla!"])
+SpeakerNames = Array[String](["Skippy"])
+Speakers = [NodePath("../../../../../Skippy")]
+
+[node name="DontTell" type="Node" parent="stage/City/CutsceneArea" index="3" unique_id=40795269 node_paths=PackedStringArray("Player", "Speakers")]
+script = ExtResource("5_s034s")
+Player = NodePath("../../../Player")
+Dialogues = Array[String](["¿Entonces por qué te estresas tanto?", "¡Venga, vamos a casa ya, que tu madre te está esperando!"])
+SpeakerNames = Array[String](["Skippy", "Skippy"])
+Speakers = [NodePath("../../../../Skippy")]
+
 [node name="RaquelKidnap" type="Sprite3D" parent="stage/City" index="1299" unique_id=2047344304]
-transform = Transform3D(0.020000001, 0, 0, 0, 0.020000001, 0, 0, 0, 0.020000001, 29.940233, 4.3287888, -11.9406805)
+transform = Transform3D(0.010000001, 0, 0, 0, 0.010000001, 0, 0, 0, 0.010000001, 29.94, 4.286, -11.941)
 billboard = 2
-texture = ExtResource("4_3r3qb")
+texture = ExtResource("6_2ew3b")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="stage/City/RaquelKidnap" index="0" unique_id=1486152097]
 libraries/ = SubResource("AnimationLibrary_2ew3b")
 
 [connection signal="body_entered" from="stage/City/CutsceneArea" to="stage/City/CutsceneArea" method="init_dialogue"]
+[connection signal="pressed" from="stage/City/CutsceneArea/TellSkippy/CanvasLayer/AcceptButton" to="stage/City/CutsceneArea/Tell" method="_tell_skippy"]
+[connection signal="pressed" from="stage/City/CutsceneArea/TellSkippy/CanvasLayer/RejectButton" to="stage/City/CutsceneArea/DontTell" method="_dont_tell_skippy"]
+[connection signal="pressed" from="stage/City/CutsceneArea/Tell/WhatToDo/CanvasLayer/CallPolice" to="stage/City/CutsceneArea/Tell/CallPolice" method="_on_call_police_pressed"]
+[connection signal="pressed" from="stage/City/CutsceneArea/Tell/WhatToDo/CanvasLayer/TellTeacher" to="stage/City/CutsceneArea/Tell/TellTeacher" method="_on_tell_teacher"]
+[connection signal="pressed" from="stage/City/CutsceneArea/Tell/WhatToDo/CanvasLayer/Intervene" to="stage/City/CutsceneArea/Tell/Intervene" method="_on_intervene"]
+[connection signal="pressed" from="stage/City/CutsceneArea/Tell/CallPolice/Suscription/CanvasLayer/AcceptButton" to="stage/City/CutsceneArea/Tell/CallPolice/ActivateSuscription" method="_on_option_selected"]
+[connection signal="pressed" from="stage/City/CutsceneArea/Tell/CallPolice/Suscription/CanvasLayer/RejectButton" to="stage/City/CutsceneArea/Tell/CallPolice/DoNotActivateSuscription" method="_on_option_selected"]
+[connection signal="dialogue_ended" from="stage/City/CutsceneArea/Tell/CallPolice/ActivateSuscription" to="." method="_on_activate_suscription_dialogue_ended"]
+[connection signal="dialogue_ended" from="stage/City/CutsceneArea/Tell/CallPolice/DoNotActivateSuscription" to="." method="_on_do_not_activate_suscription_dialogue_ended"]
+[connection signal="dialogue_ended" from="stage/City/CutsceneArea/Tell/TellTeacher" to="." method="_on_tell_teacher_dialogue_ended"]
+[connection signal="dialogue_ended" from="stage/City/CutsceneArea/Tell/Intervene" to="." method="_on_intervene_dialogue_ended"]
+[connection signal="dialogue_ended" from="stage/City/CutsceneArea/DontTell" to="." method="_on_dont_tell_dialogue_ended"]

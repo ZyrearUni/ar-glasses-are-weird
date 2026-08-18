@@ -144,20 +144,22 @@ offset_bottom = 40.0
 visible = false
 
 [node name="AcceptButton" type="Button" parent="DecisionMenu/CanvasLayer" index="0" unique_id=2007996036]
-offset_left = 789.0
-offset_top = 313.0
-offset_right = 902.0
-offset_bottom = 344.0
+offset_left = 1863.0
+offset_top = 668.0
+offset_right = 2125.0
+offset_bottom = 723.0
 size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_jd5u1")
 text = "Jugar al juego"
 
 [node name="RejectButton" type="Button" parent="DecisionMenu/CanvasLayer" index="1" unique_id=1796982401]
-offset_left = 163.0
-offset_top = 312.0
-offset_right = 341.0
-offset_bottom = 343.0
+offset_left = 321.0
+offset_top = 657.0
+offset_right = 745.0
+offset_bottom = 712.0
 size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_jd5u1")
 text = "Seguir camino normal"
 

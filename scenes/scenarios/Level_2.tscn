@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://f0dtl33cp2ax" path="res://scenes/models/characters/kid_4.tscn" id="7_ff76c"]
 [ext_resource type="PackedScene" uid="uid://dxj2a7di8ucv5" path="res://scenes/models/characters/raquel.tscn" id="8_yaldh"]
 [ext_resource type="PackedScene" uid="uid://bnn1eacee4ren" path="res://scenes/models/characters/teacher.tscn" id="9_2ucyv"]
+[ext_resource type="Script" uid="uid://dbfxna35neskq" path="res://scripts/level2scripts/offer_selection.gd" id="12_25b0o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q7k1q"]
 size = Vector3(1.2163086, 2.2006226, 1.5031738)
@@ -20,6 +21,9 @@ size = Vector3(1.2163086, 2.2006226, 1.5031738)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_25b0o"]
 transparency = 1
 albedo_color = Color(0.7529412, 0.59607846, 0.12156863, 0.3529412)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jx5dc"]
+bg_color = Color(0.50853425, 0.33932856, 0.03818896, 1)
 
 [node name="World" unique_id=1891132867 instance=ExtResource("1_vap6u")]
 script = ExtResource("2_n0fk5")
@@ -91,8 +95,8 @@ shape = SubResource("BoxShape3D_q7k1q")
 debug_color = Color(0.7846569, 0.6260768, 0, 1)
 script = ExtResource("5_f4twp")
 Player = NodePath("../../Player")
-Dialogues = Array[String](["Just chillin"])
-SpeakerNames = Array[String](["Test"])
+Dialogues = Array[String](["¡Hey!", "Estaba viendo tu perfil y me he percatado de que sueles tener problemas con esta asignatura.", "¿Quieres que te eche una mano para que lo puedas entender mejor?"])
+SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy"])
 Speakers = [NodePath("../../../Skippy")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="stage/SitDownArea/CollisionShape3D" index="0" unique_id=1950586876]
@@ -100,4 +104,48 @@ transform = Transform3D(1, 0, 0, 0, 2.3000002, 0, 0, 0, 1.55, 0, 0, 0)
 mesh = SubResource("BoxMesh_qqupq")
 surface_material_override/0 = SubResource("StandardMaterial3D_25b0o")
 
+[node name="DecisionMenu" type="Control" parent="stage/SitDownArea" index="1" unique_id=1184592047]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 2561.0
+offset_bottom = 1442.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="stage/SitDownArea/DecisionMenu" index="0" unique_id=1651924986]
+
+[node name="AcceptButton" type="Button" parent="stage/SitDownArea/DecisionMenu/CanvasLayer" index="0" unique_id=1888314283]
+offset_left = 1736.0
+offset_top = 662.0
+offset_right = 2016.0
+offset_bottom = 717.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_jx5dc")
+text = "Aceptar ayuda"
+
+[node name="RejectButton" type="Button" parent="stage/SitDownArea/DecisionMenu/CanvasLayer" index="1" unique_id=475864086]
+offset_left = 480.0
+offset_top = 655.0
+offset_right = 786.0
+offset_bottom = 710.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_jx5dc")
+text = "Rechazar ayuda"
+
+[node name="AcceptOffer" type="Node" parent="stage/SitDownArea/DecisionMenu" index="1" unique_id=849959792 node_paths=PackedStringArray("Player", "Speakers")]
+script = ExtResource("12_25b0o")
+Player = NodePath("../../../Player")
+Dialogues = Array[String](["¡Perfecto entonces! ¡Manos a la obra!"])
+SpeakerNames = Array[String](["Skippy"])
+Speakers = [NodePath("../../../../Skippy")]
+
+[node name="RejectOffer" type="Node" parent="stage/SitDownArea/DecisionMenu" index="2" unique_id=323758029 node_paths=PackedStringArray("Player", "Speakers")]
+script = ExtResource("12_25b0o")
+Player = NodePath("../../../Player")
+Dialogues = Array[String](["Oh... Entiendo..."])
+SpeakerNames = Array[String](["Skippy"])
+Speakers = [NodePath("../../../../Skippy")]
+
 [connection signal="body_entered" from="stage/SitDownArea" to="stage/SitDownArea/CollisionShape3D" method="_on_sit_down_area_body_entered"]
+[connection signal="pressed" from="stage/SitDownArea/DecisionMenu/CanvasLayer/AcceptButton" to="stage/SitDownArea/DecisionMenu/AcceptOffer" method="_on_option_selected"]
+[connection signal="pressed" from="stage/SitDownArea/DecisionMenu/CanvasLayer/RejectButton" to="stage/SitDownArea/DecisionMenu/RejectOffer" method="_on_option_selected"]
