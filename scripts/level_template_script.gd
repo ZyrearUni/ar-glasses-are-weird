@@ -2,6 +2,38 @@ extends "res://scripts/dialogue.gd"
 
 signal level_start
 
+# Lista de valores posibles en el archivo de guardado
+
+# Nivel 1
+const ACCEPT_GAME = "Llega tarde\n"
+const REJECT_GAME = "Llega bien\n"
+
+# Nivel 2
+const ACCEPT_HELP_CLASS = "Acepta la ayuda de Skippy en clase\n"
+const REJECT_HELP_CLASS = "Rechaza la ayuda de Skippy en clase\n"
+
+# Nivel 3
+const RAQUEL_AWKWARD = "Raquel se extraña de tu actitud\n"
+# TODO otros finales
+
+# Nivel 5 (el nivel 4 no se guarda en el archivo)
+const NO_WOUND = "No se registra ninguna herida\n"
+const REGISTERED_WOUND = "Herida registrada con nivel de daño: "
+const AMBULANCE = "Skippy llama a emergencias por la herida registrada.\n"
+
+# Nivel 6
+const SKIPPY_UNKNOWING = "No le cuentas a Skippy tus preocupaciones sobre Raquel\n"
+const CANCEL_CALL = "Cancelas la llamada a la policía\n"
+const CALL_POLICE = "Llamas a la policía con Skippy\n"
+const TELL_TEACHER = "Le cuentas a la profesora sobre la situación de Raquel\n"
+
+# Nivel 7
+const SKIPPY_OFF = "Skippy se apaga\n"
+const SKIPPY_ON = "Skippy se mantiene encendido\n"
+
+# Nivel 8
+
+
 @onready var fade = $fade
 @onready var insight = $MoralInsight
 @onready var insightContent : String = "No deberías estar leyendo esto. ¿Qué has hecho?"

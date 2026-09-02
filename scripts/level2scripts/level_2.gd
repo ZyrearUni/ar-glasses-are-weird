@@ -1,7 +1,6 @@
 extends "res://scripts/level_template_script.gd"
 
 var result
-const REJECT_GAME = "Llega bien\n"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

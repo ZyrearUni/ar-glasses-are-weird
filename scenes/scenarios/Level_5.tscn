@@ -26,6 +26,7 @@ Player = NodePath("stage/Player")
 Dialogues = Array[String](["Te has dado un buen golpe, superestrella. He tenido que desconectarme del resto de niños para que no se preocupasen.", "Voy a hacerte algunas preguntas para determinar tu estado físico, ¿vale? No tardaré mucho.", "En una escala del 1 al 10, ¿cómo describirías tu dolor actual?"])
 SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy"])
 Speakers = [NodePath("Skippy")]
+SpeakerAnimations = null
 
 [node name="gaia colegio(PRUEBA2)" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=309049541 instance=ExtResource("2_llswa")]
 transform = Transform3D(1.2135422, 0, 0.051746197, 0, 1.1790056, 0, -0.058248177, 0, 1.0780795, 0.9030113, -0.018941045, -11.72249)

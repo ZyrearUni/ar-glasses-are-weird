@@ -12,10 +12,10 @@ enum {
 func _ready() -> void:
 	super()
 	var data = load_game_data()
-	if data.contains("No le cuentas a Skippy sobre Raquel"):
+	if data.contains(SKIPPY_UNKNOWING):
 		cutscene.set_option(NO_CONTAR)
 		selectedOption = NO_CONTAR
-	elif data.contains("Cancelas la llamada a la policía"):
+	elif data.contains(CANCEL_CALL):
 		cutscene.set_option(CANCELAR_LLAMADA)
 		selectedOption = CANCELAR_LLAMADA
 	else:
@@ -26,11 +26,10 @@ func _ready() -> void:
 func on_option_end():
 	# TODO Modificar la moraleja al final del escenario
 	match selectedOption:
-		NO_CONTAR:
+		NO_CONTAR || CANCELAR_LLAMADA:
 			print("No contó una mierda")
-		CANCELAR_LLAMADA:
-			print("Canceló la llamada el invesil")
+			save_game_data(SKIPPY_ON)
 		_:
 			print("No sé, todo lo demás")
-	
+			save_game_data(SKIPPY_OFF)
 	finish_level()
