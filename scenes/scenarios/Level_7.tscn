@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bmn231bj5adyp"]
 
 [ext_resource type="PackedScene" uid="uid://bqsbcqqthmbyy" path="res://scenes/scenarios/Level_Template.tscn" id="1_sacvi"]
+[ext_resource type="PackedScene" uid="uid://5rfantandgkt" path="res://scenes/models/uploads_files_4359726_city+2.blend" id="2_o1idp"]
 [ext_resource type="Script" uid="uid://d1gdlu6ysfppm" path="res://scripts/level7scripts/level_7.gd" id="2_pfjp1"]
-[ext_resource type="PackedScene" uid="uid://ddkeccmv8ujx0" path="res://assets/city_model.glb" id="3_7lg7l"]
 [ext_resource type="Script" uid="uid://vxupi1ew0hxa" path="res://scripts/level7scripts/cutscene_area.gd" id="4_7lg7l"]
 [ext_resource type="Script" uid="uid://cj50m4a61k0cw" path="res://scripts/dialogue.gd" id="5_18y80"]
 [ext_resource type="Script" uid="uid://bho1qky47s8jg" path="res://scripts/level7scripts/skippy_turns_off.gd" id="6_7lg7l"]
@@ -26,51 +26,51 @@ nextLevel = "res://scenes/scenarios/Level_8.tscn"
 [node name="Player" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="0" unique_id=1886028462]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.577391)
 
-[node name="City" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=1989188433 instance=ExtResource("3_7lg7l")]
+[node name="City" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=1609022081 instance=ExtResource("2_o1idp")]
 transform = Transform3D(-10.999936, 0, -0.037628092, 0, 11, 0, 0.037628092, 0, -10.999936, 251.41159, -45.503155, -134.13504)
 
-[node name="WallGasStation" type="StaticBody3D" parent="stage/City" index="1294" unique_id=1429621797]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.116846, 4.6438675, -5.6330304)
+[node name="WallGasStation" type="StaticBody3D" parent="stage/City" index="1296" unique_id=1429621797]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.116844, 4.6438675, -5.6330304)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="stage/City/WallGasStation" index="0" unique_id=1292431612]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028544545, 0, -3.0769086)
 shape = SubResource("BoxShape3D_sacvi")
 debug_color = Color(0, 0, 0, 1)
 
-[node name="WallOppositeGas" type="StaticBody3D" parent="stage/City" index="1295" unique_id=512903255]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.02874, 4.6438675, -5.62649)
+[node name="WallOppositeGas" type="StaticBody3D" parent="stage/City" index="1297" unique_id=512903255]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.028738, 4.6438675, -5.62649)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="stage/City/WallOppositeGas" index="0" unique_id=94857651]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028544545, 0, -3.0769086)
 shape = SubResource("BoxShape3D_sacvi")
 debug_color = Color(0, 0, 0, 1)
 
-[node name="WallBack" type="StaticBody3D" parent="stage/City" index="1296" unique_id=1808792861]
-transform = Transform3D(1.5259494, 0, 0, 0, 1, 0, 0, 0, 1, 23.674099, 4.639717, -4.6246724)
+[node name="WallBack" type="StaticBody3D" parent="stage/City" index="1298" unique_id=1808792861]
+transform = Transform3D(1.5259494, 0, 0, 0, 1, 0, 0, 0, 1, 23.674095, 4.639717, -4.624672)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="stage/City/WallBack" index="0" unique_id=1256933804]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20199585, 0, 0)
 shape = SubResource("BoxShape3D_o1idp")
 debug_color = Color(0, 0, 0, 1)
 
-[node name="WallFront" type="StaticBody3D" parent="stage/City" index="1297" unique_id=143963789]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.047295, 4.639717, -12.328524)
+[node name="WallFront" type="StaticBody3D" parent="stage/City" index="1299" unique_id=143963789]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.047293, 4.639717, -12.328524)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="stage/City/WallFront" index="0" unique_id=1027182806]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20199585, 0, 0)
 shape = SubResource("BoxShape3D_o1idp")
 debug_color = Color(0, 0, 0, 1)
 
-[node name="WallBank" type="StaticBody3D" parent="stage/City" index="1298" unique_id=177909510]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.177862, 4.610692, -5.690963)
+[node name="WallBank" type="StaticBody3D" parent="stage/City" index="1300" unique_id=177909510]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.177862, 4.610692, -5.6909633)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="stage/City/WallBank" index="0" unique_id=1796836068]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.37982184)
 shape = SubResource("BoxShape3D_ne72m")
 debug_color = Color(0, 0, 0, 1)
 
-[node name="CutsceneArea" type="Area3D" parent="stage/City" index="1299" unique_id=854299912]
-transform = Transform3D(-4.377216e-08, 0, 1, 0, 1, 0, -1, 0, -4.377216e-08, 23.022419, 4.5614853, -10.055644)
+[node name="CutsceneArea" type="Area3D" parent="stage/City" index="1301" unique_id=854299912]
+transform = Transform3D(-4.377216e-08, 0, 1, 0, 1, 0, -1, 0, -4.377216e-08, 23.022417, 4.5614853, -10.055644)
 script = ExtResource("4_7lg7l")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="stage/City/CutsceneArea" index="0" unique_id=1098834155]

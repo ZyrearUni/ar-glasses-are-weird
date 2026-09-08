@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bqsbcqqthmbyy" path="res://scenes/scenarios/Level_Template.tscn" id="1_buad1"]
 [ext_resource type="Script" uid="uid://do0pfs5p5k0js" path="res://scripts/level3scripts/level_3.gd" id="2_pmmkd"]
-[ext_resource type="PackedScene" uid="uid://lnorndidyek6" path="res://assets/Schoolyard.fbx" id="3_1678m"]
+[ext_resource type="PackedScene" uid="uid://lnorndidyek6" path="res://assets/gaia colegio(PRUEBA2).fbx" id="3_1678m"]
 [ext_resource type="PackedScene" uid="uid://bhb823qu32vut" path="res://scenes/models/characters/kid_1.tscn" id="4_q5lk6"]
 [ext_resource type="Script" uid="uid://c56mbl8w3vqdc" path="res://scripts/level3scripts/initial_interactions.gd" id="5_6gvjs"]
 [ext_resource type="PackedScene" uid="uid://kijayuvj0e3v" path="res://scenes/models/characters/kid_2.tscn" id="5_8p0ku"]
@@ -21,27 +21,27 @@ bg_color = Color(0.50853425, 0.33932856, 0.03818896, 1)
 script = ExtResource("2_pmmkd")
 nextLevel = "res://scenes/scenarios/Level_4.tscn"
 
-[node name="Schoolyard" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="0" unique_id=1329867695 instance=ExtResource("3_1678m")]
+[node name="gaia colegio(PRUEBA2)" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="0" unique_id=309049541 instance=ExtResource("3_1678m")]
 transform = Transform3D(0.058248125, 0, -1.0780795, 0, 1.1790056, 0, 1.2135423, 0, 0.051746152, -9.307877, -0.018941045, 6.1162643)
 
-[node name="Kid1" parent="stage/Schoolyard" index="31" unique_id=759215246 instance=ExtResource("4_q5lk6")]
+[node name="Kid1" parent="stage/gaia colegio(PRUEBA2)" index="31" unique_id=759215246 instance=ExtResource("4_q5lk6")]
 transform = Transform3D(1, 0, 2.2351742e-08, 0, 1, 0, 0, 0, 0.9999995, 0.28628588, -0.067211576, -4.1850033)
 script = ExtResource("5_6gvjs")
 
-[node name="Kid2" parent="stage/Schoolyard" index="32" unique_id=1956519799 instance=ExtResource("5_8p0ku")]
+[node name="Kid2" parent="stage/gaia colegio(PRUEBA2)" index="32" unique_id=1956519799 instance=ExtResource("5_8p0ku")]
 transform = Transform3D(1, 0, 2.2351742e-08, 0, 1, 0, 0, 0, 0.9999995, 1.9132543, 0, -5.373065)
 script = ExtResource("5_6gvjs")
 
-[node name="Kid3" parent="stage/Schoolyard" index="33" unique_id=151720113 instance=ExtResource("6_6gvjs")]
+[node name="Kid3" parent="stage/gaia colegio(PRUEBA2)" index="33" unique_id=151720113 instance=ExtResource("6_6gvjs")]
 transform = Transform3D(1, 0, 2.2351742e-08, 0, 1, 0, 0, 0, 0.9999995, -2.4143023, 0, 3.201808)
 script = ExtResource("5_6gvjs")
 Dialogues = Array[String](["¡Déjame! Estoy intentando hacer un mate"])
 
-[node name="Kid4" parent="stage/Schoolyard" index="34" unique_id=1930868132 instance=ExtResource("7_8kjea")]
+[node name="Kid4" parent="stage/gaia colegio(PRUEBA2)" index="34" unique_id=1930868132 instance=ExtResource("7_8kjea")]
 transform = Transform3D(1, 0, 1.8626451e-08, 0, 1, 0, 0, 0, 0.9999996, -2.104023, 0, -5.6058903)
 script = ExtResource("5_6gvjs")
 
-[node name="Raquel" parent="stage/Schoolyard" index="35" unique_id=1481373249 instance=ExtResource("8_lak3m")]
+[node name="Raquel" parent="stage/gaia colegio(PRUEBA2)" index="35" unique_id=1481373249 instance=ExtResource("8_lak3m")]
 transform = Transform3D(1, 0, 2.2351742e-08, 0, 1, 0, 0, 0, 0.9999995, 3.0410304, 0, 8.073513)
 collision_layer = 0
 collision_mask = 0
@@ -158,11 +158,11 @@ Player = NodePath("../../Player")
 script = ExtResource("13_c246d")
 Player = NodePath("../../Player")
 
-[connection signal="next_scene" from="." to="stage/Schoolyard/Raquel" method="_on_next_scene"]
-[connection signal="kid_interacted" from="stage/Schoolyard/Kid1" to="." method="_on_kid_interacted"]
-[connection signal="kid_interacted" from="stage/Schoolyard/Kid2" to="." method="_on_kid_interacted"]
-[connection signal="kid_interacted" from="stage/Schoolyard/Kid3" to="." method="_on_kid_interacted"]
-[connection signal="kid_interacted" from="stage/Schoolyard/Kid4" to="." method="_on_kid_interacted"]
+[connection signal="next_scene" from="." to="stage/gaia colegio(PRUEBA2)/Raquel" method="_on_next_scene"]
+[connection signal="kid_interacted" from="stage/gaia colegio(PRUEBA2)/Kid1" to="." method="_on_kid_interacted"]
+[connection signal="kid_interacted" from="stage/gaia colegio(PRUEBA2)/Kid2" to="." method="_on_kid_interacted"]
+[connection signal="kid_interacted" from="stage/gaia colegio(PRUEBA2)/Kid3" to="." method="_on_kid_interacted"]
+[connection signal="kid_interacted" from="stage/gaia colegio(PRUEBA2)/Kid4" to="." method="_on_kid_interacted"]
 [connection signal="pressed" from="stage/NextSceneNode/FirstDecision/CanvasLayer/AcceptButton" to="stage/NextSceneNode/Accept" method="_on_accept_help"]
 [connection signal="pressed" from="stage/NextSceneNode/FirstDecision/CanvasLayer/RejectButton" to="stage/NextSceneNode/FirstDecisionReject" method="_on_reject_help"]
 [connection signal="pressed" from="stage/NextSceneNode/SecondDecision/CanvasLayer/AcceptButton" to="stage/NextSceneNode/Accept" method="_on_accept_help"]
