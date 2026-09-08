@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://c3aff3j8wa7k3"]
 
 [ext_resource type="PackedScene" uid="uid://bqsbcqqthmbyy" path="res://scenes/scenarios/Level_Template.tscn" id="1_jrcfg"]
-[ext_resource type="PackedScene" uid="uid://5rfantandgkt" path="res://scenes/models/uploads_files_4359726_city+2.blend" id="2_3ebp8"]
 [ext_resource type="Script" uid="uid://bsb3f8xvbsguh" path="res://scripts/level6scripts/level_6.gd" id="2_s034s"]
+[ext_resource type="PackedScene" uid="uid://ddkeccmv8ujx0" path="res://assets/city_model.glb" id="3_2vpde"]
 [ext_resource type="Script" uid="uid://bx243sjfvnp2r" path="res://scripts/level6scripts/cutscene.gd" id="3_aylhr"]
 [ext_resource type="Script" uid="uid://cmmk8qcr480ft" path="res://scripts/level6scripts/tell.gd" id="4_0kk5n"]
 [ext_resource type="Script" uid="uid://dq1qtaedma31o" path="res://scripts/level6scripts/dont_tell.gd" id="5_s034s"]
@@ -66,27 +66,27 @@ _data = {
 script = ExtResource("2_s034s")
 nextLevel = "res://scenes/scenarios/Level_7.tscn"
 
-[node name="City" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=1609022081 instance=ExtResource("2_3ebp8")]
+[node name="City" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=1989188433 instance=ExtResource("3_2vpde")]
 transform = Transform3D(11, 0, 0, 0, 11, 0, 0, 0, 11, -360.1678, -45.503155, 133.73846)
 
-[node name="Floor" type="StaticBody3D" parent="stage/City" index="1296" unique_id=1738969159]
-transform = Transform3D(0.016161025, 0, 0.99986947, 0, 1, 0, -0.99986947, 0, 0.016161025, 23.619194, 3.6425288, -6.176242)
+[node name="Floor" type="StaticBody3D" parent="stage/City" index="1294" unique_id=1738969159]
+transform = Transform3D(0.016161025, 0, 0.99986947, 0, 1, 0, -0.99986947, 0, 0.016161025, 23.619194, 3.642529, -6.1762424)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="stage/City/Floor" index="0" unique_id=817556890]
 transform = Transform3D(0.9998111, 0, 0.019423734, 0, 0.9999999, 0, -0.019423734, 0, 0.9998111, 3.047061, 0.022110969, 7.187232)
 shape = SubResource("BoxShape3D_jrcfg")
 debug_color = Color(0, 0, 0, 1)
 
-[node name="WallFront" type="StaticBody3D" parent="stage/City" index="1297" unique_id=1609538715]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.169704, 4.639717, -13.803783)
+[node name="WallFront" type="StaticBody3D" parent="stage/City" index="1295" unique_id=1609538715]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.16971, 4.639717, -13.803783)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="stage/City/WallFront" index="0" unique_id=959110114]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.344171, 0, 0)
 shape = SubResource("BoxShape3D_3ebp8")
 debug_color = Color(0, 0, 0, 1)
 
-[node name="CutsceneArea" type="Area3D" parent="stage/City" index="1298" unique_id=2039317972 node_paths=PackedStringArray("Player", "Speakers")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.697409, 4.5614853, -13.158902)
+[node name="CutsceneArea" type="Area3D" parent="stage/City" index="1296" unique_id=2039317972 node_paths=PackedStringArray("Player", "Speakers")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.69741, 4.5614853, -13.158903)
 script = ExtResource("3_aylhr")
 Player = NodePath("../../Player")
 Dialogues = Array[String](["Hey, tu nivel de estrés ha aumentado de repente.", "¡Oh! Esa es tu nueva amiga. ¿Qué sucede con ella?"])
@@ -103,6 +103,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="stage/City/CutsceneArea/TellSkippy" index="0" unique_id=810140976]
 visible = false
@@ -139,6 +140,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="stage/City/CutsceneArea/Tell/WhatToDo" index="0" unique_id=1278158313]
 visible = false
@@ -249,7 +251,7 @@ Dialogues = Array[String](["¿Entonces por qué te estresas tanto?", "¡Venga, v
 SpeakerNames = Array[String](["Skippy", "Skippy"])
 Speakers = [NodePath("../../../../Skippy")]
 
-[node name="RaquelKidnap" type="Sprite3D" parent="stage/City" index="1299" unique_id=2047344304]
+[node name="RaquelKidnap" type="Sprite3D" parent="stage/City" index="1297" unique_id=2047344304]
 transform = Transform3D(0.010000001, 0, 0, 0, 0.010000001, 0, 0, 0, 0.010000001, 29.94, 4.286, -11.941)
 billboard = 2
 texture = ExtResource("6_2ew3b")

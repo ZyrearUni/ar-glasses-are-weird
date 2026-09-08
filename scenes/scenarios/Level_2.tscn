@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bqsbcqqthmbyy" path="res://scenes/scenarios/Level_Template.tscn" id="1_vap6u"]
 [ext_resource type="Script" uid="uid://dh85vs0gsgpd1" path="res://scripts/level2scripts/level_2.gd" id="2_n0fk5"]
-[ext_resource type="PackedScene" uid="uid://caxjj0dlww4x7" path="res://assets/classroom.glb" id="2_xulf7"]
+[ext_resource type="PackedScene" uid="uid://caxjj0dlww4x7" path="res://assets/Classroom.glb" id="2_xulf7"]
 [ext_resource type="Script" uid="uid://cj50m4a61k0cw" path="res://scripts/dialogue.gd" id="4_oupfe"]
 [ext_resource type="PackedScene" uid="uid://bhb823qu32vut" path="res://scenes/models/characters/kid_1.tscn" id="4_qqupq"]
 [ext_resource type="PackedScene" uid="uid://kijayuvj0e3v" path="res://scenes/models/characters/kid_2.tscn" id="5_25b0o"]
