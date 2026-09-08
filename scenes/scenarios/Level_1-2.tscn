@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bqsbcqqthmbyy" path="res://scenes/scenarios/Level_Template.tscn" id="1_aawju"]
 [ext_resource type="Script" uid="uid://bwbll5gb7u3va" path="res://scripts/level1scripts/level1-2/level_1_2_script.gd" id="2_hfw8y"]
-[ext_resource type="PackedScene" uid="uid://5rfantandgkt" path="res://scenes/models/uploads_files_4359726_city+2.blend" id="2_xh2vs"]
+[ext_resource type="PackedScene" uid="uid://w8x35jv0v842" path="res://assets/city.glb" id="3_lfbje"]
 [ext_resource type="PackedScene" uid="uid://mp83amoddhav" path="res://scenes/components/dialogue_area.tscn" id="4_4hcwd"]
 [ext_resource type="Script" uid="uid://dutmc1upxe6gi" path="res://scripts/level1scripts/level1-2/accept_game.gd" id="5_4hcwd"]
 [ext_resource type="Script" uid="uid://53x6jpb1ig7j" path="res://scripts/level1scripts/level1-2/decision_area.gd" id="5_lfbje"]
@@ -35,69 +35,69 @@ script = ExtResource("2_hfw8y")
 [node name="Player" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="0" unique_id=1886028462]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10757524, 0, -1.805098)
 
-[node name="City" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=1609022081 instance=ExtResource("2_xh2vs")]
+[node name="city" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=1033926978 instance=ExtResource("3_lfbje")]
 transform = Transform3D(11, 0, 0, 0, 11, 0, 0, 0, 11, -251.22516, -45.503155, 56.366634)
 
-[node name="Floor" type="StaticBody3D" parent="stage/City" index="1296" unique_id=1442553145]
-transform = Transform3D(0.016161025, 0, 0.99986947, 0, 1, 0, -0.99986947, 0, 0.016161025, 23.619194, 3.6425288, -6.176242)
+[node name="Floor" type="StaticBody3D" parent="stage/city" index="1294" unique_id=1442553145]
+transform = Transform3D(0.016161025, 0, 0.99986947, 0, 1, 0, -0.99986947, 0, 0.016161025, 23.619194, 3.642529, -6.176242)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/City/Floor" index="0" unique_id=1231979109]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/city/Floor" index="0" unique_id=1231979109]
 transform = Transform3D(0.9998111, 0, 0.019423734, 0, 0.9999999, 0, -0.019423734, 0, 0.9998111, 3.047061, 0.022110969, 7.187232)
 shape = SubResource("BoxShape3D_xh2vs")
 debug_color = Color(0, 0, 0, 1)
 
-[node name="WallGasStation" type="StaticBody3D" parent="stage/City" index="1297" unique_id=457314073]
+[node name="WallGasStation" type="StaticBody3D" parent="stage/city" index="1295" unique_id=457314073]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.116844, 4.6438675, -5.6330304)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/City/WallGasStation" index="0" unique_id=944768814]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/city/WallGasStation" index="0" unique_id=944768814]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028544545, 0, -3.0769086)
 shape = SubResource("BoxShape3D_3tavn")
 debug_color = Color(0, 0, 0, 1)
 
-[node name="WallBack" type="StaticBody3D" parent="stage/City" index="1298" unique_id=786006965]
+[node name="WallBack" type="StaticBody3D" parent="stage/city" index="1296" unique_id=786006965]
 transform = Transform3D(1.5259494, 0, 0, 0, 1, 0, 0, 0, 1, 23.674095, 4.639717, -4.624672)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/City/WallBack" index="0" unique_id=1219372634]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/city/WallBack" index="0" unique_id=1219372634]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20199585, 0, 0)
 shape = SubResource("BoxShape3D_hfw8y")
 debug_color = Color(0, 0, 0, 1)
 
-[node name="WallFront" type="StaticBody3D" parent="stage/City" index="1299" unique_id=1971388765]
+[node name="WallFront" type="StaticBody3D" parent="stage/city" index="1297" unique_id=1971388765]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.047293, 4.639717, -12.328524)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/City/WallFront" index="0" unique_id=711944327]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/city/WallFront" index="0" unique_id=711944327]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20199585, 0, 0)
 shape = SubResource("BoxShape3D_hfw8y")
 debug_color = Color(0, 0, 0, 1)
 
-[node name="ParkourWallLeft" type="StaticBody3D" parent="stage/City" index="1300" unique_id=434452506]
+[node name="ParkourWallLeft" type="StaticBody3D" parent="stage/city" index="1298" unique_id=434452506]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.966454, 4.080551, -10.733196)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/City/ParkourWallLeft" index="0" unique_id=1640080753]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/city/ParkourWallLeft" index="0" unique_id=1640080753]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4127657, 0.32985714, -0.56776667)
 shape = SubResource("BoxShape3D_4hcwd")
 debug_color = Color(0, 0, 0, 1)
 
-[node name="ParkourWallRight" type="StaticBody3D" parent="stage/City" index="1301" unique_id=1261339736]
+[node name="ParkourWallRight" type="StaticBody3D" parent="stage/city" index="1299" unique_id=1261339736]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.727665, 4.080551, -7.259775)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/City/ParkourWallRight" index="0" unique_id=593348152]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/city/ParkourWallRight" index="0" unique_id=593348152]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4127657, 0.32985714, -0.56776667)
 shape = SubResource("BoxShape3D_4hcwd")
 debug_color = Color(0, 0, 0, 1)
 
-[node name="WallBank" type="StaticBody3D" parent="stage/City" index="1302" unique_id=2088354402]
+[node name="WallBank" type="StaticBody3D" parent="stage/city" index="1300" unique_id=2088354402]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.177862, 4.610692, -5.6909633)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/City/WallBank" index="0" unique_id=485704179]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/city/WallBank" index="0" unique_id=485704179]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.37982184)
 shape = SubResource("BoxShape3D_jd5u1")
 debug_color = Color(0, 0, 0, 1)
 
-[node name="ParkourBlockage" type="StaticBody3D" parent="stage/City" index="1303" unique_id=287168539]
+[node name="ParkourBlockage" type="StaticBody3D" parent="stage/city" index="1301" unique_id=287168539]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4653, 4.6571355, -8.182769)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/City/ParkourBlockage" index="0" unique_id=1548813764]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/city/ParkourBlockage" index="0" unique_id=1548813764]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.37982184)
 shape = SubResource("BoxShape3D_jd5u1")
 debug_color = Color(0, 0, 0, 1)

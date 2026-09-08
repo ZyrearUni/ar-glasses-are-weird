@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bqsbcqqthmbyy" path="res://scenes/scenarios/Level_Template.tscn" id="1_2e5lf"]
 [ext_resource type="Script" uid="uid://baei7ulpkgael" path="res://scripts/level1scripts/level1-1/level_1_script.gd" id="2_8aho5"]
-[ext_resource type="PackedScene" uid="uid://cutwknnl54bfu" path="res://scenes/models/Room01-col.blend" id="3_2eeb0"]
+[ext_resource type="PackedScene" uid="uid://c547agd6lg4iu" path="res://assets/house.glb" id="3_2e5lf"]
 [ext_resource type="Script" uid="uid://kjra7812d5ii" path="res://scripts/level1scripts/level1-1/walk_tutorial_area.gd" id="4_2txad"]
 [ext_resource type="PackedScene" uid="uid://mp83amoddhav" path="res://scenes/components/dialogue_area.tscn" id="5_3c3jd"]
 [ext_resource type="Script" uid="uid://ccrs784n485ck" path="res://scripts/level1scripts/level1-1/advance_walk_tutorial.gd" id="6_j8v6s"]
@@ -27,8 +27,8 @@ SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy", "Skippy", "Skippy"])
 Speakers = [NodePath("Skippy")]
 SpeakerAnimations = Array[String](["Hablar", "Hablar", "Hablar", "Hablar", "Hablar"])
 
-[node name="House" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=510582136 instance=ExtResource("3_2eeb0")]
-transform = Transform3D(-0.9997493, 0, 0.022390619, 0, 1, 0, -0.022390619, 0, -0.9997493, -0.010087967, 0.0022768974, 2.8541489)
+[node name="house" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=1070711330 instance=ExtResource("3_2e5lf")]
+transform = Transform3D(-0.9997493, 0, 0.022390552, 0, 1, 0, -0.022390552, 0, -0.9997493, -0.010087967, 0.0022768974, 2.8541489)
 
 [node name="WalkTutorialArea" type="Node3D" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="2" unique_id=1979297216]
 script = ExtResource("4_2txad")

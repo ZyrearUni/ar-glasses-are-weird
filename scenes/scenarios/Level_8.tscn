@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://75h5oiaby8xv"]
 
 [ext_resource type="PackedScene" uid="uid://bqsbcqqthmbyy" path="res://scenes/scenarios/Level_Template.tscn" id="1_4cax2"]
-[ext_resource type="PackedScene" uid="uid://cutwknnl54bfu" path="res://scenes/models/Room01-col.blend" id="2_35ti5"]
 [ext_resource type="Script" uid="uid://dhm4ind4w2fl" path="res://scripts/level8scripts/level_8.gd" id="2_p0x1a"]
+[ext_resource type="PackedScene" uid="uid://c547agd6lg4iu" path="res://assets/house.glb" id="3_35ti5"]
 
 [node name="World" unique_id=1891132867 instance=ExtResource("1_4cax2")]
 script = ExtResource("2_p0x1a")
 
-[node name="House" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=496489553 instance=ExtResource("2_35ti5")]
-transform = Transform3D(-0.022390664, 0, -0.99974924, 0, 1, 0, 0.99974924, 0, -0.022390664, 0.15270233, 0, -12.173288)
+[node name="house" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=1070711330 instance=ExtResource("3_35ti5")]
+transform = Transform3D(-0.022390684, 0, -0.9997493, 0, 1, 0, 0.9997493, 0, -0.022390684, 0.15270233, 0, -12.173288)
