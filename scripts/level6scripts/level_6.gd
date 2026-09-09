@@ -19,8 +19,8 @@ func _on_do_not_activate_suscription_dialogue_ended() -> void:
 # Final 4
 func _on_tell_teacher_dialogue_ended() -> void:
 	fade.fade_to_black()
-	$stage/City/CutsceneArea/Tell/TellTeacher/TeacherInteraction.speak()
-	await $stage/City/CutsceneArea/Tell/TellTeacher/TeacherInteraction.dialogue_ended
+	$stage/city/CutsceneArea/Tell/TellTeacher/TeacherInteraction.speak()
+	await $stage/city/CutsceneArea/Tell/TellTeacher/TeacherInteraction.dialogue_ended
 	insightContent = "" #TODO
 	finish_level()
 

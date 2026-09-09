@@ -32,40 +32,40 @@ nextLevel = "res://scenes/scenarios/Level_3.tscn"
 [node name="Player" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="0" unique_id=1886028462]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0.003072977, 0, 0.9293299)
 
-[node name="Sketchfab_Scene" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=360227559 instance=ExtResource("2_xulf7")]
+[node name="Classroom" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=360227559 instance=ExtResource("2_xulf7")]
 transform = Transform3D(0.012958956, 0, -1.499944, 0, 1.5, 0, 1.499944, 0, 0.012958956, -8.096228, -0.057085752, -5.890358)
 
-[node name="Kid1" parent="stage/Sketchfab_Scene" index="1" unique_id=759215246 node_paths=PackedStringArray("Player") instance=ExtResource("4_qqupq")]
+[node name="Kid1" parent="stage/Classroom" index="1" unique_id=759215246 node_paths=PackedStringArray("Player") instance=ExtResource("4_qqupq")]
 transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 1, -0.40052938, 0, 1.1475873)
 Player = NodePath("../../Player")
 Dialogues = Array[String](["67 FAAAAAAAH", "... ¿Por qué no te ríes?"])
 SpeakerNames = Array[String](["Kid1", "Kid1"])
 
-[node name="Kid2" parent="stage/Sketchfab_Scene" index="2" unique_id=503526266 node_paths=PackedStringArray("Player") instance=ExtResource("5_25b0o")]
+[node name="Kid2" parent="stage/Classroom" index="2" unique_id=503526266 node_paths=PackedStringArray("Player") instance=ExtResource("5_25b0o")]
 transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 1, 3.4872284, 0, 5.7677097)
 Player = NodePath("../../Player")
 Dialogues = Array[String](["What am I doing here"])
 SpeakerNames = Array[String](["Zai"])
 
-[node name="Kid3" parent="stage/Sketchfab_Scene" index="3" unique_id=341079854 node_paths=PackedStringArray("Player") instance=ExtResource("6_jx5dc")]
+[node name="Kid3" parent="stage/Classroom" index="3" unique_id=341079854 node_paths=PackedStringArray("Player") instance=ExtResource("6_jx5dc")]
 transform = Transform3D(1, 0, 0, 0, 0.9999997, 0, 0, 0, 1, -2.370585, 0, 3.2195244)
 Player = NodePath("../../Player")
 Dialogues = Array[String](["Eh, que este es mi sitio. Quita."])
 SpeakerNames = Array[String](["Kid3"])
 
-[node name="Kid4" parent="stage/Sketchfab_Scene" index="4" unique_id=1599204009 node_paths=PackedStringArray("Player") instance=ExtResource("7_ff76c")]
+[node name="Kid4" parent="stage/Classroom" index="4" unique_id=1599204009 node_paths=PackedStringArray("Player") instance=ExtResource("7_ff76c")]
 transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 1, 3.5438004, 0, 0.9422846)
 Player = NodePath("../../Player")
 Dialogues = Array[String](["Ya era hora de que vinieras..."])
 SpeakerNames = Array[String](["Kid4"])
 
-[node name="Raquel" parent="stage/Sketchfab_Scene" index="5" unique_id=868460852 node_paths=PackedStringArray("Player") instance=ExtResource("8_yaldh")]
+[node name="Raquel" parent="stage/Classroom" index="5" unique_id=868460852 node_paths=PackedStringArray("Player") instance=ExtResource("8_yaldh")]
 transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 1, -2.3692207, 0, -1.6688616)
 Player = NodePath("../../Player")
 Dialogues = Array[String](["Ah, hola. ¿Necesitas un lápiz?"])
 SpeakerNames = Array[String](["Raquel"])
 
-[node name="Teacher" parent="stage/Sketchfab_Scene" index="6" unique_id=344644160 node_paths=PackedStringArray("Player", "Speakers") instance=ExtResource("9_2ucyv")]
+[node name="Teacher" parent="stage/Classroom" index="6" unique_id=344644160 node_paths=PackedStringArray("Player", "Speakers") instance=ExtResource("9_2ucyv")]
 transform = Transform3D(1, 0, 0, 0, 0.9999997, 0, 0, 0, 1, 0.60530686, 0, -6.001535)
 Player = NodePath("../../Player")
 Dialogues = Array[String](["Siéntate ya, anda. Tenemos que resolver unos problemas."])
@@ -111,6 +111,7 @@ offset_right = 2561.0
 offset_bottom = 1442.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="stage/SitDownArea/DecisionMenu" index="0" unique_id=1651924986]
+visible = false
 
 [node name="AcceptButton" type="Button" parent="stage/SitDownArea/DecisionMenu/CanvasLayer" index="0" unique_id=1888314283]
 offset_left = 1736.0

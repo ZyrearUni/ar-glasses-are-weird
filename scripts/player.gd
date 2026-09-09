@@ -14,8 +14,9 @@ extends CharacterBody3D
 # Checks if player is in dialogue to control movement
 var inDialogue = false
 
-# Starting position for resetting purposes
+# Starting position and camera rotation for resetting purposes
 var startingPos
+var startingCameraRot
 
 # Movement values
 var current_speed_mult
@@ -51,6 +52,7 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # Makes mouse stay inside window
 	interact_text.hide()
 	startingPos = global_position
+	startingCameraRot = camera.global_rotation.x
 
 
 # Camera movement handling
@@ -133,6 +135,11 @@ func _physics_process(delta: float) -> void:
 		camera.transform.origin = _headbob(t_bob)
 
 		move_and_slide()
+
+# No deja sobreescribir la función "look_at" de Node3D, se prueba así
+func look_at_somewhere(target: Vector3, up: Vector3 = Vector3(0, 1, 0), use_model_front: bool = false):
+	camera.rotation_degrees = Vector3.ZERO
+	head.look_at(target, up, use_model_front)
 
 func unstuck():
 	global_position = startingPos

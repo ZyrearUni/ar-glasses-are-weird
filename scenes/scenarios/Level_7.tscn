@@ -99,6 +99,7 @@ Dialogues = Array[String](["¡Hola, superestrella!", "Siento mucho contarte esto
 SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy", "Skippy", "Skippy", "Skippy", "Skippy"])
 Speakers = [NodePath("../../../../Skippy")]
 
+[connection signal="body_entered" from="stage/city/CutsceneArea" to="." method="_on_cutscene_area_body_entered"]
 [connection signal="body_entered" from="stage/city/CutsceneArea" to="stage/city/CutsceneArea" method="_on_body_entered"]
 [connection signal="dialogue_ended" from="stage/city/CutsceneArea/Option0" to="." method="on_option_end"]
 [connection signal="dialogue_ended" from="stage/city/CutsceneArea/Option1" to="." method="on_option_end"]
