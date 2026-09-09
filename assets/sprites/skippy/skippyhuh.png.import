@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu3rqx1wis4hr"
-path="res://.godot/imported/skippyhuh.png-4320c221478b65012f5a0e8cd27ad96a.ctex"
+uid="uid://dwsbjt0fso6th"
+path="res://.godot/imported/skippyhuh.png-607b17dd1503e833744898f6d1b044ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/skippy/skippyhuh.png"
-dest_files=["res://.godot/imported/skippyhuh.png-4320c221478b65012f5a0e8cd27ad96a.ctex"]
+source_file="res://assets/sprites/Skippy/skippyhuh.png"
+dest_files=["res://.godot/imported/skippyhuh.png-607b17dd1503e833744898f6d1b044ed.ctex"]
 
 [params]
 

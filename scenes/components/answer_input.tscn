@@ -11,22 +11,34 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_flfv6")
 
-[node name="TextEdit" type="TextEdit" parent="." unique_id=1734243120]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -17.0
-offset_bottom = 58.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 40
-placeholder_text = "Escribe aquí tu respuesta (ejemplo: 2/3, 4, 1, 0)"
-context_menu_enabled = false
-emoji_menu_enabled = false
+[node name="Numerator" type="SpinBox" parent="." unique_id=240740539]
+layout_mode = 0
+offset_left = 1200.0
+offset_top = 622.0
+offset_right = 1286.5
+offset_bottom = 653.0
+scale = Vector2(2, 2)
+max_value = 15.0
+update_on_text_changed = true
 
-[node name="Button" type="Button" parent="TextEdit" unique_id=1246215262]
+[node name="Denominator" type="SpinBox" parent="." unique_id=1056181050]
+layout_mode = 0
+offset_left = 1200.0
+offset_top = 746.0
+offset_right = 1286.5
+offset_bottom = 777.0
+scale = Vector2(2, 2)
+min_value = 1.0
+max_value = 15.0
+value = 1.0
+update_on_text_changed = true
+
+[node name="Line2D" type="Line2D" parent="." unique_id=209733902]
+position = Vector2(30, 90)
+rotation = 0.00042954058
+points = PackedVector2Array(1369, 625, 1131, 624)
+
+[node name="Button" type="Button" parent="." unique_id=1246215262]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -34,12 +46,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -102.5
-offset_top = 102.5
+offset_top = 123.0
 offset_right = 102.5
-offset_bottom = 165.5
+offset_bottom = 186.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 40
 text = "Confirmar"
 
-[connection signal="pressed" from="TextEdit/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

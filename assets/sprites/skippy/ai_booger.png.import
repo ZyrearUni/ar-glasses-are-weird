@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0s41bptnamu"
-path="res://.godot/imported/ai_booger.png-9029fa9f38499b2b65c8c7052abe0459.ctex"
+uid="uid://barnmag0xjnf1"
+path="res://.godot/imported/ai_booger.png-e304d53eeb9331d31fae96cc01ef94a3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/skippy/ai_booger.png"
-dest_files=["res://.godot/imported/ai_booger.png-9029fa9f38499b2b65c8c7052abe0459.ctex"]
+source_file="res://assets/sprites/Skippy/ai_booger.png"
+dest_files=["res://.godot/imported/ai_booger.png-e304d53eeb9331d31fae96cc01ef94a3.ctex"]
 
 [params]
 

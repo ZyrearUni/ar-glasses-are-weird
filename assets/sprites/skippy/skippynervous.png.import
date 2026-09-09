@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clmsu13k72bao"
-path="res://.godot/imported/skippynervous.png-00bfb89292968f0ea4297a2e8b0de8ce.ctex"
+uid="uid://bb8vplsa8cddy"
+path="res://.godot/imported/skippynervous.png-229a8118312277b28f6595c7e0ec895d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/skippy/skippynervous.png"
-dest_files=["res://.godot/imported/skippynervous.png-00bfb89292968f0ea4297a2e8b0de8ce.ctex"]
+source_file="res://assets/sprites/Skippy/skippynervous.png"
+dest_files=["res://.godot/imported/skippynervous.png-229a8118312277b28f6595c7e0ec895d.ctex"]
 
 [params]
 
