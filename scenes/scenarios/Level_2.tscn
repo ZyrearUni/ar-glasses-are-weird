@@ -153,9 +153,10 @@ Dialogues = Array[String](["Oh... Entiendo..."])
 SpeakerNames = Array[String](["Skippy"])
 Speakers = [NodePath("../../../../Skippy")]
 
-[node name="TestTime" type="Node" parent="stage/SitDownArea/DecisionMenu" index="3" unique_id=99495967 node_paths=PackedStringArray("Player")]
+[node name="TestTime" type="Node" parent="stage/SitDownArea/DecisionMenu" index="3" unique_id=99495967 node_paths=PackedStringArray("Player", "Speakers")]
 script = ExtResource("13_ff76c")
 Player = NodePath("../../../Player")
+Speakers = [NodePath("../../../../Teacher_2D"), NodePath("../../../../Skippy")]
 
 [node name="SkippyAid" type="Control" parent="stage/SitDownArea/DecisionMenu/TestTime" index="0" unique_id=1084529211]
 visible = false
