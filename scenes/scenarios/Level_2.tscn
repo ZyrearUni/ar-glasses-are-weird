@@ -12,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://dxj2a7di8ucv5" path="res://scenes/models/characters/raquel.tscn" id="8_yaldh"]
 [ext_resource type="PackedScene" uid="uid://bnn1eacee4ren" path="res://scenes/models/characters/teacher.tscn" id="9_2ucyv"]
 [ext_resource type="Script" uid="uid://dbfxna35neskq" path="res://scripts/level2scripts/offer_selection.gd" id="12_25b0o"]
+[ext_resource type="Script" uid="uid://bcgv0xdumr7yt" path="res://scripts/level2scripts/test_time.gd" id="13_ff76c"]
+[ext_resource type="PackedScene" uid="uid://cyg6uog6wa3lm" path="res://scenes/components/answer_input.tscn" id="14_yaldh"]
+[ext_resource type="PackedScene" uid="uid://0j14uewcrshp" path="res://scenes/models/characters/teacher_2d.tscn" id="15_yaldh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q7k1q"]
 size = Vector3(1.2163086, 2.2006226, 1.5031738)
@@ -73,17 +76,21 @@ SpeakerNames = Array[String](["Profesora"])
 
 [node name="StartingDialogueTreeOptions" type="Node" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="2" unique_id=426019989]
 
-[node name="AcceptedGame" type="Node" parent="stage/StartingDialogueTreeOptions" index="0" unique_id=1193677451 node_paths=PackedStringArray("Player")]
+[node name="AcceptedGame" type="Node" parent="stage/StartingDialogueTreeOptions" index="0" unique_id=1193677451 node_paths=PackedStringArray("Player", "Speakers")]
 script = ExtResource("4_oupfe")
 Player = NodePath("../../Player")
 Dialogues = Array[String](["... Sabes que voy a tener que informar a tus padres de tu retraso, ¿no?", "En fin, qué remedio...", "Ve a tu a siento, la clase ya ha empezado."])
 SpeakerNames = Array[String](["Profesora", "Profesora", "Profesora"])
+Speakers = [NodePath("../../../Teacher_2D")]
+SpeakerAnimations = Array[String](["Hablar", "OjosCerrados", "OjosCerrados"])
 
-[node name="RejectedGame" type="Node" parent="stage/StartingDialogueTreeOptions" index="1" unique_id=285215176 node_paths=PackedStringArray("Player")]
+[node name="RejectedGame" type="Node" parent="stage/StartingDialogueTreeOptions" index="1" unique_id=285215176 node_paths=PackedStringArray("Player", "Speakers")]
 script = ExtResource("4_oupfe")
 Player = NodePath("../../Player")
 Dialogues = Array[String](["Ah, estamos a punto de empezar. Corre y siéntate."])
 SpeakerNames = Array[String](["Profesora"])
+Speakers = [NodePath("../../../Teacher_2D")]
+SpeakerAnimations = Array[String](["Hablar"])
 
 [node name="SitDownArea" type="Area3D" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="3" unique_id=265433122]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7196083, 1.6085005, 0)
@@ -146,6 +153,25 @@ Dialogues = Array[String](["Oh... Entiendo..."])
 SpeakerNames = Array[String](["Skippy"])
 Speakers = [NodePath("../../../../Skippy")]
 
+[node name="TestTime" type="Node" parent="stage/SitDownArea/DecisionMenu" index="3" unique_id=99495967 node_paths=PackedStringArray("Player")]
+script = ExtResource("13_ff76c")
+Player = NodePath("../../../Player")
+
+[node name="SkippyAid" type="Control" parent="stage/SitDownArea/DecisionMenu/TestTime" index="0" unique_id=1084529211]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AnswerInput" parent="stage/SitDownArea/DecisionMenu/TestTime" index="1" unique_id=646310507 instance=ExtResource("14_yaldh")]
+
+[node name="Teacher_2D" parent="." index="2" unique_id=678234119 instance=ExtResource("15_yaldh")]
+visible = false
+
 [connection signal="body_entered" from="stage/SitDownArea" to="stage/SitDownArea/CollisionShape3D" method="_on_sit_down_area_body_entered"]
 [connection signal="pressed" from="stage/SitDownArea/DecisionMenu/CanvasLayer/AcceptButton" to="stage/SitDownArea/DecisionMenu/AcceptOffer" method="_on_option_selected"]
 [connection signal="pressed" from="stage/SitDownArea/DecisionMenu/CanvasLayer/RejectButton" to="stage/SitDownArea/DecisionMenu/RejectOffer" method="_on_option_selected"]
+[connection signal="dialogue_ended" from="stage/SitDownArea/DecisionMenu/AcceptOffer" to="stage/SitDownArea/DecisionMenu/TestTime" method="start_test"]
+[connection signal="help_accepted" from="stage/SitDownArea/DecisionMenu/AcceptOffer" to="stage/SitDownArea/DecisionMenu/TestTime" method="help_accepted"]
+[connection signal="dialogue_ended" from="stage/SitDownArea/DecisionMenu/RejectOffer" to="stage/SitDownArea/DecisionMenu/TestTime" method="start_test"]

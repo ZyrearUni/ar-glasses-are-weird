@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://wibtfipo80ct" path="res://scenes/components/dialogue_ui.tscn" id="3_lqphp"]
 [ext_resource type="PackedScene" uid="uid://k64ffjcl7wgk" path="res://scenes/components/pause_menu.tscn" id="4_8uwh6"]
 [ext_resource type="PackedScene" uid="uid://ctkshhv3kfvuc" path="res://scenes/components/fade.tscn" id="4_kqd6t"]
-[ext_resource type="PackedScene" uid="uid://by16siv81es8q" path="res://scenes/models/Skippy.tscn" id="7_m5uiq"]
+[ext_resource type="PackedScene" uid="uid://by16siv81es8q" path="res://scenes/models/characters/Skippy.tscn" id="7_m5uiq"]
 [ext_resource type="PackedScene" uid="uid://tb8ajjdjscwt" path="res://scenes/components/moral_insight.tscn" id="8_ptfjk"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_36fji"]

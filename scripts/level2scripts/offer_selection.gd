@@ -9,3 +9,10 @@ func _on_option_selected() -> void:
 	if self != $"../RejectOffer":
 		help_accepted.emit()
 		
+
+func end_dialogue():
+	for speaker in Speakers:
+		speaker.hide()
+	CurrentDialogue = -1
+	selectedTalking = false
+	dialogue_ended.emit()
