@@ -1,18 +1,21 @@
 extends "res://scripts/dialogue.gd"
 
 const SITTING_HEIGHT = 3
-var position_look
-
-func _ready() -> void:
-	position_look = $"../../Classroom/Teacher".global_position
-	position_look.y += SITTING_HEIGHT
+var teacher_pos 
 
 func _on_sit_down_area_body_entered(body: Node3D) -> void:
 	if body == Player:
+		
+		# Si se pone teacher_pos en una función _ready no se puede avanzar el diálogo.
+		# Se ajusta la altura para ver mejor
+		teacher_pos = $"../../Classroom/Teacher".global_position
+		teacher_pos.y += SITTING_HEIGHT
+		
 		await $"../../../fade".fade_to_black()
 		speak()
 		Player.set_global_position(self.global_position)
-		Player.look_at_somewhere(position_look)
+		Player.look_at_somewhere(teacher_pos)
+		await $"../../../fade".fade_from_black()
 
 func end_dialogue():
 	for speaker in Speakers:
