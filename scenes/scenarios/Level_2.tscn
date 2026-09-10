@@ -79,9 +79,9 @@ SpeakerNames = Array[String](["Profesora"])
 [node name="AcceptedGame" type="Node" parent="stage/StartingDialogueTreeOptions" index="0" unique_id=1193677451 node_paths=PackedStringArray("Player", "Speakers")]
 script = ExtResource("4_oupfe")
 Player = NodePath("../../Player")
-Dialogues = Array[String](["... Sabes que voy a tener que informar a tus padres de tu retraso, ¿no?", "En fin, qué remedio...", "Ve a tu a siento, la clase ya ha empezado."])
+Dialogues = Array[String](["... Sabes que voy a tener que informar a tus padres de tu retraso, ¿no?", "En fin, qué remedio...", "Ve a tu asiento, la clase ya ha empezado."])
 SpeakerNames = Array[String](["Profesora", "Profesora", "Profesora"])
-Speakers = [NodePath("../../../Teacher_2D")]
+Speakers = [NodePath("../../../Profesora")]
 SpeakerAnimations = Array[String](["Hablar", "OjosCerrados", "OjosCerrados"])
 
 [node name="RejectedGame" type="Node" parent="stage/StartingDialogueTreeOptions" index="1" unique_id=285215176 node_paths=PackedStringArray("Player", "Speakers")]
@@ -89,7 +89,7 @@ script = ExtResource("4_oupfe")
 Player = NodePath("../../Player")
 Dialogues = Array[String](["Ah, estamos a punto de empezar. Corre y siéntate."])
 SpeakerNames = Array[String](["Profesora"])
-Speakers = [NodePath("../../../Teacher_2D")]
+Speakers = [NodePath("../../../Profesora")]
 SpeakerAnimations = Array[String](["Hablar"])
 
 [node name="SitDownArea" type="Area3D" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="3" unique_id=265433122]
@@ -156,7 +156,8 @@ Speakers = [NodePath("../../../../Skippy")]
 [node name="TestTime" type="Node" parent="stage/SitDownArea/DecisionMenu" index="3" unique_id=99495967 node_paths=PackedStringArray("Player", "Speakers")]
 script = ExtResource("13_ff76c")
 Player = NodePath("../../../Player")
-Speakers = [NodePath("../../../../Teacher_2D"), NodePath("../../../../Skippy")]
+SpeakerNames = Array[String]([""])
+Speakers = [NodePath("../../../../Profesora"), NodePath("../../../../Skippy")]
 
 [node name="SkippyAid" type="Control" parent="stage/SitDownArea/DecisionMenu/TestTime" index="0" unique_id=1084529211]
 visible = false
@@ -166,8 +167,9 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="AnswerInput" parent="stage/SitDownArea/DecisionMenu/TestTime" index="1" unique_id=646310507 instance=ExtResource("14_yaldh")]
+visible = false
 
-[node name="Teacher_2D" parent="." index="2" unique_id=678234119 instance=ExtResource("15_yaldh")]
+[node name="Profesora" parent="." index="2" unique_id=678234119 instance=ExtResource("15_yaldh")]
 visible = false
 
 [connection signal="body_entered" from="stage/SitDownArea" to="stage/SitDownArea/CollisionShape3D" method="_on_sit_down_area_body_entered"]
@@ -176,3 +178,4 @@ visible = false
 [connection signal="dialogue_ended" from="stage/SitDownArea/DecisionMenu/AcceptOffer" to="stage/SitDownArea/DecisionMenu/TestTime" method="start_test"]
 [connection signal="help_accepted" from="stage/SitDownArea/DecisionMenu/AcceptOffer" to="stage/SitDownArea/DecisionMenu/TestTime" method="help_accepted"]
 [connection signal="dialogue_ended" from="stage/SitDownArea/DecisionMenu/RejectOffer" to="stage/SitDownArea/DecisionMenu/TestTime" method="start_test"]
+[connection signal="answer_confirmed" from="stage/SitDownArea/DecisionMenu/TestTime/AnswerInput" to="stage/SitDownArea/DecisionMenu/TestTime" method="received_answer"]

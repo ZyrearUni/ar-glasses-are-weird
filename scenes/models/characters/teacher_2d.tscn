@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://0j14uewcrshp"]
 
+[ext_resource type="Texture2D" uid="uid://comyisyu8648e" path="res://assets/sprites/Teacher/teacheropen.png" id="1_bgnsb"]
 [ext_resource type="Texture2D" uid="uid://bste02b7gcr0u" path="res://assets/sprites/Teacher/teacherclosed.png" id="1_j5bvg"]
 
 [sub_resource type="Animation" id="Animation_bgnsb"]
@@ -16,6 +17,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(2256.9998, 922.99994), Vector2(2256.9998, 853.99994), Vector2(2256.9998, 922.99994)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0009999999),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_bgnsb")]
 }
 
 [sub_resource type="Animation" id="Animation_1tofq"]
@@ -70,7 +83,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_j5bvg")]
+"values": [ExtResource("1_bgnsb")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1tofq"]
@@ -83,7 +96,7 @@ _data = {
 [node name="Sprite2D" type="Sprite2D" unique_id=1767701433]
 position = Vector2(2256.9998, 922.99994)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_j5bvg")
+texture = ExtResource("1_bgnsb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=496262049]
 libraries/ = SubResource("AnimationLibrary_1tofq")

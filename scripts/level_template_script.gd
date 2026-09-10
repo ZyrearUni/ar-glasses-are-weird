@@ -11,6 +11,7 @@ const REJECT_GAME = "Llega bien\n"
 # Nivel 2
 const ACCEPT_HELP_CLASS = "Acepta la ayuda de Skippy en clase\n"
 const REJECT_HELP_CLASS = "Rechaza la ayuda de Skippy en clase\n"
+const QUESTIONS_ANSWERED_CORRECTLY = "El jugador ha respondido correctamente: "
 
 # Nivel 3
 const RAQUEL_AWKWARD = "Raquel se extraña de tu actitud\n"
