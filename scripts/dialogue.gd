@@ -2,6 +2,8 @@ extends Node
 
 signal dialogue_ended
 
+const DEFAULT_SPEAK_ANIMATION = "Hablar"
+
 @onready var DialogueUI: CanvasLayer = get_tree().current_scene.get_node("DialogueUI/Canvas")
 @onready var SpeakerName: RichTextLabel = get_tree().current_scene.get_node("DialogueUI/Canvas/SpeakerName")
 @onready var DialogueAnimation: AnimationPlayer = get_tree().current_scene.get_node("DialogueUI/Canvas/DialogueAnimation")
@@ -18,6 +20,8 @@ var selectedTalking = false
 
 func _ready() -> void:
 	DialogueUI.get_node("ContinueButton").connect("pressed", Callable(self, "continue_dialogue"))
+	while (SpeakerAnimations.size() < Dialogues.size()):
+		SpeakerAnimations.append(DEFAULT_SPEAK_ANIMATION)
 
 func speak():
 	DialogueUI.visible = true
@@ -48,10 +52,10 @@ func continue_dialogue() :
 			SpeakerName.text = "[b]" + SpeakerNames[CurrentDialogue] 
 			
 			for speaker in Speakers:
-				if speaker.get_name() == SpeakerName.text:
-					speaker.get_node("AnimationPlayer").play(SpeakerAnimations[CurrentDialogue])
+				if (speaker.get_name() == SpeakerNames[CurrentDialogue]):
+					speaker.play(SpeakerAnimations[CurrentDialogue])
 				else:
-					speaker.get_node("AnimationPlayer").play("RESET")
+					speaker.play("RESET")
 			
 			DialogueAnimation.play("RESET")
 			DialogueAnimation.play("TextScroll")

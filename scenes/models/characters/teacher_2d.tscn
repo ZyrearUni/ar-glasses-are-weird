@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://comyisyu8648e" path="res://assets/sprites/Teacher/teacheropen.png" id="1_bgnsb"]
 [ext_resource type="Texture2D" uid="uid://bste02b7gcr0u" path="res://assets/sprites/Teacher/teacherclosed.png" id="1_j5bvg"]
+[ext_resource type="Script" uid="uid://plms7gqrxn8f" path="res://scripts/2d_speaker_anim.gd" id="2_800d3"]
 
 [sub_resource type="Animation" id="Animation_bgnsb"]
 resource_name = "Hablar"
@@ -97,6 +98,7 @@ _data = {
 position = Vector2(2256.9998, 922.99994)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_bgnsb")
+script = ExtResource("2_800d3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=496262049]
 libraries/ = SubResource("AnimationLibrary_1tofq")

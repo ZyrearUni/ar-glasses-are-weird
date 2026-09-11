@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bste02b7gcr0u" path="res://assets/sprites/Teacher/teacherclosed.png" id="4_1u1h6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a8bby"]
+height = 4.312134
 
 [sub_resource type="Animation" id="Animation_73jt4"]
 length = 0.001
@@ -52,13 +53,13 @@ Dialogues = Array[String](["What am I doing here", "Idk you tell me"])
 SpeakerNames = Array[String](["Zai", "You"])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1257423029]
-transform = Transform3D(1.2690821, 0, 0, 0, 1, 0, 0, 0, 1.4844267, 0, 0.85, 0)
+transform = Transform3D(1.2690821, 0, 0, 0, 1, 0, 0, 0, 1.4844267, 0, 2.0060668, 0)
 shape = SubResource("CapsuleShape3D_a8bby")
 
-[node name="Sprite3D" type="Sprite3D" parent="CollisionShape3D" unique_id=1728338363]
-transform = Transform3D(0.078797124, 0, 0, 0, 0.101, 0, 0, 0, 0.06736608, -0.03, 1.2, 0.035)
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1728338363]
+transform = Transform3D(0.10000002, 0, 0, 0, 0.101, 0, 0, 0, 0.10000001, -0.03807246, 2.0500002, 0.051954936)
 billboard = 2
 texture = ExtResource("2_by03m")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CollisionShape3D/Sprite3D" unique_id=777420077]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite3D" unique_id=777420077]
 libraries/ = SubResource("AnimationLibrary_ewctg")

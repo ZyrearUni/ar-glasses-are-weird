@@ -33,13 +33,14 @@ transform = Transform3D(-0.9997493, 0, 0.022390552, 0, 1, 0, -0.022390552, 0, -0
 [node name="WalkTutorialArea" type="Node3D" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="2" unique_id=1979297216]
 script = ExtResource("4_2txad")
 
-[node name="WalkArea1" parent="stage/WalkTutorialArea" index="0" unique_id=896973546 node_paths=PackedStringArray("Player") instance=ExtResource("5_3c3jd")]
+[node name="WalkArea1" parent="stage/WalkTutorialArea" index="0" unique_id=896973546 node_paths=PackedStringArray("Player", "Speakers") instance=ExtResource("5_3c3jd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7703633, 0, 2.8930266)
 visible = false
 script = ExtResource("6_j8v6s")
 Player = NodePath("../../Player")
 Dialogues = Array[String](["¡Te mueves como un cisne!", "Probemos algo más difícil.", "Prueba a correr mantiendo la tecla Shift mientras te mueves."])
 SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy"])
+Speakers = [NodePath("../../../Skippy")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="stage/WalkTutorialArea/WalkArea1" index="2" unique_id=389782611]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
