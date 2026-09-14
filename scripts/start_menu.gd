@@ -1,5 +1,8 @@
 extends Control
 
+var RESULT_FILE_DIR = OS.get_system_dir(OS.SYSTEM_DIR_DESKTOP) + "/resultados.txt"
+const SAVE_FILE = "user://saveFile.txt"
+
 @onready var fade = $CanvasLayer/fade
 
 func _ready() -> void:
@@ -14,9 +17,17 @@ func _on_salir_pressed() -> void:
 	get_tree().quit()
 
 func _on_empezar_pressed() -> void:
+	# Crea o resetea el archivo para el estudio, en el escritorio para mayor facilidad
+	var desktop_dir = OS.get_system_dir(OS.SYSTEM_DIR_DESKTOP)
+	var file_path = desktop_dir + "/" + "resultados.txt"
+	
+	var file_result = FileAccess.open(file_path, FileAccess.WRITE)
+	file_result.close()
+		
+		
 	# Crea o resetea el archivo saveFile.txt
-	var file = FileAccess.open("res://saveFile.txt", FileAccess.WRITE)
-	file.close()
+	var savefile = FileAccess.open(SAVE_FILE, FileAccess.WRITE)
+	savefile.close()
 	
 	fade.show()
 	await fade.fade_to_black()

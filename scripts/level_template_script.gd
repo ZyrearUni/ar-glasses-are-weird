@@ -2,6 +2,9 @@ extends "res://scripts/dialogue.gd"
 
 signal level_start
 
+var RESULT_FILE_DIR = OS.get_system_dir(OS.SYSTEM_DIR_DESKTOP) + "/resultados.txt"
+const SAVE_FILE = "user://saveFile.txt"
+
 # Lista de valores posibles en el archivo de guardado
 
 # Nivel 1
@@ -64,11 +67,18 @@ func give_moral_insight(content: String):
 	await insight.give_moral_insight(content)
 	fade.show()
 
-func save_game_data(content):
-	var file = FileAccess.open("res://saveFile.txt", FileAccess.READ_WRITE)
+# Guardar en resultados.txt (para posterior estudio)
+func save_result(content):
+	var file = FileAccess.open(RESULT_FILE_DIR, FileAccess.READ_WRITE)
 	file.store_string(content)
 
+# Guardar en saveFile.txt
+func save_game_data(content):
+	var file = FileAccess.open(SAVE_FILE, FileAccess.READ_WRITE)
+	file.store_string(content)
+
+# Cargar saveFile.txt (para consecuencias en juego)
 func load_game_data():
-	var file = FileAccess.open("res://saveFile.txt", FileAccess.READ)
+	var file = FileAccess.open(SAVE_FILE, FileAccess.READ)
 	var content = file.get_as_text()
 	return content
