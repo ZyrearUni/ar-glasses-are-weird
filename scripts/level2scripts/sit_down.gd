@@ -18,8 +18,12 @@ func _on_sit_down_area_body_entered(body: Node3D) -> void:
 		await $"../../../fade".fade_from_black()
 
 func end_dialogue():
-	for speaker in Speakers:
-		speaker.hide()
-	CurrentDialogue = -1
-	DialogueUI.get_node("ContinueButton").disabled = true
-	$"../DecisionMenu/CanvasLayer".show()
+	if(Dialogues.size() != 0): 
+		$"../DecisionMenu/CanvasLayer".show()
+		$".".disabled = true
+		for speaker in Speakers:
+			speaker.hide()
+		CurrentDialogue = -1
+		DialogueUI.get_node("ContinueButton").disabled = true
+		Dialogues = []
+		

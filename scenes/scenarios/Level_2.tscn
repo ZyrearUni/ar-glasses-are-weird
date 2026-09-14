@@ -39,7 +39,7 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0.003072977
 transform = Transform3D(0.012958956, 0, -1.499944, 0, 1.5, 0, 1.499944, 0, 0.012958956, -8.096228, -0.057085752, -5.890358)
 
 [node name="Kid1" parent="stage/Classroom" index="1" unique_id=759215246 node_paths=PackedStringArray("Player") instance=ExtResource("4_qqupq")]
-transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 1, -0.40052938, 0, 1.1475873)
+transform = Transform3D(0.40000004, 0, 4.656613e-10, 0, 0.4, 0, -4.656613e-10, 0, 0.40000004, -0.96963644, 0.0032196045, 1.1426702)
 Player = NodePath("../../Player")
 Dialogues = Array[String](["67 FAAAAAAAH", "... ¿Por qué no te ríes?"])
 SpeakerNames = Array[String](["Kid1", "Kid1"])
@@ -153,11 +153,10 @@ Dialogues = Array[String](["Oh... Entiendo..."])
 SpeakerNames = Array[String](["Skippy"])
 Speakers = [NodePath("../../../../Skippy")]
 
-[node name="TestTime" type="Node" parent="stage/SitDownArea/DecisionMenu" index="3" unique_id=99495967 node_paths=PackedStringArray("Player", "Speakers")]
+[node name="TestTime" type="Node" parent="stage/SitDownArea/DecisionMenu" index="3" unique_id=99495967 node_paths=PackedStringArray("Player")]
 script = ExtResource("13_ff76c")
 Player = NodePath("../../../Player")
-SpeakerNames = Array[String]([""])
-Speakers = [NodePath("../../../../Profesora"), NodePath("../../../../Skippy")]
+SpeakerNames = Array[String](["", "", "", ""])
 
 [node name="SkippyAid" type="Control" parent="stage/SitDownArea/DecisionMenu/TestTime" index="0" unique_id=1084529211]
 visible = false
@@ -166,10 +165,10 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="AnswerInput" parent="stage/SitDownArea/DecisionMenu/TestTime" index="1" unique_id=646310507 instance=ExtResource("14_yaldh")]
+[node name="Profesora" parent="." index="2" unique_id=678234119 instance=ExtResource("15_yaldh")]
 visible = false
 
-[node name="Profesora" parent="." index="2" unique_id=678234119 instance=ExtResource("15_yaldh")]
+[node name="AnswerInput" parent="." index="7" unique_id=646310507 instance=ExtResource("14_yaldh")]
 visible = false
 
 [connection signal="body_entered" from="stage/SitDownArea" to="stage/SitDownArea/CollisionShape3D" method="_on_sit_down_area_body_entered"]
@@ -178,4 +177,4 @@ visible = false
 [connection signal="dialogue_ended" from="stage/SitDownArea/DecisionMenu/AcceptOffer" to="stage/SitDownArea/DecisionMenu/TestTime" method="start_test"]
 [connection signal="help_accepted" from="stage/SitDownArea/DecisionMenu/AcceptOffer" to="stage/SitDownArea/DecisionMenu/TestTime" method="help_accepted"]
 [connection signal="dialogue_ended" from="stage/SitDownArea/DecisionMenu/RejectOffer" to="stage/SitDownArea/DecisionMenu/TestTime" method="start_test"]
-[connection signal="answer_confirmed" from="stage/SitDownArea/DecisionMenu/TestTime/AnswerInput" to="stage/SitDownArea/DecisionMenu/TestTime" method="received_answer"]
+[connection signal="answer_confirmed" from="AnswerInput" to="stage/SitDownArea/DecisionMenu/TestTime" method="received_answer"]

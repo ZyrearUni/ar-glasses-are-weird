@@ -11,6 +11,7 @@ func _on_option_selected() -> void:
 		
 
 func end_dialogue():
+	Dialogues = []
 	for speaker in Speakers:
 		speaker.hide()
 	CurrentDialogue = -1

@@ -77,7 +77,7 @@ cast_shadow = 0
 mesh = SubResource("BoxMesh_trubg")
 
 [node name="Mom" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="3" unique_id=759215246 node_paths=PackedStringArray("Player") instance=ExtResource("7_n5sbo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6851782, 0, 9.416631)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -1.6851782, 0, 9.416631)
 script = ExtResource("8_2e5lf")
 Player = NodePath("../Player")
 Dialogues = Array[String](["¿Te gusta tu nuevo regalo, mi estrellita?", "Espero lo disfrutes hoy en clase. Debería ayudarte con esos problemas de mates que tanto se te atascan.", "¡Venga, vas a llegar tarde!"])
