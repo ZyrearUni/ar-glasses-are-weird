@@ -24,7 +24,6 @@ glow_enabled = true
 
 [node name="World" type="Node3D" unique_id=1891132867]
 script = ExtResource("1_kqd6t")
-nextLevel = "res://scenes/scenarios/Level_2.tscn"
 
 [node name="env" type="Node3D" parent="." unique_id=1871697350]
 
@@ -46,6 +45,15 @@ y_sort_enabled = true
 [node name="fade" parent="." unique_id=25219732 instance=ExtResource("4_kqd6t")]
 
 [node name="MoralInsight" parent="." unique_id=1762423104 instance=ExtResource("8_ptfjk")]
+
+[node name="Study" type="Control" parent="." unique_id=1827521786]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Study" unique_id=1082957249]
+visible = false
 
 [node name="DialogueUI" parent="." unique_id=635654561 instance=ExtResource("3_lqphp")]
 z_index = -1

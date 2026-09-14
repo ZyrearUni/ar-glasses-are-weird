@@ -2,7 +2,6 @@ extends "res://scripts/dialogue.gd"
 
 signal level_start
 
-var RESULT_FILE_DIR = OS.get_system_dir(OS.SYSTEM_DIR_DESKTOP) + "/resultados.txt"
 const SAVE_FILE = "user://saveFile.txt"
 
 # Lista de valores posibles en el archivo de guardado
@@ -42,7 +41,7 @@ const SKIPPY_ON = "Skippy se mantiene encendido\n"
 @onready var insight = $MoralInsight
 @onready var insightContent : String = "No deberías estar leyendo esto. ¿Qué has hecho?"
 
-@export var nextLevel : String
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -55,11 +54,10 @@ func speak():
 
 func finish_level() -> void:
 	await fade.fade_to_black()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
-	if insightContent != "" || !(insightContent.is_empty()):
-		await give_moral_insight(insightContent)
-		
-	get_tree().change_scene_to_file(nextLevel)
+	$Study/CanvasLayer.show()
+
 
 func give_moral_insight(content: String):
 	
@@ -67,14 +65,10 @@ func give_moral_insight(content: String):
 	await insight.give_moral_insight(content)
 	fade.show()
 
-# Guardar en resultados.txt (para posterior estudio)
-func save_result(content):
-	var file = FileAccess.open(RESULT_FILE_DIR, FileAccess.READ_WRITE)
-	file.store_string(content)
-
 # Guardar en saveFile.txt
 func save_game_data(content):
 	var file = FileAccess.open(SAVE_FILE, FileAccess.READ_WRITE)
+	file.seek_end()
 	file.store_string(content)
 
 # Cargar saveFile.txt (para consecuencias en juego)

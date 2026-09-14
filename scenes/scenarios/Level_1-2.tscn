@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://dutmc1upxe6gi" path="res://scripts/level1scripts/level1-2/accept_game.gd" id="5_4hcwd"]
 [ext_resource type="Script" uid="uid://53x6jpb1ig7j" path="res://scripts/level1scripts/level1-2/decision_area.gd" id="5_lfbje"]
 [ext_resource type="Script" uid="uid://dxqsgxg02trif" path="res://scripts/level1scripts/level1-2/reject_game.gd" id="7_qjpbo"]
+[ext_resource type="Script" uid="uid://7es80iimcapl" path="res://scripts/studymenuscripts/study_button.gd" id="8_v4enl"]
+[ext_resource type="Script" uid="uid://bsv45inr24dxq" path="res://scripts/studymenuscripts/next_level.gd" id="9_6g2dg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xh2vs"]
 size = Vector3(8.321873, 1, 14.5774555)
@@ -25,6 +27,9 @@ size = Vector3(1, 1, 1.7596436)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lfbje"]
 size = Vector3(21.359802, 14.67041, 9.910645)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v4enl"]
+bg_color = Color(0.8247977, 0.3473309, 0, 0.2901961)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jd5u1"]
 bg_color = Color(0.50853425, 0.33932856, 0.03818896, 1)
@@ -134,6 +139,52 @@ monitoring = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.313012, 6.835205, -69.3553)
 shape = SubResource("BoxShape3D_lfbje")
 
+[node name="VBoxContainer" type="VBoxContainer" parent="Study/CanvasLayer" parent_id_path=PackedInt32Array(1082957249) index="0" unique_id=546329449]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1439.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Study/CanvasLayer/VBoxContainer" index="0" unique_id=1339558105]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 2.96
+theme_override_constants/separation = 400
+alignment = 1
+
+[node name="Aspectos positivos" type="VBoxContainer" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer" index="0" unique_id=1201109561]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Aspecto1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos" index="0" unique_id=1964005050]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_v4enl")
+text = "Este es un aspecto positivo"
+script = ExtResource("8_v4enl")
+
+[node name="Aspectos negativos" type="VBoxContainer" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer" index="1" unique_id=757102081]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Aspecto1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="0" unique_id=1784567464]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_v4enl")
+text = "Este es un aspecto negativo"
+script = ExtResource("8_v4enl")
+
+[node name="NextLevel" type="Button" parent="Study/CanvasLayer/VBoxContainer" index="1" unique_id=1440314337]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Continuar al siguiente nivel"
+script = ExtResource("9_6g2dg")
+
 [node name="DecisionMenu" type="Control" parent="." index="7" unique_id=1327179284]
 layout_mode = 3
 anchors_preset = 0
@@ -164,6 +215,9 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_jd5u1")
 text = "Seguir camino normal"
 
 [connection signal="body_entered" from="stage/LevelFinishReject" to="." method="_on_level_finish_reject_body_entered"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/NextLevel" to="Study/CanvasLayer/VBoxContainer/NextLevel" method="next_level"]
 [connection signal="pressed" from="DecisionMenu/CanvasLayer/AcceptButton" to="." method="_on_accept_button_pressed"]
 [connection signal="pressed" from="DecisionMenu/CanvasLayer/AcceptButton" to="stage/DecisionArea/Accept" method="_on_accept_button_pressed"]
 [connection signal="pressed" from="DecisionMenu/CanvasLayer/RejectButton" to="." method="_on_reject_button_pressed"]
