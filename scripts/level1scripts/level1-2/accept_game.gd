@@ -6,3 +6,4 @@ func _on_accept_button_pressed() -> void:
 	$"../../../DecisionMenu/CanvasLayer".hide()
 	DialogueUI.get_node("ContinueButton").disabled = false
 	speak()
+	$"../../City/Platformer section/Coins".show()

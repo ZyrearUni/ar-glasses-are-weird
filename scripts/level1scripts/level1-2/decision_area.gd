@@ -7,4 +7,5 @@ func end_dialogue():
 	CurrentDialogue = -1
 	DialogueUI.get_node("ContinueButton").disabled = true
 	$"../../DecisionMenu/CanvasLayer".show()
+	self.monitoring = false
 	
