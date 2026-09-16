@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://53x6jpb1ig7j" path="res://scripts/level1scripts/level1-2/decision_area.gd" id="5_lfbje"]
 [ext_resource type="ArrayMesh" uid="uid://dukpany3v6dcs" path="res://assets/Coin.obj" id="5_ttv04"]
 [ext_resource type="Script" uid="uid://dxqsgxg02trif" path="res://scripts/level1scripts/level1-2/reject_game.gd" id="7_qjpbo"]
+[ext_resource type="AudioStream" uid="uid://dk06n8cg3a7h4" path="res://assets/sounds/sound effects/CollectCoin.wav" id="7_stsfq"]
 [ext_resource type="Script" uid="uid://7es80iimcapl" path="res://scripts/studymenuscripts/study_button.gd" id="8_v4enl"]
 [ext_resource type="Script" uid="uid://bsv45inr24dxq" path="res://scripts/studymenuscripts/next_level.gd" id="9_6g2dg"]
 
@@ -225,6 +226,9 @@ debug_color = Color(0.70980394, 0.4862745, 0, 1)
 libraries/ = SubResource("AnimationLibrary_qmatg")
 autoplay = &"RotarMoneda"
 
+[node name="CollectCoin" type="AudioStreamPlayer" parent="stage/City/Platformer section/Coins/Coin1" index="3" unique_id=283621254]
+stream = ExtResource("7_stsfq")
+
 [node name="Coin2" type="Area3D" parent="stage/City/Platformer section/Coins" index="1" unique_id=1462759455]
 transform = Transform3D(0.51, 0, 0, 0, 0.51, 0, 0, 0, 0.51, 0.603791, 0.18355614, -0.21617174)
 script = ExtResource("4_ttv04")
@@ -242,6 +246,9 @@ debug_color = Color(0.70980394, 0.4862745, 0, 1)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="stage/City/Platformer section/Coins/Coin2" index="2" unique_id=614177945]
 libraries/ = SubResource("AnimationLibrary_qmatg")
 autoplay = &"RotarMoneda"
+
+[node name="CollectCoin" type="AudioStreamPlayer" parent="stage/City/Platformer section/Coins/Coin2" index="3" unique_id=2105577492]
+stream = ExtResource("7_stsfq")
 
 [node name="Coin3" type="Area3D" parent="stage/City/Platformer section/Coins" index="2" unique_id=1475591766]
 transform = Transform3D(0.51, 0, 0, 0, 0.51, 0, 0, 0, 0.51, 1.1360371, 0.27271995, 0.0077180862)
@@ -261,6 +268,9 @@ debug_color = Color(0.70980394, 0.4862745, 0, 1)
 libraries/ = SubResource("AnimationLibrary_qmatg")
 autoplay = &"RotarMoneda"
 
+[node name="CollectCoin" type="AudioStreamPlayer" parent="stage/City/Platformer section/Coins/Coin3" index="3" unique_id=259701805]
+stream = ExtResource("7_stsfq")
+
 [node name="Coin4" type="Area3D" parent="stage/City/Platformer section/Coins" index="3" unique_id=876079222]
 transform = Transform3D(0.51, 0, 0, 0, 0.51, 0, 0, 0, 0.51, 1.7323093, 0.27271995, 0.0077180862)
 script = ExtResource("4_ttv04")
@@ -278,6 +288,9 @@ debug_color = Color(0.70980394, 0.4862745, 0, 1)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="stage/City/Platformer section/Coins/Coin4" index="2" unique_id=1972509577]
 libraries/ = SubResource("AnimationLibrary_qmatg")
 autoplay = &"RotarMoneda"
+
+[node name="CollectCoin" type="AudioStreamPlayer" parent="stage/City/Platformer section/Coins/Coin4" index="3" unique_id=1524145317]
+stream = ExtResource("7_stsfq")
 
 [node name="Coin5" type="Area3D" parent="stage/City/Platformer section/Coins" index="4" unique_id=2026530522]
 transform = Transform3D(0.51, 0, 0, 0, 0.51, 0, 0, 0, 0.51, 2.236135, 0.27271995, -0.23204398)
@@ -297,6 +310,9 @@ debug_color = Color(0.70980394, 0.4862745, 0, 1)
 libraries/ = SubResource("AnimationLibrary_qmatg")
 autoplay = &"RotarMoneda"
 
+[node name="CollectCoin" type="AudioStreamPlayer" parent="stage/City/Platformer section/Coins/Coin5" index="3" unique_id=1781694315]
+stream = ExtResource("7_stsfq")
+
 [node name="Coin6" type="Area3D" parent="stage/City/Platformer section/Coins" index="5" unique_id=1177428789]
 transform = Transform3D(0.51, 0, 0, 0, 0.51, 0, 0, 0, 0.51, 2.6823072, 0.18355614, -0.26195955)
 script = ExtResource("4_ttv04")
@@ -315,6 +331,9 @@ debug_color = Color(0.70980394, 0.4862745, 0, 1)
 libraries/ = SubResource("AnimationLibrary_qmatg")
 autoplay = &"RotarMoneda"
 
+[node name="CollectCoin" type="AudioStreamPlayer" parent="stage/City/Platformer section/Coins/Coin6" index="3" unique_id=1003670351]
+stream = ExtResource("7_stsfq")
+
 [node name="Coin7" type="Area3D" parent="stage/City/Platformer section/Coins" index="6" unique_id=1803684248]
 transform = Transform3D(0.51, 0, 0, 0, 0.51, 0, 0, 0, 0.51, 3.080874, 0.12294023, -0.27394938)
 script = ExtResource("4_ttv04")
@@ -332,6 +351,9 @@ debug_color = Color(0.70980394, 0.4862745, 0, 1)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="stage/City/Platformer section/Coins/Coin7" index="2" unique_id=824370559]
 libraries/ = SubResource("AnimationLibrary_qmatg")
 autoplay = &"RotarMoneda"
+
+[node name="CollectCoin" type="AudioStreamPlayer" parent="stage/City/Platformer section/Coins/Coin7" index="3" unique_id=1178172680]
+stream = ExtResource("7_stsfq")
 
 [node name="DecisionArea" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="2" unique_id=896973546 node_paths=PackedStringArray("Player", "Speakers") instance=ExtResource("4_4hcwd")]
 transform = Transform3D(17.525, 0, 0, 0, 17.525, 0, 0, 0, 17.525, 4.6824846, -0.0139837265, -43.133377)

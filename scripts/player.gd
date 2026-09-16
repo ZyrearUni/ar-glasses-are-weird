@@ -47,6 +47,10 @@ var t_bob = 0.0
 const INTERACT_MESSAGE : String = "Presiona E para interactuar"
 const DIALOGUE_MESSAGE : String = "Presiona E para hablar"
 
+# Audio de caminar
+var footstep_playable = true
+var footstep_just_landed 
+
 # Executes once when starting script
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # Makes mouse stay inside window
@@ -135,6 +139,13 @@ func _physics_process(delta: float) -> void:
 		camera.transform.origin = _headbob(t_bob)
 
 		move_and_slide()
+		
+		if(!footstep_just_landed and is_on_floor()):
+			$FootstepAudio.play()
+		elif(footstep_just_landed and !is_on_floor()):
+			$FootstepAudio.play()
+		
+		footstep_just_landed = is_on_floor()
 
 # No deja sobreescribir la función "look_at" de Node3D, se prueba así
 func look_at_somewhere(target: Vector3, up: Vector3 = Vector3(0, 1, 0), use_model_front: bool = false):
@@ -148,4 +159,12 @@ func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
+	
+	var footstep_threshold = -BOB_AMP + 0.0004
+	if (pos.y > footstep_threshold):
+		footstep_playable = true
+	elif (pos.y < footstep_threshold and footstep_playable):
+		footstep_playable = false
+		$FootstepAudio.play()
+	
 	return pos

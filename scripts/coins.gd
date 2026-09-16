@@ -4,3 +4,4 @@ func _on_body_entered(body: Node3D) -> void:
 	if(body == $"../../../../Player"):
 		self.monitoring = false
 		self.hide()
+		$CollectCoin.play()
