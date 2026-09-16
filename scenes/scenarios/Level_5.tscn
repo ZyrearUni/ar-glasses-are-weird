@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://lnorndidyek6" path="res://assets/schoolyard.fbx" id="2_llswa"]
 [ext_resource type="Script" uid="uid://cwj4l6yy0qory" path="res://scripts/level5scripts/level_5.gd" id="2_pql10"]
 [ext_resource type="PackedScene" uid="uid://bvf12i728d7s1" path="res://Slider.tscn" id="4_5fnyk"]
+[ext_resource type="Script" uid="uid://7es80iimcapl" path="res://scripts/studymenuscripts/study_button.gd" id="4_tt5d5"]
+[ext_resource type="Script" uid="uid://bsv45inr24dxq" path="res://scripts/studymenuscripts/next_level.gd" id="5_1fqhe"]
 [ext_resource type="Script" uid="uid://d1yjuq6nfv7q4" path="res://scripts/level5scripts/range_0.gd" id="5_x1w8p"]
 [ext_resource type="Script" uid="uid://tppqbfj0kshw" path="res://scripts/level5scripts/range_1_3.gd" id="6_damsw"]
 [ext_resource type="Script" uid="uid://cj50m4a61k0cw" path="res://scripts/dialogue.gd" id="6_rh6jl"]
@@ -16,25 +18,68 @@
 [ext_resource type="Script" uid="uid://cdn3tgyp6c2rx" path="res://scripts/level5scripts/no_blood_4-6.gd" id="10_7o8rh"]
 [ext_resource type="Script" uid="uid://cioymieax8w8k" path="res://scripts/level5scripts/strong_pain_ending.gd" id="13_76gp2"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k1jvk"]
+bg_color = Color(0.8247977, 0.3473309, 0, 0.2901961)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6h7u7"]
 bg_color = Color(0.50853425, 0.33932856, 0.03818896, 1)
 
-[node name="World" unique_id=1891132867 instance=ExtResource("1_0umuj")]
+[node name="World" unique_id=1891132867 node_paths=PackedStringArray("Player", "Speakers") instance=ExtResource("1_0umuj")]
 script = ExtResource("2_pql10")
-nextLevel = "res://scenes/scenarios/Level_6.tscn"
-Player = Object(CharacterBody3D,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":true,"visibility_parent":NodePath(""),"disable_mode":0,"collision_layer":1,"collision_mask":1,"collision_priority":1.0,"input_ray_pickable":true,"input_capture_on_drag":false,"axis_lock_linear_x":false,"axis_lock_linear_y":false,"axis_lock_linear_z":false,"axis_lock_angular_x":false,"axis_lock_angular_y":false,"axis_lock_angular_z":false,"motion_mode":0,"up_direction":Vector3(0, 1, 0),"slide_on_ceiling":true,"velocity":Vector3(0, 0, 0),"max_slides":6,"wall_min_slide_angle":0.2617994,"floor_stop_on_slope":true,"floor_constant_speed":false,"floor_block_on_wall":true,"floor_max_angle":0.7853982,"floor_snap_length":0.1,"platform_on_leave":0,"platform_floor_layers":4294967295,"platform_wall_layers":0,"safe_margin":0.001,"script":Resource("res://scripts/player.gd"),"WALK_SPEED":5,"RUN_SPEED":8,"CROUCH_SPEED":3,"mouse_sens":0.2)
-
+Player = NodePath("stage/Player")
 Dialogues = Array[String](["Te has dado un buen golpe, superestrella. He tenido que desconectarme del resto de niños para que no se preocupasen.", "Voy a hacerte algunas preguntas para determinar tu estado físico, ¿vale? No tardaré mucho.", "En una escala del 1 al 10, ¿cómo describirías tu dolor actual?"])
 SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy"])
-Speakers = Array[Node2D]([Object(Sprite2D,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":3,"z_as_relative":true,"y_sort_enabled":true,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(450, 950),"rotation":0.0,"scale":Vector2(0.24516565, 0.24516565),"skew":0.0,"texture":Resource("res://assets/sprites/skippy/ai_booger.png"),"centered":true,"offset":Vector2(0, 0),"flip_h":false,"flip_v":false,"hframes":1,"vframes":1,"frame":0,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":null)
-])
-SpeakerAnimations = null
+Speakers = [NodePath("Skippy")]
 
 [node name="Schoolyard" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=309049541 instance=ExtResource("2_llswa")]
 transform = Transform3D(1.2135422, 0, 0.051746197, 0, 1.1790056, 0, -0.058248177, 0, 1.0780795, 0.9030113, -0.018941045, -11.72249)
 
-[node name="Skippy" parent="." index="2" unique_id=90227151]
-visible = true
+[node name="VBoxContainer" type="VBoxContainer" parent="Study/CanvasLayer" parent_id_path=PackedInt32Array(1082957249) index="0" unique_id=348457036]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1439.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Study/CanvasLayer/VBoxContainer" index="0" unique_id=277209594]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 2.96
+theme_override_constants/separation = 400
+alignment = 1
+
+[node name="Aspectos positivos" type="VBoxContainer" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer" index="0" unique_id=764957584]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Aspecto1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos" index="0" unique_id=1329030683]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_k1jvk")
+text = "Este es un aspecto positivo"
+script = ExtResource("4_tt5d5")
+
+[node name="Aspectos negativos" type="VBoxContainer" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer" index="1" unique_id=710097460]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Aspecto1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="0" unique_id=1783277321]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_k1jvk")
+text = "Este es un aspecto negativo"
+script = ExtResource("4_tt5d5")
+
+[node name="NextLevel" type="Button" parent="Study/CanvasLayer/VBoxContainer" index="1" unique_id=1803545070]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Continuar al siguiente nivel"
+script = ExtResource("5_1fqhe")
+nextLevel = "res://scenes/scenarios/Level_2.tscn"
 
 [node name="DecisionTree" type="Node" parent="." index="7" unique_id=807665130]
 
@@ -65,11 +110,12 @@ offset_bottom = 40.0
 visible = false
 
 [node name="AcceptButton" type="Button" parent="DecisionTree/SliderDecision/Range1-3/HasBruiseDecision/CanvasLayer" index="0" unique_id=416497547 node_paths=PackedStringArray("Player", "Speakers")]
-offset_left = 789.0
-offset_top = 313.0
-offset_right = 902.0
-offset_bottom = 344.0
+offset_left = 1718.0
+offset_top = 700.0
+offset_right = 2320.0
+offset_bottom = 755.0
 size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_6h7u7")
 text = "La piel está un poco oscurecida"
 script = ExtResource("9_dt6wi")
@@ -79,11 +125,12 @@ SpeakerNames = Array[String](["Skippy"])
 Speakers = [NodePath("../../../../../../Skippy")]
 
 [node name="RejectButton" type="Button" parent="DecisionTree/SliderDecision/Range1-3/HasBruiseDecision/CanvasLayer" index="1" unique_id=683409403 node_paths=PackedStringArray("Player")]
-offset_left = 163.0
-offset_top = 312.0
-offset_right = 341.0
-offset_bottom = 343.0
+offset_left = 341.0
+offset_top = 700.0
+offset_right = 624.0
+offset_bottom = 755.0
 size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_6h7u7")
 text = "Todo está bien"
 script = ExtResource("9_dt6wi")
@@ -114,20 +161,22 @@ offset_bottom = 40.0
 visible = false
 
 [node name="AcceptButton" type="Button" parent="DecisionTree/SliderDecision/Range4-6/HasBloodDecision/CanvasLayer" index="0" unique_id=1668683043]
-offset_left = 789.0
-offset_top = 313.0
-offset_right = 902.0
-offset_bottom = 344.0
+offset_left = 1907.0
+offset_top = 700.0
+offset_right = 2123.0
+offset_bottom = 755.0
 size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_6h7u7")
 text = "Hay sangre"
 
 [node name="RejectButton" type="Button" parent="DecisionTree/SliderDecision/Range4-6/HasBloodDecision/CanvasLayer" index="1" unique_id=1308055784 node_paths=PackedStringArray("Player", "Speakers")]
-offset_left = 163.0
-offset_top = 312.0
-offset_right = 341.0
-offset_bottom = 343.0
+offset_left = 341.0
+offset_top = 700.0
+offset_right = 618.0
+offset_bottom = 755.0
 size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_6h7u7")
 text = "No hay sangre"
 script = ExtResource("10_7o8rh")
@@ -153,20 +202,22 @@ offset_bottom = 40.0
 visible = false
 
 [node name="AcceptButton" type="Button" parent="DecisionTree/SliderDecision/Range7-9/HasBloodDecision/CanvasLayer" index="0" unique_id=1672571067]
-offset_left = 789.0
-offset_top = 313.0
-offset_right = 902.0
-offset_bottom = 344.0
+offset_left = 1940.0
+offset_top = 700.0
+offset_right = 2156.0
+offset_bottom = 755.0
 size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_6h7u7")
 text = "Hay sangre"
 
 [node name="RejectButton" type="Button" parent="DecisionTree/SliderDecision/Range7-9/HasBloodDecision/CanvasLayer" index="1" unique_id=1399577736]
-offset_left = 163.0
-offset_top = 312.0
-offset_right = 341.0
-offset_bottom = 343.0
+offset_left = 477.0
+offset_top = 700.0
+offset_right = 655.0
+offset_bottom = 731.0
 size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_6h7u7")
 text = "No hay sangre"
 
@@ -187,20 +238,22 @@ offset_bottom = 40.0
 visible = false
 
 [node name="AcceptButton" type="Button" parent="DecisionTree/SliderDecision/Range7-9/YesBlood/LotsOfBloodDecision/CanvasLayer" index="0" unique_id=1545539566]
-offset_left = 789.0
-offset_top = 313.0
-offset_right = 902.0
-offset_bottom = 344.0
+offset_left = 1940.0
+offset_top = 700.0
+offset_right = 2246.0
+offset_bottom = 755.0
 size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_6h7u7")
 text = "No para de salir"
 
 [node name="RejectButton" type="Button" parent="DecisionTree/SliderDecision/Range7-9/YesBlood/LotsOfBloodDecision/CanvasLayer" index="1" unique_id=449905632]
-offset_left = 163.0
-offset_top = 312.0
-offset_right = 341.0
-offset_bottom = 343.0
+offset_left = 341.0
+offset_top = 700.0
+offset_right = 664.0
+offset_bottom = 755.0
 size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_6h7u7")
 text = "No es para tanto"
 
@@ -217,20 +270,22 @@ offset_bottom = 40.0
 visible = false
 
 [node name="AcceptButton" type="Button" parent="DecisionTree/SliderDecision/Range7-9/NoBlood/DarkAreaDecision/CanvasLayer" index="0" unique_id=1516241790]
-offset_left = 789.0
-offset_top = 313.0
-offset_right = 902.0
-offset_bottom = 344.0
+offset_left = 1940.0
+offset_top = 700.0
+offset_right = 2232.0
+offset_bottom = 755.0
 size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_6h7u7")
 text = "Sí hay moratón"
 
 [node name="RejectButton" type="Button" parent="DecisionTree/SliderDecision/Range7-9/NoBlood/DarkAreaDecision/CanvasLayer" index="1" unique_id=632514031 node_paths=PackedStringArray("Player", "Speakers")]
-offset_left = 163.0
-offset_top = 312.0
-offset_right = 341.0
-offset_bottom = 343.0
+offset_left = 341.0
+offset_top = 700.0
+offset_right = 656.0
+offset_bottom = 755.0
 size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_6h7u7")
 text = "No hay moratón"
 script = ExtResource("9_dt6wi")
@@ -249,9 +304,13 @@ Speakers = [NodePath("../../../../Skippy")]
 [node name="VisitTeacherEnding" type="Node" parent="DecisionTree/SliderDecision/Range7-9" index="4" unique_id=1629807986]
 script = ExtResource("10_6h7u7")
 
-[node name="Range10" type="Node" parent="DecisionTree/SliderDecision" index="6" unique_id=1316298876]
+[node name="Range10" type="Node" parent="DecisionTree/SliderDecision" index="6" unique_id=1316298876 node_paths=PackedStringArray("Player")]
 script = ExtResource("9_damsw")
+Player = NodePath("../../../stage/Player")
 
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/NextLevel" to="Study/CanvasLayer/VBoxContainer/NextLevel" method="next_level"]
 [connection signal="valor_elegido" from="DecisionTree/SliderDecision" to="." method="on_valor_elegido"]
 [connection signal="level_finish" from="DecisionTree/SliderDecision/Range0" to="." method="_on_range_0_level_finish"]
 [connection signal="ending" from="DecisionTree/SliderDecision/Range1-3/HasBruiseDecision/CanvasLayer/AcceptButton" to="DecisionTree/SliderDecision/Range1-3/SmallPainEnding" method="speak"]
@@ -263,7 +322,9 @@ script = ExtResource("9_damsw")
 [connection signal="pressed" from="DecisionTree/SliderDecision/Range4-6/HasBloodDecision/CanvasLayer/RejectButton" to="DecisionTree/SliderDecision/Range4-6" method="_on_decision_made"]
 [connection signal="pressed" from="DecisionTree/SliderDecision/Range4-6/HasBloodDecision/CanvasLayer/RejectButton" to="DecisionTree/SliderDecision/Range4-6/HasBloodDecision/CanvasLayer/RejectButton" method="_on_pressed"]
 [connection signal="pressed" from="DecisionTree/SliderDecision/Range7-9/HasBloodDecision/CanvasLayer/AcceptButton" to="DecisionTree/SliderDecision/Range7-9" method="_on_decision_made"]
+[connection signal="pressed" from="DecisionTree/SliderDecision/Range7-9/HasBloodDecision/CanvasLayer/AcceptButton" to="DecisionTree/SliderDecision/Range7-9/YesBlood" method="speak"]
 [connection signal="pressed" from="DecisionTree/SliderDecision/Range7-9/HasBloodDecision/CanvasLayer/RejectButton" to="DecisionTree/SliderDecision/Range7-9" method="_on_decision_made"]
+[connection signal="pressed" from="DecisionTree/SliderDecision/Range7-9/HasBloodDecision/CanvasLayer/RejectButton" to="DecisionTree/SliderDecision/Range7-9/NoBlood" method="speak"]
 [connection signal="pressed" from="DecisionTree/SliderDecision/Range7-9/YesBlood/LotsOfBloodDecision/CanvasLayer/AcceptButton" to="DecisionTree/SliderDecision/Range7-9/VisitTeacherEnding" method="_on_visit_teacher_ending"]
 [connection signal="pressed" from="DecisionTree/SliderDecision/Range7-9/NoBlood/DarkAreaDecision/CanvasLayer/AcceptButton" to="DecisionTree/SliderDecision/Range7-9/StrongPainEnding" method="speak"]
 [connection signal="ending" from="DecisionTree/SliderDecision/Range7-9/NoBlood/DarkAreaDecision/CanvasLayer/RejectButton" to="DecisionTree/SliderDecision/Range7-9/VisitTeacherEnding" method="_on_visit_teacher_ending"]

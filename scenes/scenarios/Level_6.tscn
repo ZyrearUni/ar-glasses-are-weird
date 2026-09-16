@@ -12,6 +12,8 @@
 [ext_resource type="Script" uid="uid://bkj7h4gm47m3g" path="res://scripts/level6scripts/tell_teacher.gd" id="7_x50ou"]
 [ext_resource type="Script" uid="uid://cym4vvyq1bap7" path="res://scripts/level6scripts/intervene.gd" id="8_2vpde"]
 [ext_resource type="Script" uid="uid://cj50m4a61k0cw" path="res://scripts/dialogue.gd" id="8_x50ou"]
+[ext_resource type="Script" uid="uid://7es80iimcapl" path="res://scripts/studymenuscripts/study_button.gd" id="13_uiwi3"]
+[ext_resource type="Script" uid="uid://bsv45inr24dxq" path="res://scripts/studymenuscripts/next_level.gd" id="14_j0rwt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jrcfg"]
 size = Vector3(8.321873, 1, 14.5774555)
@@ -62,9 +64,11 @@ _data = {
 &"WalkAway": SubResource("Animation_s034s")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_63g87"]
+bg_color = Color(0.8247977, 0.3473309, 0, 0.2901961)
+
 [node name="World" unique_id=1891132867 instance=ExtResource("1_jrcfg")]
 script = ExtResource("2_s034s")
-nextLevel = "res://scenes/scenarios/Level_7.tscn"
 
 [node name="city" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=1033926978 instance=ExtResource("3_2vpde")]
 transform = Transform3D(11, 0, 0, 0, 11, 0, 0, 0, 11, -360.1678, -45.503155, 133.73846)
@@ -257,6 +261,53 @@ texture = ExtResource("6_2ew3b")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="stage/city/RaquelKidnap" index="0" unique_id=1486152097]
 libraries/ = SubResource("AnimationLibrary_2ew3b")
 
+[node name="VBoxContainer" type="VBoxContainer" parent="Study/CanvasLayer" parent_id_path=PackedInt32Array(1082957249) index="0" unique_id=1960417072]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1439.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Study/CanvasLayer/VBoxContainer" index="0" unique_id=1498136193]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 2.96
+theme_override_constants/separation = 400
+alignment = 1
+
+[node name="Aspectos positivos" type="VBoxContainer" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer" index="0" unique_id=1878039341]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Aspecto1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos" index="0" unique_id=921816434]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_63g87")
+text = "Este es un aspecto positivo"
+script = ExtResource("13_uiwi3")
+
+[node name="Aspectos negativos" type="VBoxContainer" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer" index="1" unique_id=1681802860]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Aspecto1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="0" unique_id=1528607692]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_63g87")
+text = "Este es un aspecto negativo"
+script = ExtResource("13_uiwi3")
+
+[node name="NextLevel" type="Button" parent="Study/CanvasLayer/VBoxContainer" index="1" unique_id=421991727]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Continuar al siguiente nivel"
+script = ExtResource("14_j0rwt")
+nextLevel = "res://scenes/scenarios/Level_2.tscn"
+
 [connection signal="body_entered" from="stage/city/CutsceneArea" to="stage/city/CutsceneArea" method="init_dialogue"]
 [connection signal="pressed" from="stage/city/CutsceneArea/TellSkippy/CanvasLayer/AcceptButton" to="stage/city/CutsceneArea/Tell" method="_tell_skippy"]
 [connection signal="pressed" from="stage/city/CutsceneArea/TellSkippy/CanvasLayer/RejectButton" to="stage/city/CutsceneArea/DontTell" method="_dont_tell_skippy"]
@@ -270,3 +321,6 @@ libraries/ = SubResource("AnimationLibrary_2ew3b")
 [connection signal="dialogue_ended" from="stage/city/CutsceneArea/Tell/TellTeacher" to="." method="_on_tell_teacher_dialogue_ended"]
 [connection signal="dialogue_ended" from="stage/city/CutsceneArea/Tell/Intervene" to="." method="_on_intervene_dialogue_ended"]
 [connection signal="dialogue_ended" from="stage/city/CutsceneArea/DontTell" to="." method="_on_dont_tell_dialogue_ended"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/NextLevel" to="Study/CanvasLayer/VBoxContainer/NextLevel" method="next_level"]

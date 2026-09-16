@@ -3,10 +3,61 @@
 [ext_resource type="PackedScene" uid="uid://bqsbcqqthmbyy" path="res://scenes/scenarios/Level_Template.tscn" id="1_arvii"]
 [ext_resource type="PackedScene" uid="uid://lnorndidyek6" path="res://assets/schoolyard.fbx" id="2_eyrer"]
 [ext_resource type="Script" uid="uid://b86p0fqefuk45" path="res://scripts/level4scripts/level_4.gd" id="2_hxsir"]
+[ext_resource type="Script" uid="uid://b68dnlybkbq18" path="res://scripts/coins.gd" id="4_icstf"]
+[ext_resource type="Script" uid="uid://7es80iimcapl" path="res://scripts/studymenuscripts/study_button.gd" id="4_yy6d1"]
+[ext_resource type="Script" uid="uid://bsv45inr24dxq" path="res://scripts/studymenuscripts/next_level.gd" id="5_q0bsi"]
+[ext_resource type="Texture2D" uid="uid://d0jyltvc0lto6" path="res://assets/textures/coin/Coin.png" id="5_w7s45"]
+[ext_resource type="ArrayMesh" uid="uid://dukpany3v6dcs" path="res://assets/Coin.obj" id="6_8882p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_70yo7"]
+albedo_texture = ExtResource("5_w7s45")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_wupav"]
+height = 0.179142
+radius = 0.103027344
+
+[sub_resource type="Animation" id="Animation_bdcid"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_se11h"]
+resource_name = "RotarMoneda"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5707964, 0), Vector3(0, 3.1415927, 0), Vector3(0, 4.712389, 0), Vector3(0, 6.2831855, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b3bfj"]
+_data = {
+&"RESET": SubResource("Animation_bdcid"),
+&"RotarMoneda": SubResource("Animation_se11h")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bk62b"]
+bg_color = Color(0.8247977, 0.3473309, 0, 0.2901961)
 
 [node name="World" unique_id=1891132867 node_paths=PackedStringArray("Player", "Speakers") instance=ExtResource("1_arvii")]
 script = ExtResource("2_hxsir")
-nextLevel = "res://scenes/scenarios/Level_4.tscn"
 Player = NodePath("stage/Player")
 Dialogues = Array[String](["Me he conectado con las gafas de los otros niños para jugar a un juego todos juntos.", "¡Veo que han traído algunos objetos por su parte para ayudarnos!", "Vamos a montar un circuito de obstáculos con ayuda de un poco de imaginación."])
 SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy"])
@@ -15,3 +66,79 @@ SpeakerAnimations = Array[String](["Hablar", "Hablar", "Hablar"])
 
 [node name="Schoolyard" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=309049541 instance=ExtResource("2_eyrer")]
 transform = Transform3D(0.058248125, 0, -1.0780795, 0, 1.1790056, 0, 1.2135423, 0, 0.051746152, -8.708247, -0.018941045, -1.3960664)
+
+[node name="Platform section" type="Node3D" parent="stage/Schoolyard" index="31" unique_id=59542017]
+
+[node name="Platforms" type="Node3D" parent="stage/Schoolyard/Platform section" index="0" unique_id=798212934]
+
+[node name="Coins" type="Node3D" parent="stage/Schoolyard/Platform section" index="1" unique_id=1671592110]
+
+[node name="Coin1" type="Area3D" parent="stage/Schoolyard/Platform section/Coins" index="0" unique_id=830803400]
+transform = Transform3D(3, 0, -1.4901161e-08, 0, 3, 0, 4.4703484e-08, 0, 3, 0.26859307, 0.470814, -4.9896193)
+script = ExtResource("4_icstf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="stage/Schoolyard/Platform section/Coins/Coin1" index="0" unique_id=221070337]
+transform = Transform3D(0.105, 0, 0, 0, 0.105, 0, 0, 0, 0.105, 0, -0.10630855, 0)
+material_override = SubResource("StandardMaterial3D_70yo7")
+mesh = ExtResource("6_8882p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Schoolyard/Platform section/Coins/Coin1" index="1" unique_id=1771478921]
+transform = Transform3D(-4.3711385e-08, -1, 0, 1, -4.3711385e-08, 0, 0, 0, 1, 0.00021648407, 0.0011551082, 0)
+shape = SubResource("CylinderShape3D_wupav")
+debug_color = Color(0.70980394, 0.4862745, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="stage/Schoolyard/Platform section/Coins/Coin1" index="2" unique_id=41474425]
+libraries/ = SubResource("AnimationLibrary_b3bfj")
+autoplay = &"RotarMoneda"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Study/CanvasLayer" parent_id_path=PackedInt32Array(1082957249) index="0" unique_id=854192583]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1439.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Study/CanvasLayer/VBoxContainer" index="0" unique_id=1756335652]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 2.96
+theme_override_constants/separation = 400
+alignment = 1
+
+[node name="Aspectos positivos" type="VBoxContainer" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer" index="0" unique_id=1236266845]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Aspecto1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos" index="0" unique_id=243484495]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_bk62b")
+text = "Este es un aspecto positivo"
+script = ExtResource("4_yy6d1")
+
+[node name="Aspectos negativos" type="VBoxContainer" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer" index="1" unique_id=1951069876]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Aspecto1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="0" unique_id=688916523]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_bk62b")
+text = "Este es un aspecto negativo"
+script = ExtResource("4_yy6d1")
+
+[node name="NextLevel" type="Button" parent="Study/CanvasLayer/VBoxContainer" index="1" unique_id=1335291421]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Continuar al siguiente nivel"
+script = ExtResource("5_q0bsi")
+nextLevel = "res://scenes/scenarios/Level_2.tscn"
+
+[connection signal="body_entered" from="stage/Schoolyard/Platform section/Coins/Coin1" to="stage/Schoolyard/Platform section/Coins/Coin1" method="_on_body_entered"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/NextLevel" to="Study/CanvasLayer/VBoxContainer/NextLevel" method="next_level"]
