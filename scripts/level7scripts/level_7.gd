@@ -13,10 +13,8 @@ func on_option_end():
 	# TODO Modificar la moraleja al final del escenario
 	match selectedOption:
 		NO_CONTAR || CANCELAR_LLAMADA:
-			print("No contó una mierda")
 			save_game_data(SKIPPY_ON)
 		_:
-			print("No sé, todo lo demás")
 			save_game_data(SKIPPY_OFF)
 	finish_level()
 

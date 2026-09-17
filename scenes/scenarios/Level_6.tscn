@@ -27,6 +27,9 @@ size = Vector3(0.611084, 1.4364014, 2.320221)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01jnc"]
 bg_color = Color(0.50853425, 0.33932856, 0.03818896, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_uiwi3"]
+size = Vector3(10.138123, 12.118042, 2.458496)
+
 [sub_resource type="Animation" id="Animation_0kk5n"]
 length = 0.001
 tracks/0/type = "value"
@@ -69,6 +72,9 @@ bg_color = Color(0.8247977, 0.3473309, 0, 0.2901961)
 
 [node name="World" unique_id=1891132867 instance=ExtResource("1_jrcfg")]
 script = ExtResource("2_s034s")
+Dialogues = null
+SpeakerNames = null
+SpeakerAnimations = null
 
 [node name="city" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=1033926978 instance=ExtResource("3_2vpde")]
 transform = Transform3D(11, 0, 0, 0, 11, 0, 0, 0, 11, -360.1678, -45.503155, 133.73846)
@@ -246,6 +252,14 @@ Dialogues = Array[String](["¡De acuerdo! ¡Vamos a salvarla!"])
 SpeakerNames = Array[String](["Skippy"])
 Speakers = [NodePath("../../../../../Skippy")]
 
+[node name="KidnappedEnding" type="Area3D" parent="stage/city/CutsceneArea/Tell/Intervene" index="0" unique_id=755101573]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.466143, 0, 17.350752)
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/city/CutsceneArea/Tell/Intervene/KidnappedEnding" index="0" unique_id=147157290]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5152264, 5.559021, -0.72924805)
+shape = SubResource("BoxShape3D_uiwi3")
+
 [node name="DontTell" type="Node" parent="stage/city/CutsceneArea" index="3" unique_id=40795269 node_paths=PackedStringArray("Player", "Speakers")]
 script = ExtResource("5_s034s")
 Player = NodePath("../../../Player")
@@ -319,7 +333,7 @@ nextLevel = "res://scenes/scenarios/Level_2.tscn"
 [connection signal="dialogue_ended" from="stage/city/CutsceneArea/Tell/CallPolice/ActivateSuscription" to="." method="_on_activate_suscription_dialogue_ended"]
 [connection signal="dialogue_ended" from="stage/city/CutsceneArea/Tell/CallPolice/DoNotActivateSuscription" to="." method="_on_do_not_activate_suscription_dialogue_ended"]
 [connection signal="dialogue_ended" from="stage/city/CutsceneArea/Tell/TellTeacher" to="." method="_on_tell_teacher_dialogue_ended"]
-[connection signal="dialogue_ended" from="stage/city/CutsceneArea/Tell/Intervene" to="." method="_on_intervene_dialogue_ended"]
+[connection signal="body_entered" from="stage/city/CutsceneArea/Tell/Intervene/KidnappedEnding" to="." method="_on_kidnapped_ending"]
 [connection signal="dialogue_ended" from="stage/city/CutsceneArea/DontTell" to="." method="_on_dont_tell_dialogue_ended"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" method="save_result"]

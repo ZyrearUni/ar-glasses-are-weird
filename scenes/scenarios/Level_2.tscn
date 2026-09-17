@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://0j14uewcrshp" path="res://scenes/models/characters/teacher_2d.tscn" id="15_yaldh"]
 [ext_resource type="Script" uid="uid://7es80iimcapl" path="res://scripts/studymenuscripts/study_button.gd" id="16_1p6qy"]
 [ext_resource type="Script" uid="uid://bsv45inr24dxq" path="res://scripts/studymenuscripts/next_level.gd" id="17_4reh2"]
+[ext_resource type="AudioStream" uid="uid://dnyih1v3lbro" path="res://assets/sounds/sound effects/SchoolBell.wav" id="18_4reh2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q7k1q"]
 size = Vector3(1.2163086, 2.2006226, 1.5031738)
@@ -33,8 +34,13 @@ bg_color = Color(0.50853425, 0.33932856, 0.03818896, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1p6qy"]
 bg_color = Color(0.8247977, 0.3473309, 0, 0.2901961)
 
-[node name="World" unique_id=1891132867 instance=ExtResource("1_vap6u")]
+[node name="World" unique_id=1891132867 node_paths=PackedStringArray("Player", "Speakers") instance=ExtResource("1_vap6u")]
 script = ExtResource("2_n0fk5")
+Player = NodePath("stage/Player")
+Dialogues = Array[String](["¡Lo has hecho genial!", "Seguro que mientras sigamos trabajando juntos no dejarás de mejorar", "¡Gracias por confiar en mí para ayudarte!"])
+SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy"])
+Speakers = [NodePath("Skippy")]
+SpeakerAnimations = Array[String](["Feliz", "Hablar", "Feliz"])
 
 [node name="Player" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="0" unique_id=1886028462]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0.003072977, 0, 0.9293299)
@@ -212,6 +218,21 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_1p6qy")
 text = "Este es un aspecto negativo"
 script = ExtResource("16_1p6qy")
 
+[node name="Aspecto2" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="1" unique_id=1627588845]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_1p6qy")
+text = "Este es un aspecto negativo"
+script = ExtResource("16_1p6qy")
+
+[node name="Aspecto3" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="2" unique_id=999942454]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_1p6qy")
+text = "Este es un aspecto negativo"
+script = ExtResource("16_1p6qy")
+
 [node name="NextLevel" type="Button" parent="Study/CanvasLayer/VBoxContainer" index="1" unique_id=1560825358]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
@@ -221,7 +242,11 @@ script = ExtResource("17_4reh2")
 [node name="AnswerInput" parent="." index="7" unique_id=646310507 instance=ExtResource("14_yaldh")]
 visible = false
 
+[node name="SchoolBell" type="AudioStreamPlayer" parent="." index="10" unique_id=1332697714]
+stream = ExtResource("18_4reh2")
+
 [connection signal="body_entered" from="stage/SitDownArea" to="stage/SitDownArea/CollisionShape3D" method="_on_sit_down_area_body_entered"]
+[connection signal="pressed" from="stage/SitDownArea/DecisionMenu/CanvasLayer/AcceptButton" to="." method="help_accepted"]
 [connection signal="pressed" from="stage/SitDownArea/DecisionMenu/CanvasLayer/AcceptButton" to="stage/SitDownArea/DecisionMenu/AcceptOffer" method="_on_option_selected"]
 [connection signal="pressed" from="stage/SitDownArea/DecisionMenu/CanvasLayer/RejectButton" to="stage/SitDownArea/DecisionMenu/RejectOffer" method="_on_option_selected"]
 [connection signal="dialogue_ended" from="stage/SitDownArea/DecisionMenu/AcceptOffer" to="stage/SitDownArea/DecisionMenu/TestTime" method="start_test"]
@@ -229,5 +254,7 @@ visible = false
 [connection signal="dialogue_ended" from="stage/SitDownArea/DecisionMenu/RejectOffer" to="stage/SitDownArea/DecisionMenu/TestTime" method="start_test"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto2" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto2" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto3" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto3" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/NextLevel" to="Study/CanvasLayer/VBoxContainer/NextLevel" method="next_level"]
 [connection signal="answer_confirmed" from="AnswerInput" to="stage/SitDownArea/DecisionMenu/TestTime" method="received_answer"]

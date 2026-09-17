@@ -76,3 +76,8 @@ func load_game_data():
 	var file = FileAccess.open(SAVE_FILE, FileAccess.READ)
 	var content = file.get_as_text()
 	return content
+
+# Acabar el juego
+func end_game():
+	# Cambiar a escena de créditos
+	pass

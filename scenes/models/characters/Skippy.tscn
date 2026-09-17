@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://by16siv81es8q"]
 
-[ext_resource type="Texture2D" uid="uid://barnmag0xjnf1" path="res://assets/sprites/skippy/ai_booger.png" id="1_ohgfp"]
+[ext_resource type="Texture2D" uid="uid://barnmag0xjnf1" path="res://assets/sprites/Skippy/ai_booger.png" id="1_ohgfp"]
 [ext_resource type="Script" uid="uid://plms7gqrxn8f" path="res://scripts/2d_speaker_anim.gd" id="2_cojva"]
-[ext_resource type="Texture2D" uid="uid://dwsbjt0fso6th" path="res://assets/sprites/skippy/skippyhuh.png" id="2_ie6xb"]
-[ext_resource type="Texture2D" uid="uid://cgpwy4o8lyjp1" path="res://assets/sprites/skippy/skippyhap.png" id="3_shi0x"]
-[ext_resource type="Texture2D" uid="uid://bb8vplsa8cddy" path="res://assets/sprites/skippy/skippynervous.png" id="4_je2b4"]
-[ext_resource type="Texture2D" uid="uid://cvju8huwkqry8" path="res://assets/sprites/skippy/skippypensive.png" id="5_2d81r"]
-[ext_resource type="Texture2D" uid="uid://dtlvsbnvvxnua" path="res://assets/sprites/skippy/skippypensive2.png" id="6_ni4vq"]
+[ext_resource type="Texture2D" uid="uid://dwsbjt0fso6th" path="res://assets/sprites/Skippy/skippyhuh.png" id="2_ie6xb"]
+[ext_resource type="Texture2D" uid="uid://cgpwy4o8lyjp1" path="res://assets/sprites/Skippy/skippyhap.png" id="3_shi0x"]
+[ext_resource type="Texture2D" uid="uid://bb8vplsa8cddy" path="res://assets/sprites/Skippy/skippynervous.png" id="4_je2b4"]
+[ext_resource type="Texture2D" uid="uid://cvju8huwkqry8" path="res://assets/sprites/Skippy/skippypensive.png" id="5_2d81r"]
+[ext_resource type="Texture2D" uid="uid://dtlvsbnvvxnua" path="res://assets/sprites/Skippy/skippypensive2.png" id="6_ni4vq"]
 
 [sub_resource type="Animation" id="Animation_mn36i"]
 resource_name = "Confuso"
