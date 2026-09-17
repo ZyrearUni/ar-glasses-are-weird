@@ -18,6 +18,5 @@ func _on_level_finish_reject_body_entered(body: Node3D) -> void:
 func coin_collected(body):
 	if (body == Player):
 		total_coins_collected += 1
-		print(total_coins_collected)
 		if (total_coins_collected == TOTAL_COINS):
 			finish_level()

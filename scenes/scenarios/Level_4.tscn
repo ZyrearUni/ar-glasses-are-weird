@@ -9,6 +9,46 @@
 [ext_resource type="Texture2D" uid="uid://d0jyltvc0lto6" path="res://assets/textures/coin/Coin.png" id="5_w7s45"]
 [ext_resource type="ArrayMesh" uid="uid://dukpany3v6dcs" path="res://assets/Coin.obj" id="6_8882p"]
 [ext_resource type="AudioStream" uid="uid://dk06n8cg3a7h4" path="res://assets/sounds/sound effects/CollectCoin.wav" id="7_w7s45"]
+[ext_resource type="Script" uid="uid://cj50m4a61k0cw" path="res://scripts/dialogue.gd" id="8_8882p"]
+[ext_resource type="AudioStream" uid="uid://bskuouf0ndu1f" path="res://assets/sounds/sound effects/BokenBone.wav" id="11_70yo7"]
+
+[sub_resource type="Animation" id="Animation_w7s45"]
+resource_name = "Girar"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -1.5707964), Vector3(0, 1.5707964, -1.5707964), Vector3(0, 3.1415927, -1.5707964), Vector3(0, 4.712389, -1.5707964), Vector3(0, 6.2831855, -1.5707964)]
+}
+
+[sub_resource type="Animation" id="Animation_8882p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -1.5707964)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_70yo7"]
+_data = {
+&"Girar": SubResource("Animation_w7s45"),
+&"RESET": SubResource("Animation_8882p")
+}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_70yo7"]
 albedo_texture = ExtResource("5_w7s45")
@@ -72,10 +112,47 @@ transform = Transform3D(0.058248125, 0, -1.0780795, 0, 1.1790056, 0, 1.2135423, 
 
 [node name="Platforms" type="Node3D" parent="stage/Schoolyard/Platform section" index="0" unique_id=798212934]
 
+[node name="CSGBox3D" type="CSGBox3D" parent="stage/Schoolyard/Platform section/Platforms" index="0" unique_id=1106115186]
+transform = Transform3D(1, 0, 2.2351742e-08, 0, 1, 0, 0, 0, 0.9999995, 1.2779517, 0.31030115, -3.7280364)
+use_collision = true
+size = Vector3(1, 0.60546875, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="stage/Schoolyard/Platform section/Platforms" index="1" unique_id=414102863]
+transform = Transform3D(1, 0, 2.2351742e-08, 0, 1, 0, 0, 0, 0.9999995, -0.6420089, 0.546141, -2.6154547)
+use_collision = true
+size = Vector3(1, 1.0771484, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="stage/Schoolyard/Platform section/Platforms" index="2" unique_id=12900125]
+transform = Transform3D(1, 0, 2.2351742e-08, 0, 1, 0, 0, 0, 0.9999995, 0.55030346, 0.86425626, -0.51131487)
+use_collision = true
+size = Vector3(0.92211914, 1.7133789, 0.9042816)
+
+[node name="RotatingThing" type="Node3D" parent="stage/Schoolyard/Platform section/Platforms" index="3" unique_id=424930895]
+transform = Transform3D(1, 0, 1.1175871e-08, 0, 1, 0, 0, 0, 0.9999997, 0, 0.6236496, 0)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="stage/Schoolyard/Platform section/Platforms/RotatingThing" index="0" unique_id=1305974225]
+transform = Transform3D(1, 0, 1.8626451e-08, 0, 1, 0, 1.8626451e-08, 0, 0.9999996, -0.033109784, 2.3204863, 3.2216687)
+use_collision = true
+size = Vector3(0.20458984, 1.4273682, 0.25769043)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="stage/Schoolyard/Platform section/Platforms/RotatingThing" index="1" unique_id=1095622870]
+transform = Transform3D(-4.371139e-08, 0.9999999, 0, -1, -4.3711385e-08, 0, 0, 0, 0.9999995, -0.033109784, 2.9122221, 3.2216687)
+use_collision = true
+size = Vector3(0.20458984, 2.385498, 0.25769043)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="stage/Schoolyard/Platform section/Platforms/RotatingThing/CSGBox3D5" index="0" unique_id=486507184]
+libraries/ = SubResource("AnimationLibrary_70yo7")
+autoplay = &"Girar"
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="stage/Schoolyard/Platform section/Platforms" index="4" unique_id=626360976]
+transform = Transform3D(1, 0, 2.2351742e-08, 0, 1, 0, 0, 0, 0.9999995, -0.12510705, 1.1343048, 2.6654706)
+use_collision = true
+size = Vector3(1.99646, 2.2141113, 2.304184)
+
 [node name="Coins" type="Node3D" parent="stage/Schoolyard/Platform section" index="1" unique_id=1671592110]
 
 [node name="Coin1" type="Area3D" parent="stage/Schoolyard/Platform section/Coins" index="0" unique_id=830803400]
-transform = Transform3D(3, 0, -1.4901161e-08, 0, 3, 0, 4.4703484e-08, 0, 3, 0.26859307, 0.470814, -4.9896193)
+transform = Transform3D(3, 0, -1.4901161e-08, 0, 3, 0, 5.9604645e-08, 0, 3, 1.2572916, 0.9599191, -3.727211)
 script = ExtResource("4_icstf")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="stage/Schoolyard/Platform section/Coins/Coin1" index="0" unique_id=221070337]
@@ -94,6 +171,106 @@ autoplay = &"RotarMoneda"
 
 [node name="CollectCoin" type="AudioStreamPlayer" parent="stage/Schoolyard/Platform section/Coins/Coin1" index="3" unique_id=1937327464]
 stream = ExtResource("7_w7s45")
+
+[node name="Coin2" type="Area3D" parent="stage/Schoolyard/Platform section/Coins" index="1" unique_id=326232502]
+transform = Transform3D(3, 0, -1.4901161e-08, 0, 3, 0, 5.9604645e-08, 0, 3, -0.69143, 1.4251672, -2.6158457)
+script = ExtResource("4_icstf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="stage/Schoolyard/Platform section/Coins/Coin2" index="0" unique_id=1668580361]
+transform = Transform3D(0.105, 0, 0, 0, 0.105, 0, 0, 0, 0.105, 0, -0.10630855, 0)
+material_override = SubResource("StandardMaterial3D_70yo7")
+mesh = ExtResource("6_8882p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Schoolyard/Platform section/Coins/Coin2" index="1" unique_id=93340947]
+transform = Transform3D(-4.3711385e-08, -1, 0, 1, -4.3711385e-08, 0, 0, 0, 1, 0.00021648407, 0.0011551082, 0)
+shape = SubResource("CylinderShape3D_wupav")
+debug_color = Color(0.70980394, 0.4862745, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="stage/Schoolyard/Platform section/Coins/Coin2" index="2" unique_id=1155298159]
+libraries/ = SubResource("AnimationLibrary_b3bfj")
+autoplay = &"RotarMoneda"
+
+[node name="CollectCoin" type="AudioStreamPlayer" parent="stage/Schoolyard/Platform section/Coins/Coin2" index="3" unique_id=1214389842]
+stream = ExtResource("7_w7s45")
+
+[node name="Coin3" type="Area3D" parent="stage/Schoolyard/Platform section/Coins" index="2" unique_id=1717692788]
+transform = Transform3D(3, 0, -1.4901161e-08, 0, 3, 0, 5.9604645e-08, 0, 3, 0.45876145, 2.0565734, -0.5991936)
+script = ExtResource("4_icstf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="stage/Schoolyard/Platform section/Coins/Coin3" index="0" unique_id=1359248121]
+transform = Transform3D(0.105, 0, 0, 0, 0.105, 0, 0, 0, 0.105, 0, -0.10630855, 0)
+material_override = SubResource("StandardMaterial3D_70yo7")
+mesh = ExtResource("6_8882p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Schoolyard/Platform section/Coins/Coin3" index="1" unique_id=777827714]
+transform = Transform3D(-4.3711385e-08, -1, 0, 1, -4.3711385e-08, 0, 0, 0, 1, 0.00021648407, 0.0011551082, 0)
+shape = SubResource("CylinderShape3D_wupav")
+debug_color = Color(0.70980394, 0.4862745, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="stage/Schoolyard/Platform section/Coins/Coin3" index="2" unique_id=2064478010]
+libraries/ = SubResource("AnimationLibrary_b3bfj")
+autoplay = &"RotarMoneda"
+
+[node name="CollectCoin" type="AudioStreamPlayer" parent="stage/Schoolyard/Platform section/Coins/Coin3" index="3" unique_id=1902983283]
+stream = ExtResource("7_w7s45")
+
+[node name="Coin4" type="Area3D" parent="stage/Schoolyard/Platform section/Coins" index="3" unique_id=993706426]
+transform = Transform3D(3, 0, -1.4901161e-08, 0, 3, 0, 5.9604645e-08, 0, 3, 0.17501211, 3.655054, 6.0552497)
+script = ExtResource("4_icstf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="stage/Schoolyard/Platform section/Coins/Coin4" index="0" unique_id=1983798383]
+transform = Transform3D(0.105, 0, 0, 0, 0.105, 0, 0, 0, 0.105, 0, -0.10630855, 0)
+material_override = SubResource("StandardMaterial3D_70yo7")
+mesh = ExtResource("6_8882p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Schoolyard/Platform section/Coins/Coin4" index="1" unique_id=727609114]
+transform = Transform3D(-4.3711385e-08, -1, 0, 1, -4.3711385e-08, 0, 0, 0, 1, 0.00021648407, 0.0011551082, 0)
+shape = SubResource("CylinderShape3D_wupav")
+debug_color = Color(0.70980394, 0.4862745, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="stage/Schoolyard/Platform section/Coins/Coin4" index="2" unique_id=133142434]
+libraries/ = SubResource("AnimationLibrary_b3bfj")
+autoplay = &"RotarMoneda"
+
+[node name="CollectCoin" type="AudioStreamPlayer" parent="stage/Schoolyard/Platform section/Coins/Coin4" index="3" unique_id=1055560965]
+stream = ExtResource("7_w7s45")
+
+[node name="Coin5" type="Area3D" parent="stage/Schoolyard/Platform section/Coins" index="4" unique_id=680231941]
+transform = Transform3D(3, 0, -1.4901161e-08, 0, 3, 0, 5.9604645e-08, 0, 3, 0.06828773, 3.4536712, 8.558136)
+script = ExtResource("4_icstf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="stage/Schoolyard/Platform section/Coins/Coin5" index="0" unique_id=1012555061]
+transform = Transform3D(0.105, 0, 0, 0, 0.105, 0, 0, 0, 0.105, 0, -0.10630855, 0)
+material_override = SubResource("StandardMaterial3D_70yo7")
+mesh = ExtResource("6_8882p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Schoolyard/Platform section/Coins/Coin5" index="1" unique_id=2136445775]
+transform = Transform3D(-4.3711385e-08, -1, 0, 1, -4.3711385e-08, 0, 0, 0, 1, 0.00021648407, 0.0011551082, 0)
+shape = SubResource("CylinderShape3D_wupav")
+debug_color = Color(0.70980394, 0.4862745, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="stage/Schoolyard/Platform section/Coins/Coin5" index="2" unique_id=92159317]
+libraries/ = SubResource("AnimationLibrary_b3bfj")
+autoplay = &"RotarMoneda"
+
+[node name="CollectCoin" type="AudioStreamPlayer" parent="stage/Schoolyard/Platform section/Coins/Coin5" index="3" unique_id=967167435]
+stream = ExtResource("7_w7s45")
+
+[node name="IntroductionDialogue" type="Node" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="2" unique_id=685843755 node_paths=PackedStringArray("Player", "Speakers")]
+script = ExtResource("8_8882p")
+Player = NodePath("../Player")
+Dialogues = Array[String](["El juego es simple. ¡Recoge todas las monedas lo antes posible!", "¿Listo?"])
+SpeakerNames = Array[String](["Skippy", "Skippy"])
+Speakers = [NodePath("../../Skippy")]
+SpeakerAnimations = Array[String](["Hablar", "Hablar"])
+
+[node name="EndingDialogue" type="Node" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="3" unique_id=296510799 node_paths=PackedStringArray("Player", "Speakers")]
+script = ExtResource("8_8882p")
+Player = NodePath("../Player")
+Dialogues = Array[String](["Au... ¿Te encuentras bien, campeón?", "Quizás deberíamos tomarnos un descanso...", "Dejemos que los demás prueben el circuito de obstáculos, ¿vale?"])
+SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy"])
+Speakers = [NodePath("../../Skippy")]
+SpeakerAnimations = Array[String](["Nervioso", "Pensativo_2", "Hablar"])
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Study/CanvasLayer" parent_id_path=PackedInt32Array(1082957249) index="0" unique_id=854192583]
 anchors_preset = 12
@@ -142,7 +319,20 @@ text = "Continuar al siguiente nivel"
 script = ExtResource("5_q0bsi")
 nextLevel = "res://scenes/scenarios/Level_2.tscn"
 
+[node name="BokenBone" type="AudioStreamPlayer" parent="." index="8" unique_id=103504490]
+stream = ExtResource("11_70yo7")
+
+[connection signal="body_entered" from="stage/Schoolyard/Platform section/Coins/Coin1" to="." method="coin_collected"]
 [connection signal="body_entered" from="stage/Schoolyard/Platform section/Coins/Coin1" to="stage/Schoolyard/Platform section/Coins/Coin1" method="_on_body_entered"]
+[connection signal="body_entered" from="stage/Schoolyard/Platform section/Coins/Coin2" to="." method="coin_collected"]
+[connection signal="body_entered" from="stage/Schoolyard/Platform section/Coins/Coin2" to="stage/Schoolyard/Platform section/Coins/Coin2" method="_on_body_entered"]
+[connection signal="body_entered" from="stage/Schoolyard/Platform section/Coins/Coin3" to="." method="coin_collected"]
+[connection signal="body_entered" from="stage/Schoolyard/Platform section/Coins/Coin3" to="stage/Schoolyard/Platform section/Coins/Coin3" method="_on_body_entered"]
+[connection signal="body_entered" from="stage/Schoolyard/Platform section/Coins/Coin4" to="." method="coin_collected"]
+[connection signal="body_entered" from="stage/Schoolyard/Platform section/Coins/Coin4" to="stage/Schoolyard/Platform section/Coins/Coin4" method="_on_body_entered"]
+[connection signal="body_entered" from="stage/Schoolyard/Platform section/Coins/Coin5" to="." method="coin_collected"]
+[connection signal="body_entered" from="stage/Schoolyard/Platform section/Coins/Coin5" to="stage/Schoolyard/Platform section/Coins/Coin5" method="_on_body_entered"]
+[connection signal="dialogue_ended" from="stage/EndingDialogue" to="." method="finish_level"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/NextLevel" to="Study/CanvasLayer/VBoxContainer/NextLevel" method="next_level"]

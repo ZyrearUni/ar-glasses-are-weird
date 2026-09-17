@@ -1,0 +1,487 @@
+[gd_scene format=3 uid="uid://bifirvd7oam1e"]
+
+[ext_resource type="PackedScene" uid="uid://bqsbcqqthmbyy" path="res://scenes/scenarios/Level_Template.tscn" id="1_aawju"]
+[ext_resource type="Script" uid="uid://bwbll5gb7u3va" path="res://scripts/level1scripts/level1-2/level_1_2_script.gd" id="2_hfw8y"]
+[ext_resource type="PackedScene" uid="uid://w8x35jv0v842" path="res://assets/city.glb" id="3_lfbje"]
+[ext_resource type="PackedScene" uid="uid://mp83amoddhav" path="res://scenes/components/dialogue_area.tscn" id="4_4hcwd"]
+[ext_resource type="Texture2D" uid="uid://d0jyltvc0lto6" path="res://assets/textures/coin/Coin.png" id="4_o6y1k"]
+[ext_resource type="Script" uid="uid://b68dnlybkbq18" path="res://scripts/coins.gd" id="4_ttv04"]
+[ext_resource type="Script" uid="uid://dutmc1upxe6gi" path="res://scripts/level1scripts/level1-2/accept_game.gd" id="5_4hcwd"]
+[ext_resource type="Script" uid="uid://53x6jpb1ig7j" path="res://scripts/level1scripts/level1-2/decision_area.gd" id="5_lfbje"]
+[ext_resource type="ArrayMesh" uid="uid://dukpany3v6dcs" path="res://assets/Coin.obj" id="5_ttv04"]
+[ext_resource type="Script" uid="uid://dxqsgxg02trif" path="res://scripts/level1scripts/level1-2/reject_game.gd" id="7_qjpbo"]
+[ext_resource type="AudioStream" uid="uid://dk06n8cg3a7h4" path="res://assets/sounds/sound effects/CollectCoin.wav" id="7_stsfq"]
+[ext_resource type="Script" uid="uid://7es80iimcapl" path="res://scripts/studymenuscripts/study_button.gd" id="8_v4enl"]
+[ext_resource type="Script" uid="uid://bsv45inr24dxq" path="res://scripts/studymenuscripts/next_level.gd" id="9_6g2dg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xh2vs"]
+size = Vector3(8.321873, 1, 14.5774555)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3tavn"]
+size = Vector3(1, 1, 7.1759033)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hfw8y"]
+size = Vector3(2.3275757, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4hcwd"]
+size = Vector3(4.8045273, 1, 2.0983887)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jd5u1"]
+size = Vector3(1, 1, 1.7596436)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v4enl"]
+albedo_color = Color(0.38431373, 0.6666667, 0.7058824, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6g2dg"]
+albedo_color = Color(0.29803923, 0.40392157, 0.36078432, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_stsfq"]
+albedo_texture = ExtResource("4_o6y1k")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_uwycl"]
+height = 0.179142
+radius = 0.103027344
+
+[sub_resource type="Animation" id="Animation_bdcid"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_se11h"]
+resource_name = "RotarMoneda"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5707964, 0), Vector3(0, 3.1415927, 0), Vector3(0, 4.712389, 0), Vector3(0, 6.2831855, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qmatg"]
+_data = {
+&"RESET": SubResource("Animation_bdcid"),
+&"RotarMoneda": SubResource("Animation_se11h")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lfbje"]
+size = Vector3(21.359802, 14.67041, 9.910645)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v4enl"]
+bg_color = Color(0.8247977, 0.3473309, 0, 0.2901961)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jd5u1"]
+bg_color = Color(0.50853425, 0.33932856, 0.03818896, 1)
+
+[node name="World" unique_id=1891132867 node_paths=PackedStringArray("Player") instance=ExtResource("1_aawju")]
+script = ExtResource("2_hfw8y")
+Player = NodePath("stage/Player")
+
+[node name="Player" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="0" unique_id=1886028462]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10757524, 0, -1.805098)
+
+[node name="City" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=1033926978 instance=ExtResource("3_lfbje")]
+transform = Transform3D(11, 0, 0, 0, 11, 0, 0, 0, 11, -251.22516, -45.503155, 56.366634)
+
+[node name="Floor" type="StaticBody3D" parent="stage/City" index="1294" unique_id=1442553145]
+transform = Transform3D(0.016161025, 0, 0.99986947, 0, 1, 0, -0.99986947, 0, 0.016161025, 23.619194, 3.642529, -6.176242)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/City/Floor" index="0" unique_id=1231979109]
+transform = Transform3D(0.9998111, 0, 0.019423734, 0, 0.9999999, 0, -0.019423734, 0, 0.9998111, 3.047061, 0.022110969, 7.187232)
+shape = SubResource("BoxShape3D_xh2vs")
+debug_color = Color(0, 0, 0, 1)
+
+[node name="WallGasStation" type="StaticBody3D" parent="stage/City" index="1295" unique_id=457314073]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.116844, 4.6438675, -5.6330304)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/City/WallGasStation" index="0" unique_id=944768814]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028544545, 0, -3.0769086)
+shape = SubResource("BoxShape3D_3tavn")
+debug_color = Color(0, 0, 0, 1)
+
+[node name="WallBack" type="StaticBody3D" parent="stage/City" index="1296" unique_id=786006965]
+transform = Transform3D(1.5259494, 0, 0, 0, 1, 0, 0, 0, 1, 23.674095, 4.639717, -4.624672)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/City/WallBack" index="0" unique_id=1219372634]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20199585, 0, 0)
+shape = SubResource("BoxShape3D_hfw8y")
+debug_color = Color(0, 0, 0, 1)
+
+[node name="WallFront" type="StaticBody3D" parent="stage/City" index="1297" unique_id=1971388765]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.047293, 4.639717, -12.328524)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/City/WallFront" index="0" unique_id=711944327]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20199585, 0, 0)
+shape = SubResource("BoxShape3D_hfw8y")
+debug_color = Color(0, 0, 0, 1)
+
+[node name="ParkourWallRight" type="StaticBody3D" parent="stage/City" index="1298" unique_id=1261339736]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.727665, 4.080551, -7.259775)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/City/ParkourWallRight" index="0" unique_id=593348152]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9232674, 0.32985714, -0.93165827)
+shape = SubResource("BoxShape3D_4hcwd")
+debug_color = Color(0, 0, 0, 1)
+
+[node name="WallBank" type="StaticBody3D" parent="stage/City" index="1299" unique_id=2088354402]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.177862, 4.610692, -5.6909633)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/City/WallBank" index="0" unique_id=485704179]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.37982184)
+shape = SubResource("BoxShape3D_jd5u1")
+debug_color = Color(0, 0, 0, 1)
+
+[node name="ParkourBlockage" type="StaticBody3D" parent="stage/City" index="1300" unique_id=287168539]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4653, 4.6571355, -8.182769)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/City/ParkourBlockage" index="0" unique_id=1548813764]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.37982184)
+shape = SubResource("BoxShape3D_jd5u1")
+debug_color = Color(0, 0, 0, 1)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="stage/City" index="1301" unique_id=407168239]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.265085, 4.6638727, -9.762632)
+use_collision = true
+size = Vector3(3.99646, 1, 1.6386719)
+material = SubResource("StandardMaterial3D_v4enl")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="stage/City" index="1302" unique_id=49001988]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.122507, 4.6638727, -7.613037)
+use_collision = true
+size = Vector3(1.3097534, 1, 1.6386719)
+material = SubResource("StandardMaterial3D_6g2dg")
+
+[node name="Platformer section" type="Node3D" parent="stage/City" index="1303" unique_id=371713779]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.295256, 4.205376, -8.589105)
+
+[node name="Platforms" type="Node3D" parent="stage/City/Platformer section" index="0" unique_id=1773952978]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="stage/City/Platformer section/Platforms" index="0" unique_id=938513237]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.08063269, 0.010310411, -0.20657086)
+use_collision = true
+size = Vector3(1, 0.5683594, 1.4256592)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="stage/City/Platformer section/Platforms" index="1" unique_id=571266873]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.6001327, 0.04160925, -0.20657086)
+use_collision = true
+size = Vector3(1, 0.88134766, 1.4256592)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="stage/City/Platformer section/Platforms" index="2" unique_id=172367803]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 1.1463408, 0.20521498, 0.013613224)
+use_collision = true
+size = Vector3(1, 0.09887695, 1.4256592)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="stage/City/Platformer section/Platforms" index="3" unique_id=1116267194]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 1.7349205, 0.20521498, 0.013613224)
+use_collision = true
+size = Vector3(1, 0.09887695, 1.4256592)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="stage/City/Platformer section/Platforms" index="4" unique_id=473113588]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 2.2200804, 0.20521498, -0.21309352)
+use_collision = true
+size = Vector3(1, 0.09887695, 1.4256592)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="stage/City/Platformer section/Platforms" index="5" unique_id=655423776]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 3.0912232, 0.010310411, -0.28478742)
+use_collision = true
+size = Vector3(1, 0.5683594, 0.64349365)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="stage/City/Platformer section/Platforms" index="6" unique_id=1025032954]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 2.6789832, 0.04160925, -0.2563691)
+use_collision = true
+size = Vector3(1, 0.88134766, 0.92767334)
+
+[node name="Coins" type="Node3D" parent="stage/City/Platformer section" index="1" unique_id=1635182153]
+
+[node name="Coin1" type="Area3D" parent="stage/City/Platformer section/Coins" index="0" unique_id=2095031338]
+transform = Transform3D(0.51, 0, 0, 0, 0.51, 0, 0, 0, 0.51, 0.06505036, 0.13409896, -0.21617174)
+script = ExtResource("4_ttv04")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="stage/City/Platformer section/Coins/Coin1" index="0" unique_id=534189288]
+transform = Transform3D(0.105, 0, 0, 0, 0.105, 0, 0, 0, 0.105, 0, -0.10630855, 0)
+material_override = SubResource("StandardMaterial3D_stsfq")
+mesh = ExtResource("5_ttv04")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/City/Platformer section/Coins/Coin1" index="1" unique_id=1438117675]
+transform = Transform3D(-4.3711385e-08, -1, 0, 1, -4.3711385e-08, 0, 0, 0, 1, 0.00021648407, 0.0011551082, 0)
+shape = SubResource("CylinderShape3D_uwycl")
+debug_color = Color(0.70980394, 0.4862745, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="stage/City/Platformer section/Coins/Coin1" index="2" unique_id=1493259048]
+libraries/ = SubResource("AnimationLibrary_qmatg")
+autoplay = &"RotarMoneda"
+
+[node name="CollectCoin" type="AudioStreamPlayer" parent="stage/City/Platformer section/Coins/Coin1" index="3" unique_id=283621254]
+stream = ExtResource("7_stsfq")
+
+[node name="Coin2" type="Area3D" parent="stage/City/Platformer section/Coins" index="1" unique_id=1462759455]
+transform = Transform3D(0.51, 0, 0, 0, 0.51, 0, 0, 0, 0.51, 0.603791, 0.18355614, -0.21617174)
+script = ExtResource("4_ttv04")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="stage/City/Platformer section/Coins/Coin2" index="0" unique_id=756984080]
+transform = Transform3D(0.10499999, 0, 0, 0, 0.105, 0, 0, 0, 0.10499999, 0, -0.10630855, 0)
+material_override = SubResource("StandardMaterial3D_stsfq")
+mesh = ExtResource("5_ttv04")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/City/Platformer section/Coins/Coin2" index="1" unique_id=167134272]
+transform = Transform3D(-4.3711385e-08, -1, 0, 1, -4.3711385e-08, 0, 0, 0, 1, 0.00021648407, 0.0011551082, 0)
+shape = SubResource("CylinderShape3D_uwycl")
+debug_color = Color(0.70980394, 0.4862745, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="stage/City/Platformer section/Coins/Coin2" index="2" unique_id=614177945]
+libraries/ = SubResource("AnimationLibrary_qmatg")
+autoplay = &"RotarMoneda"
+
+[node name="CollectCoin" type="AudioStreamPlayer" parent="stage/City/Platformer section/Coins/Coin2" index="3" unique_id=2105577492]
+stream = ExtResource("7_stsfq")
+
+[node name="Coin3" type="Area3D" parent="stage/City/Platformer section/Coins" index="2" unique_id=1475591766]
+transform = Transform3D(0.51, 0, 0, 0, 0.51, 0, 0, 0, 0.51, 1.1360371, 0.27271995, 0.0077180862)
+script = ExtResource("4_ttv04")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="stage/City/Platformer section/Coins/Coin3" index="0" unique_id=866745292]
+transform = Transform3D(0.10499999, 0, 0, 0, 0.105, 0, 0, 0, 0.10499999, 0, -0.10630855, 0)
+material_override = SubResource("StandardMaterial3D_stsfq")
+mesh = ExtResource("5_ttv04")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/City/Platformer section/Coins/Coin3" index="1" unique_id=404508052]
+transform = Transform3D(-4.3711385e-08, -1, 0, 1, -4.3711385e-08, 0, 0, 0, 1, 0.00021648407, 0.0011551082, 0)
+shape = SubResource("CylinderShape3D_uwycl")
+debug_color = Color(0.70980394, 0.4862745, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="stage/City/Platformer section/Coins/Coin3" index="2" unique_id=1483249621]
+libraries/ = SubResource("AnimationLibrary_qmatg")
+autoplay = &"RotarMoneda"
+
+[node name="CollectCoin" type="AudioStreamPlayer" parent="stage/City/Platformer section/Coins/Coin3" index="3" unique_id=259701805]
+stream = ExtResource("7_stsfq")
+
+[node name="Coin4" type="Area3D" parent="stage/City/Platformer section/Coins" index="3" unique_id=876079222]
+transform = Transform3D(0.51, 0, 0, 0, 0.51, 0, 0, 0, 0.51, 1.7323093, 0.27271995, 0.0077180862)
+script = ExtResource("4_ttv04")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="stage/City/Platformer section/Coins/Coin4" index="0" unique_id=939006743]
+transform = Transform3D(0.10499999, 0, 0, 0, 0.105, 0, 0, 0, 0.10499999, 0, -0.10630855, 0)
+material_override = SubResource("StandardMaterial3D_stsfq")
+mesh = ExtResource("5_ttv04")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/City/Platformer section/Coins/Coin4" index="1" unique_id=377932692]
+transform = Transform3D(-4.3711385e-08, -1, 0, 1, -4.3711385e-08, 0, 0, 0, 1, 0.00021648407, 0.0011551082, 0)
+shape = SubResource("CylinderShape3D_uwycl")
+debug_color = Color(0.70980394, 0.4862745, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="stage/City/Platformer section/Coins/Coin4" index="2" unique_id=1972509577]
+libraries/ = SubResource("AnimationLibrary_qmatg")
+autoplay = &"RotarMoneda"
+
+[node name="CollectCoin" type="AudioStreamPlayer" parent="stage/City/Platformer section/Coins/Coin4" index="3" unique_id=1524145317]
+stream = ExtResource("7_stsfq")
+
+[node name="Coin5" type="Area3D" parent="stage/City/Platformer section/Coins" index="4" unique_id=2026530522]
+transform = Transform3D(0.51, 0, 0, 0, 0.51, 0, 0, 0, 0.51, 2.236135, 0.27271995, -0.23204398)
+script = ExtResource("4_ttv04")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="stage/City/Platformer section/Coins/Coin5" index="0" unique_id=558569081]
+transform = Transform3D(0.10499999, 0, 0, 0, 0.105, 0, 0, 0, 0.10499999, 0, -0.10630855, 0)
+material_override = SubResource("StandardMaterial3D_stsfq")
+mesh = ExtResource("5_ttv04")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/City/Platformer section/Coins/Coin5" index="1" unique_id=962436950]
+transform = Transform3D(-4.3711385e-08, -1, 0, 1, -4.3711385e-08, 0, 0, 0, 1, 0.00021648407, 0.0011551082, 0)
+shape = SubResource("CylinderShape3D_uwycl")
+debug_color = Color(0.70980394, 0.4862745, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="stage/City/Platformer section/Coins/Coin5" index="2" unique_id=1673462026]
+libraries/ = SubResource("AnimationLibrary_qmatg")
+autoplay = &"RotarMoneda"
+
+[node name="CollectCoin" type="AudioStreamPlayer" parent="stage/City/Platformer section/Coins/Coin5" index="3" unique_id=1781694315]
+stream = ExtResource("7_stsfq")
+
+[node name="Coin6" type="Area3D" parent="stage/City/Platformer section/Coins" index="5" unique_id=1177428789]
+transform = Transform3D(0.51, 0, 0, 0, 0.51, 0, 0, 0, 0.51, 2.6823072, 0.18355614, -0.26195955)
+script = ExtResource("4_ttv04")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="stage/City/Platformer section/Coins/Coin6" index="0" unique_id=1245720953]
+transform = Transform3D(0.10499999, 0, 0, 0, 0.105, 0, 0, 0, 0.10499999, 0, -0.10630855, 0)
+material_override = SubResource("StandardMaterial3D_stsfq")
+mesh = ExtResource("5_ttv04")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/City/Platformer section/Coins/Coin6" index="1" unique_id=1573060512]
+transform = Transform3D(-4.3711385e-08, -1, 0, 1, -4.3711385e-08, 0, 0, 0, 1, 0.00021648407, 0.0011551082, 0)
+shape = SubResource("CylinderShape3D_uwycl")
+debug_color = Color(0.70980394, 0.4862745, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="stage/City/Platformer section/Coins/Coin6" index="2" unique_id=133260758]
+libraries/ = SubResource("AnimationLibrary_qmatg")
+autoplay = &"RotarMoneda"
+
+[node name="CollectCoin" type="AudioStreamPlayer" parent="stage/City/Platformer section/Coins/Coin6" index="3" unique_id=1003670351]
+stream = ExtResource("7_stsfq")
+
+[node name="Coin7" type="Area3D" parent="stage/City/Platformer section/Coins" index="6" unique_id=1803684248]
+transform = Transform3D(0.51, 0, 0, 0, 0.51, 0, 0, 0, 0.51, 3.080874, 0.12294023, -0.27394938)
+script = ExtResource("4_ttv04")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="stage/City/Platformer section/Coins/Coin7" index="0" unique_id=342392486]
+transform = Transform3D(0.10499999, 0, 0, 0, 0.105, 0, 0, 0, 0.10499999, 0, -0.10630855, 0)
+material_override = SubResource("StandardMaterial3D_stsfq")
+mesh = ExtResource("5_ttv04")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/City/Platformer section/Coins/Coin7" index="1" unique_id=1163266879]
+transform = Transform3D(-4.3711385e-08, -1, 0, 1, -4.3711385e-08, 0, 0, 0, 1, 0.00021648407, 0.0011551082, 0)
+shape = SubResource("CylinderShape3D_uwycl")
+debug_color = Color(0.70980394, 0.4862745, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="stage/City/Platformer section/Coins/Coin7" index="2" unique_id=824370559]
+libraries/ = SubResource("AnimationLibrary_qmatg")
+autoplay = &"RotarMoneda"
+
+[node name="CollectCoin" type="AudioStreamPlayer" parent="stage/City/Platformer section/Coins/Coin7" index="3" unique_id=1178172680]
+stream = ExtResource("7_stsfq")
+
+[node name="DecisionArea" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="2" unique_id=896973546 node_paths=PackedStringArray("Player", "Speakers") instance=ExtResource("4_4hcwd")]
+transform = Transform3D(17.525, 0, 0, 0, 17.525, 0, 0, 0, 17.525, 4.6824846, -0.0139837265, -43.133377)
+script = ExtResource("5_lfbje")
+Player = NodePath("../Player")
+Dialogues = Array[String](["¿Qué pasa, superestrella? ¿Estás bien? Te noto distante.", "Hmmm... ¡Oh! ¡Ya sé cómo podemos alegrar un poco el viaje!", "¿Ves ese callejón a nuestra derecha?", "¿Y si hacemos que el trayecto al colegio sea más entretenido?", "¡Tan solo tienes que recoger todas las monedas mientras tomamos un camino alternativo!", "¿Qué te parece?"])
+SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy", "Skippy", "Skippy", "Skippy"])
+Speakers = [NodePath("../../Skippy")]
+SpeakerAnimations = Array[String](["Hablar", "Hablar", "Hablar", "Hablar", "Hablar", "Hablar"])
+
+[node name="Accept" type="Node3D" parent="stage/DecisionArea" index="2" unique_id=1470482917 node_paths=PackedStringArray("Player", "Speakers")]
+script = ExtResource("5_4hcwd")
+Player = NodePath("../../Player")
+Dialogues = Array[String](["¡Genial! ¡Vamos a jugar! "])
+SpeakerNames = Array[String](["Skippy"])
+Speakers = [NodePath("../../../Skippy")]
+SpeakerAnimations = Array[String](["Feliz", "Hablar"])
+
+[node name="Reject" type="Node3D" parent="stage/DecisionArea" index="3" unique_id=574153517 node_paths=PackedStringArray("Player", "Speakers")]
+script = ExtResource("7_qjpbo")
+Player = NodePath("../../Player")
+Dialogues = Array[String](["Oh... Claro, no pasa nada. ¡Vayamos al colegio pues!"])
+SpeakerNames = Array[String](["Skippy"])
+Speakers = [NodePath("../../../Skippy")]
+SpeakerAnimations = Array[String](["Triste"])
+
+[node name="LevelFinishReject" type="Area3D" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="3" unique_id=202984995]
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/LevelFinishReject" index="0" unique_id=801251530]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.313012, 6.835205, -69.3553)
+shape = SubResource("BoxShape3D_lfbje")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Study/CanvasLayer" parent_id_path=PackedInt32Array(1082957249) index="0" unique_id=546329449]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1439.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Study/CanvasLayer/VBoxContainer" index="0" unique_id=1339558105]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 2.96
+theme_override_constants/separation = 400
+alignment = 1
+
+[node name="Aspectos positivos" type="VBoxContainer" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer" index="0" unique_id=1201109561]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Aspecto1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos" index="0" unique_id=1964005050]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_v4enl")
+text = "Este es un aspecto positivo"
+script = ExtResource("8_v4enl")
+
+[node name="Aspectos negativos" type="VBoxContainer" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer" index="1" unique_id=757102081]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Aspecto1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="0" unique_id=1784567464]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_v4enl")
+text = "Este es un aspecto negativo"
+script = ExtResource("8_v4enl")
+
+[node name="NextLevel" type="Button" parent="Study/CanvasLayer/VBoxContainer" index="1" unique_id=1440314337]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Continuar al siguiente nivel"
+script = ExtResource("9_6g2dg")
+nextLevel = "res://scenes/scenarios/Level_2.tscn"
+
+[node name="DecisionMenu" type="Control" parent="." index="7" unique_id=1327179284]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="DecisionMenu" index="0" unique_id=1418704011]
+visible = false
+
+[node name="AcceptButton" type="Button" parent="DecisionMenu/CanvasLayer" index="0" unique_id=2007996036]
+offset_left = 1863.0
+offset_top = 668.0
+offset_right = 2125.0
+offset_bottom = 723.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_jd5u1")
+text = "Jugar al juego"
+
+[node name="RejectButton" type="Button" parent="DecisionMenu/CanvasLayer" index="1" unique_id=1796982401]
+offset_left = 321.0
+offset_top = 657.0
+offset_right = 745.0
+offset_bottom = 712.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_jd5u1")
+text = "Seguir camino normal"
+
+[connection signal="body_entered" from="stage/City/Platformer section/Coins/Coin1" to="." method="coin_collected"]
+[connection signal="body_entered" from="stage/City/Platformer section/Coins/Coin1" to="stage/City/Platformer section/Coins/Coin1" method="_on_body_entered"]
+[connection signal="body_entered" from="stage/City/Platformer section/Coins/Coin2" to="." method="coin_collected"]
+[connection signal="body_entered" from="stage/City/Platformer section/Coins/Coin2" to="stage/City/Platformer section/Coins/Coin2" method="_on_body_entered"]
+[connection signal="body_entered" from="stage/City/Platformer section/Coins/Coin3" to="." method="coin_collected"]
+[connection signal="body_entered" from="stage/City/Platformer section/Coins/Coin3" to="stage/City/Platformer section/Coins/Coin3" method="_on_body_entered"]
+[connection signal="body_entered" from="stage/City/Platformer section/Coins/Coin4" to="." method="coin_collected"]
+[connection signal="body_entered" from="stage/City/Platformer section/Coins/Coin4" to="stage/City/Platformer section/Coins/Coin4" method="_on_body_entered"]
+[connection signal="body_entered" from="stage/City/Platformer section/Coins/Coin5" to="." method="coin_collected"]
+[connection signal="body_entered" from="stage/City/Platformer section/Coins/Coin5" to="stage/City/Platformer section/Coins/Coin5" method="_on_body_entered"]
+[connection signal="body_entered" from="stage/City/Platformer section/Coins/Coin6" to="." method="coin_collected"]
+[connection signal="body_entered" from="stage/City/Platformer section/Coins/Coin6" to="stage/City/Platformer section/Coins/Coin6" method="_on_body_entered"]
+[connection signal="body_entered" from="stage/City/Platformer section/Coins/Coin7" to="." method="coin_collected"]
+[connection signal="body_entered" from="stage/City/Platformer section/Coins/Coin7" to="stage/City/Platformer section/Coins/Coin7" method="_on_body_entered"]
+[connection signal="body_entered" from="stage/LevelFinishReject" to="." method="_on_level_finish_reject_body_entered"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/NextLevel" to="Study/CanvasLayer/VBoxContainer/NextLevel" method="next_level"]
+[connection signal="pressed" from="DecisionMenu/CanvasLayer/AcceptButton" to="." method="_on_accept_button_pressed"]
+[connection signal="pressed" from="DecisionMenu/CanvasLayer/AcceptButton" to="stage/DecisionArea/Accept" method="_on_accept_button_pressed"]
+[connection signal="pressed" from="DecisionMenu/CanvasLayer/RejectButton" to="." method="_on_reject_button_pressed"]
+[connection signal="pressed" from="DecisionMenu/CanvasLayer/RejectButton" to="stage/DecisionArea/Reject" method="_on_reject_button_pressed"]
