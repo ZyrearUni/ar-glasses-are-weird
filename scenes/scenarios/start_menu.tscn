@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://3hqnl5p028tv" path="res://scripts/start_menu.gd" id="1_dxckd"]
 [ext_resource type="Texture2D" uid="uid://bqhjp4v2umu0r" path="res://assets/hdris/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="2_7vfl3"]
 [ext_resource type="PackedScene" uid="uid://ctkshhv3kfvuc" path="res://scenes/components/fade.tscn" id="3_7vfl3"]
+[ext_resource type="AudioStream" uid="uid://b8e6jf77ekru4" path="res://assets/sounds/music/Game_Menu.ogg" id="4_bmm38"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uahpa"]
 bg_color = Color(0.8247977, 0.3473309, 0, 0.2901961)
@@ -68,6 +69,12 @@ text = "Salir"
 
 [node name="fade" parent="CanvasLayer" unique_id=25219732 instance=ExtResource("3_7vfl3")]
 visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1491288873]
+stream = ExtResource("4_bmm38")
+volume_db = -19.0
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Empezar" to="." method="_on_empezar_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Salir" to="." method="_on_salir_pressed"]

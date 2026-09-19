@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ctkshhv3kfvuc" path="res://scenes/components/fade.tscn" id="4_kqd6t"]
 [ext_resource type="PackedScene" uid="uid://by16siv81es8q" path="res://scenes/models/characters/Skippy.tscn" id="7_m5uiq"]
 [ext_resource type="PackedScene" uid="uid://tb8ajjdjscwt" path="res://scenes/components/moral_insight.tscn" id="8_ptfjk"]
+[ext_resource type="Script" uid="uid://cygo8i3pnt82o" path="res://scripts/music.gd" id="9_jic2v"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_36fji"]
 panorama = ExtResource("1_da115")
@@ -60,3 +61,8 @@ z_index = -1
 
 [node name="PauseMenu" parent="." unique_id=1847058478 instance=ExtResource("4_8uwh6")]
 z_index = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=855356542]
+volume_db = -19.0
+autoplay = true
+script = ExtResource("9_jic2v")

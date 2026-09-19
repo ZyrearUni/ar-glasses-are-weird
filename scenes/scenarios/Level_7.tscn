@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://7es80iimcapl" path="res://scripts/studymenuscripts/study_button.gd" id="7_kmvuv"]
 [ext_resource type="AudioStream" uid="uid://cdybchhcy0rvv" path="res://assets/sounds/sound effects/Shutdown.wav" id="7_sfu68"]
 [ext_resource type="Script" uid="uid://bsv45inr24dxq" path="res://scripts/studymenuscripts/next_level.gd" id="8_sfu68"]
+[ext_resource type="AudioStream" uid="uid://yot00njcnur" path="res://assets/sounds/music/Stage7_Theme.ogg" id="10_vrbvw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sacvi"]
 size = Vector3(1, 1, 7.1759033)
@@ -25,8 +26,9 @@ size = Vector3(0.611084, 1.4364014, 2.320221)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vrbvw"]
 bg_color = Color(0.8247977, 0.3473309, 0, 0.2901961)
 
-[node name="World" unique_id=1891132867 instance=ExtResource("1_sacvi")]
+[node name="World" unique_id=1891132867 node_paths=PackedStringArray("Player") instance=ExtResource("1_sacvi")]
 script = ExtResource("2_pfjp1")
+Player = NodePath("stage/Player")
 
 [node name="Player" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="0" unique_id=1886028462]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.577391)
@@ -153,6 +155,10 @@ theme_override_font_sizes/font_size = 40
 text = "Continuar al siguiente nivel"
 script = ExtResource("8_sfu68")
 nextLevel = "res://scenes/scenarios/Level_2.tscn"
+
+[node name="AudioStreamPlayer" parent="." index="8" unique_id=855356542]
+stream = ExtResource("10_vrbvw")
+parameters/looping = true
 
 [connection signal="body_entered" from="stage/city/CutsceneArea" to="." method="_on_cutscene_area_body_entered"]
 [connection signal="body_entered" from="stage/city/CutsceneArea" to="stage/city/CutsceneArea" method="_on_body_entered"]

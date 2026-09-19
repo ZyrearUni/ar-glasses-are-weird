@@ -10,7 +10,10 @@
 [ext_resource type="ArrayMesh" uid="uid://dukpany3v6dcs" path="res://assets/Coin.obj" id="6_8882p"]
 [ext_resource type="AudioStream" uid="uid://dk06n8cg3a7h4" path="res://assets/sounds/sound effects/CollectCoin.wav" id="7_w7s45"]
 [ext_resource type="Script" uid="uid://cj50m4a61k0cw" path="res://scripts/dialogue.gd" id="8_8882p"]
+[ext_resource type="Texture2D" uid="uid://dsbsy3qay7gjm" path="res://assets/sprites/Kids/nene1.png" id="8_b3bfj"]
+[ext_resource type="Texture2D" uid="uid://dukqctwgf0d3" path="res://assets/sprites/Raquel/raquel_surprised.png" id="9_ae7fx"]
 [ext_resource type="AudioStream" uid="uid://bskuouf0ndu1f" path="res://assets/sounds/sound effects/BokenBone.wav" id="11_70yo7"]
+[ext_resource type="AudioStream" uid="uid://dsipcu5t4nbke" path="res://assets/sounds/music/Stage4_Theme.ogg" id="14_ae7fx"]
 
 [sub_resource type="Animation" id="Animation_w7s45"]
 resource_name = "Girar"
@@ -106,7 +109,7 @@ Speakers = [NodePath("Skippy")]
 SpeakerAnimations = Array[String](["Hablar", "Hablar", "Hablar"])
 
 [node name="Schoolyard" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=309049541 instance=ExtResource("2_eyrer")]
-transform = Transform3D(0.058248125, 0, -1.0780795, 0, 1.1790056, 0, 1.2135423, 0, 0.051746152, -8.708247, -0.018941045, -1.3960664)
+transform = Transform3D(0.058248125, 0, -1.0780795, 0, 1.1790056, 0, 1.2135423, 0, 0.051746152, -8.710443, -0.013620019, -1.3950236)
 
 [node name="Platform section" type="Node3D" parent="stage/Schoolyard" index="31" unique_id=59542017]
 
@@ -256,6 +259,33 @@ autoplay = &"RotarMoneda"
 [node name="CollectCoin" type="AudioStreamPlayer" parent="stage/Schoolyard/Platform section/Coins/Coin5" index="3" unique_id=967167435]
 stream = ExtResource("7_w7s45")
 
+[node name="Children" type="Node3D" parent="stage/Schoolyard" index="32" unique_id=264974040]
+
+[node name="Nene1" type="Sprite3D" parent="stage/Schoolyard/Children" index="0" unique_id=489171484]
+transform = Transform3D(0.045, 0, -2.0954759e-10, 0, 0.045, 0, 2.0954759e-10, 0, 0.045, 2.8617153, 1.0581894, -1.2587171)
+billboard = 2
+texture = ExtResource("8_b3bfj")
+
+[node name="Nene2" type="Sprite3D" parent="stage/Schoolyard/Children" index="1" unique_id=1019860904]
+transform = Transform3D(0.045, 0, 2.3283064e-10, 0, 0.045, 0, 2.3283064e-10, 0, 0.045, 1.7879353, 1.0581894, 1.6099238)
+billboard = 2
+texture = ExtResource("8_b3bfj")
+
+[node name="Nene3" type="Sprite3D" parent="stage/Schoolyard/Children" index="2" unique_id=1379806828]
+transform = Transform3D(0.045, 0, 3.4924597e-10, 0, 0.045, 0, 2.3283064e-10, 0, 0.045, -3.601451, 1.0581894, -2.923747)
+billboard = 2
+texture = ExtResource("8_b3bfj")
+
+[node name="Nene4" type="Sprite3D" parent="stage/Schoolyard/Children" index="3" unique_id=1029022587]
+transform = Transform3D(0.045, 0, 2.3283064e-10, 0, 0.045, 0, 2.3283064e-10, 0, 0.045, -2.9264426, 1.0581894, -1.0982833)
+billboard = 2
+texture = ExtResource("8_b3bfj")
+
+[node name="Raquel" type="Sprite3D" parent="stage/Schoolyard/Children" index="4" unique_id=1269988406]
+transform = Transform3D(0.045, 0, 5.820766e-10, 0, 0.045, 0, 2.3283064e-10, 0, 0.045, -2.6042085, 1.0581894, 2.7813725)
+billboard = 2
+texture = ExtResource("9_ae7fx")
+
 [node name="IntroductionDialogue" type="Node" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="2" unique_id=685843755 node_paths=PackedStringArray("Player", "Speakers")]
 script = ExtResource("8_8882p")
 Player = NodePath("../Player")
@@ -321,6 +351,9 @@ nextLevel = "res://scenes/scenarios/Level_2.tscn"
 
 [node name="BokenBone" type="AudioStreamPlayer" parent="." index="8" unique_id=103504490]
 stream = ExtResource("11_70yo7")
+
+[node name="AudioStreamPlayer" parent="." index="9" unique_id=855356542]
+stream = ExtResource("14_ae7fx")
 
 [connection signal="body_entered" from="stage/Schoolyard/Platform section/Coins/Coin1" to="." method="coin_collected"]
 [connection signal="body_entered" from="stage/Schoolyard/Platform section/Coins/Coin1" to="stage/Schoolyard/Platform section/Coins/Coin1" method="_on_body_entered"]

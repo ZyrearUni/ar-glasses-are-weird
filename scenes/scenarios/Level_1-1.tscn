@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://bkm6g1ol8pvv2" path="res://scripts/level1scripts/level1-1/mother.gd" id="8_2e5lf"]
 [ext_resource type="Script" uid="uid://7es80iimcapl" path="res://scripts/studymenuscripts/study_button.gd" id="9_2eeb0"]
 [ext_resource type="Script" uid="uid://bsv45inr24dxq" path="res://scripts/studymenuscripts/next_level.gd" id="10_2txad"]
+[ext_resource type="AudioStream" uid="uid://ckisr05qwrg3n" path="res://assets/sounds/music/House.mp3" id="11_2txad"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_00sl7"]
 
@@ -143,6 +144,10 @@ theme_override_font_sizes/font_size = 40
 text = "Continuar al siguiente nivel"
 script = ExtResource("10_2txad")
 nextLevel = "res://scenes/scenarios/Level_1-2.tscn"
+
+[node name="AudioStreamPlayer" parent="." index="8" unique_id=855356542]
+stream = ExtResource("11_2txad")
+parameters/looping = true
 
 [connection signal="level_start" from="." to="stage/WalkTutorialArea" method="_on_world_level_start"]
 [connection signal="walk_tutorial_finished" from="stage/WalkTutorialArea" to="stage/Mom" method="_on_walk_tutorial_area_walk_tutorial_finished"]

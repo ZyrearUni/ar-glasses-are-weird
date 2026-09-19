@@ -54,6 +54,7 @@ func speak():
 
 func finish_level() -> void:
 	await fade.fade_to_black()
+	$AudioStreamPlayer.fade_out()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	$Study/CanvasLayer.show()

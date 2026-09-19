@@ -28,3 +28,4 @@ func finish_level() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	$Study/CanvasLayer.show()
+	$AudioStreamPlayer.fade_out()

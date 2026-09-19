@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://c2ra5w07ppgio" path="res://scripts/level5scripts/visit_teacher_ending.gd" id="10_6h7u7"]
 [ext_resource type="Script" uid="uid://cdn3tgyp6c2rx" path="res://scripts/level5scripts/no_blood_4-6.gd" id="10_7o8rh"]
 [ext_resource type="Script" uid="uid://cioymieax8w8k" path="res://scripts/level5scripts/strong_pain_ending.gd" id="13_76gp2"]
+[ext_resource type="AudioStream" uid="uid://i32n7214hgjy" path="res://assets/sounds/music/Stage5_Theme.mp3" id="18_1fqhe"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k1jvk"]
 bg_color = Color(0.8247977, 0.3473309, 0, 0.2901961)
@@ -307,6 +308,9 @@ script = ExtResource("10_6h7u7")
 [node name="Range10" type="Node" parent="DecisionTree/SliderDecision" index="6" unique_id=1316298876 node_paths=PackedStringArray("Player")]
 script = ExtResource("9_damsw")
 Player = NodePath("../../../stage/Player")
+
+[node name="AudioStreamPlayer" parent="." index="9" unique_id=855356542]
+stream = ExtResource("18_1fqhe")
 
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" method="save_result"]

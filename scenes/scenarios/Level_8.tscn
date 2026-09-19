@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c547agd6lg4iu" path="res://assets/house.glb" id="3_35ti5"]
 [ext_resource type="Script" uid="uid://7es80iimcapl" path="res://scripts/studymenuscripts/study_button.gd" id="4_v1owj"]
 [ext_resource type="Script" uid="uid://bsv45inr24dxq" path="res://scripts/studymenuscripts/next_level.gd" id="5_oo0qm"]
+[ext_resource type="AudioStream" uid="uid://ckisr05qwrg3n" path="res://assets/sounds/music/House.mp3" id="6_oo0qm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vyowm"]
 bg_color = Color(0.8247977, 0.3473309, 0, 0.2901961)
@@ -61,6 +62,10 @@ theme_override_font_sizes/font_size = 40
 text = "Continuar al siguiente nivel"
 script = ExtResource("5_oo0qm")
 nextLevel = "res://scenes/scenarios/Level_2.tscn"
+
+[node name="AudioStreamPlayer" parent="." index="8" unique_id=855356542]
+stream = ExtResource("6_oo0qm")
+parameters/looping = true
 
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" method="save_result"]

@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://cj50m4a61k0cw" path="res://scripts/dialogue.gd" id="8_x50ou"]
 [ext_resource type="Script" uid="uid://7es80iimcapl" path="res://scripts/studymenuscripts/study_button.gd" id="13_uiwi3"]
 [ext_resource type="Script" uid="uid://bsv45inr24dxq" path="res://scripts/studymenuscripts/next_level.gd" id="14_j0rwt"]
+[ext_resource type="AudioStream" uid="uid://k30xgkvh4244" path="res://assets/sounds/music/Stage6_Theme.mp3" id="15_j0rwt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jrcfg"]
 size = Vector3(8.321873, 1, 14.5774555)
@@ -321,6 +322,10 @@ theme_override_font_sizes/font_size = 40
 text = "Continuar al siguiente nivel"
 script = ExtResource("14_j0rwt")
 nextLevel = "res://scenes/scenarios/Level_2.tscn"
+
+[node name="AudioStreamPlayer" parent="." index="8" unique_id=855356542]
+stream = ExtResource("15_j0rwt")
+parameters/looping = true
 
 [connection signal="body_entered" from="stage/city/CutsceneArea" to="stage/city/CutsceneArea" method="init_dialogue"]
 [connection signal="pressed" from="stage/city/CutsceneArea/TellSkippy/CanvasLayer/AcceptButton" to="stage/city/CutsceneArea/Tell" method="_tell_skippy"]
