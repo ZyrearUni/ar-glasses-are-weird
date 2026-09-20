@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d3jakabgaohdg"
-path="res://.godot/imported/skippygrimace.png-5d7fa280e517d9942522f040e7b4e21e.ctex"
+path="res://.godot/imported/skippygrimace.png-e9534a2f44ea72bb30ab032bcb86870a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Skippy/skippygrimace.png"
-dest_files=["res://.godot/imported/skippygrimace.png-5d7fa280e517d9942522f040e7b4e21e.ctex"]
+source_file="res://assets/sprites/skippy/skippygrimace.png"
+dest_files=["res://.godot/imported/skippygrimace.png-e9534a2f44ea72bb30ab032bcb86870a.ctex"]
 
 [params]
 
