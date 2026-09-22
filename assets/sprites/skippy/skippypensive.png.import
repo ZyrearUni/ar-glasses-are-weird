@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cvju8huwkqry8"
-path="res://.godot/imported/skippypensive.png-e20b35426f52442c52ec5bfe84b6b401.ctex"
+path="res://.godot/imported/skippypensive.png-30f7c0ebbb32d1a4a3907b5d13680607.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Skippy/skippypensive.png"
-dest_files=["res://.godot/imported/skippypensive.png-e20b35426f52442c52ec5bfe84b6b401.ctex"]
+source_file="res://assets/sprites/skippy/skippypensive.png"
+dest_files=["res://.godot/imported/skippypensive.png-30f7c0ebbb32d1a4a3907b5d13680607.ctex"]
 
 [params]
 

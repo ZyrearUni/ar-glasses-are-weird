@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://dk06n8cg3a7h4" path="res://assets/sounds/sound effects/CollectCoin.wav" id="7_stsfq"]
 [ext_resource type="Script" uid="uid://7es80iimcapl" path="res://scripts/studymenuscripts/study_button.gd" id="8_v4enl"]
 [ext_resource type="Script" uid="uid://bsv45inr24dxq" path="res://scripts/studymenuscripts/next_level.gd" id="9_6g2dg"]
+[ext_resource type="AudioStream" uid="uid://xxcjrvq5pr87" path="res://assets/sounds/music/Stage1-2_Theme.mp3" id="14_uwycl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xh2vs"]
 size = Vector3(8.321873, 1, 14.5774555)
@@ -462,6 +463,9 @@ size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_jd5u1")
 text = "Seguir camino normal"
+
+[node name="AudioStreamPlayer" parent="." index="9" unique_id=855356542]
+stream = ExtResource("14_uwycl")
 
 [connection signal="body_entered" from="stage/City/Platformer section/Coins/Coin1" to="." method="coin_collected"]
 [connection signal="body_entered" from="stage/City/Platformer section/Coins/Coin1" to="stage/City/Platformer section/Coins/Coin1" method="_on_body_entered"]
