@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://wibtfipo80ct"]
 
+[ext_resource type="AudioStream" uid="uid://r8mjdheike4f" path="res://assets/sounds/sound effects/talk sound.wav" id="1_kem5c"]
+
 [sub_resource type="Animation" id="Animation_x0h1o"]
 length = 0.001
 tracks/0/type = "value"
@@ -29,6 +31,57 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0, 1.0]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../DialogueSound")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("1_kem5c")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("1_kem5c")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("1_kem5c")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("1_kem5c")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("1_kem5c")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("1_kem5c")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("1_kem5c")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("1_kem5c")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("1_kem5c")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("1_kem5c")
+}],
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6q285"]
 _data = {
@@ -45,7 +98,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Canvas" type="CanvasLayer" parent="." unique_id=615519412]
-visible = false
 
 [node name="DialogueBackground" type="ColorRect" parent="Canvas" unique_id=1214370663]
 anchors_preset = 12
@@ -90,3 +142,6 @@ text = "Continuar"
 
 [node name="DialogueAnimation" type="AnimationPlayer" parent="Canvas" unique_id=1320256720]
 libraries/ = SubResource("AnimationLibrary_6q285")
+
+[node name="DialogueSound" type="AudioStreamPlayer" parent="." unique_id=643376728]
+volume_db = -10.331
