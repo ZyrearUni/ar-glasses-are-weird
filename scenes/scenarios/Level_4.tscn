@@ -12,7 +12,12 @@
 [ext_resource type="Script" uid="uid://cj50m4a61k0cw" path="res://scripts/dialogue.gd" id="8_8882p"]
 [ext_resource type="Texture2D" uid="uid://dsbsy3qay7gjm" path="res://assets/sprites/Kids/nene1.png" id="8_b3bfj"]
 [ext_resource type="Texture2D" uid="uid://dukqctwgf0d3" path="res://assets/sprites/Raquel/raquel_surprised.png" id="9_ae7fx"]
+[ext_resource type="Texture2D" uid="uid://bqofhitwud67n" path="res://assets/sprites/Kids/nene3.png" id="9_coqdb"]
+[ext_resource type="Script" uid="uid://dpyrbu0plrfw2" path="res://scripts/level4scripts/introduction_dialogue.gd" id="10_8bh45"]
+[ext_resource type="Script" uid="uid://b64liv0iqx7ko" path="res://scripts/level4scripts/adri_sprite_change.gd" id="10_w0p37"]
+[ext_resource type="Script" uid="uid://d6y051i55hug" path="res://scripts/level4scripts/adri_selection.gd" id="11_8bh45"]
 [ext_resource type="AudioStream" uid="uid://bskuouf0ndu1f" path="res://assets/sounds/sound effects/BokenBone.wav" id="11_70yo7"]
+[ext_resource type="PackedScene" uid="uid://dpceadyhu78aj" path="res://scenes/models/characters/Adri.tscn" id="13_1swa1"]
 [ext_resource type="AudioStream" uid="uid://dsipcu5t4nbke" path="res://assets/sounds/music/Stage4_Theme.ogg" id="14_ae7fx"]
 
 [sub_resource type="Animation" id="Animation_w7s45"]
@@ -96,6 +101,9 @@ _data = {
 &"RESET": SubResource("Animation_bdcid"),
 &"RotarMoneda": SubResource("Animation_se11h")
 }
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_coqdb"]
+bg_color = Color(0.50853425, 0.33932856, 0.03818896, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bk62b"]
 bg_color = Color(0.8247977, 0.3473309, 0, 0.2901961)
@@ -272,9 +280,10 @@ billboard = 2
 texture = ExtResource("8_b3bfj")
 
 [node name="Nene3" type="Sprite3D" parent="stage/Schoolyard/Children" index="2" unique_id=1379806828]
-transform = Transform3D(0.045, 0, 3.4924597e-10, 0, 0.045, 0, 2.3283064e-10, 0, 0.045, -3.601451, 1.0581894, -2.923747)
+transform = Transform3D(0.045, 0, 1.1641532e-09, 0, 0.045, 0, 2.3283064e-10, 0, 0.045, -2.7834392, 1.0581894, -6.917616)
 billboard = 2
-texture = ExtResource("8_b3bfj")
+texture = ExtResource("9_coqdb")
+script = ExtResource("10_w0p37")
 
 [node name="Nene4" type="Sprite3D" parent="stage/Schoolyard/Children" index="3" unique_id=1029022587]
 transform = Transform3D(0.045, 0, 2.3283064e-10, 0, 0.045, 0, 2.3283064e-10, 0, 0.045, -2.9264426, 1.0581894, -1.0982833)
@@ -287,12 +296,53 @@ billboard = 2
 texture = ExtResource("9_ae7fx")
 
 [node name="IntroductionDialogue" type="Node" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="2" unique_id=685843755 node_paths=PackedStringArray("Player", "Speakers")]
-script = ExtResource("8_8882p")
+script = ExtResource("10_8bh45")
 Player = NodePath("../Player")
-Dialogues = Array[String](["El juego es simple. ¡Recoge todas las monedas lo antes posible!", "¿Listo?"])
-SpeakerNames = Array[String](["Skippy", "Skippy"])
-Speakers = [NodePath("../../Skippy")]
-SpeakerAnimations = Array[String](["Hablar", "Hablar"])
+Dialogues = Array[String](["El juego es simple. ¡Recoge todas las monedas lo antes posible!", "¿Listo?", "Esto...", "¿Puedo unirme a vosotros? Se ve divertido..."])
+SpeakerNames = Array[String](["Skippy", "Skippy", "Adri", "Adri"])
+Speakers = [NodePath("../../Skippy"), NodePath("../../Adri")]
+SpeakerAnimations = Array[String](["Hablar", "Hablar", "Hablar", "Hablar"])
+
+[node name="WannaPlayDecision" type="Control" parent="stage/IntroductionDialogue" index="0" unique_id=704039592]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="stage/IntroductionDialogue/WannaPlayDecision" index="0" unique_id=156267822]
+visible = false
+
+[node name="PlayLaterButton" type="Button" parent="stage/IntroductionDialogue/WannaPlayDecision/CanvasLayer" index="0" unique_id=89673709 node_paths=PackedStringArray("Player", "Speakers")]
+offset_left = 1356.0
+offset_top = 700.0
+offset_right = 2530.0
+offset_bottom = 755.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_coqdb")
+text = "\"Necesitas unas gafas, ¡pero podemos jugar juntos después!\""
+script = ExtResource("11_8bh45")
+Player = NodePath("../../../../Player")
+Dialogues = Array[String](["Bueno, entonces esperaré. ¡Gracias!"])
+SpeakerNames = Array[String](["Adri"])
+Speakers = [NodePath("../../../../../Adri")]
+SpeakerAnimations = Array[String](["Feliz"])
+
+[node name="RejectPlayButton" type="Button" parent="stage/IntroductionDialogue/WannaPlayDecision/CanvasLayer" index="1" unique_id=95293315 node_paths=PackedStringArray("Player", "Speakers")]
+offset_left = 192.0
+offset_top = 700.0
+offset_right = 1059.0
+offset_bottom = 755.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_coqdb")
+text = "\"Sin las gafas no puedes. Ve a jugar con otro\""
+script = ExtResource("11_8bh45")
+Player = NodePath("../../../../Player")
+Dialogues = Array[String](["Oh, entiendo... Lo siento..."])
+SpeakerNames = Array[String](["Adri"])
+Speakers = [NodePath("../../../../../Adri")]
+SpeakerAnimations = Array[String](["Triste"])
 
 [node name="EndingDialogue" type="Node" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="3" unique_id=296510799 node_paths=PackedStringArray("Player", "Speakers")]
 script = ExtResource("8_8882p")
@@ -301,6 +351,9 @@ Dialogues = Array[String](["Au... ¿Te encuentras bien, campeón?", "Quizás deb
 SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy"])
 Speakers = [NodePath("../../Skippy")]
 SpeakerAnimations = Array[String](["Nervioso", "Pensativo_2", "Hablar"])
+
+[node name="Adri" parent="." index="3" unique_id=748424255 instance=ExtResource("13_1swa1")]
+visible = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Study/CanvasLayer" parent_id_path=PackedInt32Array(1082957249) index="0" unique_id=854192583]
 anchors_preset = 12
@@ -347,12 +400,12 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Continuar al siguiente nivel"
 script = ExtResource("5_q0bsi")
-nextLevel = "res://scenes/scenarios/Level_2.tscn"
+nextLevel = "res://scenes/scenarios/Level_5.tscn"
 
-[node name="BokenBone" type="AudioStreamPlayer" parent="." index="8" unique_id=103504490]
+[node name="BokenBone" type="AudioStreamPlayer" parent="." index="9" unique_id=103504490]
 stream = ExtResource("11_70yo7")
 
-[node name="AudioStreamPlayer" parent="." index="9" unique_id=855356542]
+[node name="AudioStreamPlayer" parent="." index="10" unique_id=855356542]
 stream = ExtResource("14_ae7fx")
 
 [connection signal="body_entered" from="stage/Schoolyard/Platform section/Coins/Coin1" to="." method="coin_collected"]
@@ -365,6 +418,10 @@ stream = ExtResource("14_ae7fx")
 [connection signal="body_entered" from="stage/Schoolyard/Platform section/Coins/Coin4" to="stage/Schoolyard/Platform section/Coins/Coin4" method="_on_body_entered"]
 [connection signal="body_entered" from="stage/Schoolyard/Platform section/Coins/Coin5" to="." method="coin_collected"]
 [connection signal="body_entered" from="stage/Schoolyard/Platform section/Coins/Coin5" to="stage/Schoolyard/Platform section/Coins/Coin5" method="_on_body_entered"]
+[connection signal="pressed" from="stage/IntroductionDialogue/WannaPlayDecision/CanvasLayer/PlayLaterButton" to="stage/Schoolyard/Children/Nene3" method="_on_play_later_button_pressed"]
+[connection signal="pressed" from="stage/IntroductionDialogue/WannaPlayDecision/CanvasLayer/PlayLaterButton" to="stage/IntroductionDialogue/WannaPlayDecision/CanvasLayer/PlayLaterButton" method="_on_pressed"]
+[connection signal="pressed" from="stage/IntroductionDialogue/WannaPlayDecision/CanvasLayer/RejectPlayButton" to="stage/Schoolyard/Children/Nene3" method="_on_reject_play_button_pressed"]
+[connection signal="pressed" from="stage/IntroductionDialogue/WannaPlayDecision/CanvasLayer/RejectPlayButton" to="stage/IntroductionDialogue/WannaPlayDecision/CanvasLayer/RejectPlayButton" method="_on_pressed"]
 [connection signal="dialogue_ended" from="stage/EndingDialogue" to="." method="finish_level"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" method="save_result"]

@@ -137,6 +137,8 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_2eeb0")
 text = "Este es un aspecto negativo"
 script = ExtResource("9_2eeb0")
+risk = true
+explanation = "fuck"
 
 [node name="NextLevel" type="Button" parent="Study/CanvasLayer/VBoxContainer" index="1" unique_id=1035393967]
 layout_mode = 2

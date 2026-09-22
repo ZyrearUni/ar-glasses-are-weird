@@ -1,5 +1,7 @@
 extends Button
 
+@export var risk : bool
+@export var explanation : String
 var RESULT_FILE_DIR = OS.get_system_dir(OS.SYSTEM_DIR_DESKTOP) + "/resultados.txt"
 
 # Guardar en resultados.txt (para posterior estudio)

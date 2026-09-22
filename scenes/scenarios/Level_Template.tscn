@@ -23,6 +23,42 @@ tonemap_mode = 2
 tonemap_exposure = 0.34
 glow_enabled = true
 
+[sub_resource type="Animation" id="Animation_gccuk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/RiesgosExplicados:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_8ndck"]
+resource_name = "TextScroll"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/RiesgosExplicados:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jic2v"]
+_data = {
+&"RESET": SubResource("Animation_gccuk"),
+&"TextScroll": SubResource("Animation_8ndck")
+}
+
 [node name="World" type="Node3D" unique_id=1891132867]
 script = ExtResource("1_kqd6t")
 
@@ -55,6 +91,25 @@ offset_bottom = 40.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Study" unique_id=1082957249]
 visible = false
+
+[node name="RiesgosExplicados" type="Label" parent="Study/CanvasLayer" unique_id=130068949]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -27.5
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Lorem ipsum dolor sit amet consectetur adipiscing, elit maecenas faucibus convallis sociis, est a eros nec per. Luctus conubia nibh ullamcorper ac dignissim torquent donec per a egestas lectus, nascetur duis fermentum eget montes aliquet faucibus tincidunt vestibulum senectus leo, justo penatibus feugiat cum fames enim orci platea vivamus quis. Aenean ornare posuere erat nisl enim viverra molestie, laoreet magna sagittis lacinia feugiat duis luctus, venenatis class facilisi natoque integer penatibus."
+horizontal_alignment = 1
+autowrap_mode = 2
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Study" unique_id=867561185]
+libraries/ = SubResource("AnimationLibrary_jic2v")
 
 [node name="DialogueUI" parent="." unique_id=635654561 instance=ExtResource("3_lqphp")]
 z_index = -1

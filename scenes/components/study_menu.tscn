@@ -6,6 +6,42 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uahpa"]
 bg_color = Color(0.8247977, 0.3473309, 0, 0.2901961)
 
+[sub_resource type="Animation" id="Animation_gccuk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/RiesgosExplicados:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_8ndck"]
+resource_name = "TextScroll"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/RiesgosExplicados:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3r6en"]
+_data = {
+&"RESET": SubResource("Animation_gccuk"),
+&"TextScroll": SubResource("Animation_8ndck")
+}
+
 [node name="Study" type="Control" unique_id=1501753791]
 layout_mode = 3
 anchors_preset = 15
@@ -55,12 +91,32 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_uahpa")
 text = "Este es un aspecto negativo"
 script = ExtResource("1_gccuk")
+risk = true
 
 [node name="NextLevel" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=281651457]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Continuar al siguiente nivel"
 script = ExtResource("2_8ndck")
+
+[node name="RiesgosExplicados" type="Label" parent="CanvasLayer" unique_id=1905225017]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -27.5
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Lorem ipsum dolor sit amet consectetur adipiscing, elit maecenas faucibus convallis sociis, est a eros nec per. Luctus conubia nibh ullamcorper ac dignissim torquent donec per a egestas lectus, nascetur duis fermentum eget montes aliquet faucibus tincidunt vestibulum senectus leo, justo penatibus feugiat cum fames enim orci platea vivamus quis. Aenean ornare posuere erat nisl enim viverra molestie, laoreet magna sagittis lacinia feugiat duis luctus, venenatis class facilisi natoque integer penatibus."
+horizontal_alignment = 1
+autowrap_mode = 2
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2079586525]
+libraries/ = SubResource("AnimationLibrary_3r6en")
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" to="CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" method="save_result"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" to="CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" method="save_result"]

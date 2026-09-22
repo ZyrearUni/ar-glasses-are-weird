@@ -46,6 +46,7 @@ const SKIPPY_ON = "Skippy se mantiene encendido\n"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super()
+	get_tree().current_scene.get_node("DialogueUI/Canvas").hide()
 	fade.fade_from_black()
 	level_start.emit()
 

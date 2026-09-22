@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://7kifm83yn5ck"
-path="res://.godot/imported/skippypointup.png-4cf87d92c86b94f3685bbf8c5fbb1eea.ctex"
+path="res://.godot/imported/skippypointup.png-47496fc379ef25b5a99a0c95347053e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/skippy/skippypointup.png"
-dest_files=["res://.godot/imported/skippypointup.png-4cf87d92c86b94f3685bbf8c5fbb1eea.ctex"]
+source_file="res://assets/sprites/Skippy/skippypointup.png"
+dest_files=["res://.godot/imported/skippypointup.png-47496fc379ef25b5a99a0c95347053e3.ctex"]
 
 [params]
 

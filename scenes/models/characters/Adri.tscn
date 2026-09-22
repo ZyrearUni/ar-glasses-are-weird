@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://dpceadyhu78aj"]
+
+[ext_resource type="Texture2D" uid="uid://cu8yfyvqu8pbs" path="res://assets/sprites/Kids/adrihap.png" id="1_fkgex"]
+[ext_resource type="Texture2D" uid="uid://bqofhitwud67n" path="res://assets/sprites/Kids/nene3.png" id="1_lmdyd"]
+[ext_resource type="Texture2D" uid="uid://lwqsoihesvrc" path="res://assets/sprites/Kids/adrisad.png" id="2_j7n2e"]
+[ext_resource type="Script" uid="uid://plms7gqrxn8f" path="res://scripts/2d_speaker_anim.gd" id="2_lmdyd"]
+
+[sub_resource type="Animation" id="Animation_lmdyd"]
+resource_name = "Feliz"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.375, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2105.0002, 983.99994), Vector2(2105, 934), Vector2(2105, 984)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_fkgex")]
+}
+
+[sub_resource type="Animation" id="Animation_xg8pw"]
+resource_name = "Hablar"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.375, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2105.0002, 983.99994), Vector2(2105, 934), Vector2(2105, 984)]
+}
+
+[sub_resource type="Animation" id="Animation_vvpvp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2105.0002, 983.99994)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_lmdyd")]
+}
+
+[sub_resource type="Animation" id="Animation_kkwl3"]
+resource_name = "Triste"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.375, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2105.0002, 983.99994), Vector2(2105, 934), Vector2(2105, 984)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_j7n2e")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nxjka"]
+_data = {
+&"Feliz": SubResource("Animation_lmdyd"),
+&"Hablar": SubResource("Animation_xg8pw"),
+&"RESET": SubResource("Animation_vvpvp"),
+&"Triste": SubResource("Animation_kkwl3")
+}
+
+[node name="Adri" type="Sprite2D" unique_id=748424255]
+position = Vector2(2105.0002, 983.99994)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_lmdyd")
+script = ExtResource("2_lmdyd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=342802160]
+libraries/ = SubResource("AnimationLibrary_nxjka")
