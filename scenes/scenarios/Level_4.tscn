@@ -448,11 +448,12 @@ text = "Continuar al siguiente nivel"
 script = ExtResource("5_q0bsi")
 nextLevel = "res://scenes/scenarios/Level_5.tscn"
 
+[node name="AudioStreamPlayer" parent="." index="8" unique_id=855356542]
+stream = ExtResource("14_ae7fx")
+parameters/looping = true
+
 [node name="BokenBone" type="AudioStreamPlayer" parent="." index="9" unique_id=103504490]
 stream = ExtResource("11_70yo7")
-
-[node name="AudioStreamPlayer" parent="." index="10" unique_id=855356542]
-stream = ExtResource("14_ae7fx")
 
 [connection signal="body_entered" from="stage/Schoolyard/Platform section/Coins/Coin1" to="." method="coin_collected"]
 [connection signal="body_entered" from="stage/Schoolyard/Platform section/Coins/Coin1" to="stage/Schoolyard/Platform section/Coins/Coin1" method="_on_body_entered"]

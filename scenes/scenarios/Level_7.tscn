@@ -109,7 +109,10 @@ Speakers = [NodePath("../../../../Skippy")]
 [node name="Shutdown" type="AudioStreamPlayer" parent="stage/city/CutsceneArea/Option2" index="0" unique_id=1790570762]
 stream = ExtResource("7_sfu68")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Study/CanvasLayer" parent_id_path=PackedInt32Array(1082957249) index="0" unique_id=934790302]
+[node name="CanvasLayer" parent="Study" parent_id_path=PackedInt32Array(1827521786) index="0" unique_id=1082957249]
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Study/CanvasLayer" index="0" unique_id=934790302]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -132,7 +135,7 @@ custom_minimum_size = Vector2(800, 50)
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="Aspecto1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos" index="0" unique_id=770752622]
+[node name="AP1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos" index="0" unique_id=770752622]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_vrbvw")
@@ -146,7 +149,7 @@ custom_minimum_size = Vector2(800, 50)
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="Aspecto1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="0" unique_id=30110564]
+[node name="AN1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="0" unique_id=30110564]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_vrbvw")
@@ -162,7 +165,7 @@ text = "Continuar al siguiente nivel"
 script = ExtResource("8_sfu68")
 nextLevel = "res://scenes/scenarios/Level_2.tscn"
 
-[node name="AudioStreamPlayer" parent="." index="8" unique_id=855356542]
+[node name="AudioStreamPlayer" parent="." index="7" unique_id=855356542]
 stream = ExtResource("10_vrbvw")
 parameters/looping = true
 
@@ -171,6 +174,6 @@ parameters/looping = true
 [connection signal="dialogue_ended" from="stage/city/CutsceneArea/Option0" to="." method="on_option_end"]
 [connection signal="dialogue_ended" from="stage/city/CutsceneArea/Option1" to="." method="on_option_end"]
 [connection signal="dialogue_ended" from="stage/city/CutsceneArea/Option2" to="." method="on_option_end"]
-[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" method="save_result"]
-[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP1" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN1" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/NextLevel" to="Study/CanvasLayer/VBoxContainer/NextLevel" method="next_level"]

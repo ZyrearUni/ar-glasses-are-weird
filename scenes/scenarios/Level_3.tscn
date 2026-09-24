@@ -165,7 +165,10 @@ Player = NodePath("../../Player")
 script = ExtResource("13_c246d")
 Player = NodePath("../../Player")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Study/CanvasLayer" parent_id_path=PackedInt32Array(1082957249) index="0" unique_id=844191721]
+[node name="CanvasLayer" parent="Study" parent_id_path=PackedInt32Array(1827521786) index="0" unique_id=1082957249]
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Study/CanvasLayer" index="0" unique_id=844191721]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -188,7 +191,7 @@ custom_minimum_size = Vector2(800, 50)
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="Aspecto1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos" index="0" unique_id=1364517966]
+[node name="AP1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos" index="0" unique_id=1364517966]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_3kpjn")
@@ -202,7 +205,7 @@ custom_minimum_size = Vector2(800, 50)
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="Aspecto1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="0" unique_id=202351110]
+[node name="AN1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="0" unique_id=202351110]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_3kpjn")
@@ -218,8 +221,9 @@ text = "Continuar al siguiente nivel"
 script = ExtResource("15_3kpjn")
 nextLevel = "res://scenes/scenarios/Level_2.tscn"
 
-[node name="AudioStreamPlayer" parent="." index="8" unique_id=855356542]
+[node name="AudioStreamPlayer" parent="." index="7" unique_id=855356542]
 stream = ExtResource("16_3kpjn")
+parameters/looping = true
 
 [connection signal="next_scene" from="." to="stage/Schoolyard/Raquel" method="_on_next_scene"]
 [connection signal="kid_interacted" from="stage/Schoolyard/Kid1" to="." method="_on_kid_interacted"]
@@ -232,6 +236,6 @@ stream = ExtResource("16_3kpjn")
 [connection signal="pressed" from="stage/NextSceneNode/SecondDecision/CanvasLayer/RejectButton" to="stage/NextSceneNode/SecondDecisionReject" method="_on_reject_help"]
 [connection signal="pressed" from="stage/NextSceneNode/ThirdDecision/CanvasLayer/AcceptButton" to="stage/NextSceneNode/Accept" method="_on_accept_help"]
 [connection signal="pressed" from="stage/NextSceneNode/ThirdDecision/CanvasLayer/RejectButton" to="stage/NextSceneNode/ThirdDecisionReject" method="_on_reject_help"]
-[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" method="save_result"]
-[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP1" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN1" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/NextLevel" to="Study/CanvasLayer/VBoxContainer/NextLevel" method="next_level"]
