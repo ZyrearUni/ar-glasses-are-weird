@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://k64ffjcl7wgk" path="res://scenes/components/pause_menu.tscn" id="4_8uwh6"]
 [ext_resource type="PackedScene" uid="uid://ctkshhv3kfvuc" path="res://scenes/components/fade.tscn" id="4_kqd6t"]
 [ext_resource type="PackedScene" uid="uid://by16siv81es8q" path="res://scenes/models/characters/Skippy.tscn" id="7_m5uiq"]
-[ext_resource type="PackedScene" uid="uid://tb8ajjdjscwt" path="res://scenes/components/moral_insight.tscn" id="8_ptfjk"]
 [ext_resource type="Script" uid="uid://cygo8i3pnt82o" path="res://scripts/music.gd" id="9_jic2v"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_36fji"]
@@ -80,8 +79,6 @@ visible = false
 y_sort_enabled = true
 
 [node name="fade" parent="." unique_id=25219732 instance=ExtResource("4_kqd6t")]
-
-[node name="MoralInsight" parent="." unique_id=1762423104 instance=ExtResource("8_ptfjk")]
 
 [node name="Study" type="Control" parent="." unique_id=1827521786]
 layout_mode = 3

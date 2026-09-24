@@ -30,24 +30,26 @@ script = ExtResource("2_pmmkd")
 transform = Transform3D(0.058248125, 0, -1.0780795, 0, 1.1790056, 0, 1.2135423, 0, 0.051746152, -9.307877, -0.018941045, 6.1162643)
 
 [node name="Kid1" parent="stage/Schoolyard" index="31" unique_id=759215246 instance=ExtResource("4_q5lk6")]
-transform = Transform3D(1, 0, 2.2351742e-08, 0, 1, 0, 0, 0, 0.9999995, 0.28628588, -0.067211576, -4.1850033)
+transform = Transform3D(0.40000004, 0, 1.8626451e-09, 0, 0.4, 0, 0, 0, 0.40000004, -2.3943834, 0.019501396, 3.168417)
 script = ExtResource("5_6gvjs")
 
-[node name="Kid2" parent="stage/Schoolyard" index="32" unique_id=1956519799 instance=ExtResource("5_8p0ku")]
-transform = Transform3D(1, 0, 2.2351742e-08, 0, 1, 0, 0, 0, 0.9999995, 1.9132543, 0, -5.373065)
+[node name="Kid2" parent="stage/Schoolyard" index="32" unique_id=1956519799 node_paths=PackedStringArray("Player") instance=ExtResource("5_8p0ku")]
+transform = Transform3D(0.40000004, 0, 3.7252903e-09, 0, 0.4, 0, 0, 0, 0.40000004, 0.22195625, 0, -6.0970345)
 script = ExtResource("5_6gvjs")
+Player = NodePath("../../Player")
 
-[node name="Kid3" parent="stage/Schoolyard" index="33" unique_id=151720113 instance=ExtResource("6_6gvjs")]
-transform = Transform3D(1, 0, 2.2351742e-08, 0, 1, 0, 0, 0, 0.9999995, -2.4143023, 0, 3.201808)
+[node name="Kid3" parent="stage/Schoolyard" index="33" unique_id=151720113 node_paths=PackedStringArray("Player") instance=ExtResource("6_6gvjs")]
+transform = Transform3D(0.40000004, 0, 0, 0, 0.4, 0, 0, 0, 0.40000004, -0.47051525, 0, -4.3738437)
 script = ExtResource("5_6gvjs")
+Player = NodePath("../../Player")
 Dialogues = Array[String](["¡Déjame! Estoy intentando hacer un mate"])
 
 [node name="Kid4" parent="stage/Schoolyard" index="34" unique_id=1930868132 instance=ExtResource("7_8kjea")]
-transform = Transform3D(1, 0, 1.8626451e-08, 0, 1, 0, 0, 0, 0.9999996, -2.104023, 0, -5.6058903)
+transform = Transform3D(0.40000004, 0, 0, 0, 0.4, 0, 0, 0, 0.40000004, -2.104023, 0, -5.6058903)
 script = ExtResource("5_6gvjs")
 
 [node name="Raquel" parent="stage/Schoolyard" index="35" unique_id=1481373249 instance=ExtResource("8_lak3m")]
-transform = Transform3D(1, 0, 2.2351742e-08, 0, 1, 0, 0, 0, 0.9999995, 3.0410304, 0, 8.073513)
+transform = Transform3D(0.40000004, 0, 0, 0, 0.4, 0, 0, 0, 0.40000004, 3.0410304, 0, 8.073513)
 collision_layer = 0
 collision_mask = 0
 input_ray_pickable = false

@@ -1,6 +1,7 @@
 extends "res://scripts/dialogue.gd"
 
 @onready var AnswerInput = $"../../../../AnswerInput"
+signal test_finished
 
 var accepted_help = false
 var hints = []
@@ -8,7 +9,8 @@ var questions = [
 	"María se ha gastado 1/3 del dinero que le dieron de paga sus abuelos en comprar libros de aventuras. También se ha gastado 1/9 de la paga en comprar una bolsa de chuches. ¿Qué fracción de su paga se ha gastado María?",
 	"Esta mañana Miguel ha comprado un kilo de boquerones. Para comer con su familia, ha hecho 3/4 de kilo. ¿Qué cantidad de boquerones quedan en la nevera? (Pulsa continuar para poder escribir la respuesta)" ,
 	"Eva y Ana comparten una caja de bombones que han comprado entre las dos. Eva se ha comido 1/5 y Ana se ha comido 1/2. ¿Qué fracción de bombones se han comido entre ambas? (Pulsa continuar para poder escribir la respuesta)",
-	"Mi hermano se ha comido dos tercios de un pastel, y yo me he comido un pastel y un tercio de otro. ¿Cuántos pasteles nos hemos comido entre los dos? (Pulsa continuar para poder escribir la respuesta)" 
+	"Mi hermano se ha comido dos tercios de un pastel, y yo me he comido un pastel y un tercio de otro. ¿Cuántos pasteles nos hemos comido entre los dos? (Pulsa continuar para poder escribir la respuesta)",
+	"Esto concluye el test." 
 	]
 var answers = [
 	4.0/9.0, 
@@ -38,15 +40,18 @@ func start_test():
 	speak()
 
 
-
 func end_dialogue():
-	print("Test answer ended")
 	if (currentQuestion >= questions.size()-1):
-		print("Ending level")
+		await $"../../../../fade".fade_to_black()
 		super()
-		$"../../../..".finish_level_override(correctAnswerCount)
+		$"../../../Classroom/Kids".show()
+		await get_tree().create_timer(0.5).timeout
+		await $"../../../../fade".fade_from_black()
+		test_finished.emit(correctAnswerCount)
+		
+		# No funcionaba el signal
+		$"../../../RodrigoIssue".change_rodrigo()
 	else:
-		print("Answering quesiton")
 		for speaker in Speakers:
 			speaker.hide()
 		CurrentDialogue = -1

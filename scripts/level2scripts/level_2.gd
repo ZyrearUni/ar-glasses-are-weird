@@ -21,22 +21,14 @@ func enable_correct_dialogue_tree():
 func help_accepted():
 	accept_help = true
 
-
-# No se puede sobreescribir finish_level por necesitar el valor value
-func finish_level_override(value):
-	save_game_data(QUESTIONS_ANSWERED_CORRECTLY + value + "preguntas\n")
-	if (accept_help):
-		$"Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto3".show()
+func save_test_results(value):
+	print(value)
+	save_game_data(QUESTIONS_ANSWERED_CORRECTLY + str(value) + "preguntas\n")
+	if(accept_help):
 		speak()
-	else:
-		finish_level()
-
-
-func end_dialogue():
-	super()
-	finish_level()
 
 
 func finish_level() -> void:
 	super()
+	$DialogueUI/Canvas.hide()
 	$SchoolBell.play()

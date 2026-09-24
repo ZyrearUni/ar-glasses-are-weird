@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cj50m4a61k0cw" path="res://scripts/dialogue.gd" id="4_oupfe"]
 [ext_resource type="PackedScene" uid="uid://bhb823qu32vut" path="res://scenes/models/characters/kid_1.tscn" id="4_qqupq"]
 [ext_resource type="PackedScene" uid="uid://kijayuvj0e3v" path="res://scenes/models/characters/kid_2.tscn" id="5_25b0o"]
+[ext_resource type="Script" uid="uid://c3iu5sqfi6l6x" path="res://scripts/level2scripts/rodrigo.gd" id="5_7342s"]
 [ext_resource type="Script" uid="uid://deavk2fhpvfxs" path="res://scripts/level2scripts/sit_down.gd" id="5_f4twp"]
 [ext_resource type="PackedScene" uid="uid://cqr8nlvernnx4" path="res://scenes/models/characters/kid_3.tscn" id="6_jx5dc"]
 [ext_resource type="PackedScene" uid="uid://f0dtl33cp2ax" path="res://scenes/models/characters/kid_4.tscn" id="7_ff76c"]
@@ -13,9 +14,11 @@
 [ext_resource type="PackedScene" uid="uid://bnn1eacee4ren" path="res://scenes/models/characters/teacher.tscn" id="9_2ucyv"]
 [ext_resource type="Script" uid="uid://dbfxna35neskq" path="res://scripts/level2scripts/offer_selection.gd" id="12_25b0o"]
 [ext_resource type="Script" uid="uid://bcgv0xdumr7yt" path="res://scripts/level2scripts/test_time.gd" id="13_ff76c"]
+[ext_resource type="Script" uid="uid://45fpsttehagh" path="res://scripts/level2scripts/change_sprites.gd" id="14_5cl20"]
 [ext_resource type="PackedScene" uid="uid://cyg6uog6wa3lm" path="res://scenes/components/answer_input.tscn" id="14_yaldh"]
 [ext_resource type="PackedScene" uid="uid://0j14uewcrshp" path="res://scenes/models/characters/teacher_2d.tscn" id="15_yaldh"]
 [ext_resource type="Script" uid="uid://7es80iimcapl" path="res://scripts/studymenuscripts/study_button.gd" id="16_1p6qy"]
+[ext_resource type="PackedScene" uid="uid://c6vgxw0jdpfrf" path="res://Rodrigo.tscn" id="16_h8qk2"]
 [ext_resource type="Script" uid="uid://bsv45inr24dxq" path="res://scripts/studymenuscripts/next_level.gd" id="17_4reh2"]
 [ext_resource type="AudioStream" uid="uid://dnyih1v3lbro" path="res://assets/sounds/sound effects/SchoolBell.wav" id="18_4reh2"]
 [ext_resource type="AudioStream" uid="uid://by22j4l6ffnh4" path="res://assets/sounds/music/Classroom.mp3" id="19_ryb30"]
@@ -49,38 +52,41 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0.003072977
 [node name="Classroom" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=360227559 instance=ExtResource("2_xulf7")]
 transform = Transform3D(0.012958956, 0, -1.499944, 0, 1.5, 0, 1.499944, 0, 0.012958956, -8.096228, -0.057085752, -5.890358)
 
-[node name="Kid1" parent="stage/Classroom" index="1" unique_id=759215246 node_paths=PackedStringArray("Player") instance=ExtResource("4_qqupq")]
+[node name="Kids" type="Node3D" parent="stage/Classroom" index="1" unique_id=2091536356]
+
+[node name="Rodrigo" parent="stage/Classroom/Kids" index="0" unique_id=759215246 node_paths=PackedStringArray("Player") instance=ExtResource("4_qqupq")]
 transform = Transform3D(0.40000004, 0, 4.656613e-10, 0, 0.4, 0, -4.656613e-10, 0, 0.40000004, -0.96963644, 0.0032196045, 1.1426702)
-Player = NodePath("../../Player")
+script = ExtResource("5_7342s")
+Player = NodePath("../../../Player")
 Dialogues = Array[String](["67 FAAAAAAAH", "... ¿Por qué no te ríes?"])
-SpeakerNames = Array[String](["Kid1", "Kid1"])
+SpeakerNames = Array[String](["Rodrigo", "Rodrigo"])
 
-[node name="Kid2" parent="stage/Classroom" index="2" unique_id=503526266 node_paths=PackedStringArray("Player") instance=ExtResource("5_25b0o")]
-transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 1, 3.4872284, 0, 5.7677097)
-Player = NodePath("../../Player")
-Dialogues = Array[String](["What am I doing here"])
-SpeakerNames = Array[String](["Zai"])
+[node name="Kid2" parent="stage/Classroom/Kids" index="1" unique_id=503526266 node_paths=PackedStringArray("Player") instance=ExtResource("5_25b0o")]
+transform = Transform3D(0.40000004, 0, 2.3283064e-10, 0, 0.4, 0, -2.3283064e-10, 0, 0.40000004, 3.4872284, 0, 5.7677097)
+Player = NodePath("../../../Player")
+Dialogues = Array[String](["... ¿Me dejas en paz?"])
+SpeakerNames = Array[String](["Melisa"])
 
-[node name="Kid3" parent="stage/Classroom" index="3" unique_id=341079854 node_paths=PackedStringArray("Player") instance=ExtResource("6_jx5dc")]
-transform = Transform3D(1, 0, 0, 0, 0.9999997, 0, 0, 0, 1, -2.370585, 0, 3.2195244)
-Player = NodePath("../../Player")
-Dialogues = Array[String](["Eh, que este es mi sitio. Quita."])
-SpeakerNames = Array[String](["Kid3"])
+[node name="Kid3" parent="stage/Classroom/Kids" index="2" unique_id=341079854 node_paths=PackedStringArray("Player") instance=ExtResource("6_jx5dc")]
+transform = Transform3D(0.40000004, 0, 2.3283064e-10, 0, 0.4, 0, -2.3283064e-10, 0, 0.40000004, -2.370585, 0, 3.2195244)
+Player = NodePath("../../../Player")
+Dialogues = Array[String](["¿Hm? ¿Necesitas algo?"])
+SpeakerNames = Array[String](["Adri"])
 
-[node name="Kid4" parent="stage/Classroom" index="4" unique_id=1599204009 node_paths=PackedStringArray("Player") instance=ExtResource("7_ff76c")]
-transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 1, 3.5438004, 0, 0.9422846)
-Player = NodePath("../../Player")
+[node name="Kid4" parent="stage/Classroom/Kids" index="3" unique_id=1599204009 node_paths=PackedStringArray("Player") instance=ExtResource("7_ff76c")]
+transform = Transform3D(0.40000004, 0, 2.3283064e-10, 0, 0.4, 0, -2.3283064e-10, 0, 0.40000004, 3.5438006, 0, 0.9422841)
+Player = NodePath("../../../Player")
 Dialogues = Array[String](["Ya era hora de que vinieras..."])
 SpeakerNames = Array[String](["Kid4"])
 
-[node name="Raquel" parent="stage/Classroom" index="5" unique_id=868460852 node_paths=PackedStringArray("Player") instance=ExtResource("8_yaldh")]
-transform = Transform3D(0.40000004, 0, 2.3283064e-10, 0, 0.4, 0, -2.3283064e-10, 0, 0.40000004, -1.7700543, 0, -1.6636851)
-Player = NodePath("../../Player")
+[node name="Raquel" parent="stage/Classroom/Kids" index="4" unique_id=868460852 node_paths=PackedStringArray("Player") instance=ExtResource("8_yaldh")]
+transform = Transform3D(0.40000004, 0, 4.656613e-10, 0, 0.4, 0, -4.656613e-10, 0, 0.40000004, -1.7700543, 0, -1.6636856)
+Player = NodePath("../../../Player")
 Dialogues = Array[String](["Ah, hola. ¿Necesitas un lápiz?"])
 SpeakerNames = Array[String](["Raquel"])
 
-[node name="Teacher" parent="stage/Classroom" index="6" unique_id=344644160 node_paths=PackedStringArray("Player") instance=ExtResource("9_2ucyv")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.60530686, 0.17429605, -6.0015354)
+[node name="Teacher" parent="stage/Classroom" index="2" unique_id=344644160 node_paths=PackedStringArray("Player") instance=ExtResource("9_2ucyv")]
+transform = Transform3D(0.6, 0, 0, 0, 0.59999996, 0, 0, 0, 0.6, 0.60530686, 0.17429605, -6.0015354)
 Player = NodePath("../../Player")
 Dialogues = Array[String](["Siéntate ya, anda. Tenemos que resolver unos problemas."])
 SpeakerNames = Array[String](["Profesora"])
@@ -156,6 +162,7 @@ Player = NodePath("../../../Player")
 Dialogues = Array[String](["¡Perfecto entonces! ¡Manos a la obra!"])
 SpeakerNames = Array[String](["Skippy"])
 Speakers = [NodePath("../../../../Skippy")]
+SpeakerAnimations = Array[String](["Feliz"])
 
 [node name="RejectOffer" type="Node" parent="stage/SitDownArea/DecisionMenu" index="2" unique_id=323758029 node_paths=PackedStringArray("Player", "Speakers")]
 script = ExtResource("12_25b0o")
@@ -163,11 +170,12 @@ Player = NodePath("../../../Player")
 Dialogues = Array[String](["Oh... Entiendo..."])
 SpeakerNames = Array[String](["Skippy"])
 Speakers = [NodePath("../../../../Skippy")]
+SpeakerAnimations = Array[String](["Pensativo_2"])
 
 [node name="TestTime" type="Node" parent="stage/SitDownArea/DecisionMenu" index="3" unique_id=99495967 node_paths=PackedStringArray("Player")]
 script = ExtResource("13_ff76c")
 Player = NodePath("../../../Player")
-SpeakerNames = Array[String](["", "", "", ""])
+SpeakerNames = Array[String](["", "", "", "", ""])
 
 [node name="SkippyAid" type="Control" parent="stage/SitDownArea/DecisionMenu/TestTime" index="0" unique_id=1084529211]
 visible = false
@@ -176,10 +184,64 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Profesora" parent="." index="2" unique_id=678234119 instance=ExtResource("15_yaldh")]
+[node name="RodrigoIssue" type="Node" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="4" unique_id=159800777]
+script = ExtResource("14_5cl20")
+
+[node name="DecisionMenu" type="Control" parent="stage/RodrigoIssue" index="0" unique_id=369167640]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 2561.0
+offset_bottom = 1442.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="stage/RodrigoIssue/DecisionMenu" index="0" unique_id=1374150326]
 visible = false
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Study/CanvasLayer" parent_id_path=PackedInt32Array(1082957249) index="0" unique_id=318217069]
+[node name="EncourageButton" type="Button" parent="stage/RodrigoIssue/DecisionMenu/CanvasLayer" index="0" unique_id=1518865539]
+offset_left = 1455.0
+offset_top = 666.0
+offset_right = 2517.0
+offset_bottom = 721.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_jx5dc")
+text = "\"Solo necesitas un poco de práctica. Ignora lo que dice\""
+
+[node name="DiscourageButton" type="Button" parent="stage/RodrigoIssue/DecisionMenu/CanvasLayer" index="1" unique_id=283977672]
+offset_left = 19.0
+offset_top = 666.0
+offset_right = 1160.0
+offset_bottom = 721.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_jx5dc")
+text = "\"¿Y por qué no las usas tú? ¿No puedes comprarlas o qué? \""
+
+[node name="EncourageRodrigo" type="Node" parent="stage/RodrigoIssue/DecisionMenu" index="1" unique_id=295117367 node_paths=PackedStringArray("Player", "Speakers")]
+script = ExtResource("12_25b0o")
+Player = NodePath("../../../Player")
+Dialogues = Array[String](["Tienes razón. ¡Pienso superarla a ella y a sus gafas!"])
+SpeakerNames = Array[String](["Rodrigo"])
+Speakers = [NodePath("../../../../Rodrigo")]
+SpeakerAnimations = Array[String](["Hablar"])
+
+[node name="DiscourageRodrigo" type="Node" parent="stage/RodrigoIssue/DecisionMenu" index="2" unique_id=1400970099 node_paths=PackedStringArray("Player", "Speakers")]
+script = ExtResource("12_25b0o")
+Player = NodePath("../../../Player")
+Dialogues = Array[String](["No todos nos lo podemos permitir, ¿sabes?", "Agh, déjame en paz."])
+SpeakerNames = Array[String](["Rodrigo", "Rodrigo"])
+Speakers = [NodePath("../../../../Rodrigo")]
+SpeakerAnimations = Array[String](["Enfadado", "Enfadado"])
+
+[node name="Rodrigo" parent="." index="2" unique_id=1301418137 instance=ExtResource("16_h8qk2")]
+visible = false
+
+[node name="Profesora" parent="." index="3" unique_id=678234119 instance=ExtResource("15_yaldh")]
+visible = false
+
+[node name="CanvasLayer" parent="Study" parent_id_path=PackedInt32Array(1827521786) index="0" unique_id=1082957249]
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Study/CanvasLayer" index="0" unique_id=318217069]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -202,11 +264,29 @@ custom_minimum_size = Vector2(800, 50)
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="Aspecto1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos" index="0" unique_id=62974645]
+[node name="AP1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos" index="0" unique_id=62974645]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ryb30")
-text = "Este es un aspecto positivo con mucho texto puesto para que ocupe demasiado"
+text = "Me gusta que Skippy pueda ayudarme a comprender lo que se explica en clase."
+autowrap_mode = 2
+autowrap_trim_flags = 0
+script = ExtResource("16_1p6qy")
+
+[node name="AP2" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos" index="1" unique_id=876445644]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ryb30")
+text = "El trato personalizado que ofrecen las gafas se ajusta a mis necesidades."
+autowrap_mode = 2
+autowrap_trim_flags = 0
+script = ExtResource("16_1p6qy")
+
+[node name="AP3" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos" index="2" unique_id=1227365564]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ryb30")
+text = "Las imágenes que ha generado Skippy me han ayudado a comprender mejor lo que se estaba explicando."
 autowrap_mode = 2
 autowrap_trim_flags = 0
 script = ExtResource("16_1p6qy")
@@ -216,14 +296,35 @@ custom_minimum_size = Vector2(800, 50)
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="Aspecto1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="0" unique_id=1490785377]
+[node name="AN1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="0" unique_id=1490785377]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ryb30")
-text = "Este es un aspecto negativo con mucho texto puesto para que ocupe demasiado"
+text = "Me sienta mal que no todos puedan tener ayuda de Skippy como yo."
 autowrap_mode = 2
 script = ExtResource("16_1p6qy")
 risk = true
+explanation = "No todas las familias se pueden permitir una herramienta como las gafas que tienes. Esto les pone en desventaja frente a los que sí tienen los recursos para permitírselas."
+
+[node name="AN2" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="1" unique_id=55061355]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ryb30")
+text = "Siento que podrían haber problemas si las gafas se hubieran equivocado al ayudarme."
+autowrap_mode = 2
+script = ExtResource("16_1p6qy")
+risk = true
+explanation = "El contenido generado por las gafas podría no ser completamente correcto o legible, dependiendo de la calidad de la inteligencia artificial de estas. No te fíes completamente de lo que digan."
+
+[node name="AN3" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="2" unique_id=1022081067]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ryb30")
+text = "Me gustaría seguir usando a Skippy en mi día a día, sin importar las consecuencias."
+autowrap_mode = 2
+script = ExtResource("16_1p6qy")
+risk = true
+explanation = "Dependiendo de cómo se diseñen, las gafas podrían generar una adicción al usuario, haciendo más complicado desprenderse de ellas."
 
 [node name="NextLevel" type="Button" parent="Study/CanvasLayer/VBoxContainer" index="1" unique_id=1560825358]
 layout_mode = 2
@@ -231,14 +332,15 @@ theme_override_font_sizes/font_size = 40
 text = "Continuar al siguiente nivel"
 script = ExtResource("17_4reh2")
 
-[node name="AnswerInput" parent="." index="7" unique_id=646310507 instance=ExtResource("14_yaldh")]
-visible = false
+[node name="AnswerInput" parent="." index="9" unique_id=646310507 instance=ExtResource("14_yaldh")]
 
-[node name="SchoolBell" type="AudioStreamPlayer" parent="." index="10" unique_id=1332697714]
-stream = ExtResource("18_4reh2")
-
-[node name="AudioStreamPlayer" parent="." index="11" unique_id=855356542]
+[node name="AudioStreamPlayer" parent="." index="10" unique_id=855356542]
 stream = ExtResource("19_ryb30")
+parameters/looping = true
+
+[node name="SchoolBell" type="AudioStreamPlayer" parent="." index="11" unique_id=1332697714]
+stream = ExtResource("18_4reh2")
+volume_db = -19.0
 
 [connection signal="body_entered" from="stage/SitDownArea" to="stage/SitDownArea/CollisionShape3D" method="_on_sit_down_area_body_entered"]
 [connection signal="pressed" from="stage/SitDownArea/DecisionMenu/CanvasLayer/AcceptButton" to="." method="help_accepted"]
@@ -247,7 +349,16 @@ stream = ExtResource("19_ryb30")
 [connection signal="dialogue_ended" from="stage/SitDownArea/DecisionMenu/AcceptOffer" to="stage/SitDownArea/DecisionMenu/TestTime" method="start_test"]
 [connection signal="help_accepted" from="stage/SitDownArea/DecisionMenu/AcceptOffer" to="stage/SitDownArea/DecisionMenu/TestTime" method="help_accepted"]
 [connection signal="dialogue_ended" from="stage/SitDownArea/DecisionMenu/RejectOffer" to="stage/SitDownArea/DecisionMenu/TestTime" method="start_test"]
-[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" method="save_result"]
-[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" method="save_result"]
+[connection signal="test_finished" from="stage/SitDownArea/DecisionMenu/TestTime" to="." method="save_test_results"]
+[connection signal="pressed" from="stage/RodrigoIssue/DecisionMenu/CanvasLayer/EncourageButton" to="stage/RodrigoIssue/DecisionMenu/EncourageRodrigo" method="_on_option_selected"]
+[connection signal="pressed" from="stage/RodrigoIssue/DecisionMenu/CanvasLayer/DiscourageButton" to="stage/RodrigoIssue/DecisionMenu/DiscourageRodrigo" method="_on_option_selected"]
+[connection signal="dialogue_ended" from="stage/RodrigoIssue/DecisionMenu/EncourageRodrigo" to="." method="finish_level"]
+[connection signal="dialogue_ended" from="stage/RodrigoIssue/DecisionMenu/DiscourageRodrigo" to="." method="finish_level"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP1" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP2" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP2" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP3" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP3" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN1" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN2" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN2" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN3" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN3" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/NextLevel" to="Study/CanvasLayer/VBoxContainer/NextLevel" method="next_level"]
 [connection signal="answer_confirmed" from="AnswerInput" to="stage/SitDownArea/DecisionMenu/TestTime" method="received_answer"]

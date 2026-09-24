@@ -39,8 +39,6 @@ const SKIPPY_ON = "Skippy se mantiene encendido\n"
 
 
 @onready var fade = $fade
-@onready var insight = $MoralInsight
-@onready var insightContent : String = "No deberías estar leyendo esto. ¿Qué has hecho?"
 
 
 
@@ -60,13 +58,6 @@ func finish_level() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	$Study/CanvasLayer.show()
-
-
-func give_moral_insight(content: String):
-	
-	fade.hide()
-	await insight.give_moral_insight(content)
-	fade.show()
 
 # Guardar en saveFile.txt
 func save_game_data(content):
