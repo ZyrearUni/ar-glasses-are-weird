@@ -27,5 +27,7 @@ func coin_collected(body):
 func finish_level() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
-	$Study/CanvasLayer.show()
 	$AudioStreamPlayer.fade_out()
+	await get_tree().create_timer(1).timeout
+	$Study/CanvasLayer.show()
+	

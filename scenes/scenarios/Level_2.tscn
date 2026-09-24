@@ -32,7 +32,7 @@ albedo_color = Color(0.7529412, 0.59607846, 0.12156863, 0.3529412)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jx5dc"]
 bg_color = Color(0.50853425, 0.33932856, 0.03818896, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1p6qy"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ryb30"]
 bg_color = Color(0.8247977, 0.3473309, 0, 0.2901961)
 
 [node name="World" unique_id=1891132867 node_paths=PackedStringArray("Player", "Speakers") instance=ExtResource("1_vap6u")]
@@ -190,49 +190,40 @@ grow_vertical = 0
 theme_override_constants/separation = 40
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Study/CanvasLayer/VBoxContainer" index="0" unique_id=859060734]
+[node name="HBoxContainer" type="HBoxContainer" parent="Study/CanvasLayer/VBoxContainer" index="0" unique_id=1859540697]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_stretch_ratio = 2.96
 theme_override_constants/separation = 400
 alignment = 1
 
-[node name="Aspectos positivos" type="VBoxContainer" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer" index="0" unique_id=610087504]
+[node name="Aspectos positivos" type="VBoxContainer" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer" index="0" unique_id=954256873]
+custom_minimum_size = Vector2(800, 50)
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="Aspecto1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos" index="0" unique_id=1087012187]
+[node name="Aspecto1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos" index="0" unique_id=62974645]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_1p6qy")
-text = "Este es un aspecto positivo"
+theme_override_styles/normal = SubResource("StyleBoxFlat_ryb30")
+text = "Este es un aspecto positivo con mucho texto puesto para que ocupe demasiado"
+autowrap_mode = 2
+autowrap_trim_flags = 0
 script = ExtResource("16_1p6qy")
 
-[node name="Aspectos negativos" type="VBoxContainer" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer" index="1" unique_id=1070908969]
+[node name="Aspectos negativos" type="VBoxContainer" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer" index="1" unique_id=657708011]
+custom_minimum_size = Vector2(800, 50)
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="Aspecto1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="0" unique_id=1762251076]
+[node name="Aspecto1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="0" unique_id=1490785377]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_1p6qy")
-text = "Este es un aspecto negativo"
+theme_override_styles/normal = SubResource("StyleBoxFlat_ryb30")
+text = "Este es un aspecto negativo con mucho texto puesto para que ocupe demasiado"
+autowrap_mode = 2
 script = ExtResource("16_1p6qy")
-
-[node name="Aspecto2" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="1" unique_id=1627588845]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_1p6qy")
-text = "Este es un aspecto negativo"
-script = ExtResource("16_1p6qy")
-
-[node name="Aspecto3" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="2" unique_id=999942454]
-visible = false
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_1p6qy")
-text = "Este es un aspecto negativo"
-script = ExtResource("16_1p6qy")
+risk = true
 
 [node name="NextLevel" type="Button" parent="Study/CanvasLayer/VBoxContainer" index="1" unique_id=1560825358]
 layout_mode = 2
@@ -258,7 +249,5 @@ stream = ExtResource("19_ryb30")
 [connection signal="dialogue_ended" from="stage/SitDownArea/DecisionMenu/RejectOffer" to="stage/SitDownArea/DecisionMenu/TestTime" method="start_test"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" method="save_result"]
-[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto2" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto2" method="save_result"]
-[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto3" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto3" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/NextLevel" to="Study/CanvasLayer/VBoxContainer/NextLevel" method="next_level"]
 [connection signal="answer_confirmed" from="AnswerInput" to="stage/SitDownArea/DecisionMenu/TestTime" method="received_answer"]

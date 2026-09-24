@@ -68,7 +68,7 @@ _data = {
 &"WalkAway": SubResource("Animation_s034s")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_63g87"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j0rwt"]
 bg_color = Color(0.8247977, 0.3473309, 0, 0.2901961)
 
 [node name="World" unique_id=1891132867 instance=ExtResource("1_jrcfg")]
@@ -287,34 +287,40 @@ grow_vertical = 0
 theme_override_constants/separation = 40
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Study/CanvasLayer/VBoxContainer" index="0" unique_id=1498136193]
+[node name="HBoxContainer" type="HBoxContainer" parent="Study/CanvasLayer/VBoxContainer" index="0" unique_id=930349504]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_stretch_ratio = 2.96
 theme_override_constants/separation = 400
 alignment = 1
 
-[node name="Aspectos positivos" type="VBoxContainer" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer" index="0" unique_id=1878039341]
+[node name="Aspectos positivos" type="VBoxContainer" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer" index="0" unique_id=1530633293]
+custom_minimum_size = Vector2(800, 50)
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="Aspecto1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos" index="0" unique_id=921816434]
+[node name="Aspecto1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos" index="0" unique_id=1499557465]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_63g87")
-text = "Este es un aspecto positivo"
+theme_override_styles/normal = SubResource("StyleBoxFlat_j0rwt")
+text = "Este es un aspecto positivo con mucho texto puesto para que ocupe demasiado"
+autowrap_mode = 2
+autowrap_trim_flags = 0
 script = ExtResource("13_uiwi3")
 
-[node name="Aspectos negativos" type="VBoxContainer" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer" index="1" unique_id=1681802860]
+[node name="Aspectos negativos" type="VBoxContainer" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer" index="1" unique_id=1971646680]
+custom_minimum_size = Vector2(800, 50)
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="Aspecto1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="0" unique_id=1528607692]
+[node name="Aspecto1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="0" unique_id=1351195433]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_63g87")
-text = "Este es un aspecto negativo"
+theme_override_styles/normal = SubResource("StyleBoxFlat_j0rwt")
+text = "Este es un aspecto negativo con mucho texto puesto para que ocupe demasiado"
+autowrap_mode = 2
 script = ExtResource("13_uiwi3")
+risk = true
 
 [node name="NextLevel" type="Button" parent="Study/CanvasLayer/VBoxContainer" index="1" unique_id=421991727]
 layout_mode = 2

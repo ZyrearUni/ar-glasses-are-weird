@@ -71,6 +71,7 @@ theme_override_constants/separation = 400
 alignment = 1
 
 [node name="Aspectos positivos" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=111194407]
+custom_minimum_size = Vector2(800, 50)
 layout_mode = 2
 theme_override_constants/separation = 40
 
@@ -78,10 +79,13 @@ theme_override_constants/separation = 40
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_uahpa")
-text = "Este es un aspecto positivo"
+text = "Este es un aspecto positivo con mucho texto puesto para que ocupe demasiado"
+autowrap_mode = 2
+autowrap_trim_flags = 0
 script = ExtResource("1_gccuk")
 
 [node name="Aspectos negativos" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=2120628169]
+custom_minimum_size = Vector2(800, 50)
 layout_mode = 2
 theme_override_constants/separation = 40
 
@@ -89,7 +93,8 @@ theme_override_constants/separation = 40
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_uahpa")
-text = "Este es un aspecto negativo"
+text = "Este es un aspecto negativo con mucho texto puesto para que ocupe demasiado"
+autowrap_mode = 2
 script = ExtResource("1_gccuk")
 risk = true
 

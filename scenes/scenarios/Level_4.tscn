@@ -105,7 +105,7 @@ _data = {
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_coqdb"]
 bg_color = Color(0.50853425, 0.33932856, 0.03818896, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bk62b"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0p37"]
 bg_color = Color(0.8247977, 0.3473309, 0, 0.2901961)
 
 [node name="World" unique_id=1891132867 node_paths=PackedStringArray("Player", "Speakers") instance=ExtResource("1_arvii")]
@@ -366,34 +366,80 @@ grow_vertical = 0
 theme_override_constants/separation = 40
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Study/CanvasLayer/VBoxContainer" index="0" unique_id=1756335652]
+[node name="HBoxContainer" type="HBoxContainer" parent="Study/CanvasLayer/VBoxContainer" index="0" unique_id=315333730]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_stretch_ratio = 2.96
 theme_override_constants/separation = 400
 alignment = 1
 
-[node name="Aspectos positivos" type="VBoxContainer" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer" index="0" unique_id=1236266845]
+[node name="Aspectos positivos" type="VBoxContainer" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer" index="0" unique_id=801798820]
+custom_minimum_size = Vector2(800, 50)
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="Aspecto1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos" index="0" unique_id=243484495]
+[node name="AP1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos" index="0" unique_id=1274103094]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_bk62b")
-text = "Este es un aspecto positivo"
+theme_override_styles/normal = SubResource("StyleBoxFlat_w0p37")
+text = "Siento que Skippy me ayuda a ser más creativ@ y a que me exprese mejor."
+autowrap_mode = 2
+autowrap_trim_flags = 0
 script = ExtResource("4_yy6d1")
 
-[node name="Aspectos negativos" type="VBoxContainer" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer" index="1" unique_id=1951069876]
+[node name="AP2" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos" index="1" unique_id=848428550]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_w0p37")
+text = "Me ha gustado que las gafas me hayan ayudado a conectar con mis compañeros para jugar con ellos."
+autowrap_mode = 2
+autowrap_trim_flags = 0
+script = ExtResource("4_yy6d1")
+
+[node name="Aspectos negativos" type="VBoxContainer" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer" index="1" unique_id=1165606881]
+custom_minimum_size = Vector2(800, 50)
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="Aspecto1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="0" unique_id=688916523]
+[node name="AN1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="0" unique_id=761064169]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_bk62b")
-text = "Este es un aspecto negativo"
+theme_override_styles/normal = SubResource("StyleBoxFlat_w0p37")
+text = "No me gusta no poder jugar con todos mis compañeros porque no tienen gafas como yo."
+autowrap_mode = 2
 script = ExtResource("4_yy6d1")
+risk = true
+explanation = "Placeholder"
+
+[node name="AN2" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="1" unique_id=1625640139]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_w0p37")
+text = "Creo que no todos pueden disfrutar del juego de Skippy al mismo nivel que yo."
+autowrap_mode = 2
+script = ExtResource("4_yy6d1")
+risk = true
+explanation = "SecondPlaceholder"
+
+[node name="AN3" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="2" unique_id=1172209986]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_w0p37")
+text = "Me cuesta diferenciar la realidad de los objetos generados por Skippy."
+autowrap_mode = 2
+script = ExtResource("4_yy6d1")
+risk = true
+explanation = "Si no hay una distinción correcta entre lo que es real y lo que es virtual por parte de las gafas, puede llegar a confundir al usuario y llegar a pensar que un riesgo real sea algo falso, o lo contrario."
+
+[node name="AN4" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="3" unique_id=1428574191]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_w0p37")
+text = "Siento que me he hecho daño por culpa de Skippy."
+autowrap_mode = 2
+script = ExtResource("4_yy6d1")
+risk = true
+explanation = "El juego diseñado por las gafas puede, en algunos casos como el mostrado, resultar en daños físicos en el usuario en caso de que no se implemente correctamente."
 
 [node name="NextLevel" type="Button" parent="Study/CanvasLayer/VBoxContainer" index="1" unique_id=1335291421]
 layout_mode = 2
@@ -423,6 +469,10 @@ stream = ExtResource("14_ae7fx")
 [connection signal="pressed" from="stage/IntroductionDialogue/WannaPlayDecision/CanvasLayer/RejectPlayButton" to="stage/Schoolyard/Children/Nene3" method="_on_reject_play_button_pressed"]
 [connection signal="pressed" from="stage/IntroductionDialogue/WannaPlayDecision/CanvasLayer/RejectPlayButton" to="stage/IntroductionDialogue/WannaPlayDecision/CanvasLayer/RejectPlayButton" method="_on_pressed"]
 [connection signal="dialogue_ended" from="stage/EndingDialogue" to="." method="finish_level"]
-[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" method="save_result"]
-[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP1" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP2" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP2" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN1" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN2" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN2" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN3" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN3" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN4" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN4" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/NextLevel" to="Study/CanvasLayer/VBoxContainer/NextLevel" method="next_level"]
