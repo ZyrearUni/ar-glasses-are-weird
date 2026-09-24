@@ -1,6 +1,8 @@
 extends "res://scripts/level_template_script.gd"
 
-
+func _ready() -> void:
+	super()
+	scenario_distinction("Escenario 6:")
 
 # Final 1
 func _on_dont_tell_dialogue_ended() -> void:

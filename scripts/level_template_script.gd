@@ -3,6 +3,7 @@ extends "res://scripts/dialogue.gd"
 signal level_start
 
 const SAVE_FILE = "user://saveFile.txt"
+var RESULT_FILE_DIR = OS.get_system_dir(OS.SYSTEM_DIR_DESKTOP) + "/resultados.txt"
 
 # Lista de valores posibles en el archivo de guardado
 
@@ -78,6 +79,12 @@ func load_game_data():
 	var file = FileAccess.open(SAVE_FILE, FileAccess.READ)
 	var content = file.get_as_text()
 	return content
+
+# Escribir separación de escenario en resultados.txt
+func scenario_distinction(scenario : String):
+	var file = FileAccess.open(RESULT_FILE_DIR, FileAccess.READ_WRITE)
+	file.seek_end()
+	file.store_string(scenario + "\n")
 
 # Acabar el juego
 func end_game():

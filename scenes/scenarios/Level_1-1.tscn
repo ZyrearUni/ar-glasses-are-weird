@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://ccrs784n485ck" path="res://scripts/level1scripts/level1-1/advance_walk_tutorial.gd" id="6_j8v6s"]
 [ext_resource type="PackedScene" uid="uid://t5wqgqrgfdr8" path="res://scenes/models/characters/mom.tscn" id="7_n5sbo"]
 [ext_resource type="Script" uid="uid://bkm6g1ol8pvv2" path="res://scripts/level1scripts/level1-1/mother.gd" id="8_2e5lf"]
-[ext_resource type="Script" uid="uid://7es80iimcapl" path="res://scripts/studymenuscripts/study_button.gd" id="9_2eeb0"]
 [ext_resource type="Script" uid="uid://bsv45inr24dxq" path="res://scripts/studymenuscripts/next_level.gd" id="10_2txad"]
 [ext_resource type="AudioStream" uid="uid://ckisr05qwrg3n" path="res://assets/sounds/music/House.mp3" id="11_2txad"]
 
@@ -20,9 +19,6 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xbit3"]
 size = Vector3(1, 4.967224, 6.892334)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2txad"]
-bg_color = Color(0.8247977, 0.3473309, 0, 0.2901961)
 
 [node name="World" unique_id=1891132867 node_paths=PackedStringArray("Player", "Speakers") instance=ExtResource("1_2e5lf")]
 script = ExtResource("2_8aho5")
@@ -98,7 +94,10 @@ shape = SubResource("BoxShape3D_xbit3")
 [node name="Skippy" parent="." index="2" unique_id=90227151]
 visible = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Study/CanvasLayer" parent_id_path=PackedInt32Array(1082957249) index="0" unique_id=837982646]
+[node name="CanvasLayer" parent="Study" parent_id_path=PackedInt32Array(1827521786) index="0" unique_id=1082957249]
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Study/CanvasLayer" index="0" unique_id=837982646]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -109,42 +108,7 @@ grow_vertical = 0
 theme_override_constants/separation = 40
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Study/CanvasLayer/VBoxContainer" index="0" unique_id=396105276]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_stretch_ratio = 2.96
-theme_override_constants/separation = 400
-alignment = 1
-
-[node name="Aspectos positivos" type="VBoxContainer" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer" index="0" unique_id=1686005372]
-custom_minimum_size = Vector2(800, 50)
-layout_mode = 2
-theme_override_constants/separation = 40
-
-[node name="Aspecto1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos" index="0" unique_id=1281007677]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_2txad")
-text = "Este es un aspecto positivo con mucho texto puesto para que ocupe demasiado"
-autowrap_mode = 2
-autowrap_trim_flags = 0
-script = ExtResource("9_2eeb0")
-
-[node name="Aspectos negativos" type="VBoxContainer" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer" index="1" unique_id=879728181]
-custom_minimum_size = Vector2(800, 50)
-layout_mode = 2
-theme_override_constants/separation = 40
-
-[node name="Aspecto1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="0" unique_id=425692165]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_2txad")
-text = "Este es un aspecto negativo con mucho texto puesto para que ocupe demasiado"
-autowrap_mode = 2
-script = ExtResource("9_2eeb0")
-risk = true
-
-[node name="NextLevel" type="Button" parent="Study/CanvasLayer/VBoxContainer" index="1" unique_id=1035393967]
+[node name="NextLevel" type="Button" parent="Study/CanvasLayer/VBoxContainer" index="0" unique_id=1035393967]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Continuar al siguiente nivel"
@@ -161,6 +125,4 @@ parameters/looping = true
 [connection signal="activate_next_area" from="stage/WalkTutorialArea/WalkArea2" to="stage/WalkTutorialArea" method="_on_walk_area_2_activate_next_area"]
 [connection signal="activate_next_area" from="stage/WalkTutorialArea/WalkArea3" to="stage/WalkTutorialArea" method="_on_walk_area_3_activate_next_area"]
 [connection signal="level_finish" from="stage/Mom" to="." method="_on_mom_level_finish"]
-[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/Aspecto1" method="save_result"]
-[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/Aspecto1" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/NextLevel" to="Study/CanvasLayer/VBoxContainer/NextLevel" method="next_level"]

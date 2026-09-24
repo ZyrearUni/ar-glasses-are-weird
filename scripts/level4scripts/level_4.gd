@@ -6,6 +6,7 @@ var total_coins_collected = 0
 func _ready() -> void:
 	Player.look_at_somewhere($"stage/Schoolyard/Platform section".global_position)
 	super()
+	scenario_distinction("Escenario 4:")
 	$"stage/Schoolyard/Platform section".hide()
 	speak()
 

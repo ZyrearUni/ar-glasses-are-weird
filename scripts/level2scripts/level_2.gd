@@ -7,6 +7,7 @@ var accept_help = false
 func _ready() -> void:
 	$SchoolBell.play()
 	super()
+	scenario_distinction("Escenario 2:")
 	result = load_game_data()
 	enable_correct_dialogue_tree()
 

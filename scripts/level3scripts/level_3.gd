@@ -9,6 +9,7 @@ signal next_scene
 func _start():
 	fade.fade_from_black()
 	level_start.emit()
+	scenario_distinction("Escenario 3:")
 
 func _max_interactions_reached():
 	if interactions == MAX_INTERACTIONS:

@@ -9,6 +9,10 @@ enum {
 	CONTACTAR_AUTORIDAD = 2
 }
 
+func _ready() -> void:
+	super()
+	scenario_distinction("Escenario 7:")
+
 func on_option_end():
 	# TODO Modificar la moraleja al final del escenario
 	match selectedOption:
