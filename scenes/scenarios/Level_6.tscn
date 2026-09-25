@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://bkj7h4gm47m3g" path="res://scripts/level6scripts/tell_teacher.gd" id="7_x50ou"]
 [ext_resource type="Script" uid="uid://cym4vvyq1bap7" path="res://scripts/level6scripts/intervene.gd" id="8_2vpde"]
 [ext_resource type="Script" uid="uid://cj50m4a61k0cw" path="res://scripts/dialogue.gd" id="8_x50ou"]
+[ext_resource type="Texture2D" uid="uid://comyisyu8648e" path="res://assets/sprites/Teacher/teacheropen.png" id="13_63g87"]
 [ext_resource type="Script" uid="uid://7es80iimcapl" path="res://scripts/studymenuscripts/study_button.gd" id="13_uiwi3"]
 [ext_resource type="Script" uid="uid://bsv45inr24dxq" path="res://scripts/studymenuscripts/next_level.gd" id="14_j0rwt"]
 [ext_resource type="AudioStream" uid="uid://k30xgkvh4244" path="res://assets/sounds/music/Stage6_Theme.mp3" id="15_j0rwt"]
@@ -272,6 +273,10 @@ texture = ExtResource("6_2ew3b")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="stage/city/RaquelKidnap" index="0" unique_id=1486152097]
 libraries/ = SubResource("AnimationLibrary_2ew3b")
+
+[node name="Profesora" type="Sprite3D" parent="stage/city" index="1298" unique_id=130401973]
+transform = Transform3D(0.0050000004, 0, 0, 0, 0.0050000004, 0, 0, 0, 0.0050000004, 32.270744, 4.289096, -12.312578)
+texture = ExtResource("13_63g87")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Study/CanvasLayer" parent_id_path=PackedInt32Array(1082957249) index="0" unique_id=1960417072]
 anchors_preset = 12

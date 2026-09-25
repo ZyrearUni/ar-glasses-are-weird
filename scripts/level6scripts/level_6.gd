@@ -23,7 +23,7 @@ func _on_tell_teacher_dialogue_ended() -> void:
 	fade.fade_to_black()
 	$stage/city/CutsceneArea/Tell/TellTeacher/TeacherInteraction.speak()
 	await $stage/city/CutsceneArea/Tell/TellTeacher/TeacherInteraction.dialogue_ended
-	insightContent = "" #TODO
+	
 	finish_level()
 
 

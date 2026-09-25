@@ -77,6 +77,12 @@ func scenario_distinction(scenario : String):
 	file.seek_end()
 	file.store_string(scenario + "\n")
 
+# Identificar algún aspecto positivo o negativo dentro del escenario
+func identify_aspect(aspect : String):
+	var file = FileAccess.open(RESULT_FILE_DIR, FileAccess.READ_WRITE)
+	file.seek_end()
+	file.store_string(aspect + "\n")
+
 # Acabar el juego
 func end_game():
 	# Cambiar a escena de créditos
