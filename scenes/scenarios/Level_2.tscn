@@ -296,17 +296,7 @@ custom_minimum_size = Vector2(800, 50)
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="AN1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="0" unique_id=1490785377]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_ryb30")
-text = "Me sienta mal que no todos puedan tener ayuda de Skippy como yo."
-autowrap_mode = 2
-script = ExtResource("16_1p6qy")
-risk = true
-explanation = "No todas las familias se pueden permitir una herramienta como las gafas que tienes. Esto les pone en desventaja frente a los que sí tienen los recursos para permitírselas."
-
-[node name="AN2" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="1" unique_id=55061355]
+[node name="AN2" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="0" unique_id=55061355]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ryb30")
@@ -316,7 +306,7 @@ script = ExtResource("16_1p6qy")
 risk = true
 explanation = "El contenido generado por las gafas podría no ser completamente correcto o legible, dependiendo de la calidad de la inteligencia artificial de estas. No te fíes completamente de lo que digan."
 
-[node name="AN3" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="2" unique_id=1022081067]
+[node name="AN3" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="1" unique_id=1022081067]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ryb30")
@@ -350,14 +340,15 @@ volume_db = -19.0
 [connection signal="help_accepted" from="stage/SitDownArea/DecisionMenu/AcceptOffer" to="stage/SitDownArea/DecisionMenu/TestTime" method="help_accepted"]
 [connection signal="dialogue_ended" from="stage/SitDownArea/DecisionMenu/RejectOffer" to="stage/SitDownArea/DecisionMenu/TestTime" method="start_test"]
 [connection signal="test_finished" from="stage/SitDownArea/DecisionMenu/TestTime" to="." method="save_test_results"]
+[connection signal="pressed" from="stage/RodrigoIssue/DecisionMenu/CanvasLayer/EncourageButton" to="." method="_on_encourage_button_pressed"]
 [connection signal="pressed" from="stage/RodrigoIssue/DecisionMenu/CanvasLayer/EncourageButton" to="stage/RodrigoIssue/DecisionMenu/EncourageRodrigo" method="_on_option_selected"]
+[connection signal="pressed" from="stage/RodrigoIssue/DecisionMenu/CanvasLayer/DiscourageButton" to="." method="_on_discourage_button_pressed"]
 [connection signal="pressed" from="stage/RodrigoIssue/DecisionMenu/CanvasLayer/DiscourageButton" to="stage/RodrigoIssue/DecisionMenu/DiscourageRodrigo" method="_on_option_selected"]
 [connection signal="dialogue_ended" from="stage/RodrigoIssue/DecisionMenu/EncourageRodrigo" to="." method="finish_level"]
 [connection signal="dialogue_ended" from="stage/RodrigoIssue/DecisionMenu/DiscourageRodrigo" to="." method="finish_level"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP1" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP2" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP2" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP3" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP3" method="save_result"]
-[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN1" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN2" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN2" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN3" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN3" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/NextLevel" to="Study/CanvasLayer/VBoxContainer/NextLevel" method="next_level"]

@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://cdmjwl5iv3sr7" path="res://scripts/level5scripts/range_4_9.gd" id="8_dt6wi"]
 [ext_resource type="Script" uid="uid://dmuuupwi0i7dx" path="res://scripts/level5scripts/small_pain_ending.gd" id="8_mw7cq"]
 [ext_resource type="Script" uid="uid://cb3so463ihsux" path="res://scripts/level5scripts/range_10.gd" id="9_damsw"]
-[ext_resource type="Script" uid="uid://b7k71qy31htug" path="res://scripts/level5scripts/speaking_button.gd" id="9_dt6wi"]
+[ext_resource type="Script" uid="uid://b7k71qy31htug" path="res://scripts/speaking_button.gd" id="9_dt6wi"]
 [ext_resource type="Script" uid="uid://c2ra5w07ppgio" path="res://scripts/level5scripts/visit_teacher_ending.gd" id="10_6h7u7"]
 [ext_resource type="Script" uid="uid://cdn3tgyp6c2rx" path="res://scripts/level5scripts/no_blood_4-6.gd" id="10_7o8rh"]
 [ext_resource type="Script" uid="uid://cioymieax8w8k" path="res://scripts/level5scripts/strong_pain_ending.gd" id="13_76gp2"]

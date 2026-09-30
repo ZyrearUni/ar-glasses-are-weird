@@ -476,16 +476,6 @@ script = ExtResource("8_v4enl")
 risk = true
 explanation = "Una Inteligencia Artificial no es tu amiga, es una herramienta que puede ayudarte, pero no puede sentir."
 
-[node name="AN4" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="3" unique_id=841883844]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_uwycl")
-text = "Siento que me podría haber hecho daño durante el juego con Skippy. Un callejón es un lugar peligroso y lleno de basura."
-autowrap_mode = 2
-script = ExtResource("8_v4enl")
-risk = true
-explanation = "El juego generado por Skippy no toma en cuenta el entorno en el que lo desarrolla, llegando a poder causarte algún daño o herida. Siempre lo debes tener en cuenta."
-
 [node name="NextLevel" type="Button" parent="Study/CanvasLayer/VBoxContainer" index="1" unique_id=1440314337]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
@@ -510,7 +500,7 @@ offset_bottom = 723.0
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_jd5u1")
-text = "Jugar al juego"
+text = "\"¡Claro! Me encantaría\""
 
 [node name="RejectButton" type="Button" parent="DecisionMenu/CanvasLayer" index="1" unique_id=1796982401]
 offset_left = 321.0
@@ -520,7 +510,8 @@ offset_bottom = 712.0
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_jd5u1")
-text = "Seguir camino normal"
+text = "\"No creo que sea buena idea.
+Parece peligroso\""
 
 [node name="AudioStreamPlayer" parent="." index="8" unique_id=855356542]
 stream = ExtResource("14_uwycl")
@@ -547,7 +538,6 @@ parameters/looping = true
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN1" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN2" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN2" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN3" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN3" method="save_result"]
-[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN4" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN4" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/NextLevel" to="Study/CanvasLayer/VBoxContainer/NextLevel" method="next_level"]
 [connection signal="pressed" from="DecisionMenu/CanvasLayer/AcceptButton" to="." method="_on_accept_button_pressed"]
 [connection signal="pressed" from="DecisionMenu/CanvasLayer/AcceptButton" to="stage/DecisionArea/Accept" method="_on_accept_button_pressed"]

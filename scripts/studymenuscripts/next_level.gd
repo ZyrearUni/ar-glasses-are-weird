@@ -13,7 +13,7 @@ func next_level():
 				explanation += (child.explanation + "\n" + "\n")
 	$"..".hide()
 	if (explanation != ""): 
-		$"../../RiesgosExplicados".text = explanation
+		$"../../RiesgosExplicados".text += explanation
 		$"../../../AnimationPlayer".play("TextScroll")
 		await $"../../../AnimationPlayer".animation_finished
 		await get_tree().create_timer(10).timeout

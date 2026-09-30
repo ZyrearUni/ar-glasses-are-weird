@@ -23,8 +23,9 @@ bg_color = Color(0.50853425, 0.33932856, 0.03818896, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3kpjn"]
 bg_color = Color(0.8247977, 0.3473309, 0, 0.2901961)
 
-[node name="World" unique_id=1891132867 instance=ExtResource("1_buad1")]
+[node name="World" unique_id=1891132867 node_paths=PackedStringArray("Player") instance=ExtResource("1_buad1")]
 script = ExtResource("2_pmmkd")
+Player = NodePath("stage/Player")
 
 [node name="Schoolyard" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="0" unique_id=309049541 instance=ExtResource("3_1678m")]
 transform = Transform3D(0.058248125, 0, -1.0780795, 0, 1.1790056, 0, 1.2135423, 0, 0.051746152, -9.307877, -0.018941045, 6.1162643)

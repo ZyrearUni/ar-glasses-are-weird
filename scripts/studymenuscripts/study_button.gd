@@ -9,6 +9,6 @@ var RESULT_FILE_DIR = OS.get_system_dir(OS.SYSTEM_DIR_DESKTOP) + "/resultados.tx
 func save_result():
 	var file = FileAccess.open(RESULT_FILE_DIR, FileAccess.READ_WRITE)
 	file.seek_end()
-	file.store_string(aspecto + "\n")
+	file.store_string("Identificado: " + aspecto + "\n")
 	self.hide()
 	self.disabled = true

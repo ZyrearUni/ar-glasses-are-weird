@@ -81,7 +81,16 @@ func scenario_distinction(scenario : String):
 func identify_aspect(aspect : String):
 	var file = FileAccess.open(RESULT_FILE_DIR, FileAccess.READ_WRITE)
 	file.seek_end()
-	file.store_string(aspect + "\n")
+	file.store_string("Identificado: " + aspect + "\n")
+
+# Registrar cuando no se identifica un aspecto
+func failed_identify_aspect(aspect : String):
+	var file = FileAccess.open(RESULT_FILE_DIR, FileAccess.READ_WRITE)
+	file.seek_end()
+	file.store_string("NO identificado: " + aspect + "\n")
+
+func add_explanation(explanation : String):
+	$Study/CanvasLayer/RiesgosExplicados.text += explanation + "\n" + "\n" 
 
 # Acabar el juego
 func end_game():

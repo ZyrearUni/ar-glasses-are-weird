@@ -401,17 +401,7 @@ custom_minimum_size = Vector2(800, 50)
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="AN1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="0" unique_id=761064169]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_w0p37")
-text = "No me gusta no poder jugar con todos mis compañeros porque no tienen gafas como yo."
-autowrap_mode = 2
-script = ExtResource("4_yy6d1")
-risk = true
-explanation = "Placeholder"
-
-[node name="AN2" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="1" unique_id=1625640139]
+[node name="AN2" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="0" unique_id=1625640139]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_w0p37")
@@ -421,7 +411,7 @@ script = ExtResource("4_yy6d1")
 risk = true
 explanation = "SecondPlaceholder"
 
-[node name="AN3" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="2" unique_id=1172209986]
+[node name="AN3" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="1" unique_id=1172209986]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_w0p37")
@@ -431,7 +421,7 @@ script = ExtResource("4_yy6d1")
 risk = true
 explanation = "Si no hay una distinción correcta entre lo que es real y lo que es virtual por parte de las gafas, puede llegar a confundir al usuario y llegar a pensar que un riesgo real sea algo falso, o lo contrario."
 
-[node name="AN4" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="3" unique_id=1428574191]
+[node name="AN4" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="2" unique_id=1428574191]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_w0p37")
@@ -465,14 +455,15 @@ stream = ExtResource("11_70yo7")
 [connection signal="body_entered" from="stage/Schoolyard/Platform section/Coins/Coin4" to="stage/Schoolyard/Platform section/Coins/Coin4" method="_on_body_entered"]
 [connection signal="body_entered" from="stage/Schoolyard/Platform section/Coins/Coin5" to="." method="coin_collected"]
 [connection signal="body_entered" from="stage/Schoolyard/Platform section/Coins/Coin5" to="stage/Schoolyard/Platform section/Coins/Coin5" method="_on_body_entered"]
+[connection signal="pressed" from="stage/IntroductionDialogue/WannaPlayDecision/CanvasLayer/PlayLaterButton" to="." method="_on_play_later_button_pressed"]
 [connection signal="pressed" from="stage/IntroductionDialogue/WannaPlayDecision/CanvasLayer/PlayLaterButton" to="stage/Schoolyard/Children/Nene3" method="_on_play_later_button_pressed"]
 [connection signal="pressed" from="stage/IntroductionDialogue/WannaPlayDecision/CanvasLayer/PlayLaterButton" to="stage/IntroductionDialogue/WannaPlayDecision/CanvasLayer/PlayLaterButton" method="_on_pressed"]
+[connection signal="pressed" from="stage/IntroductionDialogue/WannaPlayDecision/CanvasLayer/RejectPlayButton" to="." method="_on_reject_play_button_pressed"]
 [connection signal="pressed" from="stage/IntroductionDialogue/WannaPlayDecision/CanvasLayer/RejectPlayButton" to="stage/Schoolyard/Children/Nene3" method="_on_reject_play_button_pressed"]
 [connection signal="pressed" from="stage/IntroductionDialogue/WannaPlayDecision/CanvasLayer/RejectPlayButton" to="stage/IntroductionDialogue/WannaPlayDecision/CanvasLayer/RejectPlayButton" method="_on_pressed"]
 [connection signal="dialogue_ended" from="stage/EndingDialogue" to="." method="finish_level"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP1" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP2" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP2" method="save_result"]
-[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN1" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN2" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN2" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN3" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN3" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN4" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN4" method="save_result"]

@@ -100,7 +100,6 @@ offset_bottom = 27.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 40
-text = "Lorem ipsum dolor sit amet consectetur adipiscing, elit maecenas faucibus convallis sociis, est a eros nec per. Luctus conubia nibh ullamcorper ac dignissim torquent donec per a egestas lectus, nascetur duis fermentum eget montes aliquet faucibus tincidunt vestibulum senectus leo, justo penatibus feugiat cum fames enim orci platea vivamus quis. Aenean ornare posuere erat nisl enim viverra molestie, laoreet magna sagittis lacinia feugiat duis luctus, venenatis class facilisi natoque integer penatibus."
 horizontal_alignment = 1
 autowrap_mode = 2
 visible_characters = 0

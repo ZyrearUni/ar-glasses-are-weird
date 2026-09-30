@@ -32,3 +32,11 @@ func finish_level() -> void:
 	super()
 	$DialogueUI/Canvas.hide()
 	$SchoolBell.play()
+
+
+func _on_encourage_button_pressed() -> void:
+	identify_aspect("Desigualdad por uso")
+
+
+func _on_discourage_button_pressed() -> void:
+	failed_identify_aspect("Desigualdad por uso")

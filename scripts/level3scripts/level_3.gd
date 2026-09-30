@@ -1,6 +1,6 @@
 extends "res://scripts/level_template_script.gd"
 
-const MAX_INTERACTIONS = 3
+const MAX_INTERACTIONS = 2
 @onready var interactions = 0
 
 
@@ -14,8 +14,14 @@ func _start():
 func _max_interactions_reached():
 	if interactions == MAX_INTERACTIONS:
 		print("Interacciones máximas alcanzadas")
+		# Disable kid interactions
+		# Enable Raquel Interaction
+		# Player.unstuck()
+		# speak()
 
+
+# func end_dialogue():
 
 func _on_kid_interacted() -> void:
-	interactions = interactions + 1
+	interactions += 1
 	_max_interactions_reached()

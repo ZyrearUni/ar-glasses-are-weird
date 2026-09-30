@@ -10,12 +10,14 @@ func _ready() -> void:
 	$"stage/Schoolyard/Platform section".hide()
 	speak()
 
+
 func end_dialogue():
 	await fade.fade_to_black()
 	super()
 	$"stage/Schoolyard/Platform section".show()
 	await fade.fade_from_black()
 	$stage/IntroductionDialogue.speak()
+
 
 func coin_collected(body):
 	if (body == Player):
@@ -25,10 +27,18 @@ func coin_collected(body):
 			$BokenBone.play()
 			$stage/EndingDialogue.speak()
 
+
 func finish_level() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	$AudioStreamPlayer.fade_out()
 	await get_tree().create_timer(1).timeout
 	$Study/CanvasLayer.show()
-	
+
+
+func _on_play_later_button_pressed() -> void:
+	identify_aspect("Desigualdad por uso")
+
+
+func _on_reject_play_button_pressed() -> void:
+	failed_identify_aspect("Desigualdad por uso")
