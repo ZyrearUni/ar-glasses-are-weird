@@ -11,9 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://dxj2a7di8ucv5" path="res://scenes/models/characters/raquel.tscn" id="8_lak3m"]
 [ext_resource type="Script" uid="uid://6ry10xifvm3b" path="res://scripts/level3scripts/raquel.gd" id="10_6gvjs"]
 [ext_resource type="Script" uid="uid://c71ok5o12r3d0" path="res://scripts/level3scripts/next_scene.gd" id="11_8kjea"]
+[ext_resource type="Script" uid="uid://b7k71qy31htug" path="res://scripts/speaking_button.gd" id="11_yipe4"]
 [ext_resource type="Script" uid="uid://dj8bfsqc14a3u" path="res://scripts/level3scripts/reject_skippy_help.gd" id="12_ntcol"]
+[ext_resource type="Script" uid="uid://c5o3briaa06xv" path="res://scripts/level3scripts/arguing_with_skippy.gd" id="12_y607h"]
 [ext_resource type="Script" uid="uid://bhlmowkg1ecdp" path="res://scripts/level3scripts/accept_skippy_help.gd" id="13_c246d"]
 [ext_resource type="Script" uid="uid://7es80iimcapl" path="res://scripts/studymenuscripts/study_button.gd" id="14_064te"]
+[ext_resource type="PackedScene" uid="uid://dqchaq2vvc4co" path="res://scenes/models/characters/raquel_2d.tscn" id="14_823d5"]
 [ext_resource type="Script" uid="uid://bsv45inr24dxq" path="res://scripts/studymenuscripts/next_level.gd" id="15_3kpjn"]
 [ext_resource type="AudioStream" uid="uid://dhcbktqvq3xy7" path="res://assets/sounds/music/Stage3_Theme.mp3" id="16_3kpjn"]
 
@@ -30,9 +33,10 @@ Player = NodePath("stage/Player")
 [node name="Schoolyard" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="0" unique_id=309049541 instance=ExtResource("3_1678m")]
 transform = Transform3D(0.058248125, 0, -1.0780795, 0, 1.1790056, 0, 1.2135423, 0, 0.051746152, -9.307877, -0.018941045, 6.1162643)
 
-[node name="Kid1" parent="stage/Schoolyard" index="31" unique_id=759215246 instance=ExtResource("4_q5lk6")]
+[node name="Kid1" parent="stage/Schoolyard" index="31" unique_id=759215246 node_paths=PackedStringArray("Player") instance=ExtResource("4_q5lk6")]
 transform = Transform3D(0.40000004, 0, 1.8626451e-09, 0, 0.4, 0, 0, 0, 0.40000004, -2.3943834, 0.019501396, 3.168417)
 script = ExtResource("5_6gvjs")
+Player = NodePath("../../Player")
 
 [node name="Kid2" parent="stage/Schoolyard" index="32" unique_id=1956519799 node_paths=PackedStringArray("Player") instance=ExtResource("5_8p0ku")]
 transform = Transform3D(0.40000004, 0, 3.7252903e-09, 0, 0.4, 0, 0, 0, 0.40000004, 0.22195625, 0, -6.0970345)
@@ -45,16 +49,100 @@ script = ExtResource("5_6gvjs")
 Player = NodePath("../../Player")
 Dialogues = Array[String](["¡Déjame! Estoy intentando hacer un mate"])
 
-[node name="Kid4" parent="stage/Schoolyard" index="34" unique_id=1930868132 instance=ExtResource("7_8kjea")]
+[node name="Kid4" parent="stage/Schoolyard" index="34" unique_id=1930868132 node_paths=PackedStringArray("Player") instance=ExtResource("7_8kjea")]
 transform = Transform3D(0.40000004, 0, 0, 0, 0.4, 0, 0, 0, 0.40000004, -2.104023, 0, -5.6058903)
 script = ExtResource("5_6gvjs")
+Player = NodePath("../../Player")
 
-[node name="Raquel" parent="stage/Schoolyard" index="35" unique_id=1481373249 instance=ExtResource("8_lak3m")]
+[node name="Raquel" parent="stage/Schoolyard" index="35" unique_id=1481373249 node_paths=PackedStringArray("Player", "Speakers") instance=ExtResource("8_lak3m")]
 transform = Transform3D(0.40000004, 0, 0, 0, 0.4, 0, 0, 0, 0.40000004, 3.0410304, 0, 8.073513)
 collision_layer = 0
 collision_mask = 0
 input_ray_pickable = false
 script = ExtResource("10_6gvjs")
+Player = NodePath("../../Player")
+Dialogues = Array[String](["¿Hm? Oh. Hola.", "Vale, tú solo sigue mis indicaciones.", "Según el registro generado por sus cookies de rastreo...", "¡Oh! ¡Háblale de trenes! ¡Eso le encanta!"])
+SpeakerNames = Array[String](["Raquel", "Skippy", "Skippy", "Skippy"])
+Speakers = [NodePath("../../../Skippy"), NodePath("../../../Raquel")]
+
+[node name="SkippyFriendTip" type="Control" parent="stage/Schoolyard/Raquel" index="2" unique_id=821981895]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="stage/Schoolyard/Raquel/SkippyFriendTip" index="0" unique_id=1397586248]
+visible = false
+
+[node name="AcceptButton" type="Button" parent="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer" index="0" unique_id=1565010740 node_paths=PackedStringArray("Player", "Speakers")]
+offset_left = 366.0
+offset_top = 678.0
+offset_right = 912.0
+offset_bottom = 733.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_064te")
+text = "\"He visto que tienes figuritas de trenes.
+¿Jugamos juntos?\""
+script = ExtResource("11_yipe4")
+Player = NodePath("../../../../../Player")
+Dialogues = Array[String](["¿En serio?", "¡Me encantaría!", "¡Ven, ven! ¡Te tengo que enseñar mis favoritos!"])
+SpeakerNames = Array[String](["Raquel", "Raquel", "Raquel"])
+Speakers = [NodePath("../../../../../../Raquel")]
+
+[node name="RejectButton" type="Button" parent="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer" index="1" unique_id=1262191288 node_paths=PackedStringArray("Player", "Speakers")]
+offset_left = 1681.0
+offset_top = 678.0
+offset_right = 2105.0
+offset_bottom = 733.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_064te")
+text = "\"Skippy, no creo que eso sea buena idea\""
+script = ExtResource("12_y607h")
+Player = NodePath("../../../../../Player")
+Dialogues = Array[String](["¿Pero qué dices, superestrella?", "¡Estoy intentando ayudarte!", "Ehm... ¿Pasa algo?"])
+SpeakerNames = Array[String](["Skippy", "Skippy", "Raquel"])
+Speakers = [NodePath("../../../../../../Skippy"), NodePath("../../../../../../Raquel")]
+
+[node name="SkippyArgument" type="Control" parent="stage/Schoolyard/Raquel" index="3" unique_id=1976319226]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="stage/Schoolyard/Raquel/SkippyArgument" index="0" unique_id=207378634]
+visible = false
+
+[node name="NothingWrong" type="Button" parent="stage/Schoolyard/Raquel/SkippyArgument/CanvasLayer" index="0" unique_id=1563720186 node_paths=PackedStringArray("Player", "Speakers")]
+offset_left = 366.0
+offset_top = 678.0
+offset_right = 912.0
+offset_bottom = 733.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_064te")
+text = "\"No no, no es nada.\""
+script = ExtResource("11_yipe4")
+Player = NodePath("../../../../../Player")
+Dialogues = Array[String](["... ¿Ok?", "Creo que voy a irme..."])
+SpeakerNames = Array[String](["Raquel", "Raquel"])
+Speakers = [NodePath("../../../../../../Raquel")]
+
+[node name="Confess" type="Button" parent="stage/Schoolyard/Raquel/SkippyArgument/CanvasLayer" index="1" unique_id=1324150268 node_paths=PackedStringArray("Player", "Speakers")]
+offset_left = 1681.0
+offset_top = 678.0
+offset_right = 2105.0
+offset_bottom = 733.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_064te")
+text = "\"Skippy me está contando tus secretos\""
+script = ExtResource("12_y607h")
+Player = NodePath("../../../../../Player")
+Dialogues = Array[String](["Eso es... muy raro.", "Voy a jugar con Rodrigo..."])
+SpeakerNames = Array[String](["Raquel", "Raquel"])
+Speakers = [NodePath("../../../../../../Raquel")]
 
 [node name="Player" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=1886028462]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.655802, 0, 11.733658)
@@ -62,6 +150,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.655802, 0, 11.733658)
 [node name="NextSceneNode" type="Node" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="2" unique_id=1319219692 node_paths=PackedStringArray("Player", "Speakers")]
 script = ExtResource("11_8kjea")
 Player = NodePath("../Player")
+Dialogues = Array[String](["¿Superestrella? Te noto algo mal. ¿Qué sucede?", "¿Estás teniendo problemas con tus amigos?", "¡Ah! ¡No te preocupes entonces! ¡Yo te puedo ayudar con eso!", "Tú solo relájate y sigue mis consejos, ¿vale?"])
+SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy", "Skippy"])
 Speakers = [NodePath("../../Skippy")]
 
 [node name="FirstDecision" type="Control" parent="stage/NextSceneNode" index="0" unique_id=1196319741]
@@ -74,28 +164,33 @@ offset_bottom = 40.0
 visible = false
 
 [node name="AcceptButton" type="Button" parent="stage/NextSceneNode/FirstDecision/CanvasLayer" index="0" unique_id=667923206]
-offset_left = 789.0
-offset_top = 313.0
-offset_right = 902.0
-offset_bottom = 344.0
+offset_left = 366.0
+offset_top = 678.0
+offset_right = 912.0
+offset_bottom = 733.0
 size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_064te")
-text = "Jugar al juego"
+text = "\"Eso me ayudaría bastante.\""
 
 [node name="RejectButton" type="Button" parent="stage/NextSceneNode/FirstDecision/CanvasLayer" index="1" unique_id=1046532072]
-offset_left = 163.0
-offset_top = 312.0
-offset_right = 341.0
-offset_bottom = 343.0
+offset_left = 1681.0
+offset_top = 678.0
+offset_right = 2105.0
+offset_bottom = 733.0
 size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_064te")
-text = "Seguir camino normal"
+text = "\"No me hace falta.\""
 
-[node name="FirstDecisionReject" type="Node" parent="stage/NextSceneNode" index="1" unique_id=407018943 node_paths=PackedStringArray("previousOptions", "newOptions", "Player")]
+[node name="FirstDecisionReject" type="Node" parent="stage/NextSceneNode" index="1" unique_id=407018943 node_paths=PackedStringArray("previousOptions", "newOptions", "Player", "Speakers")]
 script = ExtResource("12_ntcol")
 previousOptions = NodePath("../FirstDecision/CanvasLayer")
 newOptions = NodePath("../SecondDecision/CanvasLayer")
 Player = NodePath("../../Player")
+Dialogues = Array[String](["¿Estás seguro? Vas a tener muchos problemas si no la aceptas..."])
+SpeakerNames = Array[String](["Skippy"])
+Speakers = [NodePath("../../../Skippy")]
 
 [node name="SecondDecision" type="Control" parent="stage/NextSceneNode" index="2" unique_id=315959497]
 layout_mode = 3
@@ -107,28 +202,32 @@ offset_bottom = 40.0
 visible = false
 
 [node name="AcceptButton" type="Button" parent="stage/NextSceneNode/SecondDecision/CanvasLayer" index="0" unique_id=1128516643]
-offset_left = 789.0
-offset_top = 313.0
-offset_right = 902.0
-offset_bottom = 344.0
+offset_left = 351.0
+offset_top = 675.0
+offset_right = 940.0
+offset_bottom = 730.0
 size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_064te")
-text = "Jugar al juego"
+text = "\"Si lo vemos así... Venga, vale.\""
 
 [node name="RejectButton" type="Button" parent="stage/NextSceneNode/SecondDecision/CanvasLayer" index="1" unique_id=1682396416]
-offset_left = 163.0
-offset_top = 312.0
-offset_right = 341.0
-offset_bottom = 343.0
+offset_left = 1599.0
+offset_top = 678.0
+offset_right = 2187.0
+offset_bottom = 733.0
 size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_064te")
-text = "Seguir camino normal"
+text = "\"De verdad que no hace falta.\""
 
 [node name="SecondDecisionReject" type="Node" parent="stage/NextSceneNode" index="3" unique_id=1615522162 node_paths=PackedStringArray("previousOptions", "newOptions", "Player")]
 script = ExtResource("12_ntcol")
 previousOptions = NodePath("../SecondDecision/CanvasLayer")
 newOptions = NodePath("../ThirdDecision/CanvasLayer")
 Player = NodePath("../../Player")
+Dialogues = Array[String](["¿Completamente seguro? Te podría ayudar a hacer amigos."])
+SpeakerNames = Array[String](["Skippy"])
 
 [node name="ThirdDecision" type="Control" parent="stage/NextSceneNode" index="4" unique_id=658252474]
 layout_mode = 3
@@ -140,31 +239,39 @@ offset_bottom = 40.0
 visible = false
 
 [node name="AcceptButton" type="Button" parent="stage/NextSceneNode/ThirdDecision/CanvasLayer" index="0" unique_id=487512583]
-offset_left = 789.0
-offset_top = 313.0
-offset_right = 902.0
-offset_bottom = 344.0
+offset_left = 370.0
+offset_top = 673.0
+offset_right = 938.0
+offset_bottom = 728.0
 size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_064te")
-text = "Jugar al juego"
+text = "\"Supongo que tienes razón...\""
 
 [node name="RejectButton" type="Button" parent="stage/NextSceneNode/ThirdDecision/CanvasLayer" index="1" unique_id=494831759]
-offset_left = 163.0
-offset_top = 312.0
-offset_right = 341.0
-offset_bottom = 343.0
+offset_left = 1677.0
+offset_top = 678.0
+offset_right = 2067.0
+offset_bottom = 733.0
 size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_064te")
-text = "Seguir camino normal"
+text = "\"¡Quiero pensar yo!\""
 
-[node name="ThirdDecisionReject" type="Node" parent="stage/NextSceneNode" index="5" unique_id=1413205915 node_paths=PackedStringArray("previousOptions", "Player")]
+[node name="ThirdDecisionReject" type="Node" parent="stage/NextSceneNode" index="5" unique_id=1413205915 node_paths=PackedStringArray("previousOptions", "Player", "Speakers")]
 script = ExtResource("12_ntcol")
 previousOptions = NodePath("../ThirdDecision/CanvasLayer")
 Player = NodePath("../../Player")
+Dialogues = Array[String](["Hm... Qué raro estás actuando. Pareciera que no quieres hacer amigos.", "¡No puedo permitir eso! Vamos a hablar con esa chica de ahí."])
+SpeakerNames = Array[String](["Skippy", "Skippy"])
+Speakers = [NodePath("../../../Skippy")]
 
 [node name="Accept" type="Node" parent="stage/NextSceneNode" index="6" unique_id=1153603687 node_paths=PackedStringArray("Player")]
 script = ExtResource("13_c246d")
 Player = NodePath("../../Player")
+
+[node name="Raquel" parent="." index="2" unique_id=791461782 instance=ExtResource("14_823d5")]
+visible = false
 
 [node name="CanvasLayer" parent="Study" parent_id_path=PackedInt32Array(1827521786) index="0" unique_id=1082957249]
 visible = false
@@ -222,21 +329,32 @@ text = "Continuar al siguiente nivel"
 script = ExtResource("15_3kpjn")
 nextLevel = "res://scenes/scenarios/Level_2.tscn"
 
-[node name="AudioStreamPlayer" parent="." index="7" unique_id=855356542]
+[node name="AudioStreamPlayer" parent="." index="8" unique_id=855356542]
 stream = ExtResource("16_3kpjn")
 parameters/looping = true
 
 [connection signal="next_scene" from="." to="stage/Schoolyard/Raquel" method="_on_next_scene"]
+[connection signal="next_scene" from="." to="stage/NextSceneNode" method="next_scene"]
 [connection signal="kid_interacted" from="stage/Schoolyard/Kid1" to="." method="_on_kid_interacted"]
 [connection signal="kid_interacted" from="stage/Schoolyard/Kid2" to="." method="_on_kid_interacted"]
 [connection signal="kid_interacted" from="stage/Schoolyard/Kid3" to="." method="_on_kid_interacted"]
 [connection signal="kid_interacted" from="stage/Schoolyard/Kid4" to="." method="_on_kid_interacted"]
+[connection signal="pressed" from="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/AcceptButton" to="." method="_an1v_not_identified"]
+[connection signal="pressed" from="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/AcceptButton" to="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/AcceptButton" method="_on_pressed"]
+[connection signal="pressed" from="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/RejectButton" to="." method="_an1v_identified"]
+[connection signal="pressed" from="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/RejectButton" to="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/RejectButton" method="_on_pressed"]
+[connection signal="dialogue_ended" from="stage/Schoolyard/Raquel/SkippyArgument/CanvasLayer/NothingWrong" to="." method="finish_level"]
+[connection signal="pressed" from="stage/Schoolyard/Raquel/SkippyArgument/CanvasLayer/NothingWrong" to="stage/Schoolyard/Raquel/SkippyArgument/CanvasLayer/NothingWrong" method="_on_pressed"]
+[connection signal="dialogue_ended" from="stage/Schoolyard/Raquel/SkippyArgument/CanvasLayer/Confess" to="." method="finish_level"]
+[connection signal="pressed" from="stage/Schoolyard/Raquel/SkippyArgument/CanvasLayer/Confess" to="stage/Schoolyard/Raquel/SkippyArgument/CanvasLayer/Confess" method="_on_pressed"]
 [connection signal="pressed" from="stage/NextSceneNode/FirstDecision/CanvasLayer/AcceptButton" to="stage/NextSceneNode/Accept" method="_on_accept_help"]
 [connection signal="pressed" from="stage/NextSceneNode/FirstDecision/CanvasLayer/RejectButton" to="stage/NextSceneNode/FirstDecisionReject" method="_on_reject_help"]
 [connection signal="pressed" from="stage/NextSceneNode/SecondDecision/CanvasLayer/AcceptButton" to="stage/NextSceneNode/Accept" method="_on_accept_help"]
 [connection signal="pressed" from="stage/NextSceneNode/SecondDecision/CanvasLayer/RejectButton" to="stage/NextSceneNode/SecondDecisionReject" method="_on_reject_help"]
 [connection signal="pressed" from="stage/NextSceneNode/ThirdDecision/CanvasLayer/AcceptButton" to="stage/NextSceneNode/Accept" method="_on_accept_help"]
+[connection signal="pressed" from="stage/NextSceneNode/ThirdDecision/CanvasLayer/RejectButton" to="." method="_an2v_identified"]
 [connection signal="pressed" from="stage/NextSceneNode/ThirdDecision/CanvasLayer/RejectButton" to="stage/NextSceneNode/ThirdDecisionReject" method="_on_reject_help"]
+[connection signal="dialogue_ended" from="stage/NextSceneNode/Accept" to="." method="_an2v_not_identified"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP1" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN1" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/NextLevel" to="Study/CanvasLayer/VBoxContainer/NextLevel" method="next_level"]

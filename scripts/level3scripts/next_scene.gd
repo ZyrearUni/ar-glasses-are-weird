@@ -2,7 +2,7 @@ extends "res://scripts/dialogue.gd"
 
 @onready var fade = $"../../fade"
 
-func _on_next_scene():
+func next_scene():
 	await fade.fade_to_black()
 	Player.unstuck()
 	await fade.fade_from_black()

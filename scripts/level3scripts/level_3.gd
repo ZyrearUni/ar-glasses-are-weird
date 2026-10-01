@@ -11,17 +11,29 @@ func _start():
 	level_start.emit()
 	scenario_distinction("Escenario 3:")
 
+
 func _max_interactions_reached():
 	if interactions == MAX_INTERACTIONS:
 		print("Interacciones máximas alcanzadas")
-		# Disable kid interactions
-		# Enable Raquel Interaction
-		# Player.unstuck()
-		# speak()
+		next_scene.emit()
 
-
-# func end_dialogue():
 
 func _on_kid_interacted() -> void:
 	interactions += 1
 	_max_interactions_reached()
+
+
+func _an1v_not_identified() -> void:
+	failed_identify_aspect("Diseño que conlleva una pérdida de valores")
+
+
+func _an1v_identified() -> void:
+	identify_aspect("Diseño que conlleva una pérdida de valores")
+	
+
+func _an2v_not_identified() -> void:
+	failed_identify_aspect("Manipulación")
+
+
+func _an2v_identified() -> void:
+	identify_aspect("Manipulación")

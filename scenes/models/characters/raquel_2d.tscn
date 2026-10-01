@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://dqchaq2vvc4co"]
+
+[ext_resource type="Script" uid="uid://plms7gqrxn8f" path="res://scripts/2d_speaker_anim.gd" id="1_f4j2c"]
+[ext_resource type="Texture2D" uid="uid://cxcwb0tnle32s" path="res://assets/sprites/Raquel/raquel.png" id="1_lofxe"]
+
+[sub_resource type="Animation" id="Animation_7ht7l"]
+resource_name = "Hablar"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_lofxe")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.375, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2105.0002, 983.99994), Vector2(2105, 934), Vector2(2105.0002, 983.99994)]
+}
+
+[sub_resource type="Animation" id="Animation_lofxe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_lofxe")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2105.0002, 983.99994)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_37yw6"]
+_data = {
+&"Hablar": SubResource("Animation_7ht7l"),
+&"RESET": SubResource("Animation_lofxe")
+}
+
+[node name="Raquel" type="Sprite2D" unique_id=791461782]
+position = Vector2(2105.0002, 983.99994)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_lofxe")
+script = ExtResource("1_f4j2c")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=477540038]
+libraries/ = SubResource("AnimationLibrary_37yw6")
