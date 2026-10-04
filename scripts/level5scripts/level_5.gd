@@ -35,7 +35,6 @@ func on_valor_elegido(valor) -> void:
 
 
 func _on_range_0_level_finish() -> void:
-	insightContent = "Seguro que mi pierna está bien, ¿no?\n Skippy no puede haberse equivocado"
 	save_game_data("NO_WOUND")
 	finish_level()
 

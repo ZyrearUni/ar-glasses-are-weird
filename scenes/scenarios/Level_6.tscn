@@ -14,8 +14,12 @@
 [ext_resource type="Script" uid="uid://cj50m4a61k0cw" path="res://scripts/dialogue.gd" id="8_x50ou"]
 [ext_resource type="Texture2D" uid="uid://comyisyu8648e" path="res://assets/sprites/Teacher/teacheropen.png" id="13_63g87"]
 [ext_resource type="Script" uid="uid://7es80iimcapl" path="res://scripts/studymenuscripts/study_button.gd" id="13_uiwi3"]
+[ext_resource type="Texture2D" uid="uid://buoqtq0vxajm5" path="res://assets/sprites/Kids/nene2padre.png" id="14_f7e2h"]
 [ext_resource type="Script" uid="uid://bsv45inr24dxq" path="res://scripts/studymenuscripts/next_level.gd" id="14_j0rwt"]
 [ext_resource type="AudioStream" uid="uid://k30xgkvh4244" path="res://assets/sounds/music/Stage6_Theme.mp3" id="15_j0rwt"]
+[ext_resource type="Texture2D" uid="uid://cs5x7f57wfguy" path="res://assets/sprites/Kids/nene4.png" id="15_xmlqp"]
+[ext_resource type="Texture2D" uid="uid://dsbsy3qay7gjm" path="res://assets/sprites/Kids/nene1.png" id="16_f1k7q"]
+[ext_resource type="Texture2D" uid="uid://bqofhitwud67n" path="res://assets/sprites/Kids/nene3.png" id="17_hvvos"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jrcfg"]
 size = Vector3(8.321873, 1, 14.5774555)
@@ -266,17 +270,58 @@ Dialogues = Array[String](["¿Entonces por qué te estresas tanto?", "¡Venga, v
 SpeakerNames = Array[String](["Skippy", "Skippy"])
 Speakers = [NodePath("../../../../Skippy")]
 
-[node name="RaquelKidnap" type="Sprite3D" parent="stage/city" index="1297" unique_id=2047344304]
+[node name="Sprites" type="Node3D" parent="stage/city" index="1297" unique_id=42032552]
+
+[node name="RaquelKidnap" type="Sprite3D" parent="stage/city/Sprites" index="0" unique_id=2047344304]
 transform = Transform3D(0.010000001, 0, 0, 0, 0.010000001, 0, 0, 0, 0.010000001, 29.94, 4.286, -11.941)
 billboard = 2
 texture = ExtResource("6_2ew3b")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="stage/city/RaquelKidnap" index="0" unique_id=1486152097]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="stage/city/Sprites/RaquelKidnap" index="0" unique_id=1486152097]
 libraries/ = SubResource("AnimationLibrary_2ew3b")
 
-[node name="Profesora" type="Sprite3D" parent="stage/city" index="1298" unique_id=130401973]
+[node name="Profesora" type="Sprite3D" parent="stage/city/Sprites" index="1" unique_id=130401973]
 transform = Transform3D(0.0050000004, 0, 0, 0, 0.0050000004, 0, 0, 0, 0.0050000004, 32.270744, 4.289096, -12.312578)
+billboard = 2
 texture = ExtResource("13_63g87")
+
+[node name="Familias" type="Node3D" parent="stage/city/Sprites" index="2" unique_id=1958251825]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.676605, 4.275224, -13.462851)
+
+[node name="Melisa" type="Sprite3D" parent="stage/city/Sprites/Familias" index="0" unique_id=776133932]
+transform = Transform3D(0.0050000004, 0, 0, 0, 0.0050000004, 0, 0, 0, 0.0050000004, 0, 0.029238448, 0)
+billboard = 2
+texture = ExtResource("14_f7e2h")
+
+[node name="Lucas" type="Sprite3D" parent="stage/city/Sprites/Familias" index="1" unique_id=1327953565]
+transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0.2371887, -0.02814228, -0.14070833)
+billboard = 2
+texture = ExtResource("15_xmlqp")
+
+[node name="Melisa2" type="Sprite3D" parent="stage/city/Sprites/Familias" index="2" unique_id=1118086753]
+transform = Transform3D(0.0050000004, 0, 0, 0, 0.0050000004, 0, 0, 0, 0.0050000004, 0.3349884, 0.015782028, -0.16702402)
+billboard = 2
+texture = ExtResource("14_f7e2h")
+
+[node name="Melisa3" type="Sprite3D" parent="stage/city/Sprites/Familias" index="3" unique_id=243040190]
+transform = Transform3D(0.0050000004, 0, 0, 0, 0.0050000004, 0, 0, 0, 0.0050000004, 0.5477893, 0.029238448, 0.12811148)
+billboard = 2
+texture = ExtResource("14_f7e2h")
+
+[node name="Rodrigo" type="Sprite3D" parent="stage/city/Sprites/Familias" index="4" unique_id=394355520]
+transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, -0.25752336, -0.0072885007, -0.006189704)
+billboard = 2
+texture = ExtResource("16_f1k7q")
+
+[node name="Melisa4" type="Sprite3D" parent="stage/city/Sprites/Familias" index="5" unique_id=211775803]
+transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0.83669466, -0.0085684955, 0)
+billboard = 2
+texture = ExtResource("17_hvvos")
+
+[node name="Melisa5" type="Sprite3D" parent="stage/city/Sprites/Familias" index="6" unique_id=439275956]
+transform = Transform3D(0.0050000004, 0, 0, 0, 0.0050000004, 0, 0, 0, 0.0050000004, 0.9165732, 0.029238448, 0)
+billboard = 2
+texture = ExtResource("14_f7e2h")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Study/CanvasLayer" parent_id_path=PackedInt32Array(1082957249) index="0" unique_id=1960417072]
 anchors_preset = 12

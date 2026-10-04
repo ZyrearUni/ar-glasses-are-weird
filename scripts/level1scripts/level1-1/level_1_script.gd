@@ -7,5 +7,4 @@ func _ready() -> void:
 	super.speak()
 
 func _on_mom_level_finish() -> void:
-	insightContent = ""
 	super.finish_level()
