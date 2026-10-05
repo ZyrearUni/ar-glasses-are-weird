@@ -1,0 +1,384 @@
+[gd_scene format=3 uid="uid://bmn231bj5adyp"]
+
+[ext_resource type="PackedScene" uid="uid://bqsbcqqthmbyy" path="res://scenes/scenarios/Level_Template.tscn" id="1_sacvi"]
+[ext_resource type="Script" uid="uid://d1gdlu6ysfppm" path="res://scripts/level7scripts/level_7.gd" id="2_pfjp1"]
+[ext_resource type="PackedScene" uid="uid://w8x35jv0v842" path="res://assets/city.glb" id="3_7lg7l"]
+[ext_resource type="Script" uid="uid://vxupi1ew0hxa" path="res://scripts/level7scripts/cutscene_area.gd" id="4_7lg7l"]
+[ext_resource type="Script" uid="uid://b1sweisbyreq7" path="res://scripts/level7scripts/options.gd" id="5_at1wl"]
+[ext_resource type="Script" uid="uid://bho1qky47s8jg" path="res://scripts/level7scripts/skippy_turns_off.gd" id="6_7lg7l"]
+[ext_resource type="Script" uid="uid://63q8wwfv22u5" path="res://scripts/level7scripts/activate_next_decision.gd" id="6_a4bvv"]
+[ext_resource type="Script" uid="uid://b7k71qy31htug" path="res://scripts/speaking_button.gd" id="6_s3aty"]
+[ext_resource type="Script" uid="uid://7es80iimcapl" path="res://scripts/studymenuscripts/study_button.gd" id="7_kmvuv"]
+[ext_resource type="AudioStream" uid="uid://cdybchhcy0rvv" path="res://assets/sounds/sound effects/Shutdown.wav" id="7_sfu68"]
+[ext_resource type="Script" uid="uid://bsv45inr24dxq" path="res://scripts/studymenuscripts/next_level.gd" id="8_sfu68"]
+[ext_resource type="AudioStream" uid="uid://yot00njcnur" path="res://assets/sounds/music/Stage7_Theme.ogg" id="10_vrbvw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sacvi"]
+size = Vector3(1, 1, 7.1759033)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o1idp"]
+size = Vector3(2.3275757, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ne72m"]
+size = Vector3(1, 1, 1.7596436)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kmvuv"]
+size = Vector3(0.611084, 1.4364014, 2.320221)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_at1wl"]
+bg_color = Color(0.50853425, 0.33932856, 0.03818896, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vrbvw"]
+bg_color = Color(0.8247977, 0.3473309, 0, 0.2901961)
+
+[node name="World" unique_id=1891132867 node_paths=PackedStringArray("Player") instance=ExtResource("1_sacvi")]
+script = ExtResource("2_pfjp1")
+Player = NodePath("stage/Player")
+
+[node name="Player" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="0" unique_id=1886028462]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.577391)
+
+[node name="city" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=1033926978 instance=ExtResource("3_7lg7l")]
+transform = Transform3D(-10.999936, 0, -0.037628092, 0, 11, 0, 0.037628092, 0, -10.999936, 251.41159, -45.503155, -134.13504)
+
+[node name="WallGasStation" type="StaticBody3D" parent="stage/city" index="1294" unique_id=1429621797]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.116846, 4.6438675, -5.6330304)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/city/WallGasStation" index="0" unique_id=1292431612]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028544545, 0, -3.0769086)
+shape = SubResource("BoxShape3D_sacvi")
+debug_color = Color(0, 0, 0, 1)
+
+[node name="WallOppositeGas" type="StaticBody3D" parent="stage/city" index="1295" unique_id=512903255]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.02874, 4.6438675, -5.62649)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/city/WallOppositeGas" index="0" unique_id=94857651]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028544545, 0, -3.0769086)
+shape = SubResource("BoxShape3D_sacvi")
+debug_color = Color(0, 0, 0, 1)
+
+[node name="WallBack" type="StaticBody3D" parent="stage/city" index="1296" unique_id=1808792861]
+transform = Transform3D(1.5259494, 0, 0, 0, 1, 0, 0, 0, 1, 23.674099, 4.639717, -4.6246724)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/city/WallBack" index="0" unique_id=1256933804]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20199585, 0, 0)
+shape = SubResource("BoxShape3D_o1idp")
+debug_color = Color(0, 0, 0, 1)
+
+[node name="WallFront" type="StaticBody3D" parent="stage/city" index="1297" unique_id=143963789]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.047295, 4.639717, -12.328524)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/city/WallFront" index="0" unique_id=1027182806]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20199585, 0, 0)
+shape = SubResource("BoxShape3D_o1idp")
+debug_color = Color(0, 0, 0, 1)
+
+[node name="WallBank" type="StaticBody3D" parent="stage/city" index="1298" unique_id=177909510]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.177862, 4.610692, -5.690963)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/city/WallBank" index="0" unique_id=1796836068]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.37982184)
+shape = SubResource("BoxShape3D_ne72m")
+debug_color = Color(0, 0, 0, 1)
+
+[node name="CutsceneArea" type="Area3D" parent="stage/city" index="1299" unique_id=854299912]
+transform = Transform3D(-4.377216e-08, 0, 1, 0, 1, 0, -1, 0, -4.377216e-08, 23.022419, 4.5614853, -10.055644)
+script = ExtResource("4_7lg7l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/city/CutsceneArea" index="0" unique_id=1098834155]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19445801, 0.21820071, 0.017105281)
+shape = SubResource("BoxShape3D_kmvuv")
+debug_color = Color(0.94902486, 0.86486775, 1.1551381e-06, 1)
+
+[node name="Option0" type="Node" parent="stage/city/CutsceneArea" index="1" unique_id=2100032352 node_paths=PackedStringArray("Player", "Speakers")]
+script = ExtResource("5_at1wl")
+Player = NodePath("../../../Player")
+Dialogues = Array[String](["¡Qué día más productivo!", "Estoy deseando llegar ya a casa.", "...", "¿Sigues con preocupación sobre tu nueva amiga?"])
+SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy", "Skippy", "Skippy", "Skippy"])
+Speakers = [NodePath("../../../../Skippy")]
+
+[node name="Decision" type="Control" parent="stage/city/CutsceneArea/Option0" index="0" unique_id=625006788]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="stage/city/CutsceneArea/Option0/Decision" index="0" unique_id=113657662]
+visible = false
+
+[node name="AP1X" type="Button" parent="stage/city/CutsceneArea/Option0/Decision/CanvasLayer" index="0" unique_id=1100736300 node_paths=PackedStringArray("Player", "Speakers")]
+offset_left = 1718.0
+offset_top = 700.0
+offset_right = 2320.0
+offset_bottom = 755.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_at1wl")
+text = "\"No te rayes tanto.\""
+script = ExtResource("6_a4bvv")
+Player = NodePath("../../../../../../Player")
+Dialogues = Array[String](["Oh... bueno.", "Yo siempre estaré aquí. Soy tu mejor amigo, después de todo."])
+SpeakerNames = Array[String](["Skippy", "Skippy"])
+Speakers = [null]
+
+[node name="AP1V" type="Button" parent="stage/city/CutsceneArea/Option0/Decision/CanvasLayer" index="1" unique_id=776251649 node_paths=PackedStringArray("Player", "Speakers")]
+offset_left = 341.0
+offset_top = 700.0
+offset_right = 624.0
+offset_bottom = 755.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_at1wl")
+text = "\"No sé si he hecho lo correcto y me preocupa
+que le haya pasado algo a Raquel\""
+script = ExtResource("6_a4bvv")
+Player = NodePath("../../../../../../Player")
+Dialogues = Array[String](["Seguro que estará bien, superestrella. No tienes por qué preocuparte.", "Yo siempre estaré aquí. Soy tu mejor amigo, después de todo."])
+SpeakerNames = Array[String](["Skippy", "Skippy"])
+Speakers = [NodePath("../../../../../../../Skippy")]
+
+[node name="Decision2" type="Control" parent="stage/city/CutsceneArea/Option0" index="1" unique_id=1253907484]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_at1wl")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="stage/city/CutsceneArea/Option0/Decision2" index="0" unique_id=1176769662]
+visible = false
+
+[node name="AN3X" type="Button" parent="stage/city/CutsceneArea/Option0/Decision2/CanvasLayer" index="0" unique_id=1012705607 node_paths=PackedStringArray("Player", "Speakers")]
+offset_left = 1718.0
+offset_top = 700.0
+offset_right = 2320.0
+offset_bottom = 755.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_at1wl")
+text = "\"Claro, me ayudas en todo.\""
+script = ExtResource("6_s3aty")
+Player = NodePath("../../../../../../Player")
+Dialogues = Array[String](["¡Exacto!", "¡Venga, vamos a comer!"])
+SpeakerNames = Array[String](["Skippy", "Skippy"])
+Speakers = [null]
+
+[node name="AN3V" type="Button" parent="stage/city/CutsceneArea/Option0/Decision2/CanvasLayer" index="1" unique_id=1934114663 node_paths=PackedStringArray("Player", "Speakers")]
+offset_left = 341.0
+offset_top = 700.0
+offset_right = 624.0
+offset_bottom = 755.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_at1wl")
+text = "\"¿Qué? No, Raquel es mi amiga.
+Tú solo eres una IA.\""
+script = ExtResource("6_s3aty")
+Player = NodePath("../../../../../../Player")
+Dialogues = Array[String](["Oh, cierto cierto. Lo siento...", "... Vamos a casa."])
+SpeakerNames = Array[String](["Skippy", "Skippy"])
+Speakers = [NodePath("../../../../../../../Skippy")]
+
+[node name="Option1" type="Node" parent="stage/city/CutsceneArea" index="2" unique_id=1332933970 node_paths=PackedStringArray("Player", "Speakers")]
+script = ExtResource("5_at1wl")
+Player = NodePath("../../../Player")
+Dialogues = Array[String](["Menudo día, ¿no crees?", "Espero que tu nueva amiga esté bien. La situación era algo seria.", "¡Bueno! Hicimos lo que pudimos, y eso es lo que importa. ¿Verdad, superestrella?", "Y en cualquier caso, si alguien nos pregunta tengo una grabación de todo.", "Y si no, ¡tu madre se pueden encargar!", "...", "¿Por qué pones esa cara, superestrella?"])
+SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy", "Skippy", "Skippy", "Skippy", "Skippy"])
+Speakers = [NodePath("../../../../Skippy")]
+
+[node name="Decision" type="Control" parent="stage/city/CutsceneArea/Option1" index="0" unique_id=646154492]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="stage/city/CutsceneArea/Option1/Decision" index="0" unique_id=1856782547]
+visible = false
+
+[node name="AN1X" type="Button" parent="stage/city/CutsceneArea/Option1/Decision/CanvasLayer" index="0" unique_id=1647673073 node_paths=PackedStringArray("Player", "Speakers")]
+offset_left = 1718.0
+offset_top = 700.0
+offset_right = 2320.0
+offset_bottom = 755.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_at1wl")
+text = "\"No es nada, Skippy\""
+script = ExtResource("6_s3aty")
+Player = NodePath("../../../../../../Player")
+Dialogues = Array[String](["¡Perfecto, entonces!", "¡Venga, a casita!"])
+SpeakerNames = Array[String](["Skippy", "Skippy"])
+Speakers = [null]
+
+[node name="AN1V" type="Button" parent="stage/city/CutsceneArea/Option1/Decision/CanvasLayer" index="1" unique_id=380716243 node_paths=PackedStringArray("Player", "Speakers")]
+offset_left = 341.0
+offset_top = 700.0
+offset_right = 624.0
+offset_bottom = 755.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_at1wl")
+text = "\"No está bien grabar a la gente sin permiso\""
+script = ExtResource("6_s3aty")
+Player = NodePath("../../../../../../Player")
+Dialogues = Array[String](["Es una funcionalidad predeterminada para tu seguridad... Pero lo tendré en cuenta.", "¡Venga, a casita!"])
+SpeakerNames = Array[String](["Skippy", "Skippy"])
+Speakers = [NodePath("../../../../../../../Skippy")]
+
+[node name="Option2" type="Node" parent="stage/city/CutsceneArea" index="3" unique_id=344858681 node_paths=PackedStringArray("Player", "Speakers")]
+script = ExtResource("6_7lg7l")
+Player = NodePath("../../../Player")
+Dialogues = Array[String](["¡Hola, superestrella!", "Siento mucho contarte esto así de repente, pero...", "Voy a tener que desactivarme de manera temporal.", "Tu nueva amiga, Raquel... La policía querrá los datos intactos, y no puedo correr el riesgo de sobreescribirlos con más grabaciones y recopilación de datos.", "¡Pero tú no te preocupes! Estás cerca de casa, y cuando llegues tus padres lo tendrán todo controlado. ¿De acuerdo?"])
+SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy", "Skippy", "Skippy", "Skippy", "Skippy"])
+Speakers = [NodePath("../../../../Skippy")]
+
+[node name="Shutdown" type="AudioStreamPlayer" parent="stage/city/CutsceneArea/Option2" index="0" unique_id=1790570762]
+stream = ExtResource("7_sfu68")
+
+[node name="Decision" type="Control" parent="stage/city/CutsceneArea/Option2" index="1" unique_id=201245902]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="stage/city/CutsceneArea/Option2/Decision" index="0" unique_id=1937444675]
+visible = false
+
+[node name="AN3X" type="Button" parent="stage/city/CutsceneArea/Option2/Decision/CanvasLayer" index="0" unique_id=1049288921 node_paths=PackedStringArray("Player", "Speakers")]
+offset_left = 1718.0
+offset_top = 700.0
+offset_right = 2320.0
+offset_bottom = 755.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_at1wl")
+text = "\"¡No puedes dejarme, te necesito!\""
+script = ExtResource("6_s3aty")
+Player = NodePath("../../../../../../Player")
+Dialogues = Array[String](["Tú tranqui, superestrella. Todo irá bien, ¿vale?", "Bueno... Esto es ya una despedida. Mucha suerte, mi superestrella."])
+SpeakerNames = Array[String](["Skippy", "Skippy"])
+Speakers = [null]
+
+[node name="AN3V" type="Button" parent="stage/city/CutsceneArea/Option2/Decision/CanvasLayer" index="1" unique_id=352924911 node_paths=PackedStringArray("Player")]
+offset_left = 341.0
+offset_top = 700.0
+offset_right = 624.0
+offset_bottom = 755.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_at1wl")
+text = "\"Supongo que no hay otra opción...
+Nos vemos, Skippy\""
+script = ExtResource("6_s3aty")
+Player = NodePath("../../../../../../Player")
+Dialogues = Array[String](["Gracias por entenderlo.", "Bueno... Esto es ya una despedida. Mucha suerte, mi superestrella."])
+SpeakerNames = Array[String](["Skippy", "Skippy"])
+
+[node name="CanvasLayer" parent="Study" parent_id_path=PackedInt32Array(1827521786) index="0" unique_id=1082957249]
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Study/CanvasLayer" index="0" unique_id=934790302]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1439.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Study/CanvasLayer/VBoxContainer" index="0" unique_id=1002296101]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 2.96
+theme_override_constants/separation = 400
+alignment = 1
+
+[node name="Aspectos positivos" type="VBoxContainer" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer" index="0" unique_id=1189211491]
+custom_minimum_size = Vector2(800, 50)
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="AP1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos" index="0" unique_id=770752622]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_vrbvw")
+text = "Este es un aspecto positivo con mucho texto puesto para que ocupe demasiado"
+autowrap_mode = 2
+autowrap_trim_flags = 0
+script = ExtResource("7_kmvuv")
+
+[node name="Aspectos negativos" type="VBoxContainer" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer" index="1" unique_id=52978967]
+custom_minimum_size = Vector2(800, 50)
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="AN1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="0" unique_id=30110564]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_vrbvw")
+text = "Este es un aspecto negativo con mucho texto puesto para que ocupe demasiado"
+autowrap_mode = 2
+script = ExtResource("7_kmvuv")
+risk = true
+aspecto = "Falta de Consentimiento"
+
+[node name="AN2" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="1" unique_id=1819958056]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_vrbvw")
+text = "Este es un aspecto negativo con mucho texto puesto para que ocupe demasiado"
+autowrap_mode = 2
+script = ExtResource("7_kmvuv")
+risk = true
+
+[node name="AN3" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="2" unique_id=1789983311]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_vrbvw")
+text = "Este es un aspecto negativo con mucho texto puesto para que ocupe demasiado"
+autowrap_mode = 2
+script = ExtResource("7_kmvuv")
+risk = true
+aspecto = "Diseño Adictivo"
+
+[node name="NextLevel" type="Button" parent="Study/CanvasLayer/VBoxContainer" index="1" unique_id=718753567]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Continuar al siguiente nivel"
+script = ExtResource("8_sfu68")
+nextLevel = "res://scenes/scenarios/Level_2.tscn"
+
+[node name="AudioStreamPlayer" parent="." index="7" unique_id=855356542]
+stream = ExtResource("10_vrbvw")
+parameters/looping = true
+
+[connection signal="body_entered" from="stage/city/CutsceneArea" to="." method="_on_cutscene_area_body_entered"]
+[connection signal="body_entered" from="stage/city/CutsceneArea" to="stage/city/CutsceneArea" method="_on_body_entered"]
+[connection signal="pressed" from="stage/city/CutsceneArea/Option0/Decision/CanvasLayer/AP1X" to="." method="_on_ap_1x_pressed"]
+[connection signal="pressed" from="stage/city/CutsceneArea/Option0/Decision/CanvasLayer/AP1X" to="stage/city/CutsceneArea/Option0/Decision/CanvasLayer/AP1X" method="_on_pressed"]
+[connection signal="pressed" from="stage/city/CutsceneArea/Option0/Decision/CanvasLayer/AP1V" to="." method="_on_ap_1v_pressed"]
+[connection signal="pressed" from="stage/city/CutsceneArea/Option0/Decision/CanvasLayer/AP1V" to="stage/city/CutsceneArea/Option0/Decision/CanvasLayer/AP1V" method="_on_pressed"]
+[connection signal="dialogue_ended" from="stage/city/CutsceneArea/Option0/Decision2/CanvasLayer/AN3X" to="." method="finish_level"]
+[connection signal="pressed" from="stage/city/CutsceneArea/Option0/Decision2/CanvasLayer/AN3X" to="." method="_on_an_3x_pressed"]
+[connection signal="pressed" from="stage/city/CutsceneArea/Option0/Decision2/CanvasLayer/AN3X" to="stage/city/CutsceneArea/Option0/Decision2/CanvasLayer/AN3X" method="_on_pressed"]
+[connection signal="dialogue_ended" from="stage/city/CutsceneArea/Option0/Decision2/CanvasLayer/AN3V" to="." method="finish_level"]
+[connection signal="pressed" from="stage/city/CutsceneArea/Option0/Decision2/CanvasLayer/AN3V" to="." method="_on_an_3v_pressed"]
+[connection signal="pressed" from="stage/city/CutsceneArea/Option0/Decision2/CanvasLayer/AN3V" to="stage/city/CutsceneArea/Option0/Decision2/CanvasLayer/AN3V" method="_on_pressed"]
+[connection signal="dialogue_ended" from="stage/city/CutsceneArea/Option1/Decision/CanvasLayer/AN1X" to="." method="finish_level"]
+[connection signal="pressed" from="stage/city/CutsceneArea/Option1/Decision/CanvasLayer/AN1X" to="." method="_on_an_1x_pressed"]
+[connection signal="pressed" from="stage/city/CutsceneArea/Option1/Decision/CanvasLayer/AN1X" to="stage/city/CutsceneArea/Option1/Decision/CanvasLayer/AN1X" method="_on_pressed"]
+[connection signal="dialogue_ended" from="stage/city/CutsceneArea/Option1/Decision/CanvasLayer/AN1V" to="." method="finish_level"]
+[connection signal="pressed" from="stage/city/CutsceneArea/Option1/Decision/CanvasLayer/AN1V" to="." method="_on_an_1v_pressed"]
+[connection signal="pressed" from="stage/city/CutsceneArea/Option1/Decision/CanvasLayer/AN1V" to="stage/city/CutsceneArea/Option1/Decision/CanvasLayer/AN1V" method="_on_pressed"]
+[connection signal="ending" from="stage/city/CutsceneArea/Option2/Decision/CanvasLayer/AN3X" to="." method="finish_level"]
+[connection signal="pressed" from="stage/city/CutsceneArea/Option2/Decision/CanvasLayer/AN3X" to="." method="_on_an_3x_pressed"]
+[connection signal="pressed" from="stage/city/CutsceneArea/Option2/Decision/CanvasLayer/AN3X" to="stage/city/CutsceneArea/Option2/Decision/CanvasLayer/AN3X" method="_on_pressed"]
+[connection signal="dialogue_ended" from="stage/city/CutsceneArea/Option2/Decision/CanvasLayer/AN3V" to="." method="finish_level"]
+[connection signal="pressed" from="stage/city/CutsceneArea/Option2/Decision/CanvasLayer/AN3V" to="." method="_on_an_3v_pressed"]
+[connection signal="pressed" from="stage/city/CutsceneArea/Option2/Decision/CanvasLayer/AN3V" to="stage/city/CutsceneArea/Option2/Decision/CanvasLayer/AN3V" method="_on_pressed"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP1" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN1" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN2" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN2" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN3" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN3" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/NextLevel" to="Study/CanvasLayer/VBoxContainer/NextLevel" method="next_level"]

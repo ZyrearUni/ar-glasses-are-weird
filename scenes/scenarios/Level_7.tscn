@@ -4,9 +4,7 @@
 [ext_resource type="Script" uid="uid://d1gdlu6ysfppm" path="res://scripts/level7scripts/level_7.gd" id="2_pfjp1"]
 [ext_resource type="PackedScene" uid="uid://w8x35jv0v842" path="res://assets/city.glb" id="3_7lg7l"]
 [ext_resource type="Script" uid="uid://vxupi1ew0hxa" path="res://scripts/level7scripts/cutscene_area.gd" id="4_7lg7l"]
-[ext_resource type="Script" uid="uid://cj50m4a61k0cw" path="res://scripts/dialogue.gd" id="5_18y80"]
 [ext_resource type="Script" uid="uid://b1sweisbyreq7" path="res://scripts/level7scripts/options.gd" id="5_at1wl"]
-[ext_resource type="Script" uid="uid://bho1qky47s8jg" path="res://scripts/level7scripts/skippy_turns_off.gd" id="6_7lg7l"]
 [ext_resource type="Script" uid="uid://63q8wwfv22u5" path="res://scripts/level7scripts/activate_next_decision.gd" id="6_a4bvv"]
 [ext_resource type="Script" uid="uid://b7k71qy31htug" path="res://scripts/speaking_button.gd" id="6_s3aty"]
 [ext_resource type="Script" uid="uid://7es80iimcapl" path="res://scripts/studymenuscripts/study_button.gd" id="7_kmvuv"]
@@ -120,7 +118,7 @@ script = ExtResource("6_a4bvv")
 Player = NodePath("../../../../../../Player")
 Dialogues = Array[String](["Oh... bueno.", "Yo siempre estaré aquí. Soy tu mejor amigo, después de todo."])
 SpeakerNames = Array[String](["Skippy", "Skippy"])
-Speakers = [null]
+Speakers = [NodePath("../../../../../../../Skippy")]
 
 [node name="AP1V" type="Button" parent="stage/city/CutsceneArea/Option0/Decision/CanvasLayer" index="1" unique_id=776251649 node_paths=PackedStringArray("Player", "Speakers")]
 offset_left = 341.0
@@ -143,6 +141,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("5_at1wl")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="stage/city/CutsceneArea/Option0/Decision2" index="0" unique_id=1176769662]
 visible = false
@@ -179,7 +178,7 @@ SpeakerNames = Array[String](["Skippy", "Skippy"])
 Speakers = [NodePath("../../../../../../../Skippy")]
 
 [node name="Option1" type="Node" parent="stage/city/CutsceneArea" index="2" unique_id=1332933970 node_paths=PackedStringArray("Player", "Speakers")]
-script = ExtResource("5_18y80")
+script = ExtResource("5_at1wl")
 Player = NodePath("../../../Player")
 Dialogues = Array[String](["Menudo día, ¿no crees?", "Espero que tu nueva amiga esté bien. La situación era algo seria.", "¡Bueno! Hicimos lo que pudimos, y eso es lo que importa. ¿Verdad, superestrella?", "Y en cualquier caso, si alguien nos pregunta tengo una grabación de todo.", "Y si no, ¡tu madre se pueden encargar!", "...", "¿Por qué pones esa cara, superestrella?"])
 SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy", "Skippy", "Skippy", "Skippy", "Skippy"])
@@ -207,7 +206,7 @@ script = ExtResource("6_s3aty")
 Player = NodePath("../../../../../../Player")
 Dialogues = Array[String](["¡Perfecto, entonces!", "¡Venga, a casita!"])
 SpeakerNames = Array[String](["Skippy", "Skippy"])
-Speakers = [null]
+Speakers = [NodePath("../../../../../../../Skippy")]
 
 [node name="AN1V" type="Button" parent="stage/city/CutsceneArea/Option1/Decision/CanvasLayer" index="1" unique_id=380716243 node_paths=PackedStringArray("Player", "Speakers")]
 offset_left = 341.0
@@ -225,7 +224,7 @@ SpeakerNames = Array[String](["Skippy", "Skippy"])
 Speakers = [NodePath("../../../../../../../Skippy")]
 
 [node name="Option2" type="Node" parent="stage/city/CutsceneArea" index="3" unique_id=344858681 node_paths=PackedStringArray("Player", "Speakers")]
-script = ExtResource("6_7lg7l")
+script = ExtResource("5_at1wl")
 Player = NodePath("../../../Player")
 Dialogues = Array[String](["¡Hola, superestrella!", "Siento mucho contarte esto así de repente, pero...", "Voy a tener que desactivarme de manera temporal.", "Tu nueva amiga, Raquel... La policía querrá los datos intactos, y no puedo correr el riesgo de sobreescribirlos con más grabaciones y recopilación de datos.", "¡Pero tú no te preocupes! Estás cerca de casa, y cuando llegues tus padres lo tendrán todo controlado. ¿De acuerdo?"])
 SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy", "Skippy", "Skippy", "Skippy", "Skippy"])
@@ -243,7 +242,7 @@ offset_bottom = 40.0
 [node name="CanvasLayer" type="CanvasLayer" parent="stage/city/CutsceneArea/Option2/Decision" index="0" unique_id=1937444675]
 visible = false
 
-[node name="AN3X" type="Button" parent="stage/city/CutsceneArea/Option2/Decision/CanvasLayer" index="0" unique_id=1049288921 node_paths=PackedStringArray("Player", "Speakers")]
+[node name="AN1X" type="Button" parent="stage/city/CutsceneArea/Option2/Decision/CanvasLayer" index="0" unique_id=1049288921 node_paths=PackedStringArray("Player", "Speakers")]
 offset_left = 1718.0
 offset_top = 700.0
 offset_right = 2320.0
@@ -251,14 +250,15 @@ offset_bottom = 755.0
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_at1wl")
-text = "\"¡No puedes dejarme, te necesito!\""
+text = "\"¡No puedes dejarme aquí como si nada! 
+¿No pensabas preguntarme primero?\""
 script = ExtResource("6_s3aty")
 Player = NodePath("../../../../../../Player")
 Dialogues = Array[String](["Tú tranqui, superestrella. Todo irá bien, ¿vale?", "Bueno... Esto es ya una despedida. Mucha suerte, mi superestrella."])
 SpeakerNames = Array[String](["Skippy", "Skippy"])
-Speakers = [null]
+Speakers = [NodePath("../../../../../../../Skippy")]
 
-[node name="AN3V" type="Button" parent="stage/city/CutsceneArea/Option2/Decision/CanvasLayer" index="1" unique_id=352924911 node_paths=PackedStringArray("Player")]
+[node name="AN1V" type="Button" parent="stage/city/CutsceneArea/Option2/Decision/CanvasLayer" index="1" unique_id=352924911 node_paths=PackedStringArray("Player", "Speakers")]
 offset_left = 341.0
 offset_top = 700.0
 offset_right = 624.0
@@ -272,6 +272,7 @@ script = ExtResource("6_s3aty")
 Player = NodePath("../../../../../../Player")
 Dialogues = Array[String](["Gracias por entenderlo.", "Bueno... Esto es ya una despedida. Mucha suerte, mi superestrella."])
 SpeakerNames = Array[String](["Skippy", "Skippy"])
+Speakers = [NodePath("../../../../../../../Skippy")]
 
 [node name="CanvasLayer" parent="Study" parent_id_path=PackedInt32Array(1827521786) index="0" unique_id=1082957249]
 visible = false
@@ -303,10 +304,11 @@ theme_override_constants/separation = 40
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_vrbvw")
-text = "Este es un aspecto positivo con mucho texto puesto para que ocupe demasiado"
+text = "Me ayuda que Skippy se preocupe por mi bienestar después de una situación estresante."
 autowrap_mode = 2
 autowrap_trim_flags = 0
 script = ExtResource("7_kmvuv")
+aspecto = "Realizar un seguimiento del estado físico y mental del niño."
 
 [node name="Aspectos negativos" type="VBoxContainer" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer" index="1" unique_id=52978967]
 custom_minimum_size = Vector2(800, 50)
@@ -317,29 +319,33 @@ theme_override_constants/separation = 40
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_vrbvw")
-text = "Este es un aspecto negativo con mucho texto puesto para que ocupe demasiado"
+text = "No me gusta que Skippy haga cosas sin preguntarme primero."
 autowrap_mode = 2
 script = ExtResource("7_kmvuv")
 risk = true
+explanation = "Una herramienta que actúa por sí sola puede llegar a ser peligrosa y mala para tu desarrollo de habilidades de decisión."
 aspecto = "Falta de Consentimiento"
 
 [node name="AN2" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="1" unique_id=1819958056]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_vrbvw")
-text = "Este es un aspecto negativo con mucho texto puesto para que ocupe demasiado"
+text = "No me gusta que Skippy vaya compartiendo mis datos con otras personas sin mi consentimiento."
 autowrap_mode = 2
 script = ExtResource("7_kmvuv")
 risk = true
+explanation = "La IA debería poder asegurar que los datos que recopila de ti no sean compartidos si tú no quieres. Debes tener siempre en cuenta tu privacidad."
+aspecto = "Proporcionar datos privados"
 
 [node name="AN3" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="2" unique_id=1789983311]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_vrbvw")
-text = "Este es un aspecto negativo con mucho texto puesto para que ocupe demasiado"
+text = "Siento que Skippy está diseñado para que quiera que lo use constantemente."
 autowrap_mode = 2
 script = ExtResource("7_kmvuv")
 risk = true
+explanation = "Una herrramienta diseñada para que quieras usarla no por conveniencia (como una calculadora), sino por dependencia, no es una buena herramienta."
 aspecto = "Diseño Adictivo"
 
 [node name="NextLevel" type="Button" parent="Study/CanvasLayer/VBoxContainer" index="1" unique_id=718753567]
@@ -347,7 +353,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Continuar al siguiente nivel"
 script = ExtResource("8_sfu68")
-nextLevel = "res://scenes/scenarios/Level_2.tscn"
+nextLevel = "res://scenes/scenarios/Level_8.tscn"
 
 [node name="AudioStreamPlayer" parent="." index="7" unique_id=855356542]
 stream = ExtResource("10_vrbvw")
@@ -371,12 +377,12 @@ parameters/looping = true
 [connection signal="dialogue_ended" from="stage/city/CutsceneArea/Option1/Decision/CanvasLayer/AN1V" to="." method="finish_level"]
 [connection signal="pressed" from="stage/city/CutsceneArea/Option1/Decision/CanvasLayer/AN1V" to="." method="_on_an_1v_pressed"]
 [connection signal="pressed" from="stage/city/CutsceneArea/Option1/Decision/CanvasLayer/AN1V" to="stage/city/CutsceneArea/Option1/Decision/CanvasLayer/AN1V" method="_on_pressed"]
-[connection signal="ending" from="stage/city/CutsceneArea/Option2/Decision/CanvasLayer/AN3X" to="." method="finish_level"]
-[connection signal="pressed" from="stage/city/CutsceneArea/Option2/Decision/CanvasLayer/AN3X" to="." method="_on_an_3x_pressed"]
-[connection signal="pressed" from="stage/city/CutsceneArea/Option2/Decision/CanvasLayer/AN3X" to="stage/city/CutsceneArea/Option2/Decision/CanvasLayer/AN3X" method="_on_pressed"]
-[connection signal="dialogue_ended" from="stage/city/CutsceneArea/Option2/Decision/CanvasLayer/AN3V" to="." method="finish_level"]
-[connection signal="pressed" from="stage/city/CutsceneArea/Option2/Decision/CanvasLayer/AN3V" to="." method="_on_an_3v_pressed"]
-[connection signal="pressed" from="stage/city/CutsceneArea/Option2/Decision/CanvasLayer/AN3V" to="stage/city/CutsceneArea/Option2/Decision/CanvasLayer/AN3V" method="_on_pressed"]
+[connection signal="ending" from="stage/city/CutsceneArea/Option2/Decision/CanvasLayer/AN1X" to="." method="finish_level"]
+[connection signal="pressed" from="stage/city/CutsceneArea/Option2/Decision/CanvasLayer/AN1X" to="." method="_on_an_1x_pressed"]
+[connection signal="pressed" from="stage/city/CutsceneArea/Option2/Decision/CanvasLayer/AN1X" to="stage/city/CutsceneArea/Option2/Decision/CanvasLayer/AN1X" method="_on_pressed"]
+[connection signal="dialogue_ended" from="stage/city/CutsceneArea/Option2/Decision/CanvasLayer/AN1V" to="." method="finish_level"]
+[connection signal="pressed" from="stage/city/CutsceneArea/Option2/Decision/CanvasLayer/AN1V" to="." method="_on_an_1v_pressed"]
+[connection signal="pressed" from="stage/city/CutsceneArea/Option2/Decision/CanvasLayer/AN1V" to="stage/city/CutsceneArea/Option2/Decision/CanvasLayer/AN1V" method="_on_pressed"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP1" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN1" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN2" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN2" method="save_result"]

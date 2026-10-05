@@ -466,16 +466,6 @@ script = ExtResource("8_v4enl")
 risk = true
 explanation = "Cualquier error, duda o sentimiento que pueda \"sentir\" una Inteligencia Artificial no es más que una simulación. No pueden sentir."
 
-[node name="AN3" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="2" unique_id=1980687255]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_uwycl")
-text = "Siento que Skippy se preocupa por mí y tiene una personalidad alegre."
-autowrap_mode = 2
-script = ExtResource("8_v4enl")
-risk = true
-explanation = "Una Inteligencia Artificial no es tu amiga, es una herramienta que puede ayudarte, pero no puede sentir."
-
 [node name="NextLevel" type="Button" parent="Study/CanvasLayer/VBoxContainer" index="1" unique_id=1440314337]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
@@ -537,7 +527,6 @@ parameters/looping = true
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP3" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP3" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN1" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN2" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN2" method="save_result"]
-[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN3" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN3" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/NextLevel" to="Study/CanvasLayer/VBoxContainer/NextLevel" method="next_level"]
 [connection signal="pressed" from="DecisionMenu/CanvasLayer/AcceptButton" to="." method="_on_accept_button_pressed"]
 [connection signal="pressed" from="DecisionMenu/CanvasLayer/AcceptButton" to="stage/DecisionArea/Accept" method="_on_accept_button_pressed"]

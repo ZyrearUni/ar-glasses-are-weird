@@ -14,5 +14,6 @@ func set_option(value: int) -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if body == $"../../Player":
-		dialogueOptions[option].speak()
 		monitoring = false
+		$CollisionShape3D.disabled = true
+		dialogueOptions[option].speak()
