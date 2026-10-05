@@ -1,3 +1,220 @@
 [gd_scene format=3 uid="uid://tfk8wctbdnw"]
 
+[ext_resource type="Script" uid="uid://d1ygxxgwufwyj" path="res://scripts/credits_scene.gd" id="1_yf3d0"]
+[ext_resource type="Texture2D" uid="uid://barnmag0xjnf1" path="res://assets/sprites/Skippy/ai_booger.png" id="2_s2rgu"]
+[ext_resource type="PackedScene" uid="uid://ctkshhv3kfvuc" path="res://scenes/components/fade.tscn" id="3_fvsur"]
+[ext_resource type="Texture2D" uid="uid://cgpwy4o8lyjp1" path="res://assets/sprites/Skippy/skippyhap.png" id="4_s2rgu"]
+[ext_resource type="AudioStream" uid="uid://c84aeicwfilo8" path="res://assets/sounds/music/Credits_Theme.mp3" id="5_fvsur"]
+[ext_resource type="Script" uid="uid://cygo8i3pnt82o" path="res://scripts/music.gd" id="6_pkepw"]
+
+[sub_resource type="Animation" id="Animation_fvsur"]
+resource_name = "FinalThanks"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AiBooger:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_s2rgu")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel4:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_s2rgu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel2:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.1961461),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RichTextLabel3:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AiBooger:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_s2rgu")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RichTextLabel4:visible_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_yf3d0"]
+resource_name = "TextScroll"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel2:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RichTextLabel3:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s2rgu"]
+_data = {
+&"FinalThanks": SubResource("Animation_fvsur"),
+&"RESET": SubResource("Animation_s2rgu"),
+&"TextScroll": SubResource("Animation_yf3d0")
+}
+
 [node name="CreditsScene" type="Node2D" unique_id=843490390]
+script = ExtResource("1_yf3d0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1779006469]
+
+[node name="Background" type="ColorRect" parent="CanvasLayer" unique_id=834911271]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.06879827, 0.06879828, 0.06879828, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=1285594041]
+offset_left = 1142.0
+offset_top = 298.0
+offset_right = 2552.0
+offset_bottom = 519.0
+size_flags_horizontal = 4
+theme_override_font_sizes/normal_font_size = 60
+text = "Juego creado por: 
+Sergio González Rodríguez."
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer" unique_id=1477763808]
+offset_left = 1142.0
+offset_top = 611.0
+offset_right = 2552.0
+offset_bottom = 822.0
+size_flags_horizontal = 4
+theme_override_font_sizes/normal_font_size = 60
+text = "Dibujos realizados por: 
+Laura Navarro Morales."
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer" unique_id=715673084]
+offset_left = 1142.0
+offset_top = 900.0
+offset_right = 2552.0
+offset_bottom = 1082.0
+size_flags_horizontal = 4
+theme_override_font_sizes/normal_font_size = 60
+text = "Patio del colegio modelado por: 
+Alejandro Martín Álvarez."
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="CanvasLayer" unique_id=18170792]
+offset_left = 1280.0
+offset_top = 661.0
+offset_right = 2356.0
+offset_bottom = 865.0
+size_flags_horizontal = 4
+theme_override_font_sizes/normal_font_size = 100
+text = "¡GRACIAS POR JUGAR!"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AiBooger" type="Sprite2D" parent="CanvasLayer" unique_id=1543975759]
+position = Vector2(634, 717)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_s2rgu")
+
+[node name="fade" parent="CanvasLayer" unique_id=25219732 instance=ExtResource("3_fvsur")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=107268851]
+libraries/ = SubResource("AnimationLibrary_s2rgu")
+
+[node name="CreditsTheme" type="AudioStreamPlayer" parent="." unique_id=1337955952]
+stream = ExtResource("5_fvsur")
+volume_db = -19.0
+autoplay = true
+script = ExtResource("6_pkepw")
