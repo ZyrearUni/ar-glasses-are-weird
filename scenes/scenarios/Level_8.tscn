@@ -3,14 +3,36 @@
 [ext_resource type="PackedScene" uid="uid://bqsbcqqthmbyy" path="res://scenes/scenarios/Level_Template.tscn" id="1_4cax2"]
 [ext_resource type="Script" uid="uid://dhm4ind4w2fl" path="res://scripts/level8scripts/level_8.gd" id="2_p0x1a"]
 [ext_resource type="PackedScene" uid="uid://c547agd6lg4iu" path="res://assets/house.glb" id="3_35ti5"]
+[ext_resource type="PackedScene" uid="uid://mp83amoddhav" path="res://scenes/components/dialogue_area.tscn" id="4_m33u2"]
+[ext_resource type="Script" uid="uid://couxhs7f1hmx3" path="res://scripts/level8scripts/cutscene_area.gd" id="5_d6byv"]
 [ext_resource type="Script" uid="uid://bsv45inr24dxq" path="res://scripts/studymenuscripts/next_level.gd" id="5_oo0qm"]
 [ext_resource type="AudioStream" uid="uid://ckisr05qwrg3n" path="res://assets/sounds/music/House.mp3" id="6_oo0qm"]
+[ext_resource type="Texture2D" uid="uid://cvtlfdls23qt4" path="res://assets/sprites/Mom/momcook.png" id="6_ph46x"]
+[ext_resource type="Script" uid="uid://cj50m4a61k0cw" path="res://scripts/dialogue.gd" id="7_d6byv"]
+[ext_resource type="PackedScene" uid="uid://b2dd1kcpxrtx3" path="res://scenes/models/characters/mom_2d.tscn" id="7_sdfkd"]
 
 [node name="World" unique_id=1891132867 instance=ExtResource("1_4cax2")]
 script = ExtResource("2_p0x1a")
 
 [node name="house" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=1070711330 instance=ExtResource("3_35ti5")]
 transform = Transform3D(-0.022390684, 0, -0.9997493, 0, 1, 0, 0.9997493, 0, -0.022390684, 0.15270233, 0, -12.173288)
+
+[node name="DialogueArea" parent="stage/house" index="116" unique_id=896973546 node_paths=PackedStringArray("Player", "Speakers") instance=ExtResource("4_m33u2")]
+transform = Transform3D(1.099087, 0, 0, 0, 3.6708684, 0, 0, 0, 5.4242597, 3.7244854, 0, -0.76297075)
+script = ExtResource("5_d6byv")
+Player = NodePath("../../Player")
+Speakers = [NodePath("../../../Mamá")]
+
+[node name="Mom" type="Sprite3D" parent="stage/house" index="117" unique_id=724670315]
+transform = Transform3D(0.08500003, 0, 1.1641532e-10, 0, 0.085, 0, -1.1641532e-10, 0, 0.08500003, 1.6825151, 1.7387407, -6.279597)
+billboard = 2
+texture = ExtResource("6_ph46x")
+
+[node name="LunchDialogue" type="Node" parent="stage/house" index="118" unique_id=1312085363 node_paths=PackedStringArray("Player")]
+script = ExtResource("7_d6byv")
+Player = NodePath("../../Player")
+
+[node name="Mamá" parent="." index="2" unique_id=160132573 instance=ExtResource("7_sdfkd")]
 
 [node name="CanvasLayer" parent="Study" parent_id_path=PackedInt32Array(1827521786) index="0" unique_id=1082957249]
 visible = false
@@ -33,7 +55,7 @@ text = "Continuar al siguiente nivel"
 script = ExtResource("5_oo0qm")
 nextLevel = "res://scenes/scenarios/credits_scene.tscn"
 
-[node name="AudioStreamPlayer" parent="." index="7" unique_id=855356542]
+[node name="AudioStreamPlayer" parent="." index="8" unique_id=855356542]
 stream = ExtResource("6_oo0qm")
 parameters/looping = true
 
