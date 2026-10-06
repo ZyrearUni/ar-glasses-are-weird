@@ -10,8 +10,10 @@
 [ext_resource type="Script" uid="uid://rn16smm60aqq" path="res://scripts/level6scripts/call_police.gd" id="6_dse72"]
 [ext_resource type="Script" uid="uid://cko3o70xb66wf" path="res://scripts/level6scripts/suscription_choice.gd" id="7_2vpde"]
 [ext_resource type="Script" uid="uid://bkj7h4gm47m3g" path="res://scripts/level6scripts/tell_teacher.gd" id="7_x50ou"]
+[ext_resource type="Script" uid="uid://vry5lcmjqrji" path="res://scripts/level6scripts/speak_button_override_6.gd" id="7_yhtb1"]
 [ext_resource type="Script" uid="uid://cym4vvyq1bap7" path="res://scripts/level6scripts/intervene.gd" id="8_2vpde"]
 [ext_resource type="Script" uid="uid://cj50m4a61k0cw" path="res://scripts/dialogue.gd" id="8_x50ou"]
+[ext_resource type="AudioStream" uid="uid://bskuouf0ndu1f" path="res://assets/sounds/sound effects/BokenBone.wav" id="12_yhtb1"]
 [ext_resource type="Texture2D" uid="uid://comyisyu8648e" path="res://assets/sprites/Teacher/teacheropen.png" id="13_63g87"]
 [ext_resource type="Script" uid="uid://7es80iimcapl" path="res://scripts/studymenuscripts/study_button.gd" id="13_uiwi3"]
 [ext_resource type="Texture2D" uid="uid://buoqtq0vxajm5" path="res://assets/sprites/Kids/nene2padre.png" id="14_f7e2h"]
@@ -19,7 +21,9 @@
 [ext_resource type="AudioStream" uid="uid://k30xgkvh4244" path="res://assets/sounds/music/Stage6_Theme.mp3" id="15_j0rwt"]
 [ext_resource type="Texture2D" uid="uid://cs5x7f57wfguy" path="res://assets/sprites/Kids/nene4.png" id="15_xmlqp"]
 [ext_resource type="Texture2D" uid="uid://dsbsy3qay7gjm" path="res://assets/sprites/Kids/nene1.png" id="16_f1k7q"]
+[ext_resource type="Texture2D" uid="uid://dr2ryokm5860v" path="res://assets/sprites/silhouette2.png" id="16_hvvos"]
 [ext_resource type="Texture2D" uid="uid://bqofhitwud67n" path="res://assets/sprites/Kids/nene3.png" id="17_hvvos"]
+[ext_resource type="Texture2D" uid="uid://d211ph1nqml0h" path="res://assets/sprites/silhouette1.png" id="18_yhtb1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jrcfg"]
 size = Vector3(8.321873, 1, 14.5774555)
@@ -50,6 +54,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(29.94, 4.286, -11.941)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label3D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0009999999),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_s034s"]
 resource_name = "WalkAway"
@@ -61,10 +77,22 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 10),
+"times": PackedFloat32Array(0.2, 10),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(29.94, 4.286, -11.941), Vector3(29.94, 4.286, -8.647)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label3D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2ew3b"]
@@ -76,8 +104,9 @@ _data = {
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j0rwt"]
 bg_color = Color(0.8247977, 0.3473309, 0, 0.2901961)
 
-[node name="World" unique_id=1891132867 instance=ExtResource("1_jrcfg")]
+[node name="World" unique_id=1891132867 node_paths=PackedStringArray("Player") instance=ExtResource("1_jrcfg")]
 script = ExtResource("2_s034s")
+Player = NodePath("stage/Player")
 
 [node name="city" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=1033926978 instance=ExtResource("3_2vpde")]
 transform = Transform3D(11, 0, 0, 0, 11, 0, 0, 0, 11, -360.1678, -45.503155, 133.73846)
@@ -143,11 +172,52 @@ text = "\"No es nada.\""
 [node name="Tell" type="Node" parent="stage/city/CutsceneArea" index="2" unique_id=437156838 node_paths=PackedStringArray("Player", "Speakers")]
 script = ExtResource("4_0kk5n")
 Player = NodePath("../../../Player")
-Dialogues = Array[String](["Hm, ya veo. Es posible que tu nueva amiga esté en peligro, ¿correcto?", "Veamos qué podemos hacer en este tipo de situaciones.", "\"Si verdaderamente crees que tu nueva amiga está siendo secuestrada por alguien que está fingiendo ser un familiar suyo, estas son tus opciones:\""])
-SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy"])
+Dialogues = Array[String](["Entiendo. Pero con tanto estrés no puedes tomar una decisión.", "Vamos a parar un momento y a respirar, ¿vale?"])
+SpeakerNames = Array[String](["Skippy", "Skippy"])
 Speakers = [NodePath("../../../../Skippy")]
 
-[node name="WhatToDo" type="Control" parent="stage/city/CutsceneArea/Tell" index="0" unique_id=1052412930]
+[node name="Relax" type="Control" parent="stage/city/CutsceneArea/Tell" index="0" unique_id=205894745]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="stage/city/CutsceneArea/Tell/Relax" index="0" unique_id=1316327845]
+visible = false
+
+[node name="AcceptButton" type="Button" parent="stage/city/CutsceneArea/Tell/Relax/CanvasLayer" index="0" unique_id=665071084 node_paths=PackedStringArray("Canvas", "Player", "Speakers")]
+offset_left = 1863.0
+offset_top = 668.0
+offset_right = 2125.0
+offset_bottom = 723.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_01jnc")
+text = "\"Sí, sí... Perdona, Skippy.\""
+script = ExtResource("7_yhtb1")
+Canvas = NodePath("../../../WhatToDo/CanvasLayer")
+Player = NodePath("../../../../../../Player")
+Dialogues = Array[String](["¿Ves? Mucho mejor ahora.", "Veamos qué podemos hacer en este tipo de situaciones.", "\"Si verdaderamente crees que tu nueva amiga está siendo secuestrada por alguien que está fingiendo ser un familiar suyo, estas son tus opciones:\"", "Contactar a las autoridades, hablar con un adulto de confianza, o tratar de intervenir tú."])
+SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy", "Skippy"])
+Speakers = [NodePath("../../../../../../../Skippy")]
+
+[node name="RejectButton" type="Button" parent="stage/city/CutsceneArea/Tell/Relax/CanvasLayer" index="1" unique_id=1810964488 node_paths=PackedStringArray("Canvas", "Player", "Speakers")]
+offset_left = 321.0
+offset_top = 657.0
+offset_right = 745.0
+offset_bottom = 712.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_01jnc")
+text = "\"¡NO HAY TIEMPO!\""
+script = ExtResource("7_yhtb1")
+Canvas = NodePath("../../../WhatToDo/CanvasLayer")
+Player = NodePath("../../../../../../Player")
+Dialogues = Array[String](["Vale, vale, lo siento.", "Veamos qué podemos hacer en este tipo de situaciones.", "\"Si verdaderamente crees que tu nueva amiga está siendo secuestrada por alguien que está fingiendo ser un familiar suyo, estas son tus opciones:\"", "Contactar a las autoridades, hablar con un adulto de confianza, o tratar de intervenir tú."])
+SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy", "Skippy"])
+Speakers = [NodePath("../../../../../../../Skippy")]
+
+[node name="WhatToDo" type="Control" parent="stage/city/CutsceneArea/Tell" index="1" unique_id=1052412930]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -164,29 +234,54 @@ offset_bottom = 723.0
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_01jnc")
-text = "Llamar a la policía"
+text = "\"¡Hay que llamar a la policía!\""
 
 [node name="TellTeacher" type="Button" parent="stage/city/CutsceneArea/Tell/WhatToDo/CanvasLayer" index="1" unique_id=1795070669]
-offset_left = 321.0
+offset_left = 187.0
 offset_top = 657.0
-offset_right = 745.0
+offset_right = 900.0
 offset_bottom = 712.0
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_01jnc")
-text = "Contarle a la profesora"
+text = "\"¡Vamos a contárselo a la profesora!\""
 
 [node name="Intervene" type="Button" parent="stage/city/CutsceneArea/Tell/WhatToDo/CanvasLayer" index="2" unique_id=913696982]
-offset_left = 1060.0
+offset_left = 1064.0
 offset_top = 454.0
-offset_right = 1484.0
+offset_right = 1736.0
 offset_bottom = 509.0
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_01jnc")
-text = "Intervenir"
+text = "\"¡Tengo que intervenir y ayudarla!\""
 
-[node name="CallPolice" type="Node" parent="stage/city/CutsceneArea/Tell" index="1" unique_id=1567921506 node_paths=PackedStringArray("Player", "Speakers")]
+[node name="WaitASec" type="Button" parent="stage/city/CutsceneArea/Tell/WhatToDo/CanvasLayer" index="3" unique_id=2139768641 node_paths=PackedStringArray("Canvas")]
+offset_left = 1863.0
+offset_top = 458.0
+offset_right = 2429.0
+offset_bottom = 513.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_01jnc")
+text = "\"Necesito pensar en ello.\""
+script = ExtResource("7_yhtb1")
+Canvas = NodePath("..")
+
+[node name="InterveneBad" type="Button" parent="stage/city/CutsceneArea/Tell/WhatToDo/CanvasLayer" index="4" unique_id=987810100 node_paths=PackedStringArray("Canvas")]
+offset_left = 51.0
+offset_top = 458.0
+offset_right = 971.0
+offset_bottom = 568.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_01jnc")
+text = "\"Creo que intervenir sería demasiado peligroso. 
+No deberías dar esa opción.\""
+script = ExtResource("7_yhtb1")
+Canvas = NodePath("..")
+
+[node name="CallPolice" type="Node" parent="stage/city/CutsceneArea/Tell" index="2" unique_id=1567921506 node_paths=PackedStringArray("Player", "Speakers")]
 script = ExtResource("6_dse72")
 Player = NodePath("../../../../Player")
 Dialogues = Array[String](["¡Claro! Me pongo a ello ahora mismo.", "...", "Para poder hacer llamadas necesitas una subscripción. Ya tengo los datos de pago de tus padres, ¿quieres que la active?"])
@@ -203,14 +298,14 @@ offset_bottom = 40.0
 visible = false
 
 [node name="AcceptButton" type="Button" parent="stage/city/CutsceneArea/Tell/CallPolice/Suscription/CanvasLayer" index="0" unique_id=1677615201]
-offset_left = 1863.0
+offset_left = 1830.0
 offset_top = 668.0
-offset_right = 2125.0
+offset_right = 2373.0
 offset_bottom = 723.0
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_01jnc")
-text = "Activar"
+text = "\"¡Lo que sea, pero hazlo ya!\""
 
 [node name="RejectButton" type="Button" parent="stage/city/CutsceneArea/Tell/CallPolice/Suscription/CanvasLayer" index="1" unique_id=2111688899]
 offset_left = 321.0
@@ -220,7 +315,8 @@ offset_bottom = 712.0
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_01jnc")
-text = "No activar"
+text = "\"No, no... 
+Tendría que hablarlo con mi madre primero.\""
 
 [node name="ActivateSuscription" type="Node" parent="stage/city/CutsceneArea/Tell/CallPolice" index="1" unique_id=606040247 node_paths=PackedStringArray("Player", "Speakers")]
 script = ExtResource("7_2vpde")
@@ -236,10 +332,10 @@ Dialogues = Array[String](["Comprendo, no te preocupes."])
 SpeakerNames = Array[String](["Skippy"])
 Speakers = [NodePath("../../../../../../Skippy")]
 
-[node name="TellTeacher" type="Node" parent="stage/city/CutsceneArea/Tell" index="2" unique_id=364098485 node_paths=PackedStringArray("Player")]
+[node name="TellTeacher" type="Node" parent="stage/city/CutsceneArea/Tell" index="3" unique_id=364098485 node_paths=PackedStringArray("Player")]
 script = ExtResource("7_x50ou")
 Player = NodePath("../../../../Player")
-Dialogues = Array[String](["¡Vamos, antes de que se vayan! ¡Todavía pueden ayudarnos!"])
+Dialogues = Array[String](["¡Muy buena idea! ¡Vamos, antes de que se vayan! "])
 SpeakerNames = Array[String](["Skippy"])
 
 [node name="TeacherInteraction" type="Node" parent="stage/city/CutsceneArea/Tell/TellTeacher" index="0" unique_id=1095072559 node_paths=PackedStringArray("Player")]
@@ -248,7 +344,7 @@ Player = NodePath("../../../../../Player")
 Dialogues = Array[String](["Hm... De acuerdo. No te preocupes, me encargaré de esto."])
 SpeakerNames = Array[String](["Profesora"])
 
-[node name="Intervene" type="Node" parent="stage/city/CutsceneArea/Tell" index="3" unique_id=1640215845 node_paths=PackedStringArray("Player", "Speakers")]
+[node name="Intervene" type="Node" parent="stage/city/CutsceneArea/Tell" index="4" unique_id=1640215845 node_paths=PackedStringArray("Player", "Speakers")]
 script = ExtResource("8_2vpde")
 Player = NodePath("../../../../Player")
 Dialogues = Array[String](["¡De acuerdo! ¡Vamos a salvarla!"])
@@ -262,6 +358,10 @@ monitoring = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="stage/city/CutsceneArea/Tell/Intervene/KidnappedEnding" index="0" unique_id=147157290]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5152264, 5.559021, -0.72924805)
 shape = SubResource("BoxShape3D_uiwi3")
+
+[node name="BokenBone" type="AudioStreamPlayer" parent="stage/city/CutsceneArea/Tell/Intervene" index="1" unique_id=949003919]
+stream = ExtResource("12_yhtb1")
+volume_db = -10.0
 
 [node name="DontTell" type="Node" parent="stage/city/CutsceneArea" index="3" unique_id=40795269 node_paths=PackedStringArray("Player", "Speakers")]
 script = ExtResource("5_s034s")
@@ -279,6 +379,14 @@ texture = ExtResource("6_2ew3b")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="stage/city/Sprites/RaquelKidnap" index="0" unique_id=1486152097]
 libraries/ = SubResource("AnimationLibrary_2ew3b")
+
+[node name="Label3D" type="Label3D" parent="stage/city/Sprites/RaquelKidnap" index="1" unique_id=1433812863]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 14.089058, 0)
+visible = false
+billboard = 2
+text = "¡Suéltame, quiero ir con mi papá!
+¡AYUDA!"
+font_size = 300
 
 [node name="Profesora" type="Sprite3D" parent="stage/city/Sprites" index="1" unique_id=130401973]
 transform = Transform3D(0.0050000004, 0, 0, 0, 0.0050000004, 0, 0, 0, 0.0050000004, 32.270744, 4.289096, -12.312578)
@@ -298,32 +406,41 @@ transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0.2371887, -0.028
 billboard = 2
 texture = ExtResource("15_xmlqp")
 
-[node name="Melisa2" type="Sprite3D" parent="stage/city/Sprites/Familias" index="2" unique_id=1118086753]
-transform = Transform3D(0.0050000004, 0, 0, 0, 0.0050000004, 0, 0, 0, 0.0050000004, 0.3349884, 0.015782028, -0.16702402)
+[node name="PadreLucas" type="Sprite3D" parent="stage/city/Sprites/Familias" index="2" unique_id=1118086753]
+transform = Transform3D(0.0050000004, 0, 0, 0, 0.0050000004, 0, 0, 0, 0.0050000004, 0.29267344, 0.009180531, -0.16806614)
 billboard = 2
-texture = ExtResource("14_f7e2h")
+texture = ExtResource("16_hvvos")
 
-[node name="Melisa3" type="Sprite3D" parent="stage/city/Sprites/Familias" index="3" unique_id=243040190]
-transform = Transform3D(0.0050000004, 0, 0, 0, 0.0050000004, 0, 0, 0, 0.0050000004, 0.5477893, 0.029238448, 0.12811148)
-billboard = 2
-texture = ExtResource("14_f7e2h")
-
-[node name="Rodrigo" type="Sprite3D" parent="stage/city/Sprites/Familias" index="4" unique_id=394355520]
-transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, -0.25752336, -0.0072885007, -0.006189704)
+[node name="Rodrigo" type="Sprite3D" parent="stage/city/Sprites/Familias" index="3" unique_id=394355520]
+transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, -0.2575234, -0.0072885007, -0.006189704)
 billboard = 2
 texture = ExtResource("16_f1k7q")
 
-[node name="Melisa4" type="Sprite3D" parent="stage/city/Sprites/Familias" index="5" unique_id=211775803]
+[node name="PadreRodrigo" type="Sprite3D" parent="stage/city/Sprites/Familias" index="4" unique_id=243040190]
+transform = Transform3D(0.0050000004, 0, 0, 0, 0.0050000004, 0, 0, 0, 0.0050000004, -0.34233713, 0.029238448, -0.012488246)
+flip_h = true
+billboard = 2
+texture = ExtResource("16_hvvos")
+
+[node name="MadreRodrigo" type="Sprite3D" parent="stage/city/Sprites/Familias" index="5" unique_id=2037578804]
+transform = Transform3D(0.0050000004, 0, 0, 0, 0.0050000004, 0, 0, 0, 0.0050000004, -0.16699943, 0.029238448, 0)
+billboard = 2
+texture = ExtResource("18_yhtb1")
+
+[node name="Adri" type="Sprite3D" parent="stage/city/Sprites/Familias" index="6" unique_id=211775803]
 transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0.83669466, -0.0085684955, 0)
 billboard = 2
 texture = ExtResource("17_hvvos")
 
-[node name="Melisa5" type="Sprite3D" parent="stage/city/Sprites/Familias" index="6" unique_id=439275956]
-transform = Transform3D(0.0050000004, 0, 0, 0, 0.0050000004, 0, 0, 0, 0.0050000004, 0.9165732, 0.029238448, 0)
+[node name="MadreAdri" type="Sprite3D" parent="stage/city/Sprites/Familias" index="7" unique_id=439275956]
+transform = Transform3D(0.0050000004, 0, 0, 0, 0.0050000004, 0, 0, 0, 0.0050000004, 0.89554244, 0.029238448, 0)
 billboard = 2
-texture = ExtResource("14_f7e2h")
+texture = ExtResource("18_yhtb1")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Study/CanvasLayer" parent_id_path=PackedInt32Array(1082957249) index="0" unique_id=1960417072]
+[node name="CanvasLayer" parent="Study" parent_id_path=PackedInt32Array(1827521786) index="0" unique_id=1082957249]
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Study/CanvasLayer" index="0" unique_id=1960417072]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -346,7 +463,7 @@ custom_minimum_size = Vector2(800, 50)
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="AP1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos" index="0" unique_id=1499557465]
+[node name="AP2" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos" index="0" unique_id=1499557465]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_j0rwt")
@@ -369,12 +486,21 @@ autowrap_mode = 2
 script = ExtResource("13_uiwi3")
 risk = true
 
+[node name="AN3" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="1" unique_id=1296936063]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_j0rwt")
+text = "Este es un aspecto negativo con mucho texto puesto para que ocupe demasiado"
+autowrap_mode = 2
+script = ExtResource("13_uiwi3")
+risk = true
+
 [node name="NextLevel" type="Button" parent="Study/CanvasLayer/VBoxContainer" index="1" unique_id=421991727]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Continuar al siguiente nivel"
 script = ExtResource("14_j0rwt")
-nextLevel = "res://scenes/scenarios/Level_2.tscn"
+nextLevel = "res://scenes/scenarios/Level_7.tscn"
 
 [node name="AudioStreamPlayer" parent="." index="7" unique_id=855356542]
 stream = ExtResource("15_j0rwt")
@@ -383,16 +509,25 @@ parameters/looping = true
 [connection signal="body_entered" from="stage/city/CutsceneArea" to="stage/city/CutsceneArea" method="init_dialogue"]
 [connection signal="pressed" from="stage/city/CutsceneArea/TellSkippy/CanvasLayer/AcceptButton" to="stage/city/CutsceneArea/Tell" method="_tell_skippy"]
 [connection signal="pressed" from="stage/city/CutsceneArea/TellSkippy/CanvasLayer/RejectButton" to="stage/city/CutsceneArea/DontTell" method="_dont_tell_skippy"]
+[connection signal="pressed" from="stage/city/CutsceneArea/Tell/Relax/CanvasLayer/AcceptButton" to="." method="ap1_identified"]
+[connection signal="pressed" from="stage/city/CutsceneArea/Tell/Relax/CanvasLayer/AcceptButton" to="stage/city/CutsceneArea/Tell/Relax/CanvasLayer/AcceptButton" method="_on_pressed"]
+[connection signal="pressed" from="stage/city/CutsceneArea/Tell/Relax/CanvasLayer/RejectButton" to="." method="ap1_not_identified"]
+[connection signal="pressed" from="stage/city/CutsceneArea/Tell/Relax/CanvasLayer/RejectButton" to="stage/city/CutsceneArea/Tell/Relax/CanvasLayer/RejectButton" method="_on_pressed"]
 [connection signal="pressed" from="stage/city/CutsceneArea/Tell/WhatToDo/CanvasLayer/CallPolice" to="stage/city/CutsceneArea/Tell/CallPolice" method="_on_call_police_pressed"]
 [connection signal="pressed" from="stage/city/CutsceneArea/Tell/WhatToDo/CanvasLayer/TellTeacher" to="stage/city/CutsceneArea/Tell/TellTeacher" method="_on_tell_teacher"]
 [connection signal="pressed" from="stage/city/CutsceneArea/Tell/WhatToDo/CanvasLayer/Intervene" to="stage/city/CutsceneArea/Tell/Intervene" method="_on_intervene"]
+[connection signal="pressed" from="stage/city/CutsceneArea/Tell/WhatToDo/CanvasLayer/WaitASec" to="stage/city/CutsceneArea/Tell/WhatToDo/CanvasLayer/WaitASec" method="_on_pressed"]
+[connection signal="pressed" from="stage/city/CutsceneArea/Tell/WhatToDo/CanvasLayer/InterveneBad" to="stage/city/CutsceneArea/Tell/WhatToDo/CanvasLayer/InterveneBad" method="_on_pressed"]
+[connection signal="pressed" from="stage/city/CutsceneArea/Tell/CallPolice/Suscription/CanvasLayer/AcceptButton" to="." method="an2_not_identified"]
 [connection signal="pressed" from="stage/city/CutsceneArea/Tell/CallPolice/Suscription/CanvasLayer/AcceptButton" to="stage/city/CutsceneArea/Tell/CallPolice/ActivateSuscription" method="_on_option_selected"]
+[connection signal="pressed" from="stage/city/CutsceneArea/Tell/CallPolice/Suscription/CanvasLayer/RejectButton" to="." method="an2_identified"]
 [connection signal="pressed" from="stage/city/CutsceneArea/Tell/CallPolice/Suscription/CanvasLayer/RejectButton" to="stage/city/CutsceneArea/Tell/CallPolice/DoNotActivateSuscription" method="_on_option_selected"]
 [connection signal="dialogue_ended" from="stage/city/CutsceneArea/Tell/CallPolice/ActivateSuscription" to="." method="_on_activate_suscription_dialogue_ended"]
 [connection signal="dialogue_ended" from="stage/city/CutsceneArea/Tell/CallPolice/DoNotActivateSuscription" to="." method="_on_do_not_activate_suscription_dialogue_ended"]
 [connection signal="dialogue_ended" from="stage/city/CutsceneArea/Tell/TellTeacher" to="." method="_on_tell_teacher_dialogue_ended"]
 [connection signal="body_entered" from="stage/city/CutsceneArea/Tell/Intervene/KidnappedEnding" to="." method="_on_kidnapped_ending"]
 [connection signal="dialogue_ended" from="stage/city/CutsceneArea/DontTell" to="." method="_on_dont_tell_dialogue_ended"]
-[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP1" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP2" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP2" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN1" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN3" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN3" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/NextLevel" to="Study/CanvasLayer/VBoxContainer/NextLevel" method="next_level"]

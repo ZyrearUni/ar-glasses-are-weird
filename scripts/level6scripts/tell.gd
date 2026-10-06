@@ -7,9 +7,11 @@ func _tell_skippy() -> void:
 	speak()
 
 func end_dialogue():
-	for speaker in Speakers:
-		speaker.hide()
-	CurrentDialogue = -1
-	DialogueUI.get_node("ContinueButton").disabled = true
-	$WhatToDo/CanvasLayer.show()
+	if (!Dialogues.is_empty()):
+		Dialogues = []
+		for speaker in Speakers:
+			speaker.hide()
+		CurrentDialogue = -1
+		DialogueUI.get_node("ContinueButton").disabled = true
+		$Relax/CanvasLayer.show()
 	

@@ -5,9 +5,10 @@ var dialogue_finished = false
 func init_dialogue(body : Node3D):
 	if body == Player:
 		$CollisionShape3D.disabled = true
-		Player.look_at_somewhere($"../RaquelKidnap/".global_position)
-		await get_tree().create_timer(0.5).timeout
-		$"../RaquelKidnap/AnimationPlayer".play("WalkAway")
+		Player.look_at_somewhere($"../Sprites/RaquelKidnap".global_position)
+		await get_tree().create_timer(0.2).timeout
+		$"../Sprites/RaquelKidnap/AnimationPlayer".play("WalkAway")
+		await get_tree().create_timer(0.3).timeout
 		speak()
 
 func end_dialogue():
