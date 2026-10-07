@@ -81,10 +81,11 @@ texture = ExtResource("6_ph46x")
 script = ExtResource("8_fqv0n")
 Player = NodePath("../../Player")
 
-[node name="LunchDialogue" type="Node3D" parent="stage/house" index="119" unique_id=1652003222 node_paths=PackedStringArray("Player")]
+[node name="LunchDialogue" type="Node3D" parent="stage/house" index="119" unique_id=1652003222 node_paths=PackedStringArray("Player", "Speakers")]
 transform = Transform3D(-0.022390684, 0, 0.9997493, 0, 1, 0, -0.9997493, 0, -0.022390684, -3.5101185, 0, -4.4303446)
 script = ExtResource("9_fqv0n")
 Player = NodePath("../../Player")
+Speakers = [NodePath("../../../Mamá")]
 
 [node name="Mom2" type="Sprite3D" parent="stage/house" index="120" unique_id=699030035]
 transform = Transform3D(0.08500009, 0, 6.9849193e-10, 0, 0.085, 0, -6.9849193e-10, 0, 0.08500009, -1.7555418, 1.7387407, -6.755571)

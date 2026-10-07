@@ -8,9 +8,11 @@ func next_scene():
 	await fade.fade_from_black()
 	speak()
 
-func _end_dialogue():
-	for speaker in Speakers:
-		speaker.hide()
-	CurrentDialogue = -1
-	DialogueUI.get_node("ContinueButton").disabled = true
-	$FirstDecision/CanvasLayer.show()
+func end_dialogue():
+	if (!Dialogues.is_empty()):
+		Dialogues = []
+		for speaker in Speakers:
+			speaker.hide()
+		CurrentDialogue = -1
+		DialogueUI.get_node("ContinueButton").disabled = true
+		$FirstDecision/CanvasLayer.show()

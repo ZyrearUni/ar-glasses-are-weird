@@ -9,11 +9,13 @@ func _on_reject_help():
 	speak()
 
 func end_dialogue():
-	if newOptions != null:
-		for speaker in Speakers:
-			speaker.hide()
-		CurrentDialogue = -1
-		DialogueUI.get_node("ContinueButton").disabled = true
-		newOptions.show()
-	else:
-		super()
+	if (!Dialogues.is_empty()):
+		Dialogues = []
+		if newOptions != null:
+			for speaker in Speakers:
+				speaker.hide()
+			CurrentDialogue = -1
+			DialogueUI.get_node("ContinueButton").disabled = true
+			newOptions.show()
+		else:
+			super()

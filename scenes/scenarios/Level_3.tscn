@@ -339,6 +339,7 @@ parameters/looping = true
 [connection signal="kid_interacted" from="stage/Schoolyard/Kid2" to="." method="_on_kid_interacted"]
 [connection signal="kid_interacted" from="stage/Schoolyard/Kid3" to="." method="_on_kid_interacted"]
 [connection signal="kid_interacted" from="stage/Schoolyard/Kid4" to="." method="_on_kid_interacted"]
+[connection signal="dialogue_ended" from="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/AcceptButton" to="." method="finish_level"]
 [connection signal="pressed" from="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/AcceptButton" to="." method="_an1v_not_identified"]
 [connection signal="pressed" from="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/AcceptButton" to="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/AcceptButton" method="_on_pressed"]
 [connection signal="pressed" from="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/RejectButton" to="." method="_an1v_identified"]
