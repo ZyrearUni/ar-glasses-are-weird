@@ -118,11 +118,12 @@ shape = SubResource("SphereShape3D_8c8hr")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="stage/InteractableTest/CollisionShape3D" unique_id=1416183273]
 mesh = SubResource("SphereMesh_36fji")
 
-[node name="InteractableTest2" type="StaticBody3D" parent="stage" unique_id=87345233]
+[node name="InteractableTest2" type="StaticBody3D" parent="stage" unique_id=87345233 node_paths=PackedStringArray("Player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.200242, 0.7766471, 2.825393)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("5_3w2de")
+Player = NodePath("../Player")
 Dialogues = Array[String](["TU MADRE TIENE UNA POLLA QUE YA LA QUISIERA YO"])
 SpeakerNames = Array[String](["Puta cápsula de mierda"])
 
@@ -136,13 +137,15 @@ mesh = SubResource("CapsuleMesh_3w2de")
 [node name="TalkAnimation" type="AnimationPlayer" parent="stage/InteractableTest2" unique_id=1531887483]
 libraries/ = SubResource("AnimationLibrary_1rl21")
 
-[node name="ZaiTest" parent="stage" unique_id=759215246 instance=ExtResource("6_1rl21")]
+[node name="ZaiTest" parent="stage" unique_id=759215246 node_paths=PackedStringArray("Player") instance=ExtResource("6_1rl21")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4308977, 0, 4.503403)
+Player = NodePath("../Player")
 
-[node name="DialogueArea" parent="stage" unique_id=896973546 instance=ExtResource("7_a8bby")]
+[node name="DialogueArea" parent="stage" unique_id=896973546 node_paths=PackedStringArray("Player") instance=ExtResource("7_a8bby")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4.267564, 0.055223107, 7.2471957)
+Player = NodePath("../Player")
 Dialogues = Array[String](["What am I doing here?"])
-SpeakerNames = Array[String](["You"])
+SpeakerNames = Array[String](["Tú"])
 
 [node name="DialogueUI" parent="." unique_id=635654561 instance=ExtResource("6_g37hf")]
 

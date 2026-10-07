@@ -23,7 +23,6 @@ func help_accepted():
 
 func save_test_results(value):
 	print(value)
-	save_game_data(QUESTIONS_ANSWERED_CORRECTLY + str(value) + "preguntas\n")
 	if(accept_help):
 		speak()
 

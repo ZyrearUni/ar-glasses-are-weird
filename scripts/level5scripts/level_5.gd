@@ -35,7 +35,7 @@ func on_valor_elegido(valor) -> void:
 
 
 func _on_range_0_level_finish() -> void:
-	save_game_data("NO_WOUND")
+	save_game_data(NO_WOUND)
 	finish_level()
 
 

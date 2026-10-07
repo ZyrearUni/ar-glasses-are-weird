@@ -20,8 +20,6 @@ var selectedTalking = false
 
 func _ready() -> void:
 	DialogueUI.get_node("ContinueButton").connect("pressed", Callable(self, "continue_dialogue"))
-	while (SpeakerAnimations.size() < Dialogues.size()):
-		SpeakerAnimations.append(DEFAULT_SPEAK_ANIMATION)
 
 func speak():
 	DialogueUI.visible = true
@@ -29,8 +27,11 @@ func speak():
 	for speaker in Speakers:
 		speaker.show()
 	selectedTalking = true
+	while (SpeakerAnimations.size() < Dialogues.size()):
+		SpeakerAnimations.append(DEFAULT_SPEAK_ANIMATION)
 	continue_dialogue()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
 
 
 func end_dialogue():
@@ -52,8 +53,9 @@ func continue_dialogue() :
 			SpeakerName.text = "[b]" + SpeakerNames[CurrentDialogue] 
 			
 			for speaker in Speakers:
-				if (speaker.get_name() == SpeakerNames[CurrentDialogue]):
-					speaker.play(SpeakerAnimations[CurrentDialogue])
+				if (SpeakerNames[CurrentDialogue] != "Tú"):
+					if (speaker.get_name() == SpeakerNames[CurrentDialogue]):
+						speaker.play(SpeakerAnimations[CurrentDialogue])
 				else:
 					speaker.play("RESET")
 			
@@ -61,3 +63,7 @@ func continue_dialogue() :
 			DialogueAnimation.play("TextScroll")
 		else:
 			end_dialogue()
+
+
+func add_speaker(speaker: Sprite2D):
+	Speakers.append(speaker)

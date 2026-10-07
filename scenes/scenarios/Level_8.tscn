@@ -8,11 +8,20 @@
 [ext_resource type="Script" uid="uid://bsv45inr24dxq" path="res://scripts/studymenuscripts/next_level.gd" id="5_oo0qm"]
 [ext_resource type="AudioStream" uid="uid://ckisr05qwrg3n" path="res://assets/sounds/music/House.mp3" id="6_oo0qm"]
 [ext_resource type="Texture2D" uid="uid://cvtlfdls23qt4" path="res://assets/sprites/Mom/momcook.png" id="6_ph46x"]
-[ext_resource type="Script" uid="uid://cj50m4a61k0cw" path="res://scripts/dialogue.gd" id="7_d6byv"]
+[ext_resource type="Script" uid="uid://b7k71qy31htug" path="res://scripts/speaking_button.gd" id="6_sdfkd"]
 [ext_resource type="PackedScene" uid="uid://b2dd1kcpxrtx3" path="res://scenes/models/characters/mom_2d.tscn" id="7_sdfkd"]
+[ext_resource type="Script" uid="uid://cqk5cjxhhj151" path="res://scripts/level8scripts/police_dark_dialogue.gd" id="8_fqv0n"]
+[ext_resource type="Script" uid="uid://d1sc0bfncde6p" path="res://scripts/level8scripts/lunch_dialogue.gd" id="9_fqv0n"]
+[ext_resource type="Texture2D" uid="uid://ddu0rmu32uk7n" path="res://assets/sprites/Mom/momsmile.png" id="10_mrsc4"]
 
-[node name="World" unique_id=1891132867 instance=ExtResource("1_4cax2")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fqv0n"]
+bg_color = Color(0.50853425, 0.33932856, 0.03818896, 1)
+
+[node name="World" unique_id=1891132867 node_paths=PackedStringArray("Player") instance=ExtResource("1_4cax2")]
 script = ExtResource("2_p0x1a")
+Player = NodePath("stage/Player")
+Dialogues = Array[String](["... Ay cariño, dame un abrazo."])
+SpeakerNames = Array[String](["Mamá"])
 
 [node name="house" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=1070711330 instance=ExtResource("3_35ti5")]
 transform = Transform3D(-0.022390684, 0, -0.9997493, 0, 1, 0, 0.9997493, 0, -0.022390684, 0.15270233, 0, -12.173288)
@@ -23,16 +32,68 @@ script = ExtResource("5_d6byv")
 Player = NodePath("../../Player")
 Speakers = [NodePath("../../../Mamá")]
 
+[node name="Decision" type="Control" parent="stage/house/DialogueArea" index="2" unique_id=1225227897]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="stage/house/DialogueArea/Decision" index="0" unique_id=1855245000]
+visible = false
+
+[node name="Tell" type="Button" parent="stage/house/DialogueArea/Decision/CanvasLayer" index="0" unique_id=239343580 node_paths=PackedStringArray("Player", "Speakers")]
+offset_left = 1718.0
+offset_top = 700.0
+offset_right = 2320.0
+offset_bottom = 755.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_fqv0n")
+text = "\"Creo que han secuestrado a Raquel...\""
+script = ExtResource("6_sdfkd")
+Player = NodePath("../../../../../Player")
+Dialogues = Array[String](["...", "¿Se lo has contado a alguien?"])
+SpeakerNames = Array[String](["Mamá", "Mamá"])
+Speakers = [NodePath("../../../../../../Mamá")]
+
+[node name="DontTell" type="Button" parent="stage/house/DialogueArea/Decision/CanvasLayer" index="1" unique_id=1971893163 node_paths=PackedStringArray("Player", "Speakers")]
+offset_left = 341.0
+offset_top = 700.0
+offset_right = 624.0
+offset_bottom = 755.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_fqv0n")
+text = "\"No sé si he hecho lo correcto y me preocupa
+que le haya pasado algo a Raquel\""
+script = ExtResource("6_sdfkd")
+Player = NodePath("../../../../../Player")
+Dialogues = Array[String](["Hm... ", "Bueno. Siéntate a la mesa y ahora hablamos, ¿vale?", "Así tengo tiempo de revisar la información que me llegó de tu amiguito virtual."])
+SpeakerNames = Array[String](["Mamá", "Mamá", "Mamá"])
+Speakers = [NodePath("../../../../../../Mamá")]
+
 [node name="Mom" type="Sprite3D" parent="stage/house" index="117" unique_id=724670315]
 transform = Transform3D(0.08500003, 0, 1.1641532e-10, 0, 0.085, 0, -1.1641532e-10, 0, 0.08500003, 1.6825151, 1.7387407, -6.279597)
 billboard = 2
 texture = ExtResource("6_ph46x")
 
-[node name="LunchDialogue" type="Node" parent="stage/house" index="118" unique_id=1312085363 node_paths=PackedStringArray("Player")]
-script = ExtResource("7_d6byv")
+[node name="PoliceDarkDialogue" type="Node" parent="stage/house" index="118" unique_id=1815027842 node_paths=PackedStringArray("Player")]
+script = ExtResource("8_fqv0n")
 Player = NodePath("../../Player")
 
+[node name="LunchDialogue" type="Node3D" parent="stage/house" index="119" unique_id=1652003222 node_paths=PackedStringArray("Player")]
+transform = Transform3D(-0.022390684, 0, 0.9997493, 0, 1, 0, -0.9997493, 0, -0.022390684, -3.5101185, 0, -4.4303446)
+script = ExtResource("9_fqv0n")
+Player = NodePath("../../Player")
+
+[node name="Mom2" type="Sprite3D" parent="stage/house" index="120" unique_id=699030035]
+transform = Transform3D(0.08500009, 0, 6.9849193e-10, 0, 0.085, 0, -6.9849193e-10, 0, 0.08500009, -1.7555418, 1.7387407, -6.755571)
+visible = false
+billboard = 2
+texture = ExtResource("10_mrsc4")
+
 [node name="Mamá" parent="." index="2" unique_id=160132573 instance=ExtResource("7_sdfkd")]
+visible = false
 
 [node name="CanvasLayer" parent="Study" parent_id_path=PackedInt32Array(1827521786) index="0" unique_id=1082957249]
 visible = false
@@ -59,4 +120,11 @@ nextLevel = "res://scenes/scenarios/credits_scene.tscn"
 stream = ExtResource("6_oo0qm")
 parameters/looping = true
 
+[connection signal="decision_allowed" from="." to="stage/house/DialogueArea" method="allow_decision"]
+[connection signal="dialogue_ended" from="stage/house/DialogueArea/Decision/CanvasLayer/Tell" to="stage/house/PoliceDarkDialogue" method="speak"]
+[connection signal="pressed" from="stage/house/DialogueArea/Decision/CanvasLayer/Tell" to="stage/house/DialogueArea/Decision/CanvasLayer/Tell" method="_on_pressed"]
+[connection signal="dialogue_ended" from="stage/house/DialogueArea/Decision/CanvasLayer/DontTell" to="stage/house/LunchDialogue" method="speak"]
+[connection signal="pressed" from="stage/house/DialogueArea/Decision/CanvasLayer/DontTell" to="stage/house/DialogueArea/Decision/CanvasLayer/DontTell" method="_on_pressed"]
+[connection signal="dialogue_ended" from="stage/house/PoliceDarkDialogue" to="." method="speak"]
+[connection signal="dialogue_ended" from="stage/house/LunchDialogue" to="." method="speak"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/NextLevel" to="Study/CanvasLayer/VBoxContainer/NextLevel" method="next_level"]

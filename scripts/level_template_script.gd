@@ -2,11 +2,11 @@ extends "res://scripts/dialogue.gd"
 
 signal level_start
 
+const CREDITS_SCENE = "res://scenes/scenarios/credits_scene.tscn"
 const SAVE_FILE = "user://saveFile.txt"
 var RESULT_FILE_DIR = OS.get_system_dir(OS.SYSTEM_DIR_DESKTOP) + "/resultados.txt"
 
 # Lista de valores posibles en el archivo de guardado
-
 # Nivel 1
 const ACCEPT_GAME = "Llega tarde\n"
 const REJECT_GAME = "Llega bien\n"
@@ -14,11 +14,10 @@ const REJECT_GAME = "Llega bien\n"
 # Nivel 2
 const ACCEPT_HELP_CLASS = "Acepta la ayuda de Skippy en clase\n"
 const REJECT_HELP_CLASS = "Rechaza la ayuda de Skippy en clase\n"
-const QUESTIONS_ANSWERED_CORRECTLY = "El jugador ha respondido correctamente: "
 
 # Nivel 3
 const RAQUEL_AWKWARD = "Raquel se extraña de tu actitud\n"
-# TODO otros finales
+const RAQUEL_FRIEND = "Raquel se vuelve tu amiga\n"
 
 # Nivel 5 (el nivel 4 no se guarda en el archivo)
 const NO_WOUND = "No se registra ninguna herida\n"
@@ -35,11 +34,8 @@ const TELL_TEACHER = "Le cuentas a la profesora sobre la situación de Raquel\n"
 const SKIPPY_OFF = "Skippy se apaga\n"
 const SKIPPY_ON = "Skippy se mantiene encendido\n"
 
-# Nivel 8
-
 
 @onready var fade = $fade
-
 
 
 # Called when the node enters the scene tree for the first time.
@@ -94,5 +90,7 @@ func add_explanation(explanation : String):
 
 # Acabar el juego
 func end_game():
-	# Cambiar a escena de créditos
-	pass
+	if(fade.modulate.a == 0.0):
+		fade.fade_to_black()
+	get_tree().change_scene_to_file(CREDITS_SCENE)
+	
