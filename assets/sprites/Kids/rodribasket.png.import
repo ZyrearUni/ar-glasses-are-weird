@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsbsy3qay7gjm"
-path.s3tc="res://.godot/imported/nene1.png-f67d7182944a76626e169ba7b588891e.s3tc.ctex"
+uid="uid://7gqiuf6gaybc"
+path.s3tc="res://.godot/imported/rodribasket.png-75773be67e1b17c4e48b5f4d7ba3a6cd.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/sprites/Kids/nene1.png"
-dest_files=["res://.godot/imported/nene1.png-f67d7182944a76626e169ba7b588891e.s3tc.ctex"]
+source_file="res://assets/sprites/Kids/rodribasket.png"
+dest_files=["res://.godot/imported/rodribasket.png-75773be67e1b17c4e48b5f4d7ba3a6cd.s3tc.ctex"]
 
 [params]
 

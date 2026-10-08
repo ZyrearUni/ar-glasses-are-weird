@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dpceadyhu78aj"]
 
 [ext_resource type="Texture2D" uid="uid://cu8yfyvqu8pbs" path="res://assets/sprites/Kids/adrihap.png" id="1_fkgex"]
-[ext_resource type="Texture2D" uid="uid://bqofhitwud67n" path="res://assets/sprites/Kids/nene3.png" id="1_lmdyd"]
+[ext_resource type="Texture2D" uid="uid://bqofhitwud67n" path="res://assets/sprites/Kids/adri.png" id="1_lmdyd"]
 [ext_resource type="Texture2D" uid="uid://lwqsoihesvrc" path="res://assets/sprites/Kids/adrisad.png" id="2_j7n2e"]
 [ext_resource type="Script" uid="uid://plms7gqrxn8f" path="res://scripts/2d_speaker_anim.gd" id="2_lmdyd"]
 

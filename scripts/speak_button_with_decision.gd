@@ -5,7 +5,6 @@ extends "res://scripts/speaking_button.gd"
 func end_dialogue():
 	if (!Dialogues.is_empty()):
 		Dialogues = []
-		$".".hide()
 		for speaker in Speakers:
 			speaker.hide()
 		CurrentDialogue = -1

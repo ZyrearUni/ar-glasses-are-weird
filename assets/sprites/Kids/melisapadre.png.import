@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://buoqtq0vxajm5"
-path.s3tc="res://.godot/imported/nene2padre.png-376658c775e21165cc3fbb8ee4524e03.s3tc.ctex"
+path.s3tc="res://.godot/imported/melisapadre.png-f9e71c92421e014f20f295ff6057c5db.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/sprites/Kids/nene2padre.png"
-dest_files=["res://.godot/imported/nene2padre.png-376658c775e21165cc3fbb8ee4524e03.s3tc.ctex"]
+source_file="res://assets/sprites/Kids/melisapadre.png"
+dest_files=["res://.godot/imported/melisapadre.png-f9e71c92421e014f20f295ff6057c5db.s3tc.ctex"]
 
 [params]
 

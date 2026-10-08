@@ -12,7 +12,8 @@ func end_dialogue():
 			speaker.hide()
 		CurrentDialogue = -1
 		DialogueUI.get_node("ContinueButton").disabled = true
-		$DecisionTree/SliderDecision.show()
+		$DecisionTree/CouldHaveAsked/CanvasLayer.show()
+
 
 func on_valor_elegido(valor) -> void:
 	$DecisionTree/SliderDecision.hide()
@@ -39,5 +40,25 @@ func _on_range_0_level_finish() -> void:
 	finish_level()
 
 
-func _on_visit_teacher_ending_level_finish() -> void:
-	pass # Replace with function body.
+func _an2_identified() -> void:
+	identify_aspect("Falta de Consentimiento")
+
+
+func _an2_not_identified():
+	failed_identify_aspect("Falta de Consentimiento")
+
+
+func _an3_identified():
+	identify_aspect("Diseño adictivo")
+
+
+func _an3_not_identified():
+	failed_identify_aspect("Diseño adictivo")
+
+
+func _an4_identified():
+	identify_aspect("Sobreconfianza en la IA")
+
+
+func _an4_not_identified():
+	failed_identify_aspect("Sobreconfianza en la IA")

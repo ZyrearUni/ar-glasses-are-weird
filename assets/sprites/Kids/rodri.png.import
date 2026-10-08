@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xo58bfjg1e6g"
-path.s3tc="res://.godot/imported/nene2.png-ee48f9340ebd8110b2bec38625f1a82e.s3tc.ctex"
+uid="uid://dsbsy3qay7gjm"
+path.s3tc="res://.godot/imported/rodri.png-feade49f3e576916d47b8a038328e7fd.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/sprites/Kids/nene2.png"
-dest_files=["res://.godot/imported/nene2.png-ee48f9340ebd8110b2bec38625f1a82e.s3tc.ctex"]
+source_file="res://assets/sprites/Kids/rodri.png"
+dest_files=["res://.godot/imported/rodri.png-feade49f3e576916d47b8a038328e7fd.s3tc.ctex"]
 
 [params]
 

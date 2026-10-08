@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cj50m4a61k0cw" path="res://scripts/dialogue.gd" id="1_dvjor"]
 [ext_resource type="Texture2D" uid="uid://b8g1yws3aoex7" path="res://assets/textures/cahara_zai.png" id="2_574kw"]
-[ext_resource type="Texture2D" uid="uid://cs5x7f57wfguy" path="res://assets/sprites/Kids/nene4.png" id="2_xf51m"]
+[ext_resource type="Texture2D" uid="uid://cs5x7f57wfguy" path="res://assets/sprites/Kids/lucas.png" id="2_xf51m"]
 [ext_resource type="Texture2D" uid="uid://cdygtbfp7btrp" path="res://assets/textures/Silly Chibi Zai.png" id="3_xf51m"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a8bby"]

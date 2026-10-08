@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqofhitwud67n"
-path.s3tc="res://.godot/imported/nene3.png-b8dbf1e2e5abc6ac6b82163845f0c501.s3tc.ctex"
+uid="uid://cs5x7f57wfguy"
+path.s3tc="res://.godot/imported/lucas.png-486e57a7cf3a0fcec0f44a8b1114ebc4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/sprites/Kids/nene3.png"
-dest_files=["res://.godot/imported/nene3.png-b8dbf1e2e5abc6ac6b82163845f0c501.s3tc.ctex"]
+source_file="res://assets/sprites/Kids/lucas.png"
+dest_files=["res://.godot/imported/lucas.png-486e57a7cf3a0fcec0f44a8b1114ebc4.s3tc.ctex"]
 
 [params]
 

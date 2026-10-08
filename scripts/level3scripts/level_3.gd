@@ -6,10 +6,10 @@ const MAX_INTERACTIONS = 2
 
 signal next_scene
 
-func _start():
-	fade.fade_from_black()
-	level_start.emit()
+func _ready():
+	super()
 	scenario_distinction("Escenario 3:")
+	$stage/Schoolyard/Rodrigo.get_node("Sprite3D").texture = load("res://assets/sprites/Kids/rodribasket.png")
 
 
 func _max_interactions_reached():
@@ -22,18 +22,25 @@ func _on_kid_interacted() -> void:
 	interactions += 1
 	_max_interactions_reached()
 
+func _raquel_is_friend():
+	save_game_data(RAQUEL_FRIEND)
 
-func _an1v_not_identified() -> void:
+
+func _raquel_awkward():
+	save_game_data(RAQUEL_AWKWARD)
+
+
+func _an1_not_identified() -> void:
 	failed_identify_aspect("Diseño que conlleva una pérdida de valores")
 
 
-func _an1v_identified() -> void:
+func _an1_identified() -> void:
 	identify_aspect("Diseño que conlleva una pérdida de valores")
 	
 
-func _an2v_not_identified() -> void:
+func _an2_not_identified() -> void:
 	failed_identify_aspect("Manipulación")
 
 
-func _an2v_identified() -> void:
+func _an2_identified() -> void:
 	identify_aspect("Manipulación")

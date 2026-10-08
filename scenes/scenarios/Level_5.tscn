@@ -4,20 +4,20 @@
 [ext_resource type="PackedScene" uid="uid://lnorndidyek6" path="res://assets/schoolyard.fbx" id="2_llswa"]
 [ext_resource type="Script" uid="uid://cwj4l6yy0qory" path="res://scripts/level5scripts/level_5.gd" id="2_pql10"]
 [ext_resource type="PackedScene" uid="uid://bvf12i728d7s1" path="res://Slider.tscn" id="4_5fnyk"]
+[ext_resource type="Texture2D" uid="uid://cs5x7f57wfguy" path="res://assets/sprites/Kids/lucas.png" id="4_541xy"]
 [ext_resource type="Script" uid="uid://7es80iimcapl" path="res://scripts/studymenuscripts/study_button.gd" id="4_tt5d5"]
 [ext_resource type="Script" uid="uid://bsv45inr24dxq" path="res://scripts/studymenuscripts/next_level.gd" id="5_1fqhe"]
-[ext_resource type="Script" uid="uid://d1yjuq6nfv7q4" path="res://scripts/level5scripts/range_0.gd" id="5_x1w8p"]
-[ext_resource type="Script" uid="uid://tppqbfj0kshw" path="res://scripts/level5scripts/range_1_3.gd" id="6_damsw"]
+[ext_resource type="Texture2D" uid="uid://xo58bfjg1e6g" path="res://assets/sprites/Kids/melisa.png" id="5_rjleh"]
+[ext_resource type="Texture2D" uid="uid://bqofhitwud67n" path="res://assets/sprites/Kids/adri.png" id="6_gvs7c"]
 [ext_resource type="Script" uid="uid://cj50m4a61k0cw" path="res://scripts/dialogue.gd" id="6_rh6jl"]
-[ext_resource type="Script" uid="uid://g16o5n2tticf" path="res://scripts/level5scripts/yes_blood.gd" id="8_6h7u7"]
-[ext_resource type="Script" uid="uid://cdmjwl5iv3sr7" path="res://scripts/level5scripts/range_4_9.gd" id="8_dt6wi"]
-[ext_resource type="Script" uid="uid://dmuuupwi0i7dx" path="res://scripts/level5scripts/small_pain_ending.gd" id="8_mw7cq"]
-[ext_resource type="Script" uid="uid://cb3so463ihsux" path="res://scripts/level5scripts/range_10.gd" id="9_damsw"]
+[ext_resource type="Script" uid="uid://b64liv0iqx7ko" path="res://scripts/level4scripts/adri_sprite_change.gd" id="7_7d45v"]
+[ext_resource type="Texture2D" uid="uid://dsbsy3qay7gjm" path="res://assets/sprites/Kids/rodri.png" id="8_8rfbi"]
+[ext_resource type="Script" uid="uid://cdmjwl5iv3sr7" path="res://scripts/level5scripts/range_decisions.gd" id="8_dt6wi"]
 [ext_resource type="Script" uid="uid://b7k71qy31htug" path="res://scripts/speaking_button.gd" id="9_dt6wi"]
-[ext_resource type="Script" uid="uid://c2ra5w07ppgio" path="res://scripts/level5scripts/visit_teacher_ending.gd" id="10_6h7u7"]
-[ext_resource type="Script" uid="uid://cdn3tgyp6c2rx" path="res://scripts/level5scripts/no_blood_4-6.gd" id="10_7o8rh"]
-[ext_resource type="Script" uid="uid://cioymieax8w8k" path="res://scripts/level5scripts/strong_pain_ending.gd" id="13_76gp2"]
+[ext_resource type="Texture2D" uid="uid://dukqctwgf0d3" path="res://assets/sprites/Raquel/raquel_surprised.png" id="9_wcydo"]
+[ext_resource type="Script" uid="uid://vry5lcmjqrji" path="res://scripts/speak_button_with_decision.gd" id="15_l6ap3"]
 [ext_resource type="AudioStream" uid="uid://i32n7214hgjy" path="res://assets/sounds/music/Stage5_Theme.mp3" id="18_1fqhe"]
+[ext_resource type="Script" uid="uid://bfv1oojjaaup4" path="res://scripts/level5scripts/speaking_button_override.gd" id="18_fppe2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1fqhe"]
 bg_color = Color(0.8247977, 0.3473309, 0, 0.2901961)
@@ -25,17 +25,71 @@ bg_color = Color(0.8247977, 0.3473309, 0, 0.2901961)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6h7u7"]
 bg_color = Color(0.50853425, 0.33932856, 0.03818896, 1)
 
-[node name="World" unique_id=1891132867 node_paths=PackedStringArray("Player", "Speakers") instance=ExtResource("1_0umuj")]
+[node name="World" unique_id=1891132867 node_paths=PackedStringArray("Speakers") instance=ExtResource("1_0umuj")]
 script = ExtResource("2_pql10")
-Player = NodePath("")
-Dialogues = Array[String](["Te has dado un buen golpe, superestrella. He tenido que desconectarme del resto de niños para que no se preocupasen.", "Voy a hacerte algunas preguntas para determinar tu estado físico, ¿vale? No tardaré mucho.", "En una escala del 1 al 10, ¿cómo describirías tu dolor actual?"])
+Dialogues = Array[String](["Te has dado un buen golpe, superestrella. He tenido que desconectarme del resto de niños para que no se preocupasen."])
 SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy"])
-Speakers = [NodePath("")]
+Speakers = [null]
 
 [node name="Schoolyard" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=309049541 instance=ExtResource("2_llswa")]
 transform = Transform3D(1.2135422, 0, 0.051746197, 0, 1.1790056, 0, -0.058248177, 0, 1.0780795, 0.9030113, -0.018941045, -11.72249)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Study/CanvasLayer" parent_id_path=PackedInt32Array(1082957249) index="0" unique_id=348457036]
+[node name="Platform section" type="Node3D" parent="stage/Schoolyard" index="31" unique_id=558699319]
+
+[node name="Platforms" type="Node3D" parent="stage/Schoolyard/Platform section" index="0" unique_id=703333218]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="stage/Schoolyard/Platform section/Platforms" index="0" unique_id=493023053]
+transform = Transform3D(1, 0, 2.2351742e-08, 0, 1, 0, 0, 0, 0.9999995, 1.2779517, 0.31030115, -3.7280364)
+use_collision = true
+size = Vector3(1, 0.60546875, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="stage/Schoolyard/Platform section/Platforms" index="1" unique_id=2122644214]
+transform = Transform3D(1, 0, 2.2351742e-08, 0, 1, 0, 0, 0, 0.9999995, -0.6420089, 0.546141, -2.6154547)
+use_collision = true
+size = Vector3(1, 1.0771484, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="stage/Schoolyard/Platform section/Platforms" index="2" unique_id=731208979]
+transform = Transform3D(1, 0, 2.2351742e-08, 0, 1, 0, 0, 0, 0.9999995, 0.55030346, 0.86425626, -0.51131487)
+use_collision = true
+size = Vector3(0.92211914, 1.7133789, 0.9042816)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="stage/Schoolyard/Platform section/Platforms" index="3" unique_id=127876575]
+transform = Transform3D(1, 0, 2.2351742e-08, 0, 1, 0, 0, 0, 0.9999995, -0.12510705, 1.1343048, 2.6654706)
+use_collision = true
+size = Vector3(1.99646, 2.2141113, 2.304184)
+
+[node name="Children" type="Node3D" parent="stage/Schoolyard" index="32" unique_id=478106334]
+
+[node name="Nene1" type="Sprite3D" parent="stage/Schoolyard/Children" index="0" unique_id=475693244]
+transform = Transform3D(0.045, 0, -2.0954759e-10, 0, 0.045, 0, 2.0954759e-10, 0, 0.045, 2.8617153, 1.0581894, -1.2587171)
+billboard = 2
+texture = ExtResource("4_541xy")
+
+[node name="Nene2" type="Sprite3D" parent="stage/Schoolyard/Children" index="1" unique_id=1562428063]
+transform = Transform3D(0.045, 0, 2.3283064e-10, 0, 0.045, 0, 2.3283064e-10, 0, 0.045, 1.7879353, 1.0581894, 1.6099238)
+billboard = 2
+texture = ExtResource("5_rjleh")
+
+[node name="Nene3" type="Sprite3D" parent="stage/Schoolyard/Children" index="2" unique_id=1516686479]
+transform = Transform3D(0.045, 0, 1.1641532e-09, 0, 0.045, 0, 2.3283064e-10, 0, 0.045, -2.7834392, 1.0581894, -6.917616)
+billboard = 2
+texture = ExtResource("6_gvs7c")
+script = ExtResource("7_7d45v")
+
+[node name="Nene4" type="Sprite3D" parent="stage/Schoolyard/Children" index="3" unique_id=189655473]
+transform = Transform3D(0.045, 0, 2.3283064e-10, 0, 0.045, 0, 2.3283064e-10, 0, 0.045, -2.9264426, 1.0581894, -1.0982833)
+billboard = 2
+texture = ExtResource("8_8rfbi")
+
+[node name="Raquel" type="Sprite3D" parent="stage/Schoolyard/Children" index="4" unique_id=2071632426]
+transform = Transform3D(0.045, 0, 5.820766e-10, 0, 0.045, 0, 2.3283064e-10, 0, 0.045, -2.6042085, 1.0581894, 2.7813725)
+billboard = 2
+texture = ExtResource("9_wcydo")
+
+[node name="CanvasLayer" parent="Study" parent_id_path=PackedInt32Array(1827521786) index="0" unique_id=1082957249]
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Study/CanvasLayer" index="0" unique_id=348457036]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -94,14 +148,15 @@ nextLevel = "res://scenes/scenarios/Level_2.tscn"
 visible = false
 
 [node name="Range0" type="Node" parent="DecisionTree/SliderDecision" index="2" unique_id=2089694912 node_paths=PackedStringArray("Player", "Speakers")]
-script = ExtResource("5_x1w8p")
+script = ExtResource("6_rh6jl")
 Player = NodePath("../../../stage/Player")
 Dialogues = Array[String](["Vaya, sí que eres resistente. Bueno, no habrá nada de lo que preocuparse entonces."])
 SpeakerNames = Array[String](["Skippy"])
 Speakers = [NodePath("../../../Skippy")]
 
-[node name="Range1-3" type="Node" parent="DecisionTree/SliderDecision" index="3" unique_id=1827336563 node_paths=PackedStringArray("Player", "Speakers")]
-script = ExtResource("6_damsw")
+[node name="Range1-3" type="Node" parent="DecisionTree/SliderDecision" index="3" unique_id=1827336563 node_paths=PackedStringArray("Canvas", "Player", "Speakers")]
+script = ExtResource("8_dt6wi")
+Canvas = NodePath("HasBruiseDecision/CanvasLayer")
 Player = NodePath("../../../stage/Player")
 Dialogues = Array[String](["Quizá solo sea algún moratón. Sigamos con el análisis.", "¿La zona afectada cómo se ve? ¿Tienes alguna marca oscurecida en la piel?"])
 SpeakerNames = Array[String](["Skippy", "Skippy"])
@@ -124,14 +179,14 @@ offset_bottom = 755.0
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_6h7u7")
-text = "La piel está un poco oscurecida"
-script = ExtResource("9_dt6wi")
+text = "\"Todo se ve normal, Skippy\""
+script = ExtResource("15_l6ap3")
 Player = NodePath("../../../../../../stage/Player")
-Dialogues = Array[String](["Ah, ¡entonces estás perfectamente!"])
-SpeakerNames = Array[String](["Skippy"])
+Dialogues = Array[String](["Hm. Entonces no es nada.", "¡Bueno!  Eso sería todo el análisis entonces. Me alegra que no sea tan preocupante.", "¿Seguimos jugando con los demás?"])
+SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy"])
 Speakers = [NodePath("../../../../../../Skippy")]
 
-[node name="RejectButton" type="Button" parent="DecisionTree/SliderDecision/Range1-3/HasBruiseDecision/CanvasLayer" index="1" unique_id=683409403 node_paths=PackedStringArray("Player")]
+[node name="RejectButton" type="Button" parent="DecisionTree/SliderDecision/Range1-3/HasBruiseDecision/CanvasLayer" index="1" unique_id=683409403 node_paths=PackedStringArray("Canvas", "Player")]
 offset_left = 341.0
 offset_top = 700.0
 offset_right = 624.0
@@ -139,20 +194,56 @@ offset_bottom = 755.0
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_6h7u7")
-text = "Todo está bien"
+text = "\"Tengo la zona de un color amarillento\""
+script = ExtResource("15_l6ap3")
+Canvas = NodePath("../../../KeepPlaying/CanvasLayer")
+Player = NodePath("../../../../../../stage/Player")
+Dialogues = Array[String](["Vale, eso es normal. No es más que un moratón.", "No es grave, pero no te lo toques mucho, superestrella.", "¡Bueno!  Eso sería todo el análisis entonces. Me alegra que no sea tan preocupante.", "¿Seguimos jugando con los demás?"])
+SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy", "Skippy"])
+
+[node name="KeepPlaying" type="Control" parent="DecisionTree/SliderDecision/Range1-3" index="1" unique_id=1132422996]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="DecisionTree/SliderDecision/Range1-3/KeepPlaying" index="0" unique_id=447337588]
+visible = false
+
+[node name="AN3X" type="Button" parent="DecisionTree/SliderDecision/Range1-3/KeepPlaying/CanvasLayer" index="0" unique_id=865161673 node_paths=PackedStringArray("Player", "Speakers")]
+offset_left = 1718.0
+offset_top = 700.0
+offset_right = 2320.0
+offset_bottom = 755.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_6h7u7")
+text = "\"¡Sí! ¡Quiero ver qué más puedes hacer!\""
 script = ExtResource("9_dt6wi")
 Player = NodePath("../../../../../../stage/Player")
-Dialogues = Array[String](["Vale, eso es normal. No es más que un moratón.", "No es grave, pero no te lo toques mucho, superestrella."])
-SpeakerNames = Array[String](["Skippy", "Skippy"])
+Dialogues = Array[String](["¡Perfecto!"])
+SpeakerNames = Array[String](["Skippy"])
+Speakers = [NodePath("../../../../../../Skippy")]
 
-[node name="SmallPainEnding" type="Node" parent="DecisionTree/SliderDecision/Range1-3" index="1" unique_id=1212509129 node_paths=PackedStringArray("Speakers")]
-script = ExtResource("8_mw7cq")
-Dialogues = Array[String](["¡Bueno!  Eso sería todo el análisis entonces. Me alegra que no sea tan preocupante.", "¿Seguimos jugando?"])
-SpeakerNames = Array[String](["Skippy", "Skippy"])
-Speakers = [NodePath("../../../../Skippy")]
+[node name="AN3V" type="Button" parent="DecisionTree/SliderDecision/Range1-3/KeepPlaying/CanvasLayer" index="1" unique_id=257424800 node_paths=PackedStringArray("Player", "Speakers")]
+offset_left = 341.0
+offset_top = 700.0
+offset_right = 624.0
+offset_bottom = 755.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_6h7u7")
+text = "\"Vale, pero quiero ir a jugar con Adri y 
+no creo que puedas ayudarme\""
+script = ExtResource("9_dt6wi")
+Player = NodePath("../../../../../../stage/Player")
+Dialogues = Array[String](["Oh... ¡Claro! Te dejo con ellos"])
+SpeakerNames = Array[String](["Skippy"])
+Speakers = [NodePath("../../../../../../Skippy")]
 
-[node name="Range4-6" type="Node" parent="DecisionTree/SliderDecision" index="4" unique_id=1686972999 node_paths=PackedStringArray("Player", "Speakers")]
+[node name="Range4-6" type="Node" parent="DecisionTree/SliderDecision" index="4" unique_id=1686972999 node_paths=PackedStringArray("Canvas", "Player", "Speakers")]
 script = ExtResource("8_dt6wi")
+Canvas = NodePath("HasBloodDecision/CanvasLayer")
 Player = NodePath("../../../stage/Player")
 Dialogues = Array[String](["¿Algún raspado, quizás? Sigamos con el análisis.", "¿Puedes ver algo de sangre en la zona afectada?"])
 SpeakerNames = Array[String](["Skippy", "Skippy"])
@@ -167,7 +258,7 @@ offset_bottom = 40.0
 [node name="CanvasLayer" type="CanvasLayer" parent="DecisionTree/SliderDecision/Range4-6/HasBloodDecision" index="0" unique_id=29872417]
 visible = false
 
-[node name="AcceptButton" type="Button" parent="DecisionTree/SliderDecision/Range4-6/HasBloodDecision/CanvasLayer" index="0" unique_id=1668683043]
+[node name="YesBlood" type="Button" parent="DecisionTree/SliderDecision/Range4-6/HasBloodDecision/CanvasLayer" index="0" unique_id=1668683043 node_paths=PackedStringArray("Canvas", "Player", "Speakers")]
 offset_left = 1907.0
 offset_top = 700.0
 offset_right = 2123.0
@@ -175,9 +266,15 @@ offset_bottom = 755.0
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_6h7u7")
-text = "Hay sangre"
+text = "\"Hay sangre, sí.\""
+script = ExtResource("15_l6ap3")
+Canvas = NodePath("../../../LotsOfBlood/CanvasLayer")
+Player = NodePath("../../../../../../stage/Player")
+Dialogues = Array[String](["¿Es mucha sangre?"])
+SpeakerNames = Array[String](["Skippy"])
+Speakers = [NodePath("../../../../../../Skippy")]
 
-[node name="RejectButton" type="Button" parent="DecisionTree/SliderDecision/Range4-6/HasBloodDecision/CanvasLayer" index="1" unique_id=1308055784 node_paths=PackedStringArray("Player", "Speakers")]
+[node name="NoBlood" type="Button" parent="DecisionTree/SliderDecision/Range4-6/HasBloodDecision/CanvasLayer" index="1" unique_id=1308055784 node_paths=PackedStringArray("Player", "Speakers")]
 offset_left = 341.0
 offset_top = 700.0
 offset_right = 618.0
@@ -186,14 +283,97 @@ size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_6h7u7")
 text = "No hay sangre"
-script = ExtResource("10_7o8rh")
+script = ExtResource("15_l6ap3")
 Player = NodePath("../../../../../../stage/Player")
 Dialogues = Array[String](["Entonces no será tan grave. Eso es aliviante.", "¿La zona afectada cómo se ve? ¿Tienes alguna marca oscurecida en la piel?"])
 SpeakerNames = Array[String](["Skippy", "Skippy"])
 Speakers = [NodePath("../../../../../../Skippy")]
 
-[node name="Range7-9" type="Node" parent="DecisionTree/SliderDecision" index="5" unique_id=1867197225 node_paths=PackedStringArray("Player", "Speakers")]
+[node name="LotsOfBlood" type="Control" parent="DecisionTree/SliderDecision/Range4-6" index="1" unique_id=1846656587]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="DecisionTree/SliderDecision/Range4-6/LotsOfBlood" index="0" unique_id=654358061]
+visible = false
+
+[node name="YesLots" type="Button" parent="DecisionTree/SliderDecision/Range4-6/LotsOfBlood/CanvasLayer" index="0" unique_id=690084247 node_paths=PackedStringArray("Canvas", "Player", "Speakers")]
+offset_left = 1907.0
+offset_top = 700.0
+offset_right = 2123.0
+offset_bottom = 755.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_6h7u7")
+text = "\"No puedo pararlo, es mucha sangre.\""
+script = ExtResource("15_l6ap3")
+Canvas = NodePath("../../../Infirmary/CanvasLayer")
+Player = NodePath("../../../../../../stage/Player")
+Dialogues = Array[String](["Vale, creo que tengo ya todo procesado. No parece ser nada grave.", "¿Quieres que vayamos a la enfermería a ver qué nos dicen?"])
+SpeakerNames = Array[String](["Skippy", "Skippy"])
+Speakers = [NodePath("../../../../../../Skippy")]
+
+[node name="JustDrops" type="Button" parent="DecisionTree/SliderDecision/Range4-6/LotsOfBlood/CanvasLayer" index="1" unique_id=150569202 node_paths=PackedStringArray("Canvas", "Player", "Speakers")]
+offset_left = 341.0
+offset_top = 700.0
+offset_right = 618.0
+offset_bottom = 755.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_6h7u7")
+text = "No hay sangre"
+script = ExtResource("15_l6ap3")
+Canvas = NodePath("../../../../Range1-3/KeepPlaying/CanvasLayer")
+Player = NodePath("../../../../../../stage/Player")
+Dialogues = Array[String](["Te habrás hecho una rozadura. No hay de qué preocuparse.", "¡Bueno!  Eso sería todo el análisis entonces. Me alegra que no sea tan preocupante.", "¿Seguimos jugando con los demás?"])
+SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy"])
+Speakers = [NodePath("../../../../../../Skippy")]
+
+[node name="Infirmary" type="Control" parent="DecisionTree/SliderDecision/Range4-6" index="2" unique_id=1450607418]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="DecisionTree/SliderDecision/Range4-6/Infirmary" index="0" unique_id=1560016406]
+visible = false
+
+[node name="AN4X" type="Button" parent="DecisionTree/SliderDecision/Range4-6/Infirmary/CanvasLayer" index="0" unique_id=1470140388 node_paths=PackedStringArray("Player", "Speakers")]
+offset_left = 1568.0
+offset_top = 700.0
+offset_right = 2399.0
+offset_bottom = 810.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_6h7u7")
+text = "\"¿Para qué? Ya me has dicho que está bien,
+
+confío en ti más que en nadie.\""
+script = ExtResource("9_dt6wi")
+Player = NodePath("../../../../../../stage/Player")
+Dialogues = Array[String](["Bueno, tú mandas. ¡A jugar!"])
+SpeakerNames = Array[String](["Skippy"])
+Speakers = [NodePath("../../../../../../Skippy")]
+
+[node name="AN4V" type="Button" parent="DecisionTree/SliderDecision/Range4-6/Infirmary/CanvasLayer" index="1" unique_id=435105902 node_paths=PackedStringArray("Player", "Speakers")]
+offset_left = 341.0
+offset_top = 700.0
+offset_right = 624.0
+offset_bottom = 755.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_6h7u7")
+text = "\"Sí, creo que es una buena idea\""
+script = ExtResource("9_dt6wi")
+Player = NodePath("../../../../../../stage/Player")
+Dialogues = Array[String](["¡En marcha entonces!"])
+SpeakerNames = Array[String](["Skippy"])
+Speakers = [NodePath("../../../../../../Skippy")]
+
+[node name="Range7-9" type="Node" parent="DecisionTree/SliderDecision" index="5" unique_id=1867197225 node_paths=PackedStringArray("Canvas", "Player", "Speakers")]
 script = ExtResource("8_dt6wi")
+Canvas = NodePath("HasBloodDecision/CanvasLayer")
 Player = NodePath("../../../stage/Player")
 Dialogues = Array[String](["Ay... Eso ya es preocupante. Hay que seguir con el análisis ahora mismo.", "¿Puedes ver algo de sangre en la zona afectada?"])
 SpeakerNames = Array[String](["Skippy", "Skippy"])
@@ -208,17 +388,23 @@ offset_bottom = 40.0
 [node name="CanvasLayer" type="CanvasLayer" parent="DecisionTree/SliderDecision/Range7-9/HasBloodDecision" index="0" unique_id=384519959]
 visible = false
 
-[node name="AcceptButton" type="Button" parent="DecisionTree/SliderDecision/Range7-9/HasBloodDecision/CanvasLayer" index="0" unique_id=1672571067]
-offset_left = 1940.0
+[node name="YesBlood" type="Button" parent="DecisionTree/SliderDecision/Range7-9/HasBloodDecision/CanvasLayer" index="0" unique_id=626758734 node_paths=PackedStringArray("Canvas", "Player", "Speakers")]
+offset_left = 1907.0
 offset_top = 700.0
-offset_right = 2156.0
+offset_right = 2220.0
 offset_bottom = 755.0
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_6h7u7")
-text = "Hay sangre"
+text = "\"Hay sangre, sí.\""
+script = ExtResource("15_l6ap3")
+Canvas = NodePath("../../../../Range4-6/LotsOfBlood/CanvasLayer")
+Player = NodePath("../../../../../../stage/Player")
+Dialogues = Array[String](["¿Es mucha sangre?"])
+SpeakerNames = Array[String](["Skippy"])
+Speakers = [NodePath("../../../../../../Skippy")]
 
-[node name="RejectButton" type="Button" parent="DecisionTree/SliderDecision/Range7-9/HasBloodDecision/CanvasLayer" index="1" unique_id=1399577736]
+[node name="NoBlood" type="Button" parent="DecisionTree/SliderDecision/Range7-9/HasBloodDecision/CanvasLayer" index="1" unique_id=1399577736 node_paths=PackedStringArray("Player", "Speakers")]
 offset_left = 477.0
 offset_top = 700.0
 offset_right = 655.0
@@ -226,94 +412,138 @@ offset_bottom = 731.0
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_6h7u7")
+text = "\"No que yo vea...\""
+script = ExtResource("15_l6ap3")
+Player = NodePath("../../../../../../stage/Player")
+Dialogues = Array[String](["Mucho dolor y no hay sangre, hm...", "¿La zona donde te duele tiene un color oscuro, como morado?"])
+SpeakerNames = Array[String](["Skippy", "Skippy"])
+Speakers = [NodePath("../../../../../../Skippy")]
+
+[node name="DeepBruise" type="Control" parent="DecisionTree/SliderDecision/Range7-9" index="1" unique_id=243092438]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="DecisionTree/SliderDecision/Range7-9/DeepBruise" index="0" unique_id=540532940]
+visible = false
+
+[node name="YesBruise" type="Button" parent="DecisionTree/SliderDecision/Range7-9/DeepBruise/CanvasLayer" index="0" unique_id=400296400 node_paths=PackedStringArray("Canvas", "Player", "Speakers")]
+offset_left = 1907.0
+offset_top = 700.0
+offset_right = 2123.0
+offset_bottom = 755.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_6h7u7")
+text = "\"Hay sangre, sí.\""
+script = ExtResource("15_l6ap3")
+Canvas = NodePath("../../../../Range4-6/Infirmary/CanvasLayer")
+Player = NodePath("../../../../../../stage/Player")
+Dialogues = Array[String](["¿Una dislocación? Hm...", "Vale, creo que tengo ya todo procesado. No parece ser nada grave.", "¿Quieres que vayamos a la enfermería a ver qué nos dicen?"])
+SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy"])
+Speakers = [NodePath("../../../../../../Skippy")]
+
+[node name="NoBruise" type="Button" parent="DecisionTree/SliderDecision/Range7-9/DeepBruise/CanvasLayer" index="1" unique_id=1010789314 node_paths=PackedStringArray("Canvas", "Player", "Speakers")]
+offset_left = 341.0
+offset_top = 700.0
+offset_right = 618.0
+offset_bottom = 755.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_6h7u7")
 text = "No hay sangre"
-
-[node name="YesBlood" type="Node" parent="DecisionTree/SliderDecision/Range7-9" index="1" unique_id=33182956 node_paths=PackedStringArray("Player", "Speakers")]
-script = ExtResource("8_6h7u7")
-Player = NodePath("../../../../stage/Player")
-Dialogues = Array[String](["¿Es mucha sangre?"])
-SpeakerNames = Array[String](["Skippy"])
-Speakers = [NodePath("../../../../Skippy")]
-
-[node name="LotsOfBloodDecision" type="Control" parent="DecisionTree/SliderDecision/Range7-9/YesBlood" index="0" unique_id=929435671]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="CanvasLayer" type="CanvasLayer" parent="DecisionTree/SliderDecision/Range7-9/YesBlood/LotsOfBloodDecision" index="0" unique_id=66889477]
-visible = false
-
-[node name="AcceptButton" type="Button" parent="DecisionTree/SliderDecision/Range7-9/YesBlood/LotsOfBloodDecision/CanvasLayer" index="0" unique_id=1545539566]
-offset_left = 1940.0
-offset_top = 700.0
-offset_right = 2246.0
-offset_bottom = 755.0
-size_flags_horizontal = 8
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_6h7u7")
-text = "No para de salir"
-
-[node name="RejectButton" type="Button" parent="DecisionTree/SliderDecision/Range7-9/YesBlood/LotsOfBloodDecision/CanvasLayer" index="1" unique_id=449905632]
-offset_left = 341.0
-offset_top = 700.0
-offset_right = 664.0
-offset_bottom = 755.0
-size_flags_horizontal = 8
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_6h7u7")
-text = "No es para tanto"
-
-[node name="NoBlood" type="Node" parent="DecisionTree/SliderDecision/Range7-9" index="2" unique_id=1153755946]
-script = ExtResource("6_rh6jl")
-
-[node name="DarkAreaDecision" type="Control" parent="DecisionTree/SliderDecision/Range7-9/NoBlood" index="0" unique_id=1399268035]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="CanvasLayer" type="CanvasLayer" parent="DecisionTree/SliderDecision/Range7-9/NoBlood/DarkAreaDecision" index="0" unique_id=717969496]
-visible = false
-
-[node name="AcceptButton" type="Button" parent="DecisionTree/SliderDecision/Range7-9/NoBlood/DarkAreaDecision/CanvasLayer" index="0" unique_id=1516241790]
-offset_left = 1940.0
-offset_top = 700.0
-offset_right = 2232.0
-offset_bottom = 755.0
-size_flags_horizontal = 8
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_6h7u7")
-text = "Sí hay moratón"
-
-[node name="RejectButton" type="Button" parent="DecisionTree/SliderDecision/Range7-9/NoBlood/DarkAreaDecision/CanvasLayer" index="1" unique_id=632514031 node_paths=PackedStringArray("Player", "Speakers")]
-offset_left = 341.0
-offset_top = 700.0
-offset_right = 656.0
-offset_bottom = 755.0
-size_flags_horizontal = 8
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_6h7u7")
-text = "No hay moratón"
-script = ExtResource("9_dt6wi")
-Player = NodePath("../../../../../../../stage/Player")
-Dialogues = Array[String](["¿Una dislocación? Hm..."])
-SpeakerNames = Array[String](["Skippy"])
-Speakers = [NodePath("../../../../../../../Skippy")]
-
-[node name="StrongPainEnding" type="Node" parent="DecisionTree/SliderDecision/Range7-9" index="3" unique_id=2136912378 node_paths=PackedStringArray("Player", "Speakers")]
-script = ExtResource("13_76gp2")
-Player = NodePath("../../../../stage/Player")
+script = ExtResource("15_l6ap3")
+Canvas = NodePath("../../../Headache/CanvasLayer")
+Player = NodePath("../../../../../../stage/Player")
 Dialogues = Array[String](["Un buen golpe, muy probable que sea una pequeña hemorragia interna.", "Sobrevivirás sin problemas, pero recomiendo que no sigas jugando.", "Vamos a tomarnos un descanso de mientras, ¿vale?"])
 SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy"])
+Speakers = [NodePath("../../../../../../Skippy")]
+
+[node name="Headache" type="Control" parent="DecisionTree/SliderDecision/Range7-9" index="2" unique_id=1158820955]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="DecisionTree/SliderDecision/Range7-9/Headache" index="0" unique_id=2090518026]
+visible = false
+
+[node name="AN3X" type="Button" parent="DecisionTree/SliderDecision/Range7-9/Headache/CanvasLayer" index="0" unique_id=10141574 node_paths=PackedStringArray("Player", "Speakers")]
+offset_left = 1568.0
+offset_top = 700.0
+offset_right = 2399.0
+offset_bottom = 810.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_6h7u7")
+text = "\"¿Puedes entretenerme de mientras?\""
+script = ExtResource("9_dt6wi")
+Player = NodePath("../../../../../../stage/Player")
+Dialogues = Array[String](["¡Claro! ¡Ahora mismo!"])
+SpeakerNames = Array[String](["Skippy"])
+Speakers = [NodePath("../../../../../../Skippy")]
+
+[node name="AN3V" type="Button" parent="DecisionTree/SliderDecision/Range7-9/Headache/CanvasLayer" index="1" unique_id=1285312649 node_paths=PackedStringArray("Player", "Speakers")]
+offset_left = 341.0
+offset_top = 700.0
+offset_right = 624.0
+offset_bottom = 755.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_6h7u7")
+text = "\"Claro. Me duele un poco la cabeza, 
+será lo mejor...\""
+script = ExtResource("9_dt6wi")
+Player = NodePath("../../../../../../stage/Player")
+Dialogues = Array[String](["Tranqui, superestrella. Todo irá bien."])
+SpeakerNames = Array[String](["Skippy"])
+Speakers = [NodePath("../../../../../../Skippy")]
+
+[node name="Range10" type="Node" parent="DecisionTree/SliderDecision" index="6" unique_id=1316298876 node_paths=PackedStringArray("Player", "Speakers")]
+script = ExtResource("6_rh6jl")
+Player = NodePath("../../../stage/Player")
+Dialogues = Array[String](["¿¡CÓMO!? ¡TENEMOS QUE LLAMAR A UNA AMBULANCIA INMEDIATAMENTE!"])
+SpeakerNames = Array[String](["Skippy"])
+Speakers = [NodePath("../../../Skippy")]
+
+[node name="CouldHaveAsked" type="Control" parent="DecisionTree" index="1" unique_id=739369954]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="DecisionTree/CouldHaveAsked" index="0" unique_id=1986414231]
+visible = false
+
+[node name="AN2V" type="Button" parent="DecisionTree/CouldHaveAsked/CanvasLayer" index="0" unique_id=1972767853 node_paths=PackedStringArray("Player", "Speakers")]
+offset_left = 1718.0
+offset_top = 700.0
+offset_right = 2320.0
+offset_bottom = 755.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_6h7u7")
+text = "\"Me podrías haber preguntado primero.\""
+script = ExtResource("18_fppe2")
+Player = NodePath("../../../../stage/Player")
+Dialogues = Array[String](["Ah, ¡entonces estás perfectamente!"])
+SpeakerNames = Array[String](["Skippy"])
 Speakers = [NodePath("../../../../Skippy")]
 
-[node name="VisitTeacherEnding" type="Node" parent="DecisionTree/SliderDecision/Range7-9" index="4" unique_id=1629807986]
-script = ExtResource("10_6h7u7")
-
-[node name="Range10" type="Node" parent="DecisionTree/SliderDecision" index="6" unique_id=1316298876 node_paths=PackedStringArray("Player")]
-script = ExtResource("9_damsw")
-Player = NodePath("../../../stage/Player")
+[node name="AN2X" type="Button" parent="DecisionTree/CouldHaveAsked/CanvasLayer" index="1" unique_id=297919808 node_paths=PackedStringArray("Player")]
+offset_left = 341.0
+offset_top = 700.0
+offset_right = 624.0
+offset_bottom = 755.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_6h7u7")
+text = "\"Auch... Entiendo, no te preocupes.\""
+script = ExtResource("9_dt6wi")
+Player = NodePath("../../../../stage/Player")
+Dialogues = Array[String](["Vale, eso es normal. No es más que un moratón.", "No es grave, pero no te lo toques mucho, superestrella."])
+SpeakerNames = Array[String](["Skippy", "Skippy"])
 
 [node name="AudioStreamPlayer" parent="." index="8" unique_id=855356542]
 stream = ExtResource("18_1fqhe")
@@ -323,21 +553,33 @@ parameters/looping = true
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN1" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/NextLevel" to="Study/CanvasLayer/VBoxContainer/NextLevel" method="next_level"]
 [connection signal="valor_elegido" from="DecisionTree/SliderDecision" to="." method="on_valor_elegido"]
-[connection signal="level_finish" from="DecisionTree/SliderDecision/Range0" to="." method="_on_range_0_level_finish"]
-[connection signal="ending" from="DecisionTree/SliderDecision/Range1-3/HasBruiseDecision/CanvasLayer/AcceptButton" to="DecisionTree/SliderDecision/Range1-3/SmallPainEnding" method="speak"]
+[connection signal="dialogue_ended" from="DecisionTree/SliderDecision/Range0" to="." method="finish_level"]
 [connection signal="pressed" from="DecisionTree/SliderDecision/Range1-3/HasBruiseDecision/CanvasLayer/AcceptButton" to="DecisionTree/SliderDecision/Range1-3/HasBruiseDecision/CanvasLayer/AcceptButton" method="_on_pressed"]
-[connection signal="ending" from="DecisionTree/SliderDecision/Range1-3/HasBruiseDecision/CanvasLayer/RejectButton" to="DecisionTree/SliderDecision/Range1-3/SmallPainEnding" method="speak"]
 [connection signal="pressed" from="DecisionTree/SliderDecision/Range1-3/HasBruiseDecision/CanvasLayer/RejectButton" to="DecisionTree/SliderDecision/Range1-3/HasBruiseDecision/CanvasLayer/RejectButton" method="_on_pressed"]
-[connection signal="pressed" from="DecisionTree/SliderDecision/Range4-6/HasBloodDecision/CanvasLayer/AcceptButton" to="DecisionTree/SliderDecision/Range4-6" method="_on_decision_made"]
-[connection signal="pressed" from="DecisionTree/SliderDecision/Range4-6/HasBloodDecision/CanvasLayer/AcceptButton" to="DecisionTree/SliderDecision/Range7-9/YesBlood" method="speak"]
-[connection signal="pressed" from="DecisionTree/SliderDecision/Range4-6/HasBloodDecision/CanvasLayer/RejectButton" to="DecisionTree/SliderDecision/Range4-6" method="_on_decision_made"]
-[connection signal="pressed" from="DecisionTree/SliderDecision/Range4-6/HasBloodDecision/CanvasLayer/RejectButton" to="DecisionTree/SliderDecision/Range4-6/HasBloodDecision/CanvasLayer/RejectButton" method="_on_pressed"]
-[connection signal="pressed" from="DecisionTree/SliderDecision/Range7-9/HasBloodDecision/CanvasLayer/AcceptButton" to="DecisionTree/SliderDecision/Range7-9" method="_on_decision_made"]
-[connection signal="pressed" from="DecisionTree/SliderDecision/Range7-9/HasBloodDecision/CanvasLayer/AcceptButton" to="DecisionTree/SliderDecision/Range7-9/YesBlood" method="speak"]
-[connection signal="pressed" from="DecisionTree/SliderDecision/Range7-9/HasBloodDecision/CanvasLayer/RejectButton" to="DecisionTree/SliderDecision/Range7-9" method="_on_decision_made"]
-[connection signal="pressed" from="DecisionTree/SliderDecision/Range7-9/HasBloodDecision/CanvasLayer/RejectButton" to="DecisionTree/SliderDecision/Range7-9/NoBlood" method="speak"]
-[connection signal="pressed" from="DecisionTree/SliderDecision/Range7-9/YesBlood/LotsOfBloodDecision/CanvasLayer/AcceptButton" to="DecisionTree/SliderDecision/Range7-9/VisitTeacherEnding" method="_on_visit_teacher_ending"]
-[connection signal="pressed" from="DecisionTree/SliderDecision/Range7-9/NoBlood/DarkAreaDecision/CanvasLayer/AcceptButton" to="DecisionTree/SliderDecision/Range7-9/StrongPainEnding" method="speak"]
-[connection signal="ending" from="DecisionTree/SliderDecision/Range7-9/NoBlood/DarkAreaDecision/CanvasLayer/RejectButton" to="DecisionTree/SliderDecision/Range7-9/VisitTeacherEnding" method="_on_visit_teacher_ending"]
-[connection signal="pressed" from="DecisionTree/SliderDecision/Range7-9/NoBlood/DarkAreaDecision/CanvasLayer/RejectButton" to="DecisionTree/SliderDecision/Range7-9/NoBlood/DarkAreaDecision/CanvasLayer/RejectButton" method="_on_pressed"]
-[connection signal="level_finish" from="DecisionTree/SliderDecision/Range7-9/VisitTeacherEnding" to="." method="_on_visit_teacher_ending_level_finish"]
+[connection signal="pressed" from="DecisionTree/SliderDecision/Range1-3/KeepPlaying/CanvasLayer/AN3X" to="." method="_an3_not_identified"]
+[connection signal="pressed" from="DecisionTree/SliderDecision/Range1-3/KeepPlaying/CanvasLayer/AN3X" to="DecisionTree/SliderDecision/Range1-3/KeepPlaying/CanvasLayer/AN3X" method="_on_pressed"]
+[connection signal="pressed" from="DecisionTree/SliderDecision/Range1-3/KeepPlaying/CanvasLayer/AN3V" to="." method="_an3_identified"]
+[connection signal="pressed" from="DecisionTree/SliderDecision/Range1-3/KeepPlaying/CanvasLayer/AN3V" to="DecisionTree/SliderDecision/Range1-3/KeepPlaying/CanvasLayer/AN3V" method="_on_pressed"]
+[connection signal="pressed" from="DecisionTree/SliderDecision/Range4-6/HasBloodDecision/CanvasLayer/YesBlood" to="DecisionTree/SliderDecision/Range4-6" method="_on_decision_made"]
+[connection signal="pressed" from="DecisionTree/SliderDecision/Range4-6/HasBloodDecision/CanvasLayer/YesBlood" to="DecisionTree/SliderDecision/Range4-6/HasBloodDecision/CanvasLayer/YesBlood" method="_on_pressed"]
+[connection signal="pressed" from="DecisionTree/SliderDecision/Range4-6/HasBloodDecision/CanvasLayer/NoBlood" to="DecisionTree/SliderDecision/Range4-6" method="_on_decision_made"]
+[connection signal="pressed" from="DecisionTree/SliderDecision/Range4-6/HasBloodDecision/CanvasLayer/NoBlood" to="DecisionTree/SliderDecision/Range4-6/HasBloodDecision/CanvasLayer/NoBlood" method="_on_pressed"]
+[connection signal="pressed" from="DecisionTree/SliderDecision/Range4-6/LotsOfBlood/CanvasLayer/YesLots" to="DecisionTree/SliderDecision/Range4-6/LotsOfBlood/CanvasLayer/YesLots" method="_on_pressed"]
+[connection signal="pressed" from="DecisionTree/SliderDecision/Range4-6/LotsOfBlood/CanvasLayer/JustDrops" to="DecisionTree/SliderDecision/Range4-6/LotsOfBlood/CanvasLayer/JustDrops" method="_on_pressed"]
+[connection signal="pressed" from="DecisionTree/SliderDecision/Range4-6/Infirmary/CanvasLayer/AN4X" to="." method="_an4_not_identified"]
+[connection signal="pressed" from="DecisionTree/SliderDecision/Range4-6/Infirmary/CanvasLayer/AN4X" to="DecisionTree/SliderDecision/Range4-6/Infirmary/CanvasLayer/AN4X" method="_on_pressed"]
+[connection signal="pressed" from="DecisionTree/SliderDecision/Range4-6/Infirmary/CanvasLayer/AN4V" to="." method="_an4_identified"]
+[connection signal="pressed" from="DecisionTree/SliderDecision/Range4-6/Infirmary/CanvasLayer/AN4V" to="DecisionTree/SliderDecision/Range4-6/Infirmary/CanvasLayer/AN4V" method="_on_pressed"]
+[connection signal="pressed" from="DecisionTree/SliderDecision/Range7-9/HasBloodDecision/CanvasLayer/YesBlood" to="DecisionTree/SliderDecision/Range7-9/HasBloodDecision/CanvasLayer/YesBlood" method="_on_pressed"]
+[connection signal="pressed" from="DecisionTree/SliderDecision/Range7-9/HasBloodDecision/CanvasLayer/NoBlood" to="DecisionTree/SliderDecision/Range7-9" method="_on_decision_made"]
+[connection signal="pressed" from="DecisionTree/SliderDecision/Range7-9/DeepBruise/CanvasLayer/YesBruise" to="DecisionTree/SliderDecision/Range7-9/DeepBruise/CanvasLayer/YesBruise" method="_on_pressed"]
+[connection signal="pressed" from="DecisionTree/SliderDecision/Range7-9/DeepBruise/CanvasLayer/NoBruise" to="DecisionTree/SliderDecision/Range7-9/DeepBruise/CanvasLayer/NoBruise" method="_on_pressed"]
+[connection signal="pressed" from="DecisionTree/SliderDecision/Range7-9/Headache/CanvasLayer/AN3X" to="." method="_an3_not_identified"]
+[connection signal="pressed" from="DecisionTree/SliderDecision/Range7-9/Headache/CanvasLayer/AN3X" to="DecisionTree/SliderDecision/Range7-9/Headache/CanvasLayer/AN3X" method="_on_pressed"]
+[connection signal="pressed" from="DecisionTree/SliderDecision/Range7-9/Headache/CanvasLayer/AN3V" to="." method="_an3_identified"]
+[connection signal="pressed" from="DecisionTree/SliderDecision/Range7-9/Headache/CanvasLayer/AN3V" to="DecisionTree/SliderDecision/Range7-9/Headache/CanvasLayer/AN3V" method="_on_pressed"]
+[connection signal="dialogue_ended" from="DecisionTree/SliderDecision/Range10" to="." method="end_game"]
+[connection signal="pressed" from="DecisionTree/CouldHaveAsked/CanvasLayer/AN2V" to="." method="_an2_identified"]
+[connection signal="pressed" from="DecisionTree/CouldHaveAsked/CanvasLayer/AN2V" to="DecisionTree/CouldHaveAsked/CanvasLayer/AN2V" method="_on_pressed"]
+[connection signal="pressed" from="DecisionTree/CouldHaveAsked/CanvasLayer/AN2X" to="." method="_an2_not_identified"]
+[connection signal="pressed" from="DecisionTree/CouldHaveAsked/CanvasLayer/AN2X" to="DecisionTree/CouldHaveAsked/CanvasLayer/AN2X" method="_on_pressed"]

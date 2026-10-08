@@ -90,6 +90,7 @@ func add_explanation(explanation : String):
 
 # Acabar el juego
 func end_game():
+	# TODO mensaje final
 	if(fade.modulate.a == 0.0):
 		fade.fade_to_black()
 	get_tree().change_scene_to_file(CREDITS_SCENE)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c6vgxw0jdpfrf"]
 
-[ext_resource type="Texture2D" uid="uid://dsbsy3qay7gjm" path="res://assets/sprites/Kids/nene1.png" id="1_n830x"]
+[ext_resource type="Texture2D" uid="uid://dsbsy3qay7gjm" path="res://assets/sprites/Kids/rodri.png" id="1_n830x"]
 [ext_resource type="Script" uid="uid://plms7gqrxn8f" path="res://scripts/2d_speaker_anim.gd" id="2_u2tul"]
 [ext_resource type="Texture2D" uid="uid://dcy0ylf3y2lsf" path="res://assets/sprites/Kids/rodriang.png" id="3_pmxkj"]
 [ext_resource type="Texture2D" uid="uid://bbkdeyyavw4al" path="res://assets/sprites/Kids/rodrisad.png" id="4_u8e8g"]

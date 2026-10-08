@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://kijayuvj0e3v"]
 
 [ext_resource type="Script" uid="uid://cj50m4a61k0cw" path="res://scripts/dialogue.gd" id="1_rsbii"]
-[ext_resource type="Texture2D" uid="uid://xo58bfjg1e6g" path="res://assets/sprites/Kids/nene2.png" id="2_0lexj"]
+[ext_resource type="Texture2D" uid="uid://xo58bfjg1e6g" path="res://assets/sprites/Kids/melisa.png" id="2_0lexj"]
 [ext_resource type="Texture2D" uid="uid://b8g1yws3aoex7" path="res://assets/textures/cahara_zai.png" id="2_ly418"]
 [ext_resource type="Texture2D" uid="uid://cdygtbfp7btrp" path="res://assets/textures/Silly Chibi Zai.png" id="3_0lexj"]
 

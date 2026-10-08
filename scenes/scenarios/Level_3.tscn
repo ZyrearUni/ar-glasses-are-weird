@@ -31,28 +31,35 @@ script = ExtResource("2_pmmkd")
 Player = NodePath("stage/Player")
 
 [node name="Schoolyard" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="0" unique_id=309049541 instance=ExtResource("3_1678m")]
-transform = Transform3D(0.058248125, 0, -1.0780795, 0, 1.1790056, 0, 1.2135423, 0, 0.051746152, -9.307877, -0.018941045, 6.1162643)
+transform = Transform3D(0.058248125, 0, -1.0780795, 0, 1.1790056, 0, 1.2135423, 0, 0.051746152, -9.309361, -0.018941283, 6.1168914)
 
-[node name="Kid1" parent="stage/Schoolyard" index="31" unique_id=759215246 node_paths=PackedStringArray("Player") instance=ExtResource("4_q5lk6")]
+[node name="Rodrigo" parent="stage/Schoolyard" index="31" unique_id=759215246 node_paths=PackedStringArray("Player") instance=ExtResource("4_q5lk6")]
 transform = Transform3D(0.40000004, 0, 1.8626451e-09, 0, 0.4, 0, 0, 0, 0.40000004, -2.3943834, 0.019501396, 3.168417)
 script = ExtResource("5_6gvjs")
 Player = NodePath("../../Player")
+Dialogues = Array[String](["¡Ahora no, intento hacer un mate!"])
+SpeakerNames = Array[String](["Rodrigo"])
 
-[node name="Kid2" parent="stage/Schoolyard" index="32" unique_id=1956519799 node_paths=PackedStringArray("Player") instance=ExtResource("5_8p0ku")]
-transform = Transform3D(0.40000004, 0, 3.7252903e-09, 0, 0.4, 0, 0, 0, 0.40000004, 0.22195625, 0, -6.0970345)
+[node name="Melisa" parent="stage/Schoolyard" index="32" unique_id=1956519799 node_paths=PackedStringArray("Player") instance=ExtResource("5_8p0ku")]
+transform = Transform3D(0.40000004, 0, 3.7252903e-09, 0, 0.4, 0, 0, 0, 0.40000004, 2.382905, 0, -6.5984077)
 script = ExtResource("5_6gvjs")
 Player = NodePath("../../Player")
+Dialogues = Array[String](["¿Qué quieres? Estoy ocupada"])
+SpeakerNames = Array[String](["Melisa"])
 
-[node name="Kid3" parent="stage/Schoolyard" index="33" unique_id=151720113 node_paths=PackedStringArray("Player") instance=ExtResource("6_6gvjs")]
-transform = Transform3D(0.40000004, 0, 0, 0, 0.4, 0, 0, 0, 0.40000004, -0.47051525, 0, -4.3738437)
+[node name="Adri" parent="stage/Schoolyard" index="33" unique_id=151720113 node_paths=PackedStringArray("Player") instance=ExtResource("6_6gvjs")]
+transform = Transform3D(0.40000004, 0, 3.7252903e-09, 0, 0.4, 0, 0, 0, 0.40000004, -3.1522005, 0, 0.6118431)
 script = ExtResource("5_6gvjs")
 Player = NodePath("../../Player")
-Dialogues = Array[String](["¡Déjame! Estoy intentando hacer un mate"])
+Dialogues = Array[String](["Shhh, quiero ver si consigue hacer el mate."])
+SpeakerNames = Array[String](["Adri"])
 
-[node name="Kid4" parent="stage/Schoolyard" index="34" unique_id=1930868132 node_paths=PackedStringArray("Player") instance=ExtResource("7_8kjea")]
-transform = Transform3D(0.40000004, 0, 0, 0, 0.4, 0, 0, 0, 0.40000004, -2.104023, 0, -5.6058903)
+[node name="Lucas" parent="stage/Schoolyard" index="34" unique_id=1930868132 node_paths=PackedStringArray("Player") instance=ExtResource("7_8kjea")]
+transform = Transform3D(0.40000004, 0, 3.7252903e-09, 0, 0.4, 0, 0, 0, 0.40000004, -0.509151, 0, -8.551208)
 script = ExtResource("5_6gvjs")
 Player = NodePath("../../Player")
+Dialogues = Array[String](["Uh... Preferiría estar solo..."])
+SpeakerNames = Array[String](["Lucas"])
 
 [node name="Raquel" parent="stage/Schoolyard" index="35" unique_id=1481373249 node_paths=PackedStringArray("Player", "Speakers") instance=ExtResource("8_lak3m")]
 transform = Transform3D(0.40000004, 0, 0, 0, 0.4, 0, 0, 0, 0.40000004, 3.0410304, 0, 8.073513)
@@ -335,14 +342,16 @@ parameters/looping = true
 
 [connection signal="next_scene" from="." to="stage/Schoolyard/Raquel" method="_on_next_scene"]
 [connection signal="next_scene" from="." to="stage/NextSceneNode" method="next_scene"]
-[connection signal="kid_interacted" from="stage/Schoolyard/Kid1" to="." method="_on_kid_interacted"]
-[connection signal="kid_interacted" from="stage/Schoolyard/Kid2" to="." method="_on_kid_interacted"]
-[connection signal="kid_interacted" from="stage/Schoolyard/Kid3" to="." method="_on_kid_interacted"]
-[connection signal="kid_interacted" from="stage/Schoolyard/Kid4" to="." method="_on_kid_interacted"]
+[connection signal="kid_interacted" from="stage/Schoolyard/Rodrigo" to="." method="_on_kid_interacted"]
+[connection signal="kid_interacted" from="stage/Schoolyard/Melisa" to="." method="_on_kid_interacted"]
+[connection signal="kid_interacted" from="stage/Schoolyard/Adri" to="." method="_on_kid_interacted"]
+[connection signal="kid_interacted" from="stage/Schoolyard/Lucas" to="." method="_on_kid_interacted"]
 [connection signal="dialogue_ended" from="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/AcceptButton" to="." method="finish_level"]
-[connection signal="pressed" from="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/AcceptButton" to="." method="_an1v_not_identified"]
+[connection signal="dialogue_ended" from="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/AcceptButton" to="." method="_raquel_is_friend"]
+[connection signal="pressed" from="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/AcceptButton" to="." method="_an1_not_identified"]
 [connection signal="pressed" from="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/AcceptButton" to="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/AcceptButton" method="_on_pressed"]
-[connection signal="pressed" from="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/RejectButton" to="." method="_an1v_identified"]
+[connection signal="dialogue_ended" from="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/RejectButton" to="." method="_raquel_awkward"]
+[connection signal="pressed" from="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/RejectButton" to="." method="_an1_identified"]
 [connection signal="pressed" from="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/RejectButton" to="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/RejectButton" method="_on_pressed"]
 [connection signal="dialogue_ended" from="stage/Schoolyard/Raquel/SkippyArgument/CanvasLayer/NothingWrong" to="." method="finish_level"]
 [connection signal="pressed" from="stage/Schoolyard/Raquel/SkippyArgument/CanvasLayer/NothingWrong" to="stage/Schoolyard/Raquel/SkippyArgument/CanvasLayer/NothingWrong" method="_on_pressed"]
@@ -353,9 +362,9 @@ parameters/looping = true
 [connection signal="pressed" from="stage/NextSceneNode/SecondDecision/CanvasLayer/AcceptButton" to="stage/NextSceneNode/Accept" method="_on_accept_help"]
 [connection signal="pressed" from="stage/NextSceneNode/SecondDecision/CanvasLayer/RejectButton" to="stage/NextSceneNode/SecondDecisionReject" method="_on_reject_help"]
 [connection signal="pressed" from="stage/NextSceneNode/ThirdDecision/CanvasLayer/AcceptButton" to="stage/NextSceneNode/Accept" method="_on_accept_help"]
-[connection signal="pressed" from="stage/NextSceneNode/ThirdDecision/CanvasLayer/RejectButton" to="." method="_an2v_identified"]
+[connection signal="pressed" from="stage/NextSceneNode/ThirdDecision/CanvasLayer/RejectButton" to="." method="_an2_identified"]
 [connection signal="pressed" from="stage/NextSceneNode/ThirdDecision/CanvasLayer/RejectButton" to="stage/NextSceneNode/ThirdDecisionReject" method="_on_reject_help"]
-[connection signal="dialogue_ended" from="stage/NextSceneNode/Accept" to="." method="_an2v_not_identified"]
+[connection signal="dialogue_ended" from="stage/NextSceneNode/Accept" to="." method="_an2_not_identified"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP1" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN1" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/NextLevel" to="Study/CanvasLayer/VBoxContainer/NextLevel" method="next_level"]
