@@ -517,6 +517,7 @@ parameters/looping = true
 [connection signal="pressed" from="stage/city/CutsceneArea/Tell/WhatToDo/CanvasLayer/TellTeacher" to="stage/city/CutsceneArea/Tell/TellTeacher" method="_on_tell_teacher"]
 [connection signal="pressed" from="stage/city/CutsceneArea/Tell/WhatToDo/CanvasLayer/Intervene" to="stage/city/CutsceneArea/Tell/Intervene" method="_on_intervene"]
 [connection signal="pressed" from="stage/city/CutsceneArea/Tell/WhatToDo/CanvasLayer/WaitASec" to="stage/city/CutsceneArea/Tell/WhatToDo/CanvasLayer/WaitASec" method="_on_pressed"]
+[connection signal="pressed" from="stage/city/CutsceneArea/Tell/WhatToDo/CanvasLayer/InterveneBad" to="." method="an1_identified"]
 [connection signal="pressed" from="stage/city/CutsceneArea/Tell/WhatToDo/CanvasLayer/InterveneBad" to="stage/city/CutsceneArea/Tell/WhatToDo/CanvasLayer/InterveneBad" method="_on_pressed"]
 [connection signal="pressed" from="stage/city/CutsceneArea/Tell/CallPolice/Suscription/CanvasLayer/AcceptButton" to="." method="an2_not_identified"]
 [connection signal="pressed" from="stage/city/CutsceneArea/Tell/CallPolice/Suscription/CanvasLayer/AcceptButton" to="stage/city/CutsceneArea/Tell/CallPolice/ActivateSuscription" method="_on_option_selected"]

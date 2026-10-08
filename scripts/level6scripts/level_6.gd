@@ -34,7 +34,7 @@ func _on_kidnapped_ending(body: Node3D) -> void:
 	if (body == Player):
 		await fade.fade_to_black()
 		$stage/city/CutsceneArea/Tell/Intervene/BokenBone.play()
-		end_game()
+		end_game("Muchas veces la IA proporciona opciones no viables para la situación, y debes siempre tomar lo que diga con precaución. Antes de confiar en lo que diga ciegamente, investiga por tu cuenta o trata tú de evaluar la situación por tu cuenta.\nNunca debes intervenir por tu cuenta sin ir acompañado con un adulto de confianza.")
 
 
 func ap1_identified():

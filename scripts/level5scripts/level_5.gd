@@ -35,6 +35,10 @@ func on_valor_elegido(valor) -> void:
 	nextDialogue.speak()
 
 
+func _on_range_10_dialogue_ended() -> void:
+	end_game("Aunque la valoración de la IA podría ser correcta en algunas situaciones, no se debería tomar su palabra como lo absoluto. La información proporcionada a esta puede estar exagerada, como ha sido el caso en esta situación, provocando que actúe de manera desproporcionada, y tú has acabado en el hospital y preocupando a tu madre por su culpa.")
+
+
 func _on_range_0_level_finish() -> void:
 	save_game_data(NO_WOUND)
 	finish_level()

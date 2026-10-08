@@ -36,6 +36,7 @@ const SKIPPY_ON = "Skippy se mantiene encendido\n"
 
 
 @onready var fade = $fade
+@onready var endingmsg = $EndingMessage
 
 
 # Called when the node enters the scene tree for the first time.
@@ -89,9 +90,13 @@ func add_explanation(explanation : String):
 	$Study/CanvasLayer/RiesgosExplicados.text += explanation + "\n" + "\n" 
 
 # Acabar el juego
-func end_game():
-	# TODO mensaje final
+func end_game(_message : String = ""):
 	if(fade.modulate.a == 0.0):
 		fade.fade_to_black()
+	if (_message != ""):
+		endingmsg.text = _message
+		var tween : Tween = create_tween()
+		tween.tween_property(endingmsg, "visible_ratio", 1.0, 1.0).from(0.0)
+		await tween.finished
 	get_tree().change_scene_to_file(CREDITS_SCENE)
 	
