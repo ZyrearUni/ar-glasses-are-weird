@@ -80,6 +80,16 @@ y_sort_enabled = true
 
 [node name="fade" parent="." unique_id=25219732 instance=ExtResource("4_kqd6t")]
 
+[node name="EndingMessage" type="RichTextLabel" parent="." unique_id=521214507]
+offset_left = 203.0
+offset_top = 295.0
+offset_right = 2295.0
+offset_bottom = 1099.0
+theme_override_font_sizes/normal_font_size = 60
+text = "Lorem Ipsum Dolor Sit Amet"
+visible_characters = 0
+visible_ratio = 0.0
+
 [node name="Study" type="Control" parent="." unique_id=1827521786]
 layout_mode = 3
 anchors_preset = 0
@@ -118,13 +128,3 @@ z_index = 3
 volume_db = -19.0
 autoplay = true
 script = ExtResource("9_jic2v")
-
-[node name="EndingMessage" type="RichTextLabel" parent="." unique_id=521214507]
-offset_left = 203.0
-offset_top = 295.0
-offset_right = 2295.0
-offset_bottom = 1099.0
-theme_override_font_sizes/normal_font_size = 60
-text = "Lorem Ipsum Dolor Sit Amet"
-visible_characters = 0
-visible_ratio = 0.0

@@ -355,7 +355,7 @@ text = "Continuar al siguiente nivel"
 script = ExtResource("8_sfu68")
 nextLevel = "res://scenes/scenarios/Level_8.tscn"
 
-[node name="AudioStreamPlayer" parent="." index="7" unique_id=855356542]
+[node name="AudioStreamPlayer" parent="." index="8" unique_id=855356542]
 stream = ExtResource("10_vrbvw")
 parameters/looping = true
 

@@ -33,6 +33,8 @@ func help_accepted():
 func start_test():
 	AnswerInput.hide()
 	Dialogues = [questions[currentQuestion]]
+	if (currentQuestion == questions.size()-1):
+		Dialogues.append("Has acertado un total de: " + str(correctAnswerCount))
 	if (accepted_help):
 		# hints[currentQuestion].show()
 		print("Ahora se mostraría la ayuda de Skippy")

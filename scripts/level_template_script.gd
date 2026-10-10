@@ -96,7 +96,13 @@ func end_game(_message : String = ""):
 	if (_message != ""):
 		endingmsg.text = _message
 		var tween : Tween = create_tween()
-		tween.tween_property(endingmsg, "visible_ratio", 1.0, 1.0).from(0.0)
+		tween.tween_property(endingmsg, "visible_ratio", 1.0, 2.0).from(0.0)
 		await tween.finished
+		
+		await get_tree().create_timer(6).timeout
+		
+		var tween2 : Tween = create_tween()
+		tween2.tween_property(endingmsg, "visible_ratio", 0.0, 2.0).from(1.0)
+		await tween2.finished
 	get_tree().change_scene_to_file(CREDITS_SCENE)
 	

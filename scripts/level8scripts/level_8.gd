@@ -170,17 +170,25 @@ func _PoliceDarkSetUp(data):
 			"Cuando venga la policía puedes despedirte de tu amiguito virtual.",
 			"Entre la suscripción y el hacerte perder clase, no merece la pena. Voy a devolver las gafas."
 		]
+		DarkSpeakerNames += [
+			"Mamá",
+			"Mamá"
+		]
 	elif(data.contains(RAQUEL_FRIEND)):
 		DarkDialogues.append("Esperemos encuentren a tu nueva amiga pronto...")
+		DarkSpeakerNames.append("Mamá")
 	else:
 		if(data.contains(REGISTERED_WOUND)):
 			var value = data.to_int()
 			if (value <= 3):
 				DarkDialogues.append("¿Cómo está tu moratón, mi vida?")
+				DarkSpeakerNames.append("Mamá")
 			elif (value > 3 && value <= 6):
 				DarkDialogues.append("Deja que te revise la herida, anda")
+				DarkSpeakerNames.append("Mamá")
 			else:
 				DarkDialogues.append("¿Por qué tienes una venda en la pierna, cariño...?")
+				DarkSpeakerNames.append("Mamá")
 	
 	PoliceDark.Dialogues = DarkDialogues
 	PoliceDark.SpeakerNames = DarkSpeakerNames

@@ -2,6 +2,95 @@
 
 [ext_resource type="Texture2D" uid="uid://ddu0rmu32uk7n" path="res://assets/sprites/Mom/momsmile.png" id="1_13bdn"]
 [ext_resource type="Script" uid="uid://plms7gqrxn8f" path="res://scripts/2d_speaker_anim.gd" id="2_1rbls"]
+[ext_resource type="Texture2D" uid="uid://brv48wm15oofs" path="res://assets/sprites/Mom/momqs.png" id="3_7lbar"]
+[ext_resource type="Texture2D" uid="uid://cud8dvk1xtfra" path="res://assets/sprites/Mom/mommad.png" id="4_e6ihr"]
+[ext_resource type="Texture2D" uid="uid://b7fsr7asen6t8" path="res://assets/sprites/Mom/mommad2.png" id="5_vqe4l"]
+[ext_resource type="Texture2D" uid="uid://br75ww0tyq0e7" path="res://assets/sprites/Mom/momserious.png" id="6_yfv37"]
+[ext_resource type="Texture2D" uid="uid://d2frc5lcveilg" path="res://assets/sprites/Mom/momsad.png" id="7_qk6cx"]
+
+[sub_resource type="Animation" id="Animation_d8io6"]
+resource_name = "Confusa"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.375, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2105.0002, 983.99994), Vector2(2105, 934), Vector2(2105.0002, 983.99994)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_7lbar")]
+}
+
+[sub_resource type="Animation" id="Animation_nwm6i"]
+resource_name = "Enfadada"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.375, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2105.0002, 983.99994), Vector2(2105, 934), Vector2(2105.0002, 983.99994)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_e6ihr")]
+}
+
+[sub_resource type="Animation" id="Animation_xx7vx"]
+resource_name = "Enfadada_2"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.375, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2105.0002, 983.99994), Vector2(2105, 934), Vector2(2105.0002, 983.99994)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_vqe4l")]
+}
 
 [sub_resource type="Animation" id="Animation_1rbls"]
 resource_name = "Hablar"
@@ -58,10 +147,71 @@ tracks/1/keys = {
 "values": [Vector2(2105.0002, 983.99994)]
 }
 
+[sub_resource type="Animation" id="Animation_kan4g"]
+resource_name = "Seria"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.375, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2105.0002, 983.99994), Vector2(2105, 934), Vector2(2105.0002, 983.99994)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_yfv37")]
+}
+
+[sub_resource type="Animation" id="Animation_rjd37"]
+resource_name = "Triste"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.375, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2105.0002, 983.99994), Vector2(2105, 934), Vector2(2105.0002, 983.99994)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_qk6cx")]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s2kc8"]
 _data = {
+&"Confusa": SubResource("Animation_d8io6"),
+&"Enfadada": SubResource("Animation_nwm6i"),
+&"Enfadada_2": SubResource("Animation_xx7vx"),
 &"Hablar": SubResource("Animation_1rbls"),
-&"RESET": SubResource("Animation_3c1j5")
+&"RESET": SubResource("Animation_3c1j5"),
+&"Seria": SubResource("Animation_kan4g"),
+&"Triste": SubResource("Animation_rjd37")
 }
 
 [node name="Mamá" type="Sprite2D" unique_id=160132573]

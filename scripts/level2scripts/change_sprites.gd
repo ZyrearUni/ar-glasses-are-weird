@@ -8,6 +8,6 @@ func change_rodrigo():
 	Rodrigo.change_dialogue()
 	
 	for i in Rodrigo.Dialogues.size():
-		Rodrigo.SpeakerNames.append("Rodrigo")
+		Rodrigo.SpeakerNames[i] = "Rodrigo"
 
 	Rodrigo.Speakers.append($"../../Rodrigo")

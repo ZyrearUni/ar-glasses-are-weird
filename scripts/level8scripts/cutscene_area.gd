@@ -16,7 +16,7 @@ func end_dialogue():
 	if(!Dialogues.is_empty()):
 		Dialogues = []
 		if(allowed_decision):
-			$Decision.show()
+			$Decision/CanvasLayer.show()
 			for speaker in Speakers:
 				speaker.hide()
 			CurrentDialogue = -1

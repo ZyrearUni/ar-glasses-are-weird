@@ -52,7 +52,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(29.94, 4.286, -11.941)]
+"values": [Vector3(29.94, 4.3102193, -11.941001)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -69,7 +69,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_s034s"]
 resource_name = "WalkAway"
-length = 10.0
+length = 12.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -77,10 +77,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.2, 10),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.2, 10, 12),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(29.94, 4.286, -11.941), Vector3(29.94, 4.286, -8.647)]
+"values": [Vector3(29.94, 4.3102193, -11.941001), Vector3(29.94, 4.31, -8.247), Vector3(30.767824, 4.31, -8.247)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -100,6 +100,9 @@ _data = {
 &"RESET": SubResource("Animation_0kk5n"),
 &"WalkAway": SubResource("Animation_s034s")
 }
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yhtb1"]
+albedo_color = Color(0.38431373, 0.6666667, 0.7058824, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j0rwt"]
 bg_color = Color(0.8247977, 0.3473309, 0, 0.2901961)
@@ -373,7 +376,7 @@ Speakers = [NodePath("../../../../Skippy")]
 [node name="Sprites" type="Node3D" parent="stage/city" index="1297" unique_id=42032552]
 
 [node name="RaquelKidnap" type="Sprite3D" parent="stage/city/Sprites" index="0" unique_id=2047344304]
-transform = Transform3D(0.010000001, 0, 0, 0, 0.010000001, 0, 0, 0, 0.010000001, 29.94, 4.286, -11.941)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, 29.94, 4.3102193, -11.941001)
 billboard = 2
 texture = ExtResource("6_2ew3b")
 
@@ -382,19 +385,18 @@ libraries/ = SubResource("AnimationLibrary_2ew3b")
 
 [node name="Label3D" type="Label3D" parent="stage/city/Sprites/RaquelKidnap" index="1" unique_id=1433812863]
 transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 14.089058, 0)
-visible = false
 billboard = 2
 text = "¡Suéltame, quiero ir con mi papá!
 ¡AYUDA!"
 font_size = 300
 
 [node name="Profesora" type="Sprite3D" parent="stage/city/Sprites" index="1" unique_id=130401973]
-transform = Transform3D(0.0050000004, 0, 0, 0, 0.0050000004, 0, 0, 0, 0.0050000004, 32.270744, 4.289096, -12.312578)
+transform = Transform3D(0.007, 0, 0, 0, 0.007, 0, 0, 0, 0.007, 32.270744, 4.3083653, -12.377178)
 billboard = 2
 texture = ExtResource("13_63g87")
 
 [node name="Familias" type="Node3D" parent="stage/city/Sprites" index="2" unique_id=1958251825]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.676605, 4.275224, -13.462851)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 32.676605, 4.3128443, -13.462852)
 
 [node name="Melisa" type="Sprite3D" parent="stage/city/Sprites/Familias" index="0" unique_id=776133932]
 transform = Transform3D(0.0050000004, 0, 0, 0, 0.0050000004, 0, 0, 0, 0.0050000004, 0, 0.029238448, 0)
@@ -437,6 +439,12 @@ transform = Transform3D(0.0050000004, 0, 0, 0, 0.0050000004, 0, 0, 0, 0.00500000
 billboard = 2
 texture = ExtResource("18_yhtb1")
 
+[node name="CSGBox3D" type="CSGBox3D" parent="stage/city" index="1298" unique_id=1708427130]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.265085, 4.6638727, -9.762632)
+use_collision = true
+size = Vector3(3.99646, 1, 1.6386719)
+material = SubResource("StandardMaterial3D_yhtb1")
+
 [node name="CanvasLayer" parent="Study" parent_id_path=PackedInt32Array(1827521786) index="0" unique_id=1082957249]
 visible = false
 
@@ -467,10 +475,11 @@ theme_override_constants/separation = 40
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_j0rwt")
-text = "Este es un aspecto positivo con mucho texto puesto para que ocupe demasiado"
+text = "Skippy me ha ayudado a tomar una decisión en un momento de estrés."
 autowrap_mode = 2
 autowrap_trim_flags = 0
 script = ExtResource("13_uiwi3")
+aspecto = "Proporciona información de actuación según los datos presentados."
 
 [node name="Aspectos negativos" type="VBoxContainer" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer" index="1" unique_id=1971646680]
 custom_minimum_size = Vector2(800, 50)
@@ -481,19 +490,23 @@ theme_override_constants/separation = 40
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_j0rwt")
-text = "Este es un aspecto negativo con mucho texto puesto para que ocupe demasiado"
+text = "Creo que Skippy no debería haberme dado la opción de intervenir"
 autowrap_mode = 2
 script = ExtResource("13_uiwi3")
 risk = true
+explanation = "No, intervenir no sería una buena opción, y la IA no debería haberla sugerido. Si hubieras tomado esa opción, podría haber pasado algo muy malo."
+aspecto = "Errores en la información proporcionada"
 
 [node name="AN3" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="1" unique_id=1296936063]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_j0rwt")
-text = "Este es un aspecto negativo con mucho texto puesto para que ocupe demasiado"
+text = "No sé si sería culpa mía si le ha pasado algo a Raquel."
 autowrap_mode = 2
 script = ExtResource("13_uiwi3")
 risk = true
+explanation = "En ningún momento la IA ha determinado qué responsabilidad tienes tú en caso de estar en una situación como la presentada en este escenario."
+aspecto = "Responsabilidad sin definir"
 
 [node name="NextLevel" type="Button" parent="Study/CanvasLayer/VBoxContainer" index="1" unique_id=421991727]
 layout_mode = 2
@@ -502,7 +515,7 @@ text = "Continuar al siguiente nivel"
 script = ExtResource("14_j0rwt")
 nextLevel = "res://scenes/scenarios/Level_7.tscn"
 
-[node name="AudioStreamPlayer" parent="." index="7" unique_id=855356542]
+[node name="AudioStreamPlayer" parent="." index="8" unique_id=855356542]
 stream = ExtResource("15_j0rwt")
 parameters/looping = true
 

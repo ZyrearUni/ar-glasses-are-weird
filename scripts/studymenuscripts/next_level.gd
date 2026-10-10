@@ -1,16 +1,18 @@
 extends Button
 
 @export var nextLevel : String
-
+@onready var aspnegativos = $"../HBoxContainer/Aspectos negativos"
 
 func next_level(): 
 	var explanation = ""
-	for child in $"../HBoxContainer/Aspectos negativos".get_children():
-		if (child.risk && child.visible):
-			if (explanation == ""):
-				explanation = (child.explanation + "\n" + "\n")
-			else:
-				explanation += (child.explanation + "\n" + "\n")
+	if (aspnegativos != null): 
+		for child in aspnegativos.get_children():
+			if (child.risk && child.visible):
+				if (explanation == ""):
+					explanation = (child.explanation + "\n" + "\n")
+				else:
+					explanation += (child.explanation + "\n" + "\n")
+	
 	$"..".hide()
 	if (explanation != ""): 
 		$"../../RiesgosExplicados".text += explanation

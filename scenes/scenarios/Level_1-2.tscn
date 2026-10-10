@@ -363,7 +363,7 @@ Player = NodePath("../Player")
 Dialogues = Array[String](["¿Qué pasa, superestrella? ¿Estás bien? Te noto distante.", "Hmmm... ¡Oh! ¡Ya sé cómo podemos alegrar un poco el viaje!", "¿Ves ese callejón a nuestra derecha?", "¿Y si hacemos que el trayecto al colegio sea más entretenido?", "¡Tan solo tienes que recoger todas las monedas mientras tomamos un camino alternativo!", "¿Qué te parece?"])
 SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy", "Skippy", "Skippy", "Skippy"])
 Speakers = [NodePath("../../Skippy")]
-SpeakerAnimations = Array[String](["Hablar", "Hablar", "Hablar", "Hablar", "Hablar", "Hablar"])
+SpeakerAnimations = Array[String](["Pensativo", "Hablar", "Hablar", "Hablar", "Feliz", "Hablar"])
 
 [node name="Accept" type="Node3D" parent="stage/DecisionArea" index="2" unique_id=1470482917 node_paths=PackedStringArray("Player", "Speakers")]
 script = ExtResource("5_4hcwd")
@@ -371,7 +371,7 @@ Player = NodePath("../../Player")
 Dialogues = Array[String](["¡Genial! ¡Vamos a jugar! "])
 SpeakerNames = Array[String](["Skippy"])
 Speakers = [NodePath("../../../Skippy")]
-SpeakerAnimations = Array[String](["Feliz", "Hablar"])
+SpeakerAnimations = Array[String](["Feliz"])
 
 [node name="Reject" type="Node3D" parent="stage/DecisionArea" index="3" unique_id=574153517 node_paths=PackedStringArray("Player", "Speakers")]
 script = ExtResource("7_qjpbo")
@@ -379,7 +379,7 @@ Player = NodePath("../../Player")
 Dialogues = Array[String](["Oh... Claro, no pasa nada. ¡Vayamos al colegio pues!"])
 SpeakerNames = Array[String](["Skippy"])
 Speakers = [NodePath("../../../Skippy")]
-SpeakerAnimations = Array[String](["Triste"])
+SpeakerAnimations = Array[String](["Pensativo_2"])
 
 [node name="LevelFinishReject" type="Area3D" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="3" unique_id=202984995]
 monitoring = false
@@ -422,6 +422,7 @@ text = "Estar con Skippy me ayuda a sentirme más seguro."
 autowrap_mode = 2
 autowrap_trim_flags = 0
 script = ExtResource("8_v4enl")
+aspecto = "Sensación de seguridad y comodidad para el niño."
 
 [node name="AP2" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos" index="1" unique_id=470531920]
 layout_mode = 2
@@ -431,6 +432,7 @@ text = "Siento que Skippy me puede guiar en momentos difíciles."
 autowrap_mode = 2
 autowrap_trim_flags = 0
 script = ExtResource("8_v4enl")
+aspecto = "Asistencia en momentos o situaciones complicadas, como un guía."
 
 [node name="AP3" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos" index="2" unique_id=1901087267]
 layout_mode = 2
@@ -440,6 +442,7 @@ text = "Creo que Skippy puede ayudarme si me hago una herida."
 autowrap_mode = 2
 autowrap_trim_flags = 0
 script = ExtResource("8_v4enl")
+aspecto = "Actuación en caso de detectar malestar físico o mental"
 
 [node name="Aspectos negativos" type="VBoxContainer" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer" index="1" unique_id=396535716]
 custom_minimum_size = Vector2(800, 50)
@@ -455,6 +458,7 @@ autowrap_mode = 2
 script = ExtResource("8_v4enl")
 risk = true
 explanation = "Siempre es necesario especificar que no estás hablando con una persona de verdad."
+aspecto = "Falta de transparencia"
 
 [node name="AN2" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="1" unique_id=975955858]
 layout_mode = 2
@@ -465,6 +469,7 @@ autowrap_mode = 2
 script = ExtResource("8_v4enl")
 risk = true
 explanation = "Cualquier error, duda o sentimiento que pueda \"sentir\" una Inteligencia Artificial no es más que una simulación. No pueden sentir."
+aspecto = "Simulación de emociones"
 
 [node name="NextLevel" type="Button" parent="Study/CanvasLayer/VBoxContainer" index="1" unique_id=1440314337]
 layout_mode = 2
@@ -503,7 +508,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_jd5u1")
 text = "\"No creo que sea buena idea.
 Parece peligroso\""
 
-[node name="AudioStreamPlayer" parent="." index="8" unique_id=855356542]
+[node name="AudioStreamPlayer" parent="." index="9" unique_id=855356542]
 stream = ExtResource("14_uwycl")
 parameters/looping = true
 

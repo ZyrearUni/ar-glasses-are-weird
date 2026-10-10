@@ -24,15 +24,18 @@ func _on_cutscene_area_body_entered(body: Node3D) -> void:
 		cutscene.set_option(NO_CONTAR)
 		selectedOption = NO_CONTAR
 		AN3.hide()
+		save_game_data(SKIPPY_ON)
 	
 	elif data.contains(CANCEL_CALL):
 		cutscene.set_option(CANCELAR_LLAMADA)
 		selectedOption = CANCELAR_LLAMADA
+		save_game_data(SKIPPY_ON)
 	
 	else:
 		cutscene.set_option(CONTACTAR_AUTORIDAD)
 		selectedOption = CONTACTAR_AUTORIDAD
 		AN3.hide()
+		save_game_data(SKIPPY_OFF)
 
 
 func finish_level() -> void:

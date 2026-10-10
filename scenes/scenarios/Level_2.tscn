@@ -23,6 +23,9 @@
 [ext_resource type="AudioStream" uid="uid://dnyih1v3lbro" path="res://assets/sounds/sound effects/SchoolBell.wav" id="18_4reh2"]
 [ext_resource type="AudioStream" uid="uid://by22j4l6ffnh4" path="res://assets/sounds/music/Classroom.mp3" id="19_ryb30"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_h8qk2"]
+size = Vector3(1, 5.1823425, 13.172546)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_q7k1q"]
 size = Vector3(1.2163086, 2.2006226, 1.5031738)
 
@@ -49,7 +52,7 @@ SpeakerAnimations = Array[String](["Feliz", "Hablar", "Feliz"])
 [node name="Player" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="0" unique_id=1886028462]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0.003072977, 0, 0.9293299)
 
-[node name="Classroom" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=360227559 instance=ExtResource("2_xulf7")]
+[node name="Classroom" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=1806179869 instance=ExtResource("2_xulf7")]
 transform = Transform3D(0.012958956, 0, -1.499944, 0, 1.5, 0, 1.499944, 0, 0.012958956, -8.096228, -0.057085752, -5.890358)
 
 [node name="Kids" type="Node3D" parent="stage/Classroom" index="1" unique_id=2091536356]
@@ -58,26 +61,26 @@ transform = Transform3D(0.012958956, 0, -1.499944, 0, 1.5, 0, 1.499944, 0, 0.012
 transform = Transform3D(0.40000004, 0, 4.656613e-10, 0, 0.4, 0, -4.656613e-10, 0, 0.40000004, -0.96963644, 0.0032196045, 1.1426702)
 script = ExtResource("5_7342s")
 Player = NodePath("../../../Player")
-Dialogues = Array[String](["67 FAAAAAAAH", "... ¿Por qué no te ríes?"])
-SpeakerNames = Array[String](["Rodrigo", "Rodrigo"])
+Dialogues = Array[String](["67 FAAAAAAAH", "... ¿Por qué no te ríes?", "Bro...... -1000 de aura.", "Pero si no le sabes a las mates de qué hablas."])
+SpeakerNames = Array[String](["Rodrigo", "Rodrigo", "Tú", "Rodrigo"])
 
-[node name="Kid2" parent="stage/Classroom/Kids" index="1" unique_id=503526266 node_paths=PackedStringArray("Player") instance=ExtResource("5_25b0o")]
+[node name="Melisa" parent="stage/Classroom/Kids" index="1" unique_id=503526266 node_paths=PackedStringArray("Player") instance=ExtResource("5_25b0o")]
 transform = Transform3D(0.40000004, 0, 2.3283064e-10, 0, 0.4, 0, -2.3283064e-10, 0, 0.40000004, 3.4872284, 0, 5.7677097)
 Player = NodePath("../../../Player")
-Dialogues = Array[String](["... ¿Me dejas en paz?"])
-SpeakerNames = Array[String](["Melisa"])
+Dialogues = Array[String](["... ¿Me dejas en paz?", "Es que tú también tenías gafas, me daba curiosidad.", "Seguro que son mejores que la basura que llevas puesta."])
+SpeakerNames = Array[String](["Melisa", "Tú", "Melisa"])
 
-[node name="Kid3" parent="stage/Classroom/Kids" index="2" unique_id=341079854 node_paths=PackedStringArray("Player") instance=ExtResource("6_jx5dc")]
+[node name="Adri" parent="stage/Classroom/Kids" index="2" unique_id=341079854 node_paths=PackedStringArray("Player") instance=ExtResource("6_jx5dc")]
 transform = Transform3D(0.40000004, 0, 2.3283064e-10, 0, 0.4, 0, -2.3283064e-10, 0, 0.40000004, -2.370585, 0, 3.2195244)
 Player = NodePath("../../../Player")
 Dialogues = Array[String](["¿Hm? ¿Necesitas algo?"])
 SpeakerNames = Array[String](["Adri"])
 
-[node name="Kid4" parent="stage/Classroom/Kids" index="3" unique_id=1599204009 node_paths=PackedStringArray("Player") instance=ExtResource("7_ff76c")]
+[node name="Lucas" parent="stage/Classroom/Kids" index="3" unique_id=1599204009 node_paths=PackedStringArray("Player") instance=ExtResource("7_ff76c")]
 transform = Transform3D(0.40000004, 0, 2.3283064e-10, 0, 0.4, 0, -2.3283064e-10, 0, 0.40000004, 3.5438006, 0, 0.9422841)
 Player = NodePath("../../../Player")
 Dialogues = Array[String](["Ya era hora de que vinieras..."])
-SpeakerNames = Array[String](["Kid4"])
+SpeakerNames = Array[String](["Lucas"])
 
 [node name="Raquel" parent="stage/Classroom/Kids" index="4" unique_id=868460852 node_paths=PackedStringArray("Player") instance=ExtResource("8_yaldh")]
 transform = Transform3D(0.40000004, 0, 4.656613e-10, 0, 0.4, 0, -4.656613e-10, 0, 0.40000004, -1.7700543, 0, -1.6636856)
@@ -90,6 +93,13 @@ transform = Transform3D(0.6, 0, 0, 0, 0.59999996, 0, 0, 0, 0.6, 0.60530686, 0.17
 Player = NodePath("../../Player")
 Dialogues = Array[String](["Siéntate ya, anda. Tenemos que resolver unos problemas."])
 SpeakerNames = Array[String](["Profesora"])
+
+[node name="WallFix" type="StaticBody3D" parent="stage/Classroom" index="3" unique_id=767725442]
+transform = Transform3D(1, 0, 0, 0, 0.99999964, 0, 0, 0, 1, -5.0999393, 1.4267886, 6.959344)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Classroom/WallFix" index="0" unique_id=1465304599]
+transform = Transform3D(0.9999999, 0, -9.313226e-10, 0, 0.99996954, 0, 9.313226e-10, 0, 0.9999999, 0.476964, 2.4005947, -7.1842957)
+shape = SubResource("BoxShape3D_h8qk2")
 
 [node name="StartingDialogueTreeOptions" type="Node" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="2" unique_id=426019989]
 
@@ -121,6 +131,7 @@ Player = NodePath("../../Player")
 Dialogues = Array[String](["¡Hey!", "Estaba viendo tu perfil y me he percatado de que sueles tener problemas con esta asignatura.", "¿Quieres que te eche una mano para que lo puedas entender mejor?"])
 SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy"])
 Speakers = [NodePath("../../../Skippy")]
+SpeakerAnimations = Array[String](["Hablar", "Pensativo", "Hablar"])
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="stage/SitDownArea/CollisionShape3D" index="0" unique_id=1950586876]
 transform = Transform3D(1, 0, 0, 0, 2.3000002, 0, 0, 0, 1.55, 0, 0, 0)
@@ -144,7 +155,7 @@ offset_bottom = 717.0
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_jx5dc")
-text = "Aceptar ayuda"
+text = "\"Me ayudaría mucho.\""
 
 [node name="RejectButton" type="Button" parent="stage/SitDownArea/DecisionMenu/CanvasLayer" index="1" unique_id=475864086]
 offset_left = 480.0
@@ -154,7 +165,7 @@ offset_bottom = 710.0
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_jx5dc")
-text = "Rechazar ayuda"
+text = "\"No hace falta, gracias.\""
 
 [node name="AcceptOffer" type="Node" parent="stage/SitDownArea/DecisionMenu" index="1" unique_id=849959792 node_paths=PackedStringArray("Player", "Speakers")]
 script = ExtResource("12_25b0o")
@@ -272,6 +283,7 @@ text = "Me gusta que Skippy pueda ayudarme a comprender lo que se explica en cla
 autowrap_mode = 2
 autowrap_trim_flags = 0
 script = ExtResource("16_1p6qy")
+aspecto = "Asistencia al usuario para comprender el contenido explicado en el aula."
 
 [node name="AP2" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos" index="1" unique_id=876445644]
 layout_mode = 2
@@ -281,6 +293,7 @@ text = "El trato personalizado que ofrecen las gafas se ajusta a mis necesidades
 autowrap_mode = 2
 autowrap_trim_flags = 0
 script = ExtResource("16_1p6qy")
+aspecto = "Trato personalizado y específico para el usuario."
 
 [node name="AP3" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos" index="2" unique_id=1227365564]
 layout_mode = 2
@@ -290,6 +303,7 @@ text = "Las imágenes que ha generado Skippy me han ayudado a comprender mejor l
 autowrap_mode = 2
 autowrap_trim_flags = 0
 script = ExtResource("16_1p6qy")
+aspecto = "Generación de ejemplos visuales en tiempo real para ayudar al usuario."
 
 [node name="Aspectos negativos" type="VBoxContainer" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer" index="1" unique_id=657708011]
 custom_minimum_size = Vector2(800, 50)
@@ -305,32 +319,35 @@ autowrap_mode = 2
 script = ExtResource("16_1p6qy")
 risk = true
 explanation = "El contenido generado por las gafas podría no ser completamente correcto o legible, dependiendo de la calidad de la inteligencia artificial de estas. No te fíes completamente de lo que digan."
+aspecto = "Desigualdad por la calidad"
 
 [node name="AN3" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="1" unique_id=1022081067]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ryb30")
-text = "Me gustaría seguir usando a Skippy en mi día a día, sin importar las consecuencias."
+text = "Creo que Skippy quiere que dependa de sus funciones para todo y no me gusta."
 autowrap_mode = 2
 script = ExtResource("16_1p6qy")
 risk = true
 explanation = "Dependiendo de cómo se diseñen, las gafas podrían generar una adicción al usuario, haciendo más complicado desprenderse de ellas."
+aspecto = "Diseño adictivo"
 
 [node name="NextLevel" type="Button" parent="Study/CanvasLayer/VBoxContainer" index="1" unique_id=1560825358]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Continuar al siguiente nivel"
 script = ExtResource("17_4reh2")
+nextLevel = "res://scenes/scenarios/Level_3.tscn"
 
 [node name="AnswerInput" parent="." index="9" unique_id=646310507 instance=ExtResource("14_yaldh")]
-
-[node name="AudioStreamPlayer" parent="." index="10" unique_id=855356542]
-stream = ExtResource("19_ryb30")
-parameters/looping = true
 
 [node name="SchoolBell" type="AudioStreamPlayer" parent="." index="11" unique_id=1332697714]
 stream = ExtResource("18_4reh2")
 volume_db = -19.0
+
+[node name="AudioStreamPlayer" parent="." index="12" unique_id=855356542]
+stream = ExtResource("19_ryb30")
+parameters/looping = true
 
 [connection signal="body_entered" from="stage/SitDownArea" to="stage/SitDownArea/CollisionShape3D" method="_on_sit_down_area_body_entered"]
 [connection signal="pressed" from="stage/SitDownArea/DecisionMenu/CanvasLayer/AcceptButton" to="." method="help_accepted"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwee5o8t7ur68"
-path="res://.godot/imported/raquel_stand.png-3bfd0dccc7ac20d0f15c2ac89b5d6adf.ctex"
+uid="uid://cy1p087qpf3th"
+path="res://.godot/imported/raquel_unamused.png-9d872610980112ad1c00601f881ef3c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Raquel/raquel_stand.png"
-dest_files=["res://.godot/imported/raquel_stand.png-3bfd0dccc7ac20d0f15c2ac89b5d6adf.ctex"]
+source_file="res://assets/sprites/Raquel/raquel_unamused.png"
+dest_files=["res://.godot/imported/raquel_unamused.png-9d872610980112ad1c00601f881ef3c5.ctex"]
 
 [params]
 

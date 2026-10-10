@@ -86,6 +86,9 @@ _subresources={
 },
 "PATH:Sketchfab_model/adf3238e886647589a6d907f83b28a51_fbx/RootNode/walls_005/walls_005_walls_0": {
 "generate/physics": true
+},
+"PATH:Sketchfab_model/adf3238e886647589a6d907f83b28a51_fbx/RootNode/windows/windows_details_0": {
+"generate/physics": true
 }
 }
 }

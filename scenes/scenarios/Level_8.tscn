@@ -27,7 +27,7 @@ SpeakerNames = Array[String](["Mamá"])
 transform = Transform3D(-0.022390684, 0, -0.9997493, 0, 1, 0, 0.9997493, 0, -0.022390684, 0.15270233, 0, -12.173288)
 
 [node name="DialogueArea" parent="stage/house" index="116" unique_id=896973546 node_paths=PackedStringArray("Player", "Speakers") instance=ExtResource("4_m33u2")]
-transform = Transform3D(1.099087, 0, 0, 0, 3.6708684, 0, 0, 0, 5.4242597, 3.7244854, 0, -0.76297075)
+transform = Transform3D(1.099087, 0, 0, 0, 3.6708684, 0, 0, 0, 5.4242597, 2.9785347, 0, -0.7462643)
 script = ExtResource("5_d6byv")
 Player = NodePath("../../Player")
 Speakers = [NodePath("../../../Mamá")]
@@ -42,9 +42,9 @@ offset_bottom = 40.0
 visible = false
 
 [node name="Tell" type="Button" parent="stage/house/DialogueArea/Decision/CanvasLayer" index="0" unique_id=239343580 node_paths=PackedStringArray("Player", "Speakers")]
-offset_left = 1718.0
+offset_left = 1550.0
 offset_top = 700.0
-offset_right = 2320.0
+offset_right = 2300.0
 offset_bottom = 755.0
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 40
@@ -64,8 +64,7 @@ offset_bottom = 755.0
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_fqv0n")
-text = "\"No sé si he hecho lo correcto y me preocupa
-que le haya pasado algo a Raquel\""
+text = "\"No, nada de nada.\""
 script = ExtResource("6_sdfkd")
 Player = NodePath("../../../../../Player")
 Dialogues = Array[String](["Hm... ", "Bueno. Siéntate a la mesa y ahora hablamos, ¿vale?", "Así tengo tiempo de revisar la información que me llegó de tu amiguito virtual."])
@@ -117,7 +116,7 @@ text = "Continuar al siguiente nivel"
 script = ExtResource("5_oo0qm")
 nextLevel = "res://scenes/scenarios/credits_scene.tscn"
 
-[node name="AudioStreamPlayer" parent="." index="8" unique_id=855356542]
+[node name="AudioStreamPlayer" parent="." index="9" unique_id=855356542]
 stream = ExtResource("6_oo0qm")
 parameters/looping = true
 

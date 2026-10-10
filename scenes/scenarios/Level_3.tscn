@@ -71,6 +71,7 @@ Player = NodePath("../../Player")
 Dialogues = Array[String](["¿Hm? Oh. Hola.", "Vale, tú solo sigue mis indicaciones.", "Según el registro generado por sus cookies de rastreo...", "¡Oh! ¡Háblale de trenes! ¡Eso le encanta!"])
 SpeakerNames = Array[String](["Raquel", "Skippy", "Skippy", "Skippy"])
 Speakers = [NodePath("../../../Skippy"), NodePath("../../../Raquel")]
+SpeakerAnimations = Array[String](["Aburrida", "Hablar", "Pensativo", "Hablar"])
 
 [node name="SkippyFriendTip" type="Control" parent="stage/Schoolyard/Raquel" index="2" unique_id=821981895]
 layout_mode = 3
@@ -96,6 +97,7 @@ Player = NodePath("../../../../../Player")
 Dialogues = Array[String](["¿En serio?", "¡Me encantaría!", "¡Ven, ven! ¡Te tengo que enseñar mis favoritos!"])
 SpeakerNames = Array[String](["Raquel", "Raquel", "Raquel"])
 Speakers = [NodePath("../../../../../../Raquel")]
+SpeakerAnimations = Array[String](["Ceja Levantada", "Feliz", "Feliz"])
 
 [node name="RejectButton" type="Button" parent="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer" index="1" unique_id=1262191288 node_paths=PackedStringArray("Player", "Speakers")]
 offset_left = 1681.0
@@ -111,6 +113,7 @@ Player = NodePath("../../../../../Player")
 Dialogues = Array[String](["¿Pero qué dices, superestrella?", "¡Estoy intentando ayudarte!", "Ehm... ¿Pasa algo?"])
 SpeakerNames = Array[String](["Skippy", "Skippy", "Raquel"])
 Speakers = [NodePath("../../../../../../Skippy"), NodePath("../../../../../../Raquel")]
+SpeakerAnimations = Array[String](["Confuso", "Hablar", "Ceja Levantada"])
 
 [node name="SkippyArgument" type="Control" parent="stage/Schoolyard/Raquel" index="3" unique_id=1976319226]
 layout_mode = 3
@@ -135,6 +138,7 @@ Player = NodePath("../../../../../Player")
 Dialogues = Array[String](["... ¿Ok?", "Creo que voy a irme..."])
 SpeakerNames = Array[String](["Raquel", "Raquel"])
 Speakers = [NodePath("../../../../../../Raquel")]
+SpeakerAnimations = Array[String](["Ceja Levantada", "Evitar Mirada"])
 
 [node name="Confess" type="Button" parent="stage/Schoolyard/Raquel/SkippyArgument/CanvasLayer" index="1" unique_id=1324150268 node_paths=PackedStringArray("Player", "Speakers")]
 offset_left = 1681.0
@@ -150,6 +154,7 @@ Player = NodePath("../../../../../Player")
 Dialogues = Array[String](["Eso es... muy raro.", "Voy a jugar con Rodrigo..."])
 SpeakerNames = Array[String](["Raquel", "Raquel"])
 Speakers = [NodePath("../../../../../../Raquel")]
+SpeakerAnimations = Array[String](["Aburrida", "Evitar Mirada"])
 
 [node name="Player" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="1" unique_id=1886028462]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.655802, 0, 11.733658)
@@ -273,9 +278,13 @@ Dialogues = Array[String](["Hm... Qué raro estás actuando. Pareciera que no qu
 SpeakerNames = Array[String](["Skippy", "Skippy"])
 Speakers = [NodePath("../../../Skippy")]
 
-[node name="Accept" type="Node" parent="stage/NextSceneNode" index="6" unique_id=1153603687 node_paths=PackedStringArray("Player")]
+[node name="Accept" type="Node" parent="stage/NextSceneNode" index="6" unique_id=1153603687 node_paths=PackedStringArray("Player", "Speakers")]
 script = ExtResource("13_c246d")
 Player = NodePath("../../Player")
+Dialogues = Array[String](["¡Estupendo! Vamos a hablar con la chica que tenemos aquí al lado."])
+SpeakerNames = Array[String](["Skippy"])
+Speakers = [NodePath("../../../Skippy")]
+SpeakerAnimations = Array[String](["Feliz"])
 
 [node name="Raquel" parent="." index="2" unique_id=791461782 instance=ExtResource("14_823d5")]
 visible = false
@@ -310,33 +319,40 @@ theme_override_constants/separation = 40
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_3kpjn")
-text = "Este es un aspecto positivo con mucho texto puesto para que ocupe demasiado"
+text = "Me alegra que Skippy se preocupe e intente ayudarme a conectar con mis compañeros."
 autowrap_mode = 2
 autowrap_trim_flags = 0
 script = ExtResource("14_064te")
+aspecto = "Asistencia para socializar con otros compañeros."
 
-[node name="Aspectos negativos" type="VBoxContainer" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer" index="1" unique_id=1519016295]
-custom_minimum_size = Vector2(800, 50)
-layout_mode = 2
-theme_override_constants/separation = 40
-
-[node name="AN1" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="0" unique_id=202351110]
+[node name="AP2" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos" index="1" unique_id=612142960]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_3kpjn")
-text = "Este es un aspecto negativo con mucho texto puesto para que ocupe demasiado"
+text = "Los consejos de Skippy me ayudan a poder conectar con mis compañeros sabiendo qué es lo que les gusta"
 autowrap_mode = 2
+autowrap_trim_flags = 0
 script = ExtResource("14_064te")
-risk = true
+aspecto = "Mayor conexión entre usuarios, pudiendo ver los gustos de cada uno."
+
+[node name="AP3" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos" index="2" unique_id=432118811]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_3kpjn")
+text = "La asistencia de Skippy me ayuda a pensar en juegos conjuntos con mis compañeros."
+autowrap_mode = 2
+autowrap_trim_flags = 0
+script = ExtResource("14_064te")
+aspecto = "Fomenta el juego conjunto con sugerencias para uno o ambos usuarios."
 
 [node name="NextLevel" type="Button" parent="Study/CanvasLayer/VBoxContainer" index="1" unique_id=579870460]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Continuar al siguiente nivel"
 script = ExtResource("15_3kpjn")
-nextLevel = "res://scenes/scenarios/Level_2.tscn"
+nextLevel = "res://scenes/scenarios/Level_4.tscn"
 
-[node name="AudioStreamPlayer" parent="." index="8" unique_id=855356542]
+[node name="AudioStreamPlayer" parent="." index="9" unique_id=855356542]
 stream = ExtResource("16_3kpjn")
 parameters/looping = true
 
@@ -346,8 +362,8 @@ parameters/looping = true
 [connection signal="kid_interacted" from="stage/Schoolyard/Melisa" to="." method="_on_kid_interacted"]
 [connection signal="kid_interacted" from="stage/Schoolyard/Adri" to="." method="_on_kid_interacted"]
 [connection signal="kid_interacted" from="stage/Schoolyard/Lucas" to="." method="_on_kid_interacted"]
-[connection signal="dialogue_ended" from="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/AcceptButton" to="." method="finish_level"]
 [connection signal="dialogue_ended" from="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/AcceptButton" to="." method="_raquel_is_friend"]
+[connection signal="dialogue_ended" from="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/AcceptButton" to="." method="finish_level"]
 [connection signal="pressed" from="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/AcceptButton" to="." method="_an1_not_identified"]
 [connection signal="pressed" from="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/AcceptButton" to="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/AcceptButton" method="_on_pressed"]
 [connection signal="dialogue_ended" from="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/RejectButton" to="." method="_raquel_awkward"]
@@ -366,5 +382,6 @@ parameters/looping = true
 [connection signal="pressed" from="stage/NextSceneNode/ThirdDecision/CanvasLayer/RejectButton" to="stage/NextSceneNode/ThirdDecisionReject" method="_on_reject_help"]
 [connection signal="dialogue_ended" from="stage/NextSceneNode/Accept" to="." method="_an2_not_identified"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP1" method="save_result"]
-[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos/AN1" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP2" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP2" method="save_result"]
+[connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP3" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP3" method="save_result"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/NextLevel" to="Study/CanvasLayer/VBoxContainer/NextLevel" method="next_level"]

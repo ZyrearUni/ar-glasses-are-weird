@@ -12,6 +12,7 @@ func _on_sit_down_area_body_entered(body: Node3D) -> void:
 		teacher_pos.y += SITTING_HEIGHT
 		
 		await $"../../../fade".fade_to_black()
+		$"../../Classroom/Teacher".get_node("Sprite3D").texture = load("res://assets/sprites/Teacher/teacherboard.png")
 		$"../../Classroom/Kids".hide()
 		speak()
 		Player.set_global_position(self.global_position)

@@ -2,6 +2,122 @@
 
 [ext_resource type="Script" uid="uid://plms7gqrxn8f" path="res://scripts/2d_speaker_anim.gd" id="1_f4j2c"]
 [ext_resource type="Texture2D" uid="uid://cxcwb0tnle32s" path="res://assets/sprites/Raquel/raquel.png" id="1_lofxe"]
+[ext_resource type="Texture2D" uid="uid://778mf8sqnbwc" path="res://assets/sprites/Raquel/raquel_raisedeyebrow.png" id="3_o2twm"]
+[ext_resource type="Texture2D" uid="uid://cy1p087qpf3th" path="res://assets/sprites/Raquel/raquel_unamused.png" id="3_uxqvs"]
+[ext_resource type="Texture2D" uid="uid://dukqctwgf0d3" path="res://assets/sprites/Raquel/raquel_surprised.png" id="5_mbw6r"]
+[ext_resource type="Texture2D" uid="uid://kqb7bdjhbr58" path="res://assets/sprites/Raquel/raquel_avoideyes.png" id="5_nyk76"]
+
+[sub_resource type="Animation" id="Animation_xoy7e"]
+resource_name = "Aburrida"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_uxqvs")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.375, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2105.0002, 983.99994), Vector2(2105, 934), Vector2(2105.0002, 983.99994)]
+}
+
+[sub_resource type="Animation" id="Animation_nyk76"]
+resource_name = "Ceja Levantada"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_o2twm")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.375, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2105.0002, 983.99994), Vector2(2105, 934), Vector2(2105.0002, 983.99994)]
+}
+
+[sub_resource type="Animation" id="Animation_8fkvy"]
+resource_name = "Evitar Mirada"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_nyk76")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.375, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2105.0002, 983.99994), Vector2(2105, 934), Vector2(2105.0002, 983.99994)]
+}
+
+[sub_resource type="Animation" id="Animation_uxqvs"]
+resource_name = "Feliz"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_lofxe")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.375, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2105.0002, 983.99994), Vector2(2105, 934), Vector2(2105.0002, 983.99994)]
+}
 
 [sub_resource type="Animation" id="Animation_7ht7l"]
 resource_name = "Hablar"
@@ -17,6 +133,34 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("1_lofxe")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.375, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2105.0002, 983.99994), Vector2(2105, 934), Vector2(2105.0002, 983.99994)]
+}
+
+[sub_resource type="Animation" id="Animation_tikfo"]
+resource_name = "Nerviosa"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_mbw6r")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -60,7 +204,12 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_37yw6"]
 _data = {
+&"Aburrida": SubResource("Animation_xoy7e"),
+&"Ceja Levantada": SubResource("Animation_nyk76"),
+&"Evitar Mirada": SubResource("Animation_8fkvy"),
+&"Feliz": SubResource("Animation_uxqvs"),
 &"Hablar": SubResource("Animation_7ht7l"),
+&"Nerviosa": SubResource("Animation_tikfo"),
 &"RESET": SubResource("Animation_lofxe")
 }
 

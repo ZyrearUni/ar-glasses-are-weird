@@ -11,6 +11,8 @@
 [ext_resource type="AudioStream" uid="uid://dk06n8cg3a7h4" path="res://assets/sounds/sound effects/CollectCoin.wav" id="7_w7s45"]
 [ext_resource type="Script" uid="uid://cj50m4a61k0cw" path="res://scripts/dialogue.gd" id="8_8882p"]
 [ext_resource type="Texture2D" uid="uid://dsbsy3qay7gjm" path="res://assets/sprites/Kids/rodri.png" id="8_b3bfj"]
+[ext_resource type="Texture2D" uid="uid://cs5x7f57wfguy" path="res://assets/sprites/Kids/lucas.png" id="8_xwu8x"]
+[ext_resource type="Texture2D" uid="uid://xo58bfjg1e6g" path="res://assets/sprites/Kids/melisa.png" id="9_5ns8p"]
 [ext_resource type="Texture2D" uid="uid://dukqctwgf0d3" path="res://assets/sprites/Raquel/raquel_surprised.png" id="9_ae7fx"]
 [ext_resource type="Texture2D" uid="uid://bqofhitwud67n" path="res://assets/sprites/Kids/adri.png" id="9_coqdb"]
 [ext_resource type="Script" uid="uid://dpyrbu0plrfw2" path="res://scripts/level4scripts/introduction_dialogue.gd" id="10_8bh45"]
@@ -267,30 +269,30 @@ autoplay = &"RotarMoneda"
 [node name="CollectCoin" type="AudioStreamPlayer" parent="stage/Schoolyard/Platform section/Coins/Coin5" index="3" unique_id=967167435]
 stream = ExtResource("7_w7s45")
 
-[node name="Children" type="Node3D" parent="stage/Schoolyard" index="32" unique_id=264974040]
+[node name="Children" type="Node3D" parent="stage/Schoolyard" index="32" unique_id=677718013]
 
-[node name="Nene1" type="Sprite3D" parent="stage/Schoolyard/Children" index="0" unique_id=489171484]
+[node name="Nene1" type="Sprite3D" parent="stage/Schoolyard/Children" index="0" unique_id=1385325770]
 transform = Transform3D(0.045, 0, -2.0954759e-10, 0, 0.045, 0, 2.0954759e-10, 0, 0.045, 2.8617153, 1.0581894, -1.2587171)
 billboard = 2
-texture = ExtResource("8_b3bfj")
+texture = ExtResource("8_xwu8x")
 
-[node name="Nene2" type="Sprite3D" parent="stage/Schoolyard/Children" index="1" unique_id=1019860904]
+[node name="Nene2" type="Sprite3D" parent="stage/Schoolyard/Children" index="1" unique_id=1102177287]
 transform = Transform3D(0.045, 0, 2.3283064e-10, 0, 0.045, 0, 2.3283064e-10, 0, 0.045, 1.7879353, 1.0581894, 1.6099238)
 billboard = 2
-texture = ExtResource("8_b3bfj")
+texture = ExtResource("9_5ns8p")
 
-[node name="Nene3" type="Sprite3D" parent="stage/Schoolyard/Children" index="2" unique_id=1379806828]
+[node name="Nene3" type="Sprite3D" parent="stage/Schoolyard/Children" index="2" unique_id=1809716083]
 transform = Transform3D(0.045, 0, 1.1641532e-09, 0, 0.045, 0, 2.3283064e-10, 0, 0.045, -2.7834392, 1.0581894, -6.917616)
 billboard = 2
 texture = ExtResource("9_coqdb")
 script = ExtResource("10_w0p37")
 
-[node name="Nene4" type="Sprite3D" parent="stage/Schoolyard/Children" index="3" unique_id=1029022587]
+[node name="Nene4" type="Sprite3D" parent="stage/Schoolyard/Children" index="3" unique_id=1787737313]
 transform = Transform3D(0.045, 0, 2.3283064e-10, 0, 0.045, 0, 2.3283064e-10, 0, 0.045, -2.9264426, 1.0581894, -1.0982833)
 billboard = 2
 texture = ExtResource("8_b3bfj")
 
-[node name="Raquel" type="Sprite3D" parent="stage/Schoolyard/Children" index="4" unique_id=1269988406]
+[node name="Raquel" type="Sprite3D" parent="stage/Schoolyard/Children" index="4" unique_id=701172166]
 transform = Transform3D(0.045, 0, 5.820766e-10, 0, 0.045, 0, 2.3283064e-10, 0, 0.045, -2.6042085, 1.0581894, 2.7813725)
 billboard = 2
 texture = ExtResource("9_ae7fx")
@@ -355,7 +357,10 @@ SpeakerAnimations = Array[String](["Nervioso", "Pensativo_2", "Hablar"])
 [node name="Adri" parent="." index="3" unique_id=748424255 instance=ExtResource("13_1swa1")]
 visible = false
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Study/CanvasLayer" parent_id_path=PackedInt32Array(1082957249) index="0" unique_id=854192583]
+[node name="CanvasLayer" parent="Study" parent_id_path=PackedInt32Array(1827521786) index="0" unique_id=1082957249]
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Study/CanvasLayer" index="0" unique_id=854192583]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -386,15 +391,17 @@ text = "Siento que Skippy me ayuda a ser más creativ@ y a que me exprese mejor.
 autowrap_mode = 2
 autowrap_trim_flags = 0
 script = ExtResource("4_yy6d1")
+aspecto = "Fomentación de creatividad y expresión personal del niño."
 
 [node name="AP2" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos" index="1" unique_id=848428550]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_w0p37")
-text = "Me ha gustado que las gafas me hayan ayudado a conectar con mis compañeros para jugar con ellos."
+text = "Las gafas me han ayudado a conectar con mis compañeros para jugar con ellos."
 autowrap_mode = 2
 autowrap_trim_flags = 0
 script = ExtResource("4_yy6d1")
+aspecto = "Fomentación del juego en conjunto con otros usuarios."
 
 [node name="Aspectos negativos" type="VBoxContainer" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer" index="1" unique_id=1165606881]
 custom_minimum_size = Vector2(800, 50)
@@ -409,7 +416,8 @@ text = "Creo que no todos pueden disfrutar del juego de Skippy al mismo nivel qu
 autowrap_mode = 2
 script = ExtResource("4_yy6d1")
 risk = true
-explanation = "SecondPlaceholder"
+explanation = "Dependiendo del modelo de las gafas, la calidad de los objetos generados puede ser peor, creando una desigualdad entre usuarios que estén haciendo la misma tarea, y dificultaría que pudieras jugar con tus compañeros."
+aspecto = "Desigualdad por la calidad"
 
 [node name="AN3" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="1" unique_id=1172209986]
 layout_mode = 2
@@ -420,6 +428,7 @@ autowrap_mode = 2
 script = ExtResource("4_yy6d1")
 risk = true
 explanation = "Si no hay una distinción correcta entre lo que es real y lo que es virtual por parte de las gafas, puede llegar a confundir al usuario y llegar a pensar que un riesgo real sea algo falso, o lo contrario."
+aspecto = "Diseño que impide distinguir el mundo real del mundo virtual"
 
 [node name="AN4" type="Button" parent="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos negativos" index="2" unique_id=1428574191]
 layout_mode = 2
@@ -430,6 +439,7 @@ autowrap_mode = 2
 script = ExtResource("4_yy6d1")
 risk = true
 explanation = "El juego diseñado por las gafas puede, en algunos casos como el mostrado, resultar en daños físicos en el usuario en caso de que no se implemente correctamente."
+aspecto = "Diseño inseguro a nivel físico"
 
 [node name="NextLevel" type="Button" parent="Study/CanvasLayer/VBoxContainer" index="1" unique_id=1335291421]
 layout_mode = 2
@@ -438,12 +448,12 @@ text = "Continuar al siguiente nivel"
 script = ExtResource("5_q0bsi")
 nextLevel = "res://scenes/scenarios/Level_5.tscn"
 
-[node name="AudioStreamPlayer" parent="." index="8" unique_id=855356542]
-stream = ExtResource("14_ae7fx")
-parameters/looping = true
-
 [node name="BokenBone" type="AudioStreamPlayer" parent="." index="9" unique_id=103504490]
 stream = ExtResource("11_70yo7")
+
+[node name="AudioStreamPlayer" parent="." index="10" unique_id=855356542]
+stream = ExtResource("14_ae7fx")
+parameters/looping = true
 
 [connection signal="body_entered" from="stage/Schoolyard/Platform section/Coins/Coin1" to="." method="coin_collected"]
 [connection signal="body_entered" from="stage/Schoolyard/Platform section/Coins/Coin1" to="stage/Schoolyard/Platform section/Coins/Coin1" method="_on_body_entered"]
@@ -456,10 +466,8 @@ stream = ExtResource("11_70yo7")
 [connection signal="body_entered" from="stage/Schoolyard/Platform section/Coins/Coin5" to="." method="coin_collected"]
 [connection signal="body_entered" from="stage/Schoolyard/Platform section/Coins/Coin5" to="stage/Schoolyard/Platform section/Coins/Coin5" method="_on_body_entered"]
 [connection signal="pressed" from="stage/IntroductionDialogue/WannaPlayDecision/CanvasLayer/PlayLaterButton" to="." method="_on_play_later_button_pressed"]
-[connection signal="pressed" from="stage/IntroductionDialogue/WannaPlayDecision/CanvasLayer/PlayLaterButton" to="stage/Schoolyard/Children/Nene3" method="_on_play_later_button_pressed"]
 [connection signal="pressed" from="stage/IntroductionDialogue/WannaPlayDecision/CanvasLayer/PlayLaterButton" to="stage/IntroductionDialogue/WannaPlayDecision/CanvasLayer/PlayLaterButton" method="_on_pressed"]
 [connection signal="pressed" from="stage/IntroductionDialogue/WannaPlayDecision/CanvasLayer/RejectPlayButton" to="." method="_on_reject_play_button_pressed"]
-[connection signal="pressed" from="stage/IntroductionDialogue/WannaPlayDecision/CanvasLayer/RejectPlayButton" to="stage/Schoolyard/Children/Nene3" method="_on_reject_play_button_pressed"]
 [connection signal="pressed" from="stage/IntroductionDialogue/WannaPlayDecision/CanvasLayer/RejectPlayButton" to="stage/IntroductionDialogue/WannaPlayDecision/CanvasLayer/RejectPlayButton" method="_on_pressed"]
 [connection signal="dialogue_ended" from="stage/EndingDialogue" to="." method="finish_level"]
 [connection signal="pressed" from="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP1" to="Study/CanvasLayer/VBoxContainer/HBoxContainer/Aspectos positivos/AP1" method="save_result"]
