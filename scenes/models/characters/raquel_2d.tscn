@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cy1p087qpf3th" path="res://assets/sprites/Raquel/raquel_unamused.png" id="3_uxqvs"]
 [ext_resource type="Texture2D" uid="uid://dukqctwgf0d3" path="res://assets/sprites/Raquel/raquel_surprised.png" id="5_mbw6r"]
 [ext_resource type="Texture2D" uid="uid://kqb7bdjhbr58" path="res://assets/sprites/Raquel/raquel_avoideyes.png" id="5_nyk76"]
+[ext_resource type="Texture2D" uid="uid://dfwjrg172xtql" path="res://assets/sprites/Raquel/raquel_happy.png" id="6_mbw6r"]
 
 [sub_resource type="Animation" id="Animation_xoy7e"]
 resource_name = "Aburrida"
@@ -104,7 +105,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_lofxe")]
+"values": [ExtResource("6_mbw6r")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
