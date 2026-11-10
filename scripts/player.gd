@@ -16,7 +16,6 @@ var inDialogue = false
 
 # Starting position and camera rotation for resetting purposes
 var startingPos
-var startingCameraRot
 
 # Movement values
 var current_speed_mult
@@ -47,16 +46,16 @@ var t_bob = 0.0
 const INTERACT_MESSAGE : String = "Presiona E para interactuar"
 const DIALOGUE_MESSAGE : String = "Presiona E para hablar"
 
-# Audio de caminar
+# Walk audio
+var FOOTSTEP_THRESHOLD = -BOB_AMP + 0.0004
 var footstep_playable = true
 var footstep_just_landed 
 
-# Executes once when starting script
+
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # Makes mouse stay inside window
 	interact_text.hide()
 	startingPos = global_position
-	startingCameraRot = camera.global_rotation.x
 
 
 # Camera movement handling
@@ -68,23 +67,24 @@ func _input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	if !inDialogue:
-		# Interaction check
 		
+		# Interaction check
 		if interact_cast.is_colliding():
 			var target = interact_cast.get_collider()
-			if target != null and target.has_method("interact"):
-				interact_text.text = INTERACT_MESSAGE
-				interact_text.show()
-				if Input.is_action_just_pressed("interact"):
-					target.interact()
-			elif target.has_method("speak"):
-				interact_text.text = DIALOGUE_MESSAGE
-				interact_text.show()
-				if Input.is_action_just_pressed("interact"):
+			if target != null:
+				if target.has_method("interact"):
+					interact_text.text = INTERACT_MESSAGE
+					interact_text.show()
+					if Input.is_action_just_pressed("interact"):
+						target.interact()
+				elif target.has_method("speak"):
+					interact_text.text = DIALOGUE_MESSAGE
+					interact_text.show()
+					if Input.is_action_just_pressed("interact"):
+						interact_text.hide()
+						target.speak()
+				else:
 					interact_text.hide()
-					target.speak()
-			else:
-				interact_text.hide()
 		else:
 			interact_text.hide()
 		
@@ -140,6 +140,8 @@ func _physics_process(delta: float) -> void:
 
 		move_and_slide()
 		
+		
+		# Footstep sounds
 		if(!footstep_just_landed and is_on_floor()):
 			$FootstepAudio.play()
 		elif(footstep_just_landed and !is_on_floor()):
@@ -147,7 +149,7 @@ func _physics_process(delta: float) -> void:
 		
 		footstep_just_landed = is_on_floor()
 
-# No deja sobreescribir la función "look_at" de Node3D, se prueba así
+# look_at base function does not work properly, use this
 func look_at_somewhere(target: Vector3, up: Vector3 = Vector3(0, 1, 0), use_model_front: bool = false):
 	camera.rotation_degrees = Vector3.ZERO
 	head.look_at(target, up, use_model_front)
@@ -160,10 +162,10 @@ func _headbob(time) -> Vector3:
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
 	
-	var footstep_threshold = -BOB_AMP + 0.0004
-	if (pos.y > footstep_threshold):
+	
+	if (pos.y > FOOTSTEP_THRESHOLD):
 		footstep_playable = true
-	elif (pos.y < footstep_threshold and footstep_playable):
+	elif (pos.y < FOOTSTEP_THRESHOLD and footstep_playable):
 		footstep_playable = false
 		$FootstepAudio.play()
 	

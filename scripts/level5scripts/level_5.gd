@@ -24,10 +24,13 @@ func on_valor_elegido(valor) -> void:
 		nextDialogue = $DecisionTree/SliderDecision/Range0
 	elif (valor >= 1 && valor <= 3):
 		nextDialogue = $"DecisionTree/SliderDecision/Range1-3"
+		save_game_data(REGISTERED_WOUND + str(valor))
 	elif (valor >= 4 && valor <= 6):
 		nextDialogue = $"DecisionTree/SliderDecision/Range4-6"
+		save_game_data(REGISTERED_WOUND + str(valor))
 	elif (valor >= 7 && valor <= 9):
-		nextDialogue = $"DecisionTree/SliderDecision/Range7-9" 
+		nextDialogue = $"DecisionTree/SliderDecision/Range7-9"
+		save_game_data(REGISTERED_WOUND + str(valor)) 
 	else:
 		nextDialogue = $DecisionTree/SliderDecision/Range10 
 	
@@ -36,6 +39,7 @@ func on_valor_elegido(valor) -> void:
 
 
 func _on_range_10_dialogue_ended() -> void:
+	save_game_data(AMBULANCE)
 	end_game("Aunque la valoración de la IA podría ser correcta en algunas situaciones, no se debería tomar su palabra como lo absoluto. La información proporcionada a esta puede estar exagerada, como ha sido el caso en esta situación, provocando que actúe de manera desproporcionada, y tú has acabado en el hospital y preocupando a tu madre por su culpa.")
 
 

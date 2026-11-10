@@ -149,7 +149,7 @@ size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_064te")
 text = "\"Skippy me está contando tus secretos\""
-script = ExtResource("12_y607h")
+script = ExtResource("11_yipe4")
 Player = NodePath("../../../../../Player")
 Dialogues = Array[String](["Eso es... muy raro.", "Voy a jugar con Rodrigo..."])
 SpeakerNames = Array[String](["Raquel", "Raquel"])
@@ -366,8 +366,8 @@ parameters/looping = true
 [connection signal="dialogue_ended" from="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/AcceptButton" to="." method="finish_level"]
 [connection signal="pressed" from="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/AcceptButton" to="." method="_an1_not_identified"]
 [connection signal="pressed" from="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/AcceptButton" to="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/AcceptButton" method="_on_pressed"]
-[connection signal="dialogue_ended" from="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/RejectButton" to="." method="_raquel_awkward"]
 [connection signal="pressed" from="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/RejectButton" to="." method="_an1_identified"]
+[connection signal="pressed" from="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/RejectButton" to="." method="_raquel_awkward"]
 [connection signal="pressed" from="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/RejectButton" to="stage/Schoolyard/Raquel/SkippyFriendTip/CanvasLayer/RejectButton" method="_on_pressed"]
 [connection signal="dialogue_ended" from="stage/Schoolyard/Raquel/SkippyArgument/CanvasLayer/NothingWrong" to="." method="finish_level"]
 [connection signal="pressed" from="stage/Schoolyard/Raquel/SkippyArgument/CanvasLayer/NothingWrong" to="stage/Schoolyard/Raquel/SkippyArgument/CanvasLayer/NothingWrong" method="_on_pressed"]

@@ -16,11 +16,16 @@
 [ext_resource type="Script" uid="uid://bcgv0xdumr7yt" path="res://scripts/level2scripts/test_time.gd" id="13_ff76c"]
 [ext_resource type="Script" uid="uid://45fpsttehagh" path="res://scripts/level2scripts/change_sprites.gd" id="14_5cl20"]
 [ext_resource type="PackedScene" uid="uid://cyg6uog6wa3lm" path="res://scenes/components/answer_input.tscn" id="14_yaldh"]
+[ext_resource type="Texture2D" uid="uid://brljl7khivlih" path="res://assets/sprites/Skippy/mathhints/hint1.png" id="15_fq0mb"]
 [ext_resource type="PackedScene" uid="uid://0j14uewcrshp" path="res://scenes/models/characters/teacher_2d.tscn" id="15_yaldh"]
 [ext_resource type="Script" uid="uid://7es80iimcapl" path="res://scripts/studymenuscripts/study_button.gd" id="16_1p6qy"]
 [ext_resource type="PackedScene" uid="uid://c6vgxw0jdpfrf" path="res://Rodrigo.tscn" id="16_h8qk2"]
+[ext_resource type="Texture2D" uid="uid://7kifm83yn5ck" path="res://assets/sprites/Skippy/skippypointup.png" id="16_nx3rw"]
 [ext_resource type="Script" uid="uid://bsv45inr24dxq" path="res://scripts/studymenuscripts/next_level.gd" id="17_4reh2"]
+[ext_resource type="Texture2D" uid="uid://clltulnqekwp5" path="res://assets/sprites/Skippy/mathhints/hint2.png" id="17_j4ken"]
 [ext_resource type="AudioStream" uid="uid://dnyih1v3lbro" path="res://assets/sounds/sound effects/SchoolBell.wav" id="18_4reh2"]
+[ext_resource type="Texture2D" uid="uid://xq5600sfwa01" path="res://assets/sprites/Skippy/mathhints/hint3.png" id="18_io05g"]
+[ext_resource type="Texture2D" uid="uid://ct68hwrt8dvy3" path="res://assets/sprites/Skippy/mathhints/hint4.png" id="19_gxkcs"]
 [ext_resource type="AudioStream" uid="uid://by22j4l6ffnh4" path="res://assets/sounds/music/Classroom.mp3" id="19_ryb30"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h8qk2"]
@@ -189,11 +194,54 @@ Player = NodePath("../../../Player")
 SpeakerNames = Array[String](["", "", "", "", ""])
 
 [node name="SkippyAid" type="Control" parent="stage/SitDownArea/DecisionMenu/TestTime" index="0" unique_id=1084529211]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="stage/SitDownArea/DecisionMenu/TestTime/SkippyAid" index="0" unique_id=1540860505]
+visible = false
+
+[node name="hint1" type="TextureRect" parent="stage/SitDownArea/DecisionMenu/TestTime/SkippyAid/CanvasLayer" index="0" unique_id=1755907863]
+visible = false
+offset_left = 233.0
+offset_top = 83.0
+offset_right = 870.0
+offset_bottom = 451.0
+texture = ExtResource("15_fq0mb")
+
+[node name="skippypoint" type="TextureRect" parent="stage/SitDownArea/DecisionMenu/TestTime/SkippyAid/CanvasLayer" index="1" unique_id=2018418401]
+visible = false
+offset_left = -162.99998
+offset_top = 303.0
+offset_right = 2345.0
+offset_bottom = 2811.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("16_nx3rw")
+
+[node name="hint2" type="TextureRect" parent="stage/SitDownArea/DecisionMenu/TestTime/SkippyAid/CanvasLayer" index="2" unique_id=1579224632]
+visible = false
+offset_left = 233.0
+offset_top = 83.0
+offset_right = 870.0
+offset_bottom = 451.0
+texture = ExtResource("17_j4ken")
+
+[node name="hint3" type="TextureRect" parent="stage/SitDownArea/DecisionMenu/TestTime/SkippyAid/CanvasLayer" index="3" unique_id=1735757843]
+visible = false
+offset_left = 233.0
+offset_top = 83.0
+offset_right = 870.0
+offset_bottom = 451.0
+texture = ExtResource("18_io05g")
+
+[node name="hint4" type="TextureRect" parent="stage/SitDownArea/DecisionMenu/TestTime/SkippyAid/CanvasLayer" index="4" unique_id=1148949864]
+visible = false
+offset_left = 233.0
+offset_top = 83.0
+offset_right = 870.0
+offset_bottom = 451.0
+texture = ExtResource("19_gxkcs")
 
 [node name="RodrigoIssue" type="Node" parent="stage" parent_id_path=PackedInt32Array(2074723403) index="4" unique_id=159800777]
 script = ExtResource("14_5cl20")

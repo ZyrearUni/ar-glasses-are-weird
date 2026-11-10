@@ -11,9 +11,9 @@ var AreaDialogues : Array[String] = []
 var AreaSpeakerNames : Array[String] = []
 var AreaSpeakerAnimations : Array[String] = []
 
-var LunchDialogues : Array[String] = ["Y... ¿Qué tal las clases?"]
-var LunchSpeakerNames : Array[String] = ["Mamá"]
-var LunchSpeakerAnimations : Array[String] = ["Hablar"]
+var LunchDialogues : Array[String] = []
+var LunchSpeakerNames : Array[String] = []
+var LunchSpeakerAnimations : Array[String] = []
 
 var YesTellDialogues : Array[String] = []
 var YesTellSpeakerNames : Array[String] = []
@@ -77,7 +77,7 @@ func _LunchSetUp(data):
 	if (data.contains(ACCEPT_GAME)):
 		LunchDialogues.append("Ya sabes, las clases a las que has llegado tarde. Seguro han dicho algo importante.")
 		LunchSpeakerNames.append("Mamá")
-		LunchSpeakerAnimations.append("Hablar") # TODO Cambiar
+		LunchSpeakerAnimations.append("Enfadada") # TODO Cambiar
 	else:
 		LunchDialogues += [
 			"Bien, tuve unos ejercicios de mates.",
@@ -165,7 +165,7 @@ func _YesTellSetUp(data):
 
 
 func _PoliceDarkSetUp(data):
-	if(data.contains(ACCEPT_GAME)):
+	if(data.contains(ACCEPT_GAME) && data.contains(CALL_POLICE)):
 		DarkDialogues += [
 			"Cuando venga la policía puedes despedirte de tu amiguito virtual.",
 			"Entre la suscripción y el hacerte perder clase, no merece la pena. Voy a devolver las gafas."

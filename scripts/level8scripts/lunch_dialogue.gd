@@ -6,6 +6,7 @@ func speak():
 	Player.look_at_somewhere($"../Mom2".global_position)
 	$"../Mom".hide()
 	$"../Mom2".show()
+	CurrentDialogue = -1
 	super()
 
 func end_dialogue():

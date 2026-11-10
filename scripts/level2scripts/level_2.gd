@@ -29,6 +29,10 @@ func save_test_results(value):
 
 func finish_level() -> void:
 	super()
+	if(accept_help):
+		save_game_data(ACCEPT_HELP_CLASS)
+	else:
+		save_game_data(REJECT_HELP_CLASS)
 	$DialogueUI/Canvas.hide()
 	$SchoolBell.play()
 

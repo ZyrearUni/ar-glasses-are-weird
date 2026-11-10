@@ -48,7 +48,7 @@ theme_override_constants/separation = 55
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.49411765, 0, 1)
 theme_override_font_sizes/font_size = 100
-text = "TÍTULO DEL JUEGO (WIP)"
+text = "UN DÍA CON SKIPPY"
 horizontal_alignment = 1
 
 [node name="Empezar" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=924296222]

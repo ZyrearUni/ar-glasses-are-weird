@@ -3,8 +3,10 @@ extends "res://scripts/dialogue.gd"
 @onready var AnswerInput = $"../../../../AnswerInput"
 signal test_finished
 
+@onready var hints = [$SkippyAid/CanvasLayer/hint1, $SkippyAid/CanvasLayer/hint2, $SkippyAid/CanvasLayer/hint3, $SkippyAid/CanvasLayer/hint4]
+@onready var skippypoint = $SkippyAid/CanvasLayer/skippypoint
 var accepted_help = false
-var hints = []
+
 var questions = [
 	"María se ha gastado 1/3 del dinero que le dieron de paga sus abuelos en comprar libros de aventuras. También se ha gastado 1/9 de la paga en comprar una bolsa de chuches. ¿Qué fracción de su paga se ha gastado María?",
 	"Esta mañana Miguel ha comprado un kilo de boquerones. Para comer con su familia, ha hecho 3/4 de kilo. ¿Qué cantidad de boquerones quedan en la nevera? (Pulsa continuar para poder escribir la respuesta)" ,
@@ -23,21 +25,21 @@ var correctAnswerCount = 0
 
 func _ready() -> void:
 	AnswerInput.hide()
-	$SkippyAid.hide()
+	$SkippyAid/CanvasLayer.hide()
 	super()
 
 func help_accepted():
 	accepted_help = true
-	$SkippyAid.show()
+	$SkippyAid/CanvasLayer.show()
 
 func start_test():
 	AnswerInput.hide()
 	Dialogues = [questions[currentQuestion]]
 	if (currentQuestion == questions.size()-1):
-		Dialogues.append("Has acertado un total de: " + str(correctAnswerCount))
-	if (accepted_help):
-		# hints[currentQuestion].show()
-		print("Ahora se mostraría la ayuda de Skippy")
+		Dialogues.append("Has acertado un total de: " + str(correctAnswerCount) + "preguntas.")
+	elif (accepted_help):
+		hints[currentQuestion].show()
+		skippypoint.show()
 	DialogueUI.get_node("ContinueButton").disabled = false
 	speak()
 
@@ -64,5 +66,9 @@ func received_answer(value):
 	if (value == answers[currentQuestion]):
 		correctAnswerCount += 1
 	
+	if (accepted_help):
+		hints[currentQuestion].hide()
+		skippypoint.hide()
+
 	currentQuestion += 1
 	start_test()

@@ -19,7 +19,7 @@ const REJECT_HELP_CLASS = "Rechaza la ayuda de Skippy en clase\n"
 const RAQUEL_AWKWARD = "Raquel se extraña de tu actitud\n"
 const RAQUEL_FRIEND = "Raquel se vuelve tu amiga\n"
 
-# Nivel 5 (el nivel 4 no se guarda en el archivo)
+# Nivel 5 
 const NO_WOUND = "No se registra ninguna herida\n"
 const REGISTERED_WOUND = "Herida registrada con nivel de daño: "
 const AMBULANCE = "Skippy llama a emergencias por la herida registrada.\n"

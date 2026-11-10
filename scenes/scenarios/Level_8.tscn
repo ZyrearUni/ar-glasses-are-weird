@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://mp83amoddhav" path="res://scenes/components/dialogue_area.tscn" id="4_m33u2"]
 [ext_resource type="Script" uid="uid://couxhs7f1hmx3" path="res://scripts/level8scripts/cutscene_area.gd" id="5_d6byv"]
 [ext_resource type="Script" uid="uid://bsv45inr24dxq" path="res://scripts/studymenuscripts/next_level.gd" id="5_oo0qm"]
+[ext_resource type="Script" uid="uid://dodp1odrhusg4" path="res://scripts/level8scripts/speaking_button_override.gd" id="6_mrsc4"]
 [ext_resource type="AudioStream" uid="uid://ckisr05qwrg3n" path="res://assets/sounds/music/House.mp3" id="6_oo0qm"]
 [ext_resource type="Texture2D" uid="uid://cvtlfdls23qt4" path="res://assets/sprites/Mom/momcook.png" id="6_ph46x"]
 [ext_resource type="Script" uid="uid://b7k71qy31htug" path="res://scripts/speaking_button.gd" id="6_sdfkd"]
@@ -65,7 +66,7 @@ size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_fqv0n")
 text = "\"No, nada de nada.\""
-script = ExtResource("6_sdfkd")
+script = ExtResource("6_mrsc4")
 Player = NodePath("../../../../../Player")
 Dialogues = Array[String](["Hm... ", "Bueno. Siéntate a la mesa y ahora hablamos, ¿vale?", "Así tengo tiempo de revisar la información que me llegó de tu amiguito virtual."])
 SpeakerNames = Array[String](["Mamá", "Mamá", "Mamá"])
@@ -84,7 +85,10 @@ Player = NodePath("../../Player")
 transform = Transform3D(-0.022390684, 0, 0.9997493, 0, 1, 0, -0.9997493, 0, -0.022390684, -3.5101185, 0, -4.4303446)
 script = ExtResource("9_fqv0n")
 Player = NodePath("../../Player")
+Dialogues = Array[String](["Y... ¿Qué tal las clases?"])
+SpeakerNames = Array[String](["Mamá"])
 Speakers = [NodePath("../../../Mamá")]
+SpeakerAnimations = Array[String](["Hablar"])
 
 [node name="Mom2" type="Sprite3D" parent="stage/house" index="120" unique_id=699030035]
 transform = Transform3D(0.08500009, 0, 6.9849193e-10, 0, 0.085, 0, -6.9849193e-10, 0, 0.08500009, -1.7555418, 1.7387407, -6.755571)

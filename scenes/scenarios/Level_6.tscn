@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://dr2ryokm5860v" path="res://assets/sprites/silhouette2.png" id="16_hvvos"]
 [ext_resource type="Texture2D" uid="uid://bqofhitwud67n" path="res://assets/sprites/Kids/adri.png" id="17_hvvos"]
 [ext_resource type="Texture2D" uid="uid://d211ph1nqml0h" path="res://assets/sprites/silhouette1.png" id="18_yhtb1"]
+[ext_resource type="PackedScene" uid="uid://0j14uewcrshp" path="res://scenes/models/characters/teacher_2d.tscn" id="22_ah7ip"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jrcfg"]
 size = Vector3(8.321873, 1, 14.5774555)
@@ -259,7 +260,7 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_01jnc")
 text = "\"¡Tengo que intervenir y ayudarla!\""
 
-[node name="WaitASec" type="Button" parent="stage/city/CutsceneArea/Tell/WhatToDo/CanvasLayer" index="3" unique_id=2139768641 node_paths=PackedStringArray("Canvas")]
+[node name="WaitASec" type="Button" parent="stage/city/CutsceneArea/Tell/WhatToDo/CanvasLayer" index="3" unique_id=2139768641 node_paths=PackedStringArray("Canvas", "Player", "Speakers")]
 offset_left = 1863.0
 offset_top = 458.0
 offset_right = 2429.0
@@ -270,8 +271,12 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_01jnc")
 text = "\"Necesito pensar en ello.\""
 script = ExtResource("7_yhtb1")
 Canvas = NodePath("..")
+Player = NodePath("../../../../../../Player")
+Dialogues = Array[String](["Claro, tómate tu tiempo.", "¿Ya estás mejor? Vamos a elegir entonces."])
+SpeakerNames = Array[String](["Skippy", "Skippy"])
+Speakers = [NodePath("../../../../../../../Skippy")]
 
-[node name="InterveneBad" type="Button" parent="stage/city/CutsceneArea/Tell/WhatToDo/CanvasLayer" index="4" unique_id=987810100 node_paths=PackedStringArray("Canvas")]
+[node name="InterveneBad" type="Button" parent="stage/city/CutsceneArea/Tell/WhatToDo/CanvasLayer" index="4" unique_id=987810100 node_paths=PackedStringArray("Canvas", "Player", "Speakers")]
 offset_left = 51.0
 offset_top = 458.0
 offset_right = 971.0
@@ -283,6 +288,10 @@ text = "\"Creo que intervenir sería demasiado peligroso.
 No deberías dar esa opción.\""
 script = ExtResource("7_yhtb1")
 Canvas = NodePath("..")
+Player = NodePath("../../../../../../Player")
+Dialogues = Array[String](["Oh, claro. Tienes razón. Eso hubiera sido muy peligroso.", "Siéntete libre de elegir otra opción, ¿vale?"])
+SpeakerNames = Array[String](["Skippy", "Skippy"])
+Speakers = [NodePath("../../../../../../../Skippy")]
 
 [node name="CallPolice" type="Node" parent="stage/city/CutsceneArea/Tell" index="2" unique_id=1567921506 node_paths=PackedStringArray("Player", "Speakers")]
 script = ExtResource("6_dse72")
@@ -341,11 +350,12 @@ Player = NodePath("../../../../Player")
 Dialogues = Array[String](["¡Muy buena idea! ¡Vamos, antes de que se vayan! "])
 SpeakerNames = Array[String](["Skippy"])
 
-[node name="TeacherInteraction" type="Node" parent="stage/city/CutsceneArea/Tell/TellTeacher" index="0" unique_id=1095072559 node_paths=PackedStringArray("Player")]
+[node name="TeacherInteraction" type="Node" parent="stage/city/CutsceneArea/Tell/TellTeacher" index="0" unique_id=1095072559 node_paths=PackedStringArray("Player", "Speakers")]
 script = ExtResource("8_x50ou")
 Player = NodePath("../../../../../Player")
 Dialogues = Array[String](["Hm... De acuerdo. No te preocupes, me encargaré de esto."])
 SpeakerNames = Array[String](["Profesora"])
+Speakers = [NodePath("../../../../../../Profesora")]
 
 [node name="Intervene" type="Node" parent="stage/city/CutsceneArea/Tell" index="4" unique_id=1640215845 node_paths=PackedStringArray("Player", "Speakers")]
 script = ExtResource("8_2vpde")
@@ -385,6 +395,7 @@ libraries/ = SubResource("AnimationLibrary_2ew3b")
 
 [node name="Label3D" type="Label3D" parent="stage/city/Sprites/RaquelKidnap" index="1" unique_id=1433812863]
 transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 14.089058, 0)
+visible = false
 billboard = 2
 text = "¡Suéltame, quiero ir con mi papá!
 ¡AYUDA!"
@@ -444,6 +455,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.265085, 4.6638727, -9.7626
 use_collision = true
 size = Vector3(3.99646, 1, 1.6386719)
 material = SubResource("StandardMaterial3D_yhtb1")
+
+[node name="Profesora" parent="." index="2" unique_id=1767701433 instance=ExtResource("22_ah7ip")]
+visible = false
+scale = Vector2(0.073549695, 0.073549695)
 
 [node name="CanvasLayer" parent="Study" parent_id_path=PackedInt32Array(1827521786) index="0" unique_id=1082957249]
 visible = false
@@ -515,7 +530,7 @@ text = "Continuar al siguiente nivel"
 script = ExtResource("14_j0rwt")
 nextLevel = "res://scenes/scenarios/Level_7.tscn"
 
-[node name="AudioStreamPlayer" parent="." index="8" unique_id=855356542]
+[node name="AudioStreamPlayer" parent="." index="9" unique_id=855356542]
 stream = ExtResource("15_j0rwt")
 parameters/looping = true
 

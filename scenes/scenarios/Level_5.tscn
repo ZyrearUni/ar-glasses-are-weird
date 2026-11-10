@@ -185,7 +185,7 @@ offset_bottom = 40.0
 [node name="CanvasLayer" type="CanvasLayer" parent="DecisionTree/SliderDecision/Range1-3/HasBruiseDecision" index="0" unique_id=331096477]
 visible = false
 
-[node name="AcceptButton" type="Button" parent="DecisionTree/SliderDecision/Range1-3/HasBruiseDecision/CanvasLayer" index="0" unique_id=416497547 node_paths=PackedStringArray("Player", "Speakers")]
+[node name="AcceptButton" type="Button" parent="DecisionTree/SliderDecision/Range1-3/HasBruiseDecision/CanvasLayer" index="0" unique_id=416497547 node_paths=PackedStringArray("Canvas", "Player", "Speakers")]
 offset_left = 1718.0
 offset_top = 700.0
 offset_right = 2320.0
@@ -195,6 +195,7 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_6h7u7")
 text = "\"Todo se ve normal, Skippy\""
 script = ExtResource("15_l6ap3")
+Canvas = NodePath("../../../KeepPlaying/CanvasLayer")
 Player = NodePath("../../../../../../stage/Player")
 Dialogues = Array[String](["Hm. Entonces no es nada.", "¡Bueno!  Eso sería todo el análisis entonces. Me alegra que no sea tan preocupante.", "¿Seguimos jugando con los demás?"])
 SpeakerNames = Array[String](["Skippy", "Skippy", "Skippy"])
